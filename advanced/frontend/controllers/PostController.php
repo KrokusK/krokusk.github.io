@@ -24,7 +24,7 @@ class SiteController extends Controller
     /**
      * {@inheritdoc}
      */
-    public function behaviors()
+/*    public function behaviors()
     {
         return [
             'access' => [
@@ -51,11 +51,11 @@ class SiteController extends Controller
             ],
         ];
     }
-
+*/
     /**
      * {@inheritdoc}
      */
-    public function actions()
+ /*   public function actions()
     {
         return [
             'error' => [
@@ -67,17 +67,17 @@ class SiteController extends Controller
             ],
         ];
     }
-
+*/
     /**
      * Displays homepage.
      *
      * @return mixed
      */
-    public function actionIndex()
+/*    public function actionIndex()
     {
         return $this->render('index');
     }
-
+*/
     /**
      * Logs in a user.
      *
