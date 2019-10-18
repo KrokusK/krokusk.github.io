@@ -9,7 +9,7 @@ class EntryForm extends Model
 {
     public $name;
     public $email;
-    public $password
+    public $password;
 
     public function rules()
     {
