@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d97bdc22-9d4b-4578-b4be-b96d66aca924" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/advanced/frontend/views/post/entry-confirm.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/advanced/frontend/views/post/entry.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/advanced/frontend/models/EntryForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/advanced/frontend/models/EntryForm.php" afterDir="false" />
-    </list>
+    <list default="true" id="d97bdc22-9d4b-4578-b4be-b96d66aca924" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,6 +21,11 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/advanced/frontend/views/post" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="J:\SmartWorldAcademy\OpenServer\OSPanel\domains\krokusk.github.io\advanced\frontend\views\post" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -50,7 +50,7 @@
       <option name="presentableId" value="Default" />
       <updated>1571309054776</updated>
       <workItem from="1571309056251" duration="2660000" />
-      <workItem from="1571371081079" duration="558000" />
+      <workItem from="1571371081079" duration="971000" />
     </task>
     <servers />
   </component>
