@@ -2,7 +2,7 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 ?>
-<?php $form = ActiveForm::begin(['method' => 'post']); ?>
+<?php $form = ActiveForm::begin(['method' => 'get']); ?>
 
     <?= $form->field($model, 'name') ?>
 
