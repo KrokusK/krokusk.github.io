@@ -19,7 +19,7 @@ use frontend\models\EntryForm;
 /**
  * Site controller
  */
-class GetControllertController extends Controller
+class GetController extends Controller
 {
     /**
      * output message
@@ -38,7 +38,7 @@ class GetControllertController extends Controller
     {
         $model = new EntryForm();
 
-        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+        if ($model->load(Yii::$app->request->get()) && $model->validate()) {
             // valid data received in $model
 
             // do something meaningful here about $model ...
