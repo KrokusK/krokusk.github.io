@@ -19,7 +19,7 @@ use frontend\models\EntryForm;
 /**
  * Site controller
  */
-class PostController extends Controller
+class GetControllertController extends Controller
 {
     /**
      * output message
