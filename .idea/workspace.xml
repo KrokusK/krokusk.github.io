@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d97bdc22-9d4b-4578-b4be-b96d66aca924" name="Default Changelist" comment="" />
+    <list default="true" id="d97bdc22-9d4b-4578-b4be-b96d66aca924" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/advanced/frontend/models/EntryForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/advanced/frontend/models/EntryForm.php" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,7 +52,7 @@
       <option name="presentableId" value="Default" />
       <updated>1571309054776</updated>
       <workItem from="1571309056251" duration="2660000" />
-      <workItem from="1571371081079" duration="971000" />
+      <workItem from="1571371081079" duration="1683000" />
     </task>
     <servers />
   </component>
@@ -69,5 +71,16 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/advanced/frontend/views/post/entry.php</url>
+          <line>1</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
