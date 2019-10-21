@@ -3,12 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="d97bdc22-9d4b-4578-b4be-b96d66aca924" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/advanced/frontend/views/get/entry-confirm.php" beforeDir="false" afterPath="$PROJECT_DIR$/advanced/frontend/views/get/entry-confirm.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/advanced/frontend/views/get/entry.php" beforeDir="false" afterPath="$PROJECT_DIR$/advanced/frontend/views/get/entry.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/advanced/frontend/views/post/entry-confirm.php" beforeDir="false" afterPath="$PROJECT_DIR$/advanced/frontend/views/post/entry-confirm.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/advanced/frontend/views/post/entry.php" beforeDir="false" afterPath="$PROJECT_DIR$/advanced/frontend/views/post/entry.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/advanced/frontend/views/random/entry-confirm-get.php" beforeDir="false" afterPath="$PROJECT_DIR$/advanced/frontend/views/random/entry-confirm-get.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/advanced/frontend/views/random/entry-confirm-post.php" beforeDir="false" afterPath="$PROJECT_DIR$/advanced/frontend/views/random/entry-confirm-post.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/advanced/frontend/controllers/RandomController.php" beforeDir="false" afterPath="$PROJECT_DIR$/advanced/frontend/controllers/RandomController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/advanced/frontend/views/random/entry.php" beforeDir="false" afterPath="$PROJECT_DIR$/advanced/frontend/views/random/entry.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -63,7 +58,7 @@
       <updated>1571309054776</updated>
       <workItem from="1571309056251" duration="2660000" />
       <workItem from="1571371081079" duration="6358000" />
-      <workItem from="1571632156483" duration="1675000" />
+      <workItem from="1571632156483" duration="2418000" />
     </task>
     <servers />
   </component>
