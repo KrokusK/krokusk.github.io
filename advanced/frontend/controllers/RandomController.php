@@ -51,6 +51,20 @@ class RandomController extends Controller
             // do something meaningful here about $model ...
 
             return $this->render('entry-confirm-get', ['model' => $model]);
+        }
+        elseif ($model->load(Yii::$app->request->put()) && $model->validate()) {
+                // valid data received in $model
+
+                // do something meaningful here about $model ...
+
+            return $this->render('entry-confirm-put', ['model' => $model]);
+        }
+        elseif ($model->load(Yii::$app->request->delete()) && $model->validate()) {
+            // valid data received in $model
+
+            // do something meaningful here about $model ...
+
+            return $this->render('entry-confirm-delete', ['model' => $model]);
         }else {
             // either the page is initially displayed or there is some validation error
             return $this->render('entry', ['model' => $model]);
