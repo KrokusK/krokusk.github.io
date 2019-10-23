@@ -45,9 +45,9 @@ use yii\widgets\ActiveForm;
 
 <?= $form->field($model, 'password') ?>
 
-<div class="form-group">
-    <?= Html::submitButton('Submit', ['class' => 'btn btn-primary']) ?>
-</div>
+    <div class="form-group">
+        <?= Html::submitButton('Submit', ['class' => 'btn btn-primary']) ?>
+    </div>
 
 <?php ActiveForm::end(); ?>
 
@@ -66,3 +66,4 @@ use yii\widgets\ActiveForm;
     </div>
 
 <?php ActiveForm::end(); ?>
+
