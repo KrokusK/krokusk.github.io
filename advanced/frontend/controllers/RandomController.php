@@ -7,6 +7,7 @@ use Yii;
 //use yii\base\InvalidArgumentException;
 //use yii\web\BadRequestHttpException;
 use yii\web\Controller;
+//use yii\web\Request;
 //use yii\filters\VerbFilter;
 //use yii\filters\AccessControl;
 //use common\models\LoginForm;
@@ -51,20 +52,61 @@ class RandomController extends Controller
             // do something meaningful here about $model ...
 
             return $this->render('entry-confirm-get', ['model' => $model]);
+        }else {
+            // either the page is initially displayed or there is some validation error
+            return $this->render('entry', ['model' => $model]);
         }
-        elseif ($model->load(Yii::$app->request->put()) && $model->validate()) {
-                // valid data received in $model
+    }
 
-                // do something meaningful here about $model ...
+    public function actionView()
+    {
+//        return $this->render('random-view');
 
-            return $this->render('entry-confirm-put', ['model' => $model]);
-        }
-        elseif ($model->load(Yii::$app->request->delete()) && $model->validate()) {
+        $model = new EntryForm();
+
+        if ($model->load(Yii::$app->request->get()) && $model->validate()) {
             // valid data received in $model
 
             // do something meaningful here about $model ...
 
-            return $this->render('entry-confirm-delete', ['model' => $model]);
+            return $this->render('random-view', ['model' => $model]);
+        }else {
+            // either the page is initially displayed or there is some validation error
+            return $this->render('entry', ['model' => $model]);
+        }
+    }
+
+    public function actionCreate()
+    {
+//        return $this->render('random-create');
+
+        $model = new EntryForm();
+
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+            // valid data received in $model
+
+            // do something meaningful here about $model ...
+
+            return $this->render('random-create', ['model' => $model]);
+        }else {
+            // either the page is initially displayed or there is some validation error
+            return $this->render('entry', ['model' => $model]);
+        }
+
+    }
+
+    public function actionDelete()
+    {
+        //return $this->render('random-delete');
+
+        $model = new EntryForm();
+
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+            // valid data received in $model
+
+            // do something meaningful here about $model ...
+
+            return $this->render('random-delete', ['model' => $model]);
         }else {
             // either the page is initially displayed or there is some validation error
             return $this->render('entry', ['model' => $model]);
