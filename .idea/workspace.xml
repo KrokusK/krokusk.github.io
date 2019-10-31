@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d97bdc22-9d4b-4578-b4be-b96d66aca924" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/advanced/frontend/controllers/CompanyAppController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/advanced/frontend/views/CompanyApp/company-index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -22,14 +24,15 @@
   <component name="ProjectId" id="1SKOvz27B5adiUDik6cxRTvRHsy" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/advanced/frontend/views/random" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/advanced/frontend/views/CompanyApp" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="J:\SmartWorldAcademy\OpenServer\OSPanel\domains\krokusk.github.io\advanced\frontend\views\CompanyApp" />
+      <recent name="J:\SmartWorldAcademy\OpenServer\OSPanel\domains\krokusk.github.io\advanced\frontend\controllers" />
+      <recent name="J:\SmartWorldAcademy\OpenServer\OSPanel\domains\krokusk.github.io\advanced\console\migrations" />
       <recent name="J:\SmartWorldAcademy\OpenServer\OSPanel\domains\krokusk.github.io\advanced\frontend\views\random" />
       <recent name="J:\SmartWorldAcademy\OpenServer\OSPanel\domains\krokusk.github.io\advanced\frontend\views" />
-      <recent name="J:\SmartWorldAcademy\OpenServer\OSPanel\domains\krokusk.github.io\advanced\frontend\controllers" />
-      <recent name="J:\SmartWorldAcademy\OpenServer\OSPanel\domains\krokusk.github.io\advanced\frontend\views\post" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -56,7 +59,10 @@
       <updated>1571309054776</updated>
       <workItem from="1571309056251" duration="2660000" />
       <workItem from="1571371081079" duration="6358000" />
-      <workItem from="1571632156483" duration="3501000" />
+      <workItem from="1571632156483" duration="7036000" />
+      <workItem from="1572318766249" duration="5186000" />
+      <workItem from="1572332937962" duration="5460000" />
+      <workItem from="1572522539233" duration="1529000" />
     </task>
     <servers />
   </component>
