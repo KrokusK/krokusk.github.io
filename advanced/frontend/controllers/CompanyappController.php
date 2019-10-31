@@ -20,14 +20,14 @@ use yii\web\Controller;
 /**
  * Company Application Form controller
  */
-class CompanyAppController extends Controller
+class CompanyappController extends Controller
 {
     /**
      * output message
      */
 
-    public function actionAddCompany()
+    public function actionAddapp()
     {
-        return $this->render('company-index');
+        return $this->render('app-index');
     }
 }
