@@ -3,6 +3,7 @@ namespace frontend\controllers;
 
 //use frontend\models\ResendVerificationEmailForm;
 //use frontend\models\VerifyEmailForm;
+use app\models\Companyapp;
 use Yii;
 //use yii\base\InvalidArgumentException;
 //use yii\web\BadRequestHttpException;
@@ -15,7 +16,7 @@ use yii\web\Controller;
 //use frontend\models\ResetPasswordForm;
 //use frontend\models\SignupForm;
 //use frontend\models\ContactForm;
-//use frontend\models\EntryForm;
+use frontend\models\Companyapp;
 
 /**
  * Company Application Form controller
@@ -33,7 +34,32 @@ class CompanyappController extends Controller
 
     public function actionAddcompanyprofile()
     {
-        return $this->render('app-addprofile');
+        //return $this->render('app-addprofile');
+
+        $model = new Companyapp();
+
+        if (Yii::$app->request->isAjax && $model->load(Yii::$app->request->post())) {
+            $transaction = \Yii::$app->db->beginTransaction();
+            try {
+                if ($model->validate()) {
+                    $flag = $model->save(false);
+                    if ($flag == true) {
+                        $transaction->commit();
+                        return Json::encode(array('status' => 'success', 'type' => 'success', 'message' => 'Application created successfully.'));
+                    } else {
+                        $transaction->rollBack();
+                    }
+                } else {
+                    return Json::encode(array('status' => 'warning', 'type' => 'warning', 'message' => 'Application can not created.'));
+                }
+            } catch (Exception $ex) {
+                $transaction->rollBack();
+            }
+        }
+
+        return $this->renderAjax('app-addprofile', [
+            'model' => $model,
+        ]);
     }
 
 }
