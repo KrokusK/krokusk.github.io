@@ -14,7 +14,7 @@ use  yii\bootstrap\Modal;
 -->
 
 <?php
-$url = Yii::$app->urlManager->createUrl('companyapp/profile');
+$url = Yii::$app->urlManager->createUrl('companyapp/addprofile');
 
 $script = <<< JS
 //QUICK CREARE CONTACT MODEL
