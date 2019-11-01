@@ -21,10 +21,7 @@ $script = <<< JS
 $(document).on('click', '#add-app', function () {       
     $('#addAppFormModel').modal('show').find('.modal-dialog').load('$url');
 });
-<<<<<<< HEAD
 
-=======
->>>>>>> a32a35a390b9604a67b483be8880f95f0ccf617d
 JS;
     $this->registerJs($script);
     ?>
