@@ -16,13 +16,12 @@ use  yii\bootstrap\Modal;
     <?php
     $url = Yii::$app->urlManager->createUrl('companyapp/profile');
 
-    $script = <<< JS
-    //QUICK CREARE CONTACT MODEL
-    $(document).on('click', '#add-app', function () {       
-        $('#addAppFormModel').modal('show').find('.modal-dialog').load('$url');
-    });
-
-    JS;
+$script = <<< JS
+//QUICK CREARE CONTACT MODEL
+$(document).on('click', '#add-app', function () {       
+    $('#addAppFormModel').modal('show').find('.modal-dialog').load('$url');
+});
+JS;
     $this->registerJs($script);
     ?>
 
