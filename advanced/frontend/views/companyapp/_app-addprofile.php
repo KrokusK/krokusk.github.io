@@ -1,16 +1,10 @@
-<?php
-use yii\helpers\Html;
-use yii\widgets\ActiveForm;
-use frontend\models\Companyapp;
-?>
-
 <div class="modal-content animated bounceInTop" >
     <?php
-    	$form = ActiveForm::begin(['id' => 'form-add-app-profile', 'enableAjaxValidation' => true, 'validationUrl' => Yii::$app->urlManager->createUrl('companyapp/profilevalidate')]);
+    $form = ActiveForm::begin(['id' => 'form-add-app-profile', 'enableAjaxValidation' => true, 'validationUrl' => Yii::$app->urlManager->createUrl('companyapp/profilevalidate')]);
     ?>
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title text-left">Add profile company</h4>
+        <h4 class="modal-title text-left">Add Contact</h4>
     </div>
     <div class="modal-body">
         <?= $form->field($model, 'company_name')->textInput(['maxlength' => true]) ?>
@@ -25,7 +19,6 @@ use frontend\models\Companyapp;
 </div>
 
 <?php
-/*
 $script = <<< JS
 
    $(document).ready(function () { 
@@ -55,7 +48,6 @@ $script = <<< JS
             return false;
         });
     });       
+
 JS;
 $this->registerJs($script);
-*/
-?>
