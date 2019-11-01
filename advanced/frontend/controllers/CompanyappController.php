@@ -23,11 +23,17 @@ use yii\web\Controller;
 class CompanyappController extends Controller
 {
     /**
-     * output message
+     * Add company applioation
      */
 
     public function actionAddapp()
     {
         return $this->render('app-index');
     }
+
+    public function actionAddcompanyprofile()
+    {
+        return $this->render('app-addprofile');
+    }
+
 }
