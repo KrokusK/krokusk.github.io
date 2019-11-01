@@ -37,7 +37,7 @@ class Companyapp extends \yii\db\ActiveRecord
             [['company_staff'], 'string', 'max' => 255],
             [['company_phone'], 'integer', 'max' => 10],
             [['company_experience'], 'string', 'max' => 255],
-            [['cost_hour'], 'float'],
+            [['cost_hour'], 'double'],
             [['company_competence'], 'string', 'max' => 255],
             [['application_id'], 'default', 'value' => 1],
             [['application_id'], 'integer'],

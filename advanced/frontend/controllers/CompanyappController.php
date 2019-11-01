@@ -16,7 +16,7 @@ use yii\web\Controller;
 //use frontend\models\ResetPasswordForm;
 //use frontend\models\SignupForm;
 //use frontend\models\ContactForm;
-use frontend\models\Companyapp;
+//use frontend\models\CompanyAppAdd;
 
 /**
  * Company Application Form controller
@@ -34,10 +34,9 @@ class CompanyappController extends Controller
 
     public function actionAddcompanyprofile()
     {
-        //return $this->render('app-addprofile');
-
         $model = new Companyapp();
 
+/*
         if (Yii::$app->request->isAjax && $model->load(Yii::$app->request->post())) {
             $transaction = \Yii::$app->db->beginTransaction();
             try {
@@ -56,7 +55,7 @@ class CompanyappController extends Controller
                 $transaction->rollBack();
             }
         }
-
+*/
         return $this->renderAjax('app-addprofile', [
             'model' => $model,
         ]);

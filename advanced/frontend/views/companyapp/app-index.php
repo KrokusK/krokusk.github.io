@@ -21,6 +21,7 @@ $script = <<< JS
 $(document).on('click', '#add-app', function () {       
     $('#addAppFormModel').modal('show').find('.modal-dialog').load('$url');
 });
+
 JS;
     $this->registerJs($script);
     ?>
