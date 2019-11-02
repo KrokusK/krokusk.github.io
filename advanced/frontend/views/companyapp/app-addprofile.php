@@ -6,7 +6,7 @@ use frontend\models\Companyapp;
 
 <div class="modal-content animated bounceInTop" >
     <?php
-    	$form = ActiveForm::begin(['id' => 'form-add-app-profile', 'enableAjaxValidation' => true, 'validationUrl' => Yii::$app->urlManager->createUrl('companyapp/profilevalidate')]);
+    	$form = ActiveForm::begin(['id' => 'form-add-app-profile', 'action' => Yii::$app->urlManager->createUrl('companyapp/profile'), 'enableAjaxValidation' => true, 'validationUrl' => Yii::$app->urlManager->createUrl('companyapp/profilevalidate')]);
     ?>
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>

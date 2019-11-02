@@ -70,8 +70,17 @@ class CompanyappController extends Controller
         if (Yii::$app->request->isAjax && $model->load(Yii::$app->request->post())) {
             //$model->company_id = Yii::$app->user->identity->company_id;
             //$model->created_at = time();
+
+            $model->city_id = 0;
+            $model->count_projects = 1;
+            $model->company_staff = 'staff';
+            $model->company_experience = 'experience';
+            $model->cost_hour = 1000;
+            $model->company_competence = 'competence';
+            $model->application_id = 0;
             \Yii::$app->response->format = Response::FORMAT_JSON;
             return ActiveForm::validate($model);
         }
     }
 }
+
