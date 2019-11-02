@@ -61,4 +61,15 @@ class CompanyappController extends Controller
         ]);
     }
 
+    public function actionProfilevalidate() 
+    {
+        $model = new Companyapp();
+    
+        if (Yii::$app->request->isAjax && $model->load(Yii::$app->request->post())) {
+            //$model->company_id = Yii::$app->user->identity->company_id;
+            //$model->created_at = time();
+            \Yii::$app->response->format = Response::FORMAT_JSON;
+            return ActiveForm::validate($model);
+        }
+    }
 }

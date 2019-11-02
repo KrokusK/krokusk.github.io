@@ -28,7 +28,7 @@ use frontend\models\Companyapp;
 </div>
 
 <?php
-
+/*
 $script = <<< JS
 
    $(document).ready(function () { 
@@ -61,5 +61,5 @@ $script = <<< JS
     };       
 JS;
 $this->registerJs($script);
-
+*/
 ?>
