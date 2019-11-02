@@ -49,8 +49,10 @@ $script = <<< JS
                    },
                    success: function(response){                      
                        alert("success");
-                       toastr.success("",response.message); 
-                       $('#form-add-app-profile').modal('hide');
+                       //toastr.success(response.message);
+                       //toastr["success"](response.message,response.status); 
+                       alert(response.message);
+                       $('#addAppFormModel').modal('hide');
                    },
                    complete: function() {
                        alert("complete");
