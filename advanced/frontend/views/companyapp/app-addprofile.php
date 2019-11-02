@@ -28,12 +28,12 @@ use frontend\models\Companyapp;
 </div>
 
 <?php
-/*
 $script = <<< JS
 
    $(document).ready(function () { 
         $("#form-add-app-profile").on('beforeSubmit', function (event) { 
-            alert('test');
+//            alert('test');
+
             event.preventDefault();            
             var form_data = new FormData($('#form-add-app-profile')[0]);
             $.ajax({
@@ -57,9 +57,10 @@ $script = <<< JS
                    }
                 });                
             return false;
-        };
-    };       
+
+        });
+    });       
+
 JS;
 $this->registerJs($script);
-*/
 ?>
