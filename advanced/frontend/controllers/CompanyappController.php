@@ -11,6 +11,7 @@ use yii\web\Controller;
 use yii\web\Request;
 use yii\web\Response;
 use yii\widgets\ActiveForm;
+use yii\helpers\Json;
 //use yii\filters\VerbFilter;
 //use yii\filters\AccessControl;
 //use common\models\LoginForm;
@@ -38,10 +39,19 @@ class CompanyappController extends Controller
     {
         $model = new Companyapp();
 
-/*
+
         if (Yii::$app->request->isAjax && $model->load(Yii::$app->request->post())) {
             $transaction = \Yii::$app->db->beginTransaction();
             try {
+
+                $model->city_id = 0;
+                $model->count_projects = 1;
+                $model->company_staff = 'staff';
+                $model->company_experience = 'experience';
+                $model->cost_hour = 1000;
+                $model->company_competence = 'competence';
+                $model->application_id = 0;
+
                 if ($model->validate()) {
                     $flag = $model->save(false);
                     if ($flag == true) {
@@ -57,7 +67,7 @@ class CompanyappController extends Controller
                 $transaction->rollBack();
             }
         }
-*/
+
         return $this->renderAjax('app-addprofile', [
             'model' => $model,
         ]);
