@@ -44,13 +44,13 @@ class CompanyappController extends Controller
             $transaction = \Yii::$app->db->beginTransaction();
             try {
 
-                $model->city_id = 0;
+                $model->city_id = 1;
                 $model->count_projects = 1;
                 $model->company_staff = 'staff';
                 $model->company_experience = 'experience';
                 $model->cost_hour = 1000;
                 $model->company_competence = 'competence';
-                $model->application_id = 0;
+                $model->application_id = 1;
 
                 if ($model->validate()) {
                     $flag = $model->save(false);
@@ -81,13 +81,13 @@ class CompanyappController extends Controller
             //$model->company_id = Yii::$app->user->identity->company_id;
             //$model->created_at = time();
 
-            $model->city_id = 0;
+            $model->city_id = 1;
             $model->count_projects = 1;
             $model->company_staff = 'staff';
             $model->company_experience = 'experience';
             $model->cost_hour = 1000;
             $model->company_competence = 'competence';
-            $model->application_id = 0;
+            $model->application_id = 1;
             \Yii::$app->response->format = Response::FORMAT_JSON;
             return ActiveForm::validate($model);
         }
