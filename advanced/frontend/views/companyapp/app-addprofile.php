@@ -32,7 +32,7 @@ $script = <<< JS
 
    $(document).ready(function () { 
         $("#form-add-app-profile").on('beforeSubmit', function (event) { 
-//            alert('test');
+            //alert("test");
 
             event.preventDefault();            
             var form_data = new FormData($('#form-add-app-profile')[0]);
@@ -45,15 +45,19 @@ $script = <<< JS
                    data: form_data, //$(this).serialize(),                      
                    type: 'post',                        
                    beforeSend: function() {
+                       alert("beforeSend");
                    },
                    success: function(response){                      
+                       alert("success");
                        toastr.success("",response.message); 
-                       $('#addAppFormModel').modal('hide');
+                       $('#form-add-app-profile').modal('hide');
                    },
                    complete: function() {
+                       alert("complete");
                    },
                    error: function (data) {
                       toastr.warning("","There may a error on uploading. Try again later");    
+                      alert("error");
                    }
                 });                
             return false;
