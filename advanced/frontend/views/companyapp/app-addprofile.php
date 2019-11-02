@@ -10,26 +10,30 @@ use frontend\models\Companyapp;
     ?>
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title text-left">Add profile company</h4>
+        <h4 class="modal-title text-left">Профиль компании</h4>
     </div>
     <div class="modal-body">
-        <?= $form->field($model, 'company_name')->textInput(['maxlength' => true]) ?>
-        <?= $form->field($model, 'company_address')->textInput(['maxlength' => true]) ?>
-        <?= $form->field($model, 'company_phone')->textInput(['maxlength' => true]) ?>
+        <?= $form->field($model, 'company_name')->input('text', ['maxlength' => true])->hint('Пожалуйста, введите Имя компании')->label('Имя компании'); ?>
+        <?= $form->field($model, 'company_address')->input('text', ['maxlength' => true])->hint('Пожалуйста, введите Адрес компании')->label('Адрес компании'); ?>
+        <?= $form->field($model, 'company_phone')->input('text')->hint('Пожалуйста, введите Телефон компании')->label('Телефон компании в формате: +7 (999) 999-99-99'); ?>
+        <?= $form->field($model, 'company_site')->input('text', ['maxlength' => true])->hint('Пожалуйста, введите Сайт компании')->label('Сайт компании'); ?>
+
+
         <div class=" view-btn text-left">
-            <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-default' : 'btn btn-default']) ?>
-            <button  type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
+            <?= Html::submitButton($model->isNewRecord ? 'Далее (Create)' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-default' : 'btn btn-default']) ?>
+            <button  type="button" class="btn btn-primary" data-dismiss="modal">Отмена</button>
         </div>
     </div>
     <?php ActiveForm::end(); ?>
 </div>
 
 <?php
-/*
+
 $script = <<< JS
 
    $(document).ready(function () { 
         $("#form-add-app-profile").on('beforeSubmit', function (event) { 
+            alert('test');
             event.preventDefault();            
             var form_data = new FormData($('#form-add-app-profile')[0]);
             $.ajax({
@@ -53,9 +57,9 @@ $script = <<< JS
                    }
                 });                
             return false;
-        });
-    });       
+        };
+    };       
 JS;
 $this->registerJs($script);
-*/
+
 ?>
