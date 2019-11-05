@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="d97bdc22-9d4b-4578-b4be-b96d66aca924" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/advanced/frontend/views/companyapp/app-index.php" beforeDir="false" afterPath="$PROJECT_DIR$/advanced/frontend/views/companyapp/app-index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/advanced/console/migrations/m191105_044753_create_bulletin_board_tables.php" beforeDir="false" afterPath="$PROJECT_DIR$/advanced/console/migrations/m191105_044753_create_bulletin_board_tables.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -63,7 +63,10 @@
       <workItem from="1572318766249" duration="5186000" />
       <workItem from="1572332937962" duration="5460000" />
       <workItem from="1572522539233" duration="4748000" />
-      <workItem from="1572579477169" duration="8797000" />
+      <workItem from="1572579477169" duration="13000000" />
+      <workItem from="1572679126858" duration="13721000" />
+      <workItem from="1572852948760" duration="333000" />
+      <workItem from="1572931605496" duration="9103000" />
     </task>
     <servers />
   </component>
