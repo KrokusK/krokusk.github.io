@@ -214,7 +214,7 @@ class m191105_044753_create_bulletin_board_tables extends Migration
 
         // drops table `ad_status`
         $this->dropTable('{{%ad_status}}');
-        
+
         // drops foreign key for table `user_city`
         $this->dropForeignKey(
             'fk-user-ad-city-id',
