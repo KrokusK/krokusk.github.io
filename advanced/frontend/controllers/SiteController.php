@@ -7,8 +7,12 @@ use Yii;
 use yii\base\InvalidArgumentException;
 use yii\web\BadRequestHttpException;
 use yii\web\Controller;
+use yii\web\Request;
+use yii\web\Response;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
+use yii\widgets\ActiveForm;
+use yii\helpers\Json;
 use common\models\LoginForm;
 use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
@@ -96,6 +100,24 @@ class SiteController extends Controller
             $model->password = '';
 
             return $this->render('login', [
+                'model' => $model,
+            ]);
+        }
+    }
+
+    public function actionLoginmodal()
+    {
+        if (!Yii::$app->user->isGuest) {
+            return $this->goHome();
+        }
+
+        $model = new LoginForm();
+        if ($model->load(Yii::$app->request->post()) && $model->login()) {
+            return $this->goBack();
+        } else {
+            $model->password = '';
+
+            return $this->renderAjax('login', [
                 'model' => $model,
             ]);
         }
@@ -278,5 +300,43 @@ class SiteController extends Controller
             // either the page is initially displayed or there is some validation error
             return $this->render('entry', ['model' => $model]);
         }
+    }
+
+    public function actionLoginmodal()
+    {
+        $model = new Companyapp();
+
+
+        if (Yii::$app->request->isAjax && $model->load(Yii::$app->request->post())) {
+            $transaction = \Yii::$app->db->beginTransaction();
+            try {
+
+                $model->city_id = 1;
+                $model->count_projects = 1;
+                $model->company_staff = 'staff';
+                $model->company_experience = 'experience';
+                $model->cost_hour = 1000;
+                $model->company_competence = 'competence';
+                $model->application_id = 1;
+
+                if ($model->validate()) {
+                    $flag = $model->save(false);
+                    if ($flag == true) {
+                        $transaction->commit();
+                        return Json::encode(array('status' => 'success', 'type' => 'success', 'message' => 'Application created successfully.'));
+                    } else {
+                        $transaction->rollBack();
+                    }
+                } else {
+                    return Json::encode(array('status' => 'warning', 'type' => 'warning', 'message' => 'Application can not created.'));
+                }
+            } catch (Exception $ex) {
+                $transaction->rollBack();
+            }
+        }
+
+        return $this->renderAjax('app-addprofile', [
+            'model' => $model,
+        ]);
     }
 }
