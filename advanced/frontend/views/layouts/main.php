@@ -47,20 +47,27 @@ AppAsset::register($this);
     } else {
         //$menuItems[] = ['label' => 'Добавить объявление', 'url' => ['/site/index']];
         $menuItems[] = '<li>'
-            . Html::beginForm(['/site/index'], 'post')
+            . Html::beginForm(['/site/index'], 'get')
             . Html::submitButton(
                 'Добавить объявление',
-                ['class' => 'btn btn-primary', id => 'add-ad']
+                ['class' => 'btn btn-primary', 'id' => 'add-ad']
             )
             . Html::endForm()
             . '</li>';
-        $menuItems[] = ['label' => 'Мои объявления', 'url' => ['/site/index']];
+        //$menuItems[] = ['label' => 'Мои объявления', 'url' => ['/site/index']];
+        $menuItems[] = '<li>'
+            . Html::beginForm(['/site/index'], 'get')
+            . Html::submitButton(
+                'Мои объявления',
+                ['class' => 'btn btn-link', 'id' => 'personal-ad']
+            )
+            . Html::endForm()
+            . '</li>';
         //$menuItems[] = ['label' => 'Личный кабинет', 'url' => ['/site/index']];
         $menuItems[] = '<li>'
-            . Html::beginForm(['/site/index'], 'post')
+            . Html::beginForm(['/site/index'], 'get')
             . Html::submitButton(
                 'Личный кабинет',
-                //['class' => 'btn btn-link logout']
                 ['class' => 'btn btn-link', 'id' => 'personal-account']
             )
             . Html::endForm()
@@ -70,7 +77,7 @@ AppAsset::register($this);
             . Html::submitButton(
                 'Выход (' . Yii::$app->user->identity->username . ')',
                 //['class' => 'btn btn-link logout']
-                ['class' => 'btn btn-outline-primar', 'id' => 'board-logout']
+                ['class' => 'btn btn-outline-primar', 'id' => 'account-logout']
             )
             . Html::endForm()
             . '</li>';
