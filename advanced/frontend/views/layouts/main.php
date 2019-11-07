@@ -7,6 +7,7 @@ use yii\helpers\Html;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
+use yii\bootstrap\Modal;
 use frontend\assets\AppAsset;
 use common\widgets\Alert;
 
@@ -125,7 +126,7 @@ AppAsset::register($this);
 </footer>
 
 <?php
-$urlLogin = Yii::$app->urlManager->createUrl('/site/loginModal');
+$urlLogin = Yii::$app->urlManager->createUrl('/site/loginmodal');
 
 $script = <<< JS
 //QUICK CREARE CONTACT MODEL
