@@ -9,7 +9,12 @@ use yii\base\Model;
  */
 class LoginForm extends Model
 {
+    const STATUS_DELETED = 0;
+    const STATUS_INACTIVE = 9;
+    const STATUS_ACTIVE = 10;
+
     public $username;
+    public $email;
     public $password;
     public $rememberMe = true;
 
@@ -75,7 +80,8 @@ class LoginForm extends Model
     protected function getUser()
     {
         if ($this->_user === null) {
-            $this->_user = User::findByEmail($this->email);
+            //$this->_user = User::findByUsername($this->username);
+            $this->_user = User::findOne(['email' => $this->email, 'status' => self::STATUS_ACTIVE]);
         }
 
         return $this->_user;
