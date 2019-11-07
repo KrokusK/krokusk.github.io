@@ -36,14 +36,32 @@ AppAsset::register($this);
             'class' => 'navbar-inverse navbar-fixed-top',
         ],
     ]);
+    /*
     $menuItems = [
         ['label' => 'Домой', 'url' => ['/site/index']],
         ['label' => 'О нас', 'url' => ['/site/about']],
         ['label' => 'Контакты', 'url' => ['/site/contact']],
     ];
+    */
     if (Yii::$app->user->isGuest) {
-        $menuItems[] = ['label' => 'Регистрация', 'url' => ['/site/signup']];
-        $menuItems[] = ['label' => 'Вход', 'url' => ['/site/login']];
+        //$menuItems[] = ['label' => 'Регистрация', 'url' => ['/site/signup']];
+        $menuItems[] = '<li>'
+            . Html::beginForm(['/site/signup'], 'get')
+            . Html::submitButton(
+                'Регистрация',
+                ['class' => 'btn btn-primary', 'id' => 'board-signup']
+            )
+            . Html::endForm()
+            . '</li>';
+        //$menuItems[] = ['label' => 'Вход', 'url' => ['/site/login']];
+        $menuItems[] = '<li>'
+            . Html::beginForm(['/site/login'], 'get')
+            . Html::submitButton(
+                'Вход',
+                ['class' => 'btn btn-outline-primary', 'id' => 'board-login']
+            )
+            . Html::endForm()
+            . '</li>';
     } else {
         //$menuItems[] = ['label' => 'Добавить объявление', 'url' => ['/site/index']];
         $menuItems[] = '<li>'
@@ -77,7 +95,7 @@ AppAsset::register($this);
             . Html::submitButton(
                 'Выход (' . Yii::$app->user->identity->username . ')',
                 //['class' => 'btn btn-link logout']
-                ['class' => 'btn btn-outline-primar', 'id' => 'account-logout']
+                ['class' => 'btn btn-outline-primary', 'id' => 'account-logout']
             )
             . Html::endForm()
             . '</li>';
