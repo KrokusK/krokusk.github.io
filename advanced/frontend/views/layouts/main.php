@@ -29,7 +29,8 @@ AppAsset::register($this);
 <div class="wrap">
     <?php
     NavBar::begin([
-        'brandLabel' => Yii::$app->name,
+        //'brandLabel' => Yii::$app->name,
+        'brandLabel' => 'Логотип',
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
             'class' => 'navbar-inverse navbar-fixed-top',
@@ -44,6 +45,17 @@ AppAsset::register($this);
         $menuItems[] = ['label' => 'Регистрация', 'url' => ['/site/signup']];
         $menuItems[] = ['label' => 'Вход', 'url' => ['/site/login']];
     } else {
+        //$menuItems[] = ['label' => 'Добавить объявление', 'url' => ['/site/index']];
+        $menuItems[] = '<li>'
+            . Html::beginForm(['/site/index'], 'post')
+            . Html::submitButton(
+                'Добавить объявление',
+                ['class' => 'btn btn-primary', id="add-ad"]
+            )
+            . Html::endForm()
+            . '</li>';
+        $menuItems[] = ['label' => 'Мои объявления', 'url' => ['/site/index']];
+        $menuItems[] = ['label' => 'Личный кабинет', 'url' => ['/site/index']];
         $menuItems[] = '<li>'
             . Html::beginForm(['/site/logout'], 'post')
             . Html::submitButton(
