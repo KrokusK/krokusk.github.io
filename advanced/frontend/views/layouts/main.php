@@ -33,7 +33,7 @@ AppAsset::register($this);
         'brandLabel' => 'Логотип',
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
-            'class' => 'navbar-inverse navbar-fixed-top',
+            'class' => 'navbar-inverse navbar-top',
         ],
     ]);
     /*
@@ -45,7 +45,7 @@ AppAsset::register($this);
     */
     if (Yii::$app->user->isGuest) {
         //$menuItems[] = ['label' => 'Регистрация', 'url' => ['/site/signup']];
-        $menuItems[] = '<li>'
+        $menuItems[] = '<li class="nav-item">'
             . Html::beginForm(['/site/signup'], 'get')
             . Html::submitButton(
                 'Регистрация',
@@ -54,17 +54,17 @@ AppAsset::register($this);
             . Html::endForm()
             . '</li>';
         //$menuItems[] = ['label' => 'Вход', 'url' => ['/site/login']];
-        $menuItems[] = '<li>'
-            . Html::beginForm(['/site/login'], 'get')
-            . Html::submitButton(
+        $menuItems[] = '<li class="nav-item">'
+            //. Html::beginForm(['/site/login'], 'get')
+            . Html::Button(
                 'Вход',
                 ['class' => 'btn btn-outline-primary', 'id' => 'board-login']
             )
-            . Html::endForm()
+            //. Html::endForm()
             . '</li>';
     } else {
         //$menuItems[] = ['label' => 'Добавить объявление', 'url' => ['/site/index']];
-        $menuItems[] = '<li>'
+        $menuItems[] = '<li class="nav-item">'
             . Html::beginForm(['/site/index'], 'get')
             . Html::submitButton(
                 'Добавить объявление',
@@ -73,7 +73,7 @@ AppAsset::register($this);
             . Html::endForm()
             . '</li>';
         //$menuItems[] = ['label' => 'Мои объявления', 'url' => ['/site/index']];
-        $menuItems[] = '<li>'
+        $menuItems[] = '<li class="nav-item">'
             . Html::beginForm(['/site/index'], 'get')
             . Html::submitButton(
                 'Мои объявления',
@@ -82,7 +82,7 @@ AppAsset::register($this);
             . Html::endForm()
             . '</li>';
         //$menuItems[] = ['label' => 'Личный кабинет', 'url' => ['/site/index']];
-        $menuItems[] = '<li>'
+        $menuItems[] = '<li class="nav-item">'
             . Html::beginForm(['/site/index'], 'get')
             . Html::submitButton(
                 'Личный кабинет',
@@ -90,7 +90,7 @@ AppAsset::register($this);
             )
             . Html::endForm()
             . '</li>';
-        $menuItems[] = '<li>'
+        $menuItems[] = '<li class="nav-item">'
             . Html::beginForm(['/site/logout'], 'post')
             . Html::submitButton(
                 'Выход (' . Yii::$app->user->identity->username . ')',
@@ -123,6 +123,24 @@ AppAsset::register($this);
         <p class="pull-right"><?= Yii::powered() ?></p>
     </div>
 </footer>
+
+<?php
+$urlLogin = Yii::$app->urlManager->createUrl('/site/loginModal');
+
+$script = <<< JS
+//QUICK CREARE CONTACT MODEL
+$(document).on('click', '#board-login', function () {       
+    $('#loginFormModel').modal('show').find('.modal-dialog').load('$urlLogin');
+});
+
+JS;
+$this->registerJs($script);
+?>
+
+<!-- POPUP MODAL CONTACT -->
+<div class="modal inmodal contact" id="loginFormModel" role="dialog" data-keyboard="false" data-backdrop="static">
+    <div class="modal-dialog modal-md "></div>
+</div>
 
 <?php $this->endBody() ?>
 </body>
