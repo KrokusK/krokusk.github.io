@@ -111,7 +111,6 @@ class SiteController extends Controller
             return $this->goHome();
         }
 
-        /*
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
             return $this->goBack();
@@ -122,7 +121,14 @@ class SiteController extends Controller
                 'model' => $model,
             ]);
         }
-        */
+
+    }
+
+    public function actionLoginFromModal()
+    {
+        if (!Yii::$app->user->isGuest) {
+            return $this->goHome();
+        }
 
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
@@ -130,13 +136,7 @@ class SiteController extends Controller
         } else {
             $model->password = '';
 
-            if (Yii::$app->request->post()) {
-                return $this->renderAjax('loginModal', [
-                    'model' => $model,
-                ]);
-            } else {
-                return $this->goHome();
-            }
+            return $this->goHome();
         }
     }
 
