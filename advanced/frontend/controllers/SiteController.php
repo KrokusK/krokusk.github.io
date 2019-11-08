@@ -83,7 +83,7 @@ class SiteController extends Controller
     {
         //return $this->render('index');
 
-        $query = UserShow::find();
+        $query = \app\models\UserShow::find();
 
         $pagination = new Pagination([
             'defaultPageSize' => 5,

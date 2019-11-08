@@ -1,4 +1,6 @@
 <?php
+use yii\helpers\Html;
+use yii\widgets\LinkPager;
 
 /* @var $this yii\web\View */
 
@@ -55,4 +57,16 @@ $this->title = 'Сайт объявлений';
             </li>
         </ul>
     </nav>
+
+    <h1>Users</h1>
+    <ul>
+        <?php foreach ($users as $man): ?>
+            <li>
+                <?= Html::encode("{$man->id} ({$man->username})") ?>:
+                <?= $man->email ?>
+            </li>
+        <?php endforeach; ?>
+    </ul>
+
+    <?= LinkPager::widget(['pagination' => $pagination]) ?>
 </div>
