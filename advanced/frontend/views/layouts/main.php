@@ -126,7 +126,7 @@ AppAsset::register($this);
 </footer>
 
 <?php
-$urlLogin = Yii::$app->urlManager->createUrl('/site/loginmodal');
+$urlLogin = Yii::$app->urlManager->createUrl('/site/login-modal');
 
 $script = <<< JS
 //QUICK CREARE CONTACT MODEL

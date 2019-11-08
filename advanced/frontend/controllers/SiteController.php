@@ -105,7 +105,7 @@ class SiteController extends Controller
         }
     }
 
-    public function actionLoginmodal()
+    public function actionLoginModal()
     {
         if (!Yii::$app->user->isGuest) {
             return $this->goHome();
@@ -117,7 +117,7 @@ class SiteController extends Controller
         } else {
             $model->password = '';
 
-            return $this->renderAjax('login', [
+            return $this->renderAjax('loginModal', [
                 'model' => $model,
             ]);
         }
