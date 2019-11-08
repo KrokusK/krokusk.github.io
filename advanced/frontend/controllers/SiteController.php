@@ -13,12 +13,14 @@ use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use yii\widgets\ActiveForm;
 use yii\helpers\Json;
+use yii\data\Pagination;
 use common\models\LoginForm;
 use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\ContactForm;
 use frontend\models\EntryForm;
+use frontend\models\UserShow;
 
 /**
  * Site controller
@@ -79,7 +81,24 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        //return $this->render('index');
+
+        $query = UserShow::find();
+
+        $pagination = new Pagination([
+            'defaultPageSize' => 5,
+            'totalCount' => $query->count(),
+        ]);
+
+        $users = $query->orderBy('username')
+            ->offset($pagination->offset)
+            ->limit($pagination->limit)
+            ->all();
+
+        return $this->render('index', [
+            'users' => $users,
+            'pagination' => $pagination,
+        ]);
     }
 
     /**
