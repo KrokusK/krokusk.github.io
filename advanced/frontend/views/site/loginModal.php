@@ -11,14 +11,17 @@ $this->title = 'Авторизация';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="modal-content animated bounceInTop" >
-<div class="site-login">
-    <h1><?= Html::encode($this->title) ?></h1>
 
-    <p>Пожалуйста, заполните следующие поля для входа:</p>
 
-    <div class="row">
-        <div class="col-lg-5">
             <?php $form = ActiveForm::begin(['id' => 'login-form', 'action' => Yii::$app->urlManager->createUrl('/site/login-modal')]); ?>
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h1><?= Html::encode($this->title) ?></h1>
+
+                <p>Пожалуйста, заполните следующие поля для входа:</p>
+            </div>
+            <div class="modal-body">
 
                 <?= $form->field($model, 'email')->textInput(['autofocus' => true]) ?>
 
@@ -35,9 +38,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <div class="form-group">
                     <?= Html::submitButton('Вход', ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
                 </div>
+            </div>
 
             <?php ActiveForm::end(); ?>
-        </div>
-    </div>
-</div>
 </div>
