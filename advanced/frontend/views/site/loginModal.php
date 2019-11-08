@@ -13,7 +13,7 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="modal-content animated bounceInTop" >
 
 
-            <?php $form = ActiveForm::begin(['id' => 'login-form', 'action' => Yii::$app->urlManager->createUrl('/site/login-modal')]); ?>
+    <?php $form = ActiveForm::begin(['id' => 'login-form', 'action' => Yii::$app->urlManager->createUrl('/site/login-modal')]); ?>
 
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -40,5 +40,5 @@ $this->params['breadcrumbs'][] = $this->title;
                 </div>
             </div>
 
-            <?php ActiveForm::end(); ?>
+    <?php ActiveForm::end(); ?>
 </div>

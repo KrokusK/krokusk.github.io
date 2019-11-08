@@ -111,6 +111,7 @@ class SiteController extends Controller
             return $this->goHome();
         }
 
+        /*
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
             return $this->goBack();
@@ -120,6 +121,19 @@ class SiteController extends Controller
             return $this->renderAjax('loginModal', [
                 'model' => $model,
             ]);
+        }
+        */
+
+        if (Yii::$app->request->isAjax && $model->load(Yii::$app->request->post())) {
+            if ($model->login()) {
+                return $this->goBack();
+            } else {
+                $model->password = '';
+
+                return $this->renderAjax('loginModal', [
+                    'model' => $model,
+                ]);
+            }
         }
     }
 
