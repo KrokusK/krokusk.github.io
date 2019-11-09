@@ -140,7 +140,7 @@ class SiteController extends Controller
             ],
         ]);
 
-        return $this->render('pjax_dashboard', [
+        return $this->render('index', [
             'dataProvider' => $dataProvider,
             'searchModel' => $searchModel,
         ]);
