@@ -2,6 +2,7 @@
 use yii\helpers\Html;
 use yii\widgets\LinkPager;
 use yii\widgets\Pjax;
+use yii\grid\GridView;
 
 /* @var $this yii\web\View */
 
