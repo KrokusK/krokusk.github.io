@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d97bdc22-9d4b-4578-b4be-b96d66aca924" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/advanced/frontend/views/site/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/advanced/frontend/views/site/index.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/advanced/frontend/views/site/indexOld.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/advanced/frontend/controllers/SiteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/advanced/frontend/controllers/SiteController.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -22,7 +24,7 @@
   <component name="ProjectId" id="1SKOvz27B5adiUDik6cxRTvRHsy" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/advanced/frontend/models" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/advanced/frontend/views/site" />
     <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
   </component>
   <component name="RecentsManager">
@@ -68,7 +70,8 @@
       <workItem from="1572931605496" duration="12053000" />
       <workItem from="1573022688084" duration="7755000" />
       <workItem from="1573103635746" duration="22382000" />
-      <workItem from="1573180168039" duration="13637000" />
+      <workItem from="1573180168039" duration="14929000" />
+      <workItem from="1573321132305" duration="826000" />
     </task>
     <servers />
   </component>

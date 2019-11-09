@@ -38,25 +38,15 @@ $this->title = 'Сайт объявлений';
         </div><!-- /.container-fluid -->
     </nav>
 
-    <h1>Pajax</h1>
+    <h1>Users</h1>
+    <ul>
+        <?php foreach ($users as $man): ?>
+            <li>
+                <?= Html::encode("{$man->id} ({$man->username})") ?>:
+                <?= $man->email ?>
+            </li>
+        <?php endforeach; ?>
+    </ul>
 
-    <?php Pjax::begin(); ?>
-    <?= GridView::widget([
-        'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
-        'columns' => [
-            'id',
-            [
-                'attribute' => 'name',
-                'value' => 'name',
-            ],
-            [
-                'attribute' => 'age',
-                'filter' => '<input class="form-control" name="filterage" value="'. $searchModel['age'] .'" type="text">',
-                'value' => 'age',
-            ],
-            'height:ntext',
-        ],
-    ]); ?>
-    <?php Pjax::end(); ?>
+    <?= LinkPager::widget(['pagination' => $pagination]) ?>
 </div>

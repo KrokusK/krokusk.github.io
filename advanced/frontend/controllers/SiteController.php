@@ -79,7 +79,7 @@ class SiteController extends Controller
      *
      * @return mixed
      */
-    public function actionIndex()
+    public function actionIndexOld()
     {
         //return $this->render('index');
 
@@ -98,6 +98,51 @@ class SiteController extends Controller
         return $this->render('index', [
             'users' => $users,
             'pagination' => $pagination,
+        ]);
+    }
+
+        // Pajax query
+
+    public function actionIndex()
+    {
+        $array = [
+            ['id'=>1, 'name'=>'Sam','age'=> '21', 'height'=> '190'],
+            ['id'=>2, 'name'=>'John','age'=> '34', 'height'=> '156'],
+            ['id'=>3, 'name'=>'Alex','age'=> '29', 'height'=> '178'],
+            ['id'=>4, 'name'=>'David','age'=> '31', 'height'=> '188'],
+            ['id'=>5, 'name'=>'Max','age'=> '26', 'height'=> '184'],
+        ];
+
+        $searchModel = [
+            'age' => Yii::$app->request->getQueryParam('filterage', ''),
+        ];
+
+        $filteredData = array_filter($array, function($item) use ($searchModel) {
+            if (!empty($searchModel['age'])) {
+                if ($item['age'] == $searchModel['age']) {
+                    return true;
+                } else {
+                    return false;
+                }
+            } else {
+                return true;
+            }
+        });
+
+        $dataProvider = new \yii\data\ArrayDataProvider([
+            'key' => 'id',
+            'allModels' => $filteredData,
+            'sort' => [
+                'attributes' => ['name'],
+            ],
+            'pagination' => [
+                'pageSize' => 3,
+            ],
+        ]);
+
+        return $this->render('pjax_dashboard', [
+            'dataProvider' => $dataProvider,
+            'searchModel' => $searchModel,
         ]);
     }
 
@@ -124,6 +169,12 @@ class SiteController extends Controller
         }
     }
 
+    /**
+     * Logs in a user. Login in the maodal window.
+     *
+     * @return mixed
+     */
+
     public function actionLoginModal()
     {
         if (!Yii::$app->user->isGuest) {
@@ -142,6 +193,12 @@ class SiteController extends Controller
         }
 
     }
+
+    /**
+     * Logs in a user. Login from madal window
+     *
+     * @return mixed
+     */
 
     public function actionLoginFromModal()
     {
@@ -316,6 +373,12 @@ class SiteController extends Controller
             'model' => $model
         ]);
     }
+
+
+
+
+
+
 
     public function actionSay($message = 'Hello')
     {
