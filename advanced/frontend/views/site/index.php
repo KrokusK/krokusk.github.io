@@ -1,7 +1,7 @@
 <?php
 use yii\helpers\Html;
 use yii\widgets\LinkPager;
-use yii\widgets\Pjax
+use yii\widgets\Pjax;
 
 /* @var $this yii\web\View */
 
