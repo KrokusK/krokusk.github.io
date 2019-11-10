@@ -38,9 +38,7 @@ $this->title = 'Сайт объявлений';
         </div><!-- /.container-fluid -->
     </nav>
 
-    <table>
-        <tr>
-            <td>
+    <div class="container">
                 <div class="row">
                     <div class="col-sm-6 col-md-4">
                         <div class="thumbnail">
@@ -69,13 +67,12 @@ $this->title = 'Сайт объявлений';
                         </div>
                     </div>
                 </div>
-            </td>
-        </tr>
+    </div>
 
-        <tr>
-            <td>
+
+    <div class="container">
                 <div class="row">
-                    <div class="col-sm-6 col-md-4">
+                    <div class="col-sm-4">
                         <div class="thumbnail">
                             <img src="" alt="Image">
                             <div class="caption">
@@ -84,6 +81,8 @@ $this->title = 'Сайт объявлений';
                                 <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
                             </div>
                         </div>
+                    </div>
+                    <div class="col-sm-4">
                         <div class="thumbnail">
                             <img src="" alt="Image">
                             <div class="caption">
@@ -94,9 +93,9 @@ $this->title = 'Сайт объявлений';
                         </div>
                     </div>
                 </div>
-            </td>
-        </tr>
-    </table>
+    </div>
+
+
 
     <h1>Users</h1>
     <ul>
