@@ -38,7 +38,6 @@ $this->title = 'Сайт объявлений';
         </div><!-- /.container-fluid -->
     </nav>
 
-    <?= Html::encode("{$pagination->limit}") ?>
     <div class="row">
         <div class="col-sm-6 col-md-4">
             <div class="thumbnail">
@@ -88,6 +87,7 @@ $this->title = 'Сайт объявлений';
     <ul>
         <?php foreach ($users as $man): ?>
             <li>
+                <?= Html::encode("{$pagination->limit}") ?>
                 <?= Html::encode("{$man->id} ({$man->username})") ?>:
                 <?= $man->email ?>
             </li>
