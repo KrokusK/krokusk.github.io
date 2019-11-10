@@ -88,6 +88,7 @@ $this->title = 'Сайт объявлений';
         <?php foreach ($users as $man): ?>
             <li>
                 <?= Html::encode("{$pagination->limit}") ?>
+
                 <?= Html::encode("{$man->id} ({$man->username})") ?>:
                 <?= $man->email ?>
             </li>
