@@ -79,7 +79,7 @@ class SiteController extends Controller
      *
      * @return mixed
      */
-    public function actionIndexOld()
+    public function actionIndex()
     {
         //return $this->render('index');
 
@@ -95,7 +95,7 @@ class SiteController extends Controller
             ->limit($pagination->limit)
             ->all();
 
-        return $this->render('index', [
+        return $this->render('indexListView', [
             'users' => $users,
             'pagination' => $pagination,
         ]);
@@ -103,7 +103,7 @@ class SiteController extends Controller
 
         // Pajax query
 
-    public function actionIndex()
+    public function actionIndexPajaxGridView()
     {
         $array = [
             ['id'=>1, 'name'=>'Sam','age'=> '21', 'height'=> '190'],
@@ -140,7 +140,7 @@ class SiteController extends Controller
             ],
         ]);
 
-        return $this->render('index', [
+        return $this->render('indexPajaxGridView', [
             'dataProvider' => $dataProvider,
             'searchModel' => $searchModel,
         ]);
