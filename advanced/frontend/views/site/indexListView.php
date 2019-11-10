@@ -38,6 +38,7 @@ $this->title = 'Сайт объявлений';
         </div><!-- /.container-fluid -->
     </nav>
 
+    <?= Html::encode("{$pagination->limit}") ?>
     <div class="row">
         <div class="col-sm-6 col-md-4">
             <div class="thumbnail">
