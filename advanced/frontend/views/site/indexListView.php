@@ -107,6 +107,7 @@ $this->title = 'Сайт объявлений';
                 <?php endforeach; ?>
             </ul>
 
+
             <?= LinkPager::widget(['pagination' => $pagination]) ?>
         </div>
     </div>
