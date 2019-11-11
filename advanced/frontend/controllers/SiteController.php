@@ -98,7 +98,7 @@ class SiteController extends Controller
 
         //$photos = $query->AdPhotos;
         $temp = UserAd::find()
-            ->with('AdPhotos')
+            ->with('adPhotos')
             ->all();
 
         return $this->render('indexBulletinBoard', [
