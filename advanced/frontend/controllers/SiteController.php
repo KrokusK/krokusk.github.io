@@ -92,6 +92,7 @@ class SiteController extends Controller
         $userAds = $query->orderBy('header')
             ->offset($pagination->offset)
             ->limit($pagination->limit)
+            ->leftJoin('photo_ad', '"user_ad"."photo_id" = "photo_ad"."id"')
             ->all();
 
         return $this->render('indexBulletinBoard', [

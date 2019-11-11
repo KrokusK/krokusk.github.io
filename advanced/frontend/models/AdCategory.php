@@ -26,6 +26,6 @@ class AdCategory extends \yii\db\ActiveRecord
      */
     public function getUserAd()
     {
-        return $this->hasOne(User_ad::className(), ['category_id' => 'id']);
+        return $this->hasOne(UserAd::className(), ['category_id' => 'id']);
     }
 }
