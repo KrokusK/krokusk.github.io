@@ -92,7 +92,7 @@ class SiteController extends Controller
         $userDesc = $query->orderBy('name')
             ->offset($pagination->offset)
             ->limit($pagination->limit)
-            ->all();
+            ->one();
 
         $users = $userDesc->getUsers()
             ->orderBy('username')

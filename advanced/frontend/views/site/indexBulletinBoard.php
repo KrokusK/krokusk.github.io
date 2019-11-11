@@ -101,8 +101,8 @@ $this->title = 'Сайт объявлений';
                     <li>
                         <?= Html::encode("{$pagination->limit}") ?>
 
-                        <?= Html::encode("{$man->id} ({$man->username})") ?>:
-                        <?= $man->email ?>
+                        <?= Html::encode("{$man->id} ({$man->name})") ?>:
+                        <?= $man->phone ?>
                     </li>
                 <?php endforeach; ?>
             </ul>
