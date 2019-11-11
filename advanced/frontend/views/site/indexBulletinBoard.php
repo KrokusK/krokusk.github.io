@@ -97,11 +97,11 @@ $this->title = 'Сайт объявлений';
         <div class="row">
             <h1>Users</h1>
             <ul>
-                <?php foreach ($users as $man): ?>
+                <?php foreach ($userAds as $userAd): ?>
                     <li>
                         <?= Html::encode("{$pagination->limit}") ?>
 
-                        <?= Html::encode("{print_r($man)}") ?>
+                        <?= Html::encode("{print_r($userAd)}") ?>
                     </li>
                 <?php endforeach; ?>
             </ul>
