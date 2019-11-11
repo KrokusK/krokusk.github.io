@@ -94,12 +94,12 @@ class SiteController extends Controller
             ->offset($pagination->offset)
             ->limit($pagination->limit)
             ->leftJoin('photo_ad', '"user_ad"."photo_id" = "photo_ad"."id"')
-            ->all();
-
-        //$photos = $query->AdPhotos;
-        $temp = UserAd::find()
             ->with('adPhotos')
             ->all();
+
+        //$temp = UserAd::find()
+        //    ->with('adPhotos')
+        //    ->all();
 
         return $this->render('indexBulletinBoard', [
             'userAds' => $userAds,
