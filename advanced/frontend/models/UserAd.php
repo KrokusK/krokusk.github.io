@@ -26,7 +26,7 @@ class UserAd extends \yii\db\ActiveRecord
      */
     public function getUserDescs()
     {
-        return $this->hasOne(User_description::className(), ['ad_id' => 'id']);
+        return $this->hasOne(UserDesc::className(), ['ad_id' => 'id']);
     }
 
     /**
@@ -35,7 +35,7 @@ class UserAd extends \yii\db\ActiveRecord
      */
     public function getAdStatus()
     {
-        return $this->hasOne(Ad_status::className(), ['id' => 'status_id']);
+        return $this->hasOne(AdStatus::tatus::className(), ['id' => 'status_id']);
     }
 
     /**
@@ -44,7 +44,7 @@ class UserAd extends \yii\db\ActiveRecord
      */
     public function getUserCities()
     {
-        return $this->hasOne(User_city::className(), ['id' => 'city_id']);
+        return $this->hasOne(UserCity::ity::className(), ['id' => 'city_id']);
     }
 
     /**
@@ -53,7 +53,7 @@ class UserAd extends \yii\db\ActiveRecord
      */
     public function getAdCaterories()
     {
-        return $this->hasOne(Ad_category::className(), ['id' => 'category_id']);
+        return $this->hasOne(AdCategory::ategory::className(), ['id' => 'category_id']);
     }
 
     /**
