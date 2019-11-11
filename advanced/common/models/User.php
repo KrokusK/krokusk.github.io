@@ -206,4 +206,13 @@ class User extends ActiveRecord implements IdentityInterface
     {
         $this->password_reset_token = null;
     }
+
+    /**
+     *
+     * Link to table User_description
+     */
+    public function getUserDescs()
+    {
+        return $this->hasOne(BulletinBoardUserDesc::className(), ['user_id' => 'id']);
+    }
 }
