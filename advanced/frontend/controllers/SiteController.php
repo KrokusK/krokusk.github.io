@@ -99,7 +99,8 @@ class SiteController extends Controller
             ->one();
 
         return $this->render('indexBulletinBoard', [
-            'users' => $usersDesc,
+            'userDesc' => $userDesc,
+            'users' => $users,
             'pagination' => $pagination,
         ]);
     }
