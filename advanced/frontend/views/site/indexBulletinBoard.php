@@ -49,7 +49,7 @@ $this->title = 'Сайт объявлений';
                         <img src="" alt="Image">
                         <div class="caption">
                             <h3><?= Html::encode("{$userAd->header}") ?></h3>
-                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                            <p>Цена: <?= Html::encode("{$userAd->amount}") ?></p>
                             <p>Создано: <?= Html::encode("{$userAd->created_at}") ?></p>
                             <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
                         </div>
@@ -73,7 +73,9 @@ $this->title = 'Сайт объявлений';
             </ul>
         </div>
         <div class="row">
-            <?= LinkPager::widget(['pagination' => $pagination]) ?>
+            <div class="col-sm-6 col-md-4">
+                <?= LinkPager::widget(['pagination' => $pagination]) ?>
+            </div>
         </div>
     </div>
 
