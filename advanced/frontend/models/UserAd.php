@@ -62,6 +62,6 @@ class UserAd extends \yii\db\ActiveRecord
      */
     public function getAdPhotos()
     {
-        return $this->hasMany(PhotoAd::className(), ['id' => 'photo_id']);
+        return $this->hasMany(Photo_ad::className(), ['id' => 'photo_id']);
     }
 }
