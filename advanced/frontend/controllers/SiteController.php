@@ -94,10 +94,6 @@ class SiteController extends Controller
             ->limit($pagination->limit)
             ->all();
 
-        //$users = $userDesc->getUsers()
-        //    ->orderBy('username')
-        //    ->one();
-
         return $this->render('indexBulletinBoard', [
             'userAds' => $userAds,
             'pagination' => $pagination,

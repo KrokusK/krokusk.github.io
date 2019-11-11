@@ -101,7 +101,8 @@ $this->title = 'Сайт объявлений';
                     <li>
                         <?= Html::encode("{$pagination->limit}") ?>
 
-                        <?= Html::encode("{print_r($userAd)}") ?>
+                        <?= Html::encode("var_dump({$userAd->header})") ?>
+                        <?= Html::encode("var_dump({$userAd->create_at})") ?>
                     </li>
                 <?php endforeach; ?>
             </ul>
