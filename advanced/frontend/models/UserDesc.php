@@ -10,7 +10,7 @@ use yii\db\ActiveRecord;
  * This is the model class for table "user".
  *
  */
-class BulletinBoardUserDesc extends \yii\db\ActiveRecord
+class UserDesc extends \yii\db\ActiveRecord
 {
     /**
      * {@inheritdoc}
