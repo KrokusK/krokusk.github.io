@@ -102,15 +102,15 @@ $this->title = 'Сайт объявлений';
                     <div class="thumbnail">
                         <img src="" alt="Image">
                         <div class="caption">
-                            <h3>{$userAd->header}</h3>
-                            <p>Создано: {$userAd->created_at}</p>
+                            <h3><?= Html::encode("{$userAd->header}") ?></h3>
+                            <p>Создано: <?= Html::encode("{$userAd->created_at}") ?></p>
                             <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
                         </div>
                     </div>
                 </div>
             <?php endforeach; ?>
 
-            
+
         </div>
         <div class="row">
             <h1>Users</h1>
