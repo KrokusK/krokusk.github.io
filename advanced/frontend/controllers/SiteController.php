@@ -1,6 +1,7 @@
 <?php
 namespace frontend\controllers;
 
+use app\models\BulletinBoardUserDesc;
 use frontend\models\ResendVerificationEmailForm;
 use frontend\models\VerifyEmailForm;
 use Yii;
@@ -80,6 +81,30 @@ class SiteController extends Controller
      * @return mixed
      */
     public function actionIndex()
+    {
+        $query = \app\models\BulletinBoardUserDesc::find();
+
+        $pagination = new Pagination([
+            'defaultPageSize' => 5,
+            'totalCount' => $query->count(),
+        ]);
+
+        $userDesc = $query->orderBy('name')
+            ->offset($pagination->offset)
+            ->limit($pagination->limit)
+            ->all();
+
+        $users = $userDesc->getUsers()
+            ->orderBy('username')
+            ->all();
+
+        return $this->render('indexListView', [
+            'users' => $users,
+            'pagination' => $pagination,
+        ]);
+    }
+
+    public function actionIndex_old()
     {
         //return $this->render('index');
 
