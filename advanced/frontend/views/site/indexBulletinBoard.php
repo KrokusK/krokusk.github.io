@@ -46,7 +46,7 @@ $this->title = 'Сайт объявлений';
             <?php foreach ($userAds as $userAd): ?>
                 <div class="col-sm-6 col-md-4">
                     <div class="thumbnail">
-                        <img src="" alt="Image">
+                        <img src="<?= Html::encode("{$userAd->adPhotos[0]["photo_path"]}") ?>" alt="Image">
                         <div class="caption">
                             <h3><?= Html::encode("{$userAd->header}") ?></h3>
                             <p>Цена: <?= Html::encode("{$userAd->amount}") ?></p>
@@ -66,7 +66,7 @@ $this->title = 'Сайт объявлений';
                     <li>
                         <?= Html::encode("{$pagination->limit}") ?>
 
-                        <?= Html::encode(var_dump($userAd->photo_path)) ?>
+                        <?= Html::encode(var_dump($userAd->adPhotos[0]["photo_path"])) ?>
                         <?= Html::encode(var_dump($userAd->header)) ?>
                         <?= Html::encode(var_dump($userAd->created_at)) ?>
                     </li>
