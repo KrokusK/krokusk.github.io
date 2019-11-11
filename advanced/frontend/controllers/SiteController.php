@@ -1,8 +1,6 @@
 <?php
 namespace frontend\controllers;
 
-use frontend\models\ResendVerificationEmailForm;
-use frontend\models\VerifyEmailForm;
 use Yii;
 use yii\base\InvalidArgumentException;
 use yii\web\BadRequestHttpException;
@@ -15,6 +13,8 @@ use yii\widgets\ActiveForm;
 use yii\helpers\Json;
 use yii\data\Pagination;
 use common\models\LoginForm;
+use frontend\models\ResendVerificationEmailForm;
+use frontend\models\VerifyEmailForm;
 use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
@@ -22,7 +22,6 @@ use frontend\models\ContactForm;
 use frontend\models\EntryForm;
 use frontend\models\UserShow;
 use frontend\models\UserAd;
-use frontend\models\PhotoAd;
 
 
 /**
@@ -98,7 +97,9 @@ class SiteController extends Controller
             ->all();
 
         //$photos = $query->AdPhotos;
-        $temp = UserAd::getAdPhotos();
+        $temp = UserAd::find()
+            ->with('AdPhotos')
+            ->all();
 
         return $this->render('indexBulletinBoard', [
             'userAds' => $userAds,
@@ -140,7 +141,7 @@ class SiteController extends Controller
     {
         //return $this->render('index');
 
-        $query = \app\models\UserShow::find();
+        $query = UserShow::find();
 
         $pagination = new Pagination([
             'defaultPageSize' => 5,
