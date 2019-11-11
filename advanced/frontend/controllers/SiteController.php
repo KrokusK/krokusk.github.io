@@ -98,7 +98,7 @@ class SiteController extends Controller
             ->orderBy('username')
             ->one();
 
-        return $this->render('indexListView', [
+        return $this->render('indexBulletinBoard', [
             'users' => $users,
             'pagination' => $pagination,
         ]);
