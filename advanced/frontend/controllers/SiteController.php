@@ -82,25 +82,24 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        $query = \app\models\UserDesc::find();
+        $query = \app\models\UserAd::find();
 
         $pagination = new Pagination([
             'defaultPageSize' => 5,
             'totalCount' => $query->count(),
         ]);
 
-        $userDesc = $query->orderBy('name')
+        $userAds = $query->orderBy('header')
             ->offset($pagination->offset)
             ->limit($pagination->limit)
-            ->one();
+            ->all();
 
-        $users = $userDesc->getUsers()
-            ->orderBy('username')
-            ->one();
+        //$users = $userDesc->getUsers()
+        //    ->orderBy('username')
+        //    ->one();
 
         return $this->render('indexBulletinBoard', [
-            'userDesc' => $userDesc,
-            'users' => $users,
+            'userAds' => $userAds,
             'pagination' => $pagination,
         ]);
     }
