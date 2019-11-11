@@ -95,7 +95,7 @@ class SiteController extends Controller
             ->leftJoin('photo_ad', '"user_ad"."photo_id" = "photo_ad"."id"')
             ->all();
 
-        $photos = $userAds->AdPhotos;
+        $photos = $query->AdPhotos;
 
         return $this->render('indexBulletinBoard', [
             'userAds' => $userAds,
