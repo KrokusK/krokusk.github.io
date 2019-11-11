@@ -96,7 +96,6 @@ class SiteController extends Controller
 
         return $this->render('indexBulletinBoard', [
             'userAds' => $userAds,
-            'ThumbInRowcount' => $ThumbInRowcount,
             'pagination' => $pagination,
         ]);
     }
