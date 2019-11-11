@@ -82,7 +82,37 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        $query = \app\models\BulletinBoardUserDesc::find();
+        $query = \app\models\UserDesc::find();
+
+        $pagination = new Pagination([
+            'defaultPageSize' => 5,
+            'totalCount' => $query->count(),
+        ]);
+
+        $userDesc = $query->orderBy('name')
+            ->offset($pagination->offset)
+            ->limit($pagination->limit)
+            ->one();
+
+        $users = $userDesc->getUsers()
+            ->orderBy('username')
+            ->one();
+
+        return $this->render('indexBulletinBoard', [
+            'userDesc' => $userDesc,
+            'users' => $users,
+            'pagination' => $pagination,
+        ]);
+    }
+
+    /**
+     * Displays homepage.
+     *
+     * @return mixed
+     */
+    public function actionIndex_Old2()
+    {
+        $query = \app\models\UserDesc::find();
 
         $pagination = new Pagination([
             'defaultPageSize' => 5,
