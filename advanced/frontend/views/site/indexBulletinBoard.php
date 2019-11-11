@@ -73,7 +73,7 @@ $this->title = 'Сайт объявлений';
             </ul>
         </div>
         <div class="row">
-            <div class="col-sm-6 col-md-4">
+            <div class="text-center">
                 <?= LinkPager::widget(['pagination' => $pagination]) ?>
             </div>
         </div>
