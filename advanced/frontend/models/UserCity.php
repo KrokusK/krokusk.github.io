@@ -26,7 +26,7 @@ class UserCity extends \yii\db\ActiveRecord
      */
     public function getUserAd()
     {
-        return $this->hasOne(User_ad::className(), ['city_id' => 'id']);
+        return $this->hasOne(UserAd::className(), ['city_id' => 'id']);
     }
 
     /**

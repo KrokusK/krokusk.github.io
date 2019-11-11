@@ -26,6 +26,6 @@ class PhotoAd extends \yii\db\ActiveRecord
      */
     public function getUserAd()
     {
-        return $this->hasOne(User_ad::className(), ['photo_id' => 'id']);
+        return $this->hasOne(UserAd::className(), ['photo_id' => 'id']);
     }
 }
