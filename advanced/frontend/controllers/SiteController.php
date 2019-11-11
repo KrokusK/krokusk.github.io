@@ -1,7 +1,6 @@
 <?php
 namespace frontend\controllers;
 
-use app\models\BulletinBoardUserDesc;
 use frontend\models\ResendVerificationEmailForm;
 use frontend\models\VerifyEmailForm;
 use Yii;
@@ -22,6 +21,9 @@ use frontend\models\SignupForm;
 use frontend\models\ContactForm;
 use frontend\models\EntryForm;
 use frontend\models\UserShow;
+use frontend\models\UserAd;
+use frontend\models\PhotoAd;
+
 
 /**
  * Site controller
@@ -82,7 +84,7 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        $query = \app\models\UserAd::find();
+        $query = UserAd::find();
 
         $pagination = new Pagination([
             'defaultPageSize' => 6,
@@ -95,7 +97,8 @@ class SiteController extends Controller
             ->leftJoin('photo_ad', '"user_ad"."photo_id" = "photo_ad"."id"')
             ->all();
 
-        $photos = $query->AdPhotos;
+        //$photos = $query->AdPhotos;
+        $temp = UserAd::getAdPhotos();
 
         return $this->render('indexBulletinBoard', [
             'userAds' => $userAds,
