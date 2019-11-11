@@ -84,10 +84,8 @@ class SiteController extends Controller
     {
         $query = \app\models\UserAd::find();
 
-        $ThumbInRowcount = 3;
-
         $pagination = new Pagination([
-            'defaultPageSize' => 5,
+            'defaultPageSize' => 6,
             'totalCount' => $query->count(),
         ]);
 
