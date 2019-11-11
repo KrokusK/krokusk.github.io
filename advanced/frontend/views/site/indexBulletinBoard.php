@@ -101,7 +101,7 @@ $this->title = 'Сайт объявлений';
                     <li>
                         <?= Html::encode("{$pagination->limit}") ?>
 
-
+                        <?= Html::encode("{print_r($man)}") ?>
                     </li>
                 <?php endforeach; ?>
             </ul>
