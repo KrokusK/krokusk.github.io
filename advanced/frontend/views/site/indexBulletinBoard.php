@@ -102,21 +102,18 @@ $this->title = 'Сайт объявлений';
 
     <?php Pjax::end(); ?>
 
-    <?php
-
-$script = <<< JS    
-
+<?php
+$script = <<< JS
    $(document).ready(function () { 
-        $("#ad-category").on('change', function (event) { 
+        $("#ad-city").on('change', function (event) { 
             alert("test");
             
-            document.forms[form-category].submit();
+            document.forms[form-city].submit();
         });
     });       
 
 JS;
-    $this->registerJs($script);
-
-    ?>
+$this->registerJs($script);
+?>
 
 </div>
