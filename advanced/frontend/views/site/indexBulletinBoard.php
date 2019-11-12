@@ -36,6 +36,8 @@ $this->title = 'Сайт объявлений';
                                 <label class="control-label" for="ad-city">Город</label>
                                 <select id="ad-city" class="form-control" name="ArrayCity[city]">
                                     <?= Html::encode("{$selectCity}") ?>
+                                    <option value="">Выберите город...</option><option value="2">Seversk</option><option value="1">Tomsk</option>
+
                                 </select>
                             </li>
                             <li>

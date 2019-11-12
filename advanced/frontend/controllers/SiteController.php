@@ -103,9 +103,9 @@ class SiteController extends Controller
             //->andWhere('country_id=:id',[':id' => $id])
             ->orderBy('city_name')
             ->all();
-        $selectCity = '<option value="">Выберите город...</option>';
+        $selectCity = '<option value="">Выберите город...</option>\n';
         foreach ($cities as $city) {
-            $selectCity .= '<option value="' . $city->id . '">' . $city->city_name . '</option>';
+            $selectCity .= '<option value="' . $city->id . '">' . $city->city_name . '</option>\n';
         }
 
         return $this->render('indexBulletinBoard', [
