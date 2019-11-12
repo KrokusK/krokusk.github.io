@@ -1,7 +1,6 @@
 <?php
 namespace frontend\controllers;
 
-use frontend\models\AdCategory;
 use Yii;
 use yii\base\InvalidArgumentException;
 use yii\web\BadRequestHttpException;
