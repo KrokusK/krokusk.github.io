@@ -33,15 +33,6 @@ $this->title = 'Сайт объявлений';
                                 </ul>
                             </li>
                             <li>
-                                <select class="form-control" id="dashboard-city">
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                </select>
-                            </li>
-                            <li>
                                 <label class="control-label" for="record-status">Статус записи</label>
                                 <select id="record-status" class="form-control" name="Record[status]">
                                     <option value="">Выберите статус...</option>
@@ -49,6 +40,13 @@ $this->title = 'Сайт объявлений';
                                     <option value="1">Отключен</option>
                                     <option value="2">Удален</option>
                                 </select>
+                            </li>
+                            <li>
+                                <?= Html::a(
+                                    'Случайная строка',
+                                    ['/site/index/'],
+                                    ['class' => 'btn btn-lg btn-primary']
+                                ) ?>
                             </li>
                         </ul>
                         <form class="navbar-form navbar-right">
