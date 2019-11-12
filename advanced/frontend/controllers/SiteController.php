@@ -101,7 +101,7 @@ class SiteController extends Controller
         $cities = UserCity::find()
             //->where(['status' => Cities::STATUS_ACTIVE])
             //->andWhere('country_id=:id',[':id' => $id])
-            ->orderBy('city')
+            ->orderBy('city_name')
             ->all();
         $selectCity = '<option value="">Выберите город...</option>';
         foreach ($cities as $city) {
