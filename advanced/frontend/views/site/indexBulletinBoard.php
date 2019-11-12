@@ -22,12 +22,10 @@ $this->title = 'Сайт объявлений';
                         <ul class="nav navbar-nav navbar-left">
                             <li>
                                 <?php ActiveForm::begin(['class' => 'navbar-form navbar-left','id' => 'form-category', 'action' => Yii::$app->urlManager->createUrl('site/index')]); ?>
-                                <a href=/site/index?page="<?php echo ((($pagination->offset)/($pagination->limit)) + 1) ?>">
                                 <label class="control-label" for="ad-city">Город</label>
                                 <select id="ad-city" class="form-control" name="ad-city">
                                     <?php echo $selectCity; ?>
                                 </select>
-                                </a>
                                 <?php ActiveForm::end(); ?>
                             </li>
                             <li>
@@ -106,15 +104,13 @@ $this->title = 'Сайт объявлений';
 
     <?php
 
-    $script = <<< JS
+$script = <<< JS    
 
    $(document).ready(function () { 
-        $("#ad-category").on('onchange', function (event) { 
+        $("#ad-category").on('change', function (event) { 
             alert("test");
-
-                  
-            return false;
-
+            
+            document.forms[form-category].submit();
         });
     });       
 
