@@ -105,7 +105,7 @@ class SiteController extends Controller
             ->all();
         $selectCity = '<option value="">Выберите город...</option>\n';
         foreach ($cities as $city) {
-            $selectCity .= '<option value="' . $city->id . '">' . $city->city_name . '</option>\n';
+            $selectCity .= '<option value="' . $city->id . '">' . $city->city_name . '</option>';
         }
 
         return $this->render('indexBulletinBoard', [
