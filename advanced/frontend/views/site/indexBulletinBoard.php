@@ -21,7 +21,7 @@ $this->title = 'Сайт объявлений';
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav navbar-left">
                             <li>
-                                <?php ActiveForm::begin(['id' => 'form-category', 'action' => Yii::$app->urlManager->createUrl('site/index')]); ?>
+                                <?php ActiveForm::begin(['class' => 'navbar-form navbar-left','id' => 'form-category', 'action' => Yii::$app->urlManager->createUrl('site/index')]); ?>
                                 <label class="control-label" for="ad-city">Город</label>
                                 <select id="ad-city" class="form-control" name="ad-city">
                                     <?php echo $selectCity; ?>
@@ -41,15 +41,18 @@ $this->title = 'Сайт объявлений';
                                     ['class' => 'btn btn-lg btn-primary']
                                 ) ?>
                             </li>
-
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li>
                                 <form class="navbar-form navbar-right">
                                     <div class="form-group">
                                         <input type="text" class="form-control" placeholder="Search">
                                     </div>
                                     <button type="submit" class="btn btn-default">Submit</button>
                                 </form>
-
+                            </li>
                         </ul>
+
                     </div><!-- /.navbar-collapse -->
 
                 </div><!-- /.container-fluid -->
