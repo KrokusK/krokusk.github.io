@@ -5,7 +5,7 @@ use yii\db\Migration;
 /**
  * Class m191112_044753_create_bulletin_board_tables
  */
-class m191105_044753_create_bulletin_board_tables extends Migration
+class m191112_044753_create_bulletin_board_tables extends Migration
 {
     /**
      * {@inheritdoc}
@@ -21,7 +21,7 @@ class m191105_044753_create_bulletin_board_tables extends Migration
             'city_id' => $this->integer()->notNull(),
             'about' => $this->string()->notNull(),
             'phone' => $this->string()->notNull(),
-            'ad_id' => $this->integer()->notNull(),
+
         ]);
 
         // creates index for column user_id`
@@ -36,13 +36,6 @@ class m191105_044753_create_bulletin_board_tables extends Migration
             'idx-user-description-city-id',
             '{{%user_description}}',
             'city_id'
-        );
-
-        // creates index for column ad_id`
-        $this->createIndex(
-            'idx-user-description-ad-id',
-            '{{%user_description}}',
-            'ad_id'
         );
 
         // add foreign key for table `user`
@@ -73,6 +66,7 @@ class m191105_044753_create_bulletin_board_tables extends Migration
         // create User ad table
         $this->createTable('{{%user_ad}}', [
             'id' => $this->primaryKey(),
+            'user_desc_id' => $this->integer()->notNull(),
             'status_id' => $this->smallInteger()->notNull(),
             'created_at' => $this->integer()->notNull(),
             'updated_at' => $this->integer()->notNull(),
@@ -81,8 +75,15 @@ class m191105_044753_create_bulletin_board_tables extends Migration
             'city_id' => $this->integer()->notNull(),
             'amount' => $this->float()->notNull(),
             'category_id' => $this->smallInteger()->notNull(),
-            'photo_id' => $this->integer()->notNull(),
+
         ]);
+
+        // creates index for column user_desc_id`
+        $this->createIndex(
+            'idx-user-ad-user-desc-id',
+            '{{%user_ad}}',
+            'user_desc_id'
+        );
 
         // creates index for column status_id`
         $this->createIndex(
@@ -105,19 +106,12 @@ class m191105_044753_create_bulletin_board_tables extends Migration
             'status_id'
         );
 
-        // creates index for column photo_id`
-        $this->createIndex(
-            'idx-user-ad-photo-id',
-            '{{%user_ad}}',
-            'photo_id'
-        );
-
         // add foreign key for table `user_ad`
         $this->addForeignKey(
-            'fk-user-description-ad-id',
-            '{{%user_description}}',
-            'ad_id',
+            'fk-user-ad-user_desc-id',
             '{{%user_ad}}',
+            'user_desc_id',
+            '{{%user_description}}',
             'id',
             'CASCADE'
         );
@@ -167,17 +161,25 @@ class m191105_044753_create_bulletin_board_tables extends Migration
         // create Photo ad table
         $this->createTable('{{%photo_ad}}', [
             'id' => $this->primaryKey(),
+            'ad_id' => $this->integer()->notNull(),
             'created_at' => $this->integer()->notNull(),
             'updated_at' => $this->integer()->notNull(),
             'photo_path' => $this->string()->notNull(),
         ]);
 
+        // creates index for column ad_id`
+        $this->createIndex(
+            'idx-photo-ad-ad-id',
+            '{{%photo_ad}}',
+            'ad_id'
+        );
+
         // add foreign key for table `ad_photo`
         $this->addForeignKey(
-            'fk-user-ad-photo-id',
-            '{{%user_ad}}',
-            'photo_id',
+            'fk-photo-ad-ad-id',
             '{{%photo_ad}}',
+            'ad_id',
+            '{{%user_ad}}',
             'id',
             'CASCADE'
         );
@@ -190,8 +192,14 @@ class m191105_044753_create_bulletin_board_tables extends Migration
     {
         // drops foreign key for table `ad_photo`
         $this->dropForeignKey(
-            'fk-user-ad-photo-id',
-            '{{%user_ad}}'
+            'fk-photo-ad-ad-id',
+            '{{%photo_ad}}'
+        );
+
+        // drops index for column `ad_id`
+        $this->dropIndex(
+            'idx-photo-ad-ad-id',
+            '{{%photo_ad}}'
         );
 
         // drops table `Photo_ad`
@@ -223,13 +231,13 @@ class m191105_044753_create_bulletin_board_tables extends Migration
 
         // drops foreign key for table `user_ad`
         $this->dropForeignKey(
-            'fk-user-description-ad-id',
-            '{{%user_description}}'
+            'fk-user-ad-user-desc-id',
+            '{{%user_ad}}'
         );
 
-        // drops index for column `photo_id`
+        // drops index for column `user_desc_id`
         $this->dropIndex(
-            'idx-user-ad-photo-id',
+            'idx-user-ad-user-desc-id',
             '{{%user_ad}}'
         );
 
@@ -266,12 +274,6 @@ class m191105_044753_create_bulletin_board_tables extends Migration
         // drops foreign key for table `user`
         $this->dropForeignKey(
             'fk-user-description-user-id',
-            '{{%user_description}}'
-        );
-
-        // drops index for column `ad_id`
-        $this->dropIndex(
-            'idx-user-description-ad-id',
             '{{%user_description}}'
         );
 
