@@ -17,6 +17,7 @@ $this->title = 'Сайт объявлений';
             <nav class="navbar navbar-default">
                 <div class="container-fluid">
                     <!-- Collect the nav links, forms, and other content for toggling -->
+                    <?php ActiveForm::begin(['id' => 'form-category', 'action' => Yii::$app->urlManager->createUrl('site/index')]); ?>
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav navbar-left">
                             <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
@@ -34,19 +35,18 @@ $this->title = 'Сайт объявлений';
                                 </ul>
                             </li>
                             <li>
-                                <?php ActiveForm::begin(['id' => 'form-category', 'action' => Yii::$app->urlManager->createUrl('site/index')]); ?>
                                 <div class="form-group">
                                     <label class="control-label" for="ad-city">Город</label>
                                     <select id="ad-city" class="form-control" name="ArrayCity[city]">
                                         <?php echo $selectCity; ?>
                                     </select>
-
+                            </li>
+                            <li>
                                     <label class="control-label" for="ad-city">Категория</label>
                                     <select id="ad-city" class="form-control" name="ArrayCity[city]">
                                         <?php echo $selectCategory; ?>
                                     </select>
                                 </div>
-                                <?php ActiveForm::end(); ?>
                             </li>
                             <li>
                                 <?= Html::a(
@@ -63,6 +63,7 @@ $this->title = 'Сайт объявлений';
                             <button type="submit" class="btn btn-default">Submit</button>
                         </form>
                     </div><!-- /.navbar-collapse -->
+                    <?php ActiveForm::end(); ?>
                 </div><!-- /.container-fluid -->
             </nav>
         </div>
