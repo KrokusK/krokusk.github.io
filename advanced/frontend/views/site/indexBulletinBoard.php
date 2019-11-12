@@ -100,7 +100,27 @@ $this->title = 'Сайт объявлений';
         </div>
     </div>
 
+
+
     <?php Pjax::end(); ?>
 
+    <?php
+
+    $script = <<< JS
+
+   $(document).ready(function () { 
+        $("#ad-category").on('onchange', function (event) { 
+            alert("test");
+
+                  
+            return false;
+
+        });
+    });       
+
+JS;
+    $this->registerJs($script);
+
+    ?>
 
 </div>
