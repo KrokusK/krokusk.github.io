@@ -33,12 +33,9 @@ $this->title = 'Сайт объявлений';
                                 </ul>
                             </li>
                             <li>
-                                <label class="control-label" for="record-status">Статус записи</label>
+                                <label class="control-label" for="record-status">Город</label>
                                 <select id="record-status" class="form-control" name="Record[status]">
-                                    <option value="">Выберите статус...</option>
-                                    <option value="0">Активный</option>
-                                    <option value="1">Отключен</option>
-                                    <option value="2">Удален</option>
+                                    <?= Html::encode("{$selectCity}") ?>
                                 </select>
                             </li>
                             <li>

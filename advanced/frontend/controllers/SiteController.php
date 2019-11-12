@@ -22,6 +22,7 @@ use frontend\models\ContactForm;
 use frontend\models\EntryForm;
 use frontend\models\UserShow;
 use frontend\models\UserAd;
+use frontend\models\UserCity;
 
 
 /**
@@ -97,12 +98,19 @@ class SiteController extends Controller
             ->with('adPhotos')
             ->all();
 
-        //$temp = UserAd::find()
-        //    ->with('adPhotos')
-        //    ->all();
+        $cities = UserCity::find()
+            //->where(['status' => Cities::STATUS_ACTIVE])
+            //->andWhere('country_id=:id',[':id' => $id])
+            ->orderBy('city')
+            ->all();
+        $selectCity = '<option value="">Выберите город...</option>';
+        foreach ($cities as $city) {
+            $selectCity .= '<option value="' . $city->id . '">' . $city->city_name . '</option>';
+        }
 
         return $this->render('indexBulletinBoard', [
             'userAds' => $userAds,
+            'selectCity' =>  $selectCity,
             'pagination' => $pagination,
         ]);
     }
