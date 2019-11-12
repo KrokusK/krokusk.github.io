@@ -35,7 +35,7 @@ $this->title = 'Сайт объявлений';
                             <li>
                                 <label class="control-label" for="ad-city">Город</label>
                                 <select id="ad-city" class="form-control" name="ArrayCity[city]">
-                                    <?= echo $selectCity ?>
+                                    <?php echo $selectCity; ?>
                                 </select>
                             </li>
                             <li>
