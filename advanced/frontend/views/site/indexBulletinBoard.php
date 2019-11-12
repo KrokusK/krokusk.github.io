@@ -83,7 +83,7 @@ $this->title = 'Сайт объявлений';
             <ul>
                 <?php foreach ($userAds as $userAd): ?>
                     <li>
-                        <?= Html::encode("{$pagination->limit}") ?>
+                        <?= Html::encode("{($pagination->offset/$pagination->limit) + 1}") ?>
 
                         <?= Html::encode(var_dump($userAd->adPhotos[0]["photo_path"])) ?>
                         <?= Html::encode(var_dump($userAd->header)) ?>
