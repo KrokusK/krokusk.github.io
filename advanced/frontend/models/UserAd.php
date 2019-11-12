@@ -20,11 +20,11 @@ class UserAd extends \yii\db\ActiveRecord
 
     /**
      *
-     * Link to table User_ad
+     * Link to table User_description
      */
     public function getUserDescs()
     {
-        return $this->hasOne(UserDesc::className(), ['ad_id' => 'id']);
+        return $this->hasOne(UserDesc::className(), ['id' => 'user_desc_id']);
     }
 
     /**
@@ -60,6 +60,6 @@ class UserAd extends \yii\db\ActiveRecord
      */
     public function getAdPhotos()
     {
-        return $this->hasMany(PhotoAd::className(), ['id' => 'photo_id']);
+        return $this->hasMany(PhotoAd::className(), ['ad_id' => 'id']);
     }
 }
