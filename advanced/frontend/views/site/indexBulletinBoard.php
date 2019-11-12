@@ -22,10 +22,12 @@ $this->title = 'Сайт объявлений';
                         <ul class="nav navbar-nav navbar-left">
                             <li>
                                 <?php ActiveForm::begin(['class' => 'navbar-form navbar-left','id' => 'form-category', 'action' => Yii::$app->urlManager->createUrl('site/index')]); ?>
+                                <a href=/site/index?page="<?php Html::encode((($pagination->offset)/($pagination->limit)) + 1) ?>">
                                 <label class="control-label" for="ad-city">Город</label>
                                 <select id="ad-city" class="form-control" name="ad-city">
                                     <?php echo $selectCity; ?>
                                 </select>
+                                </a>
                                 <?php ActiveForm::end(); ?>
                             </li>
                             <li>
