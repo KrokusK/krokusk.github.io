@@ -39,6 +39,12 @@ $this->title = 'Сайт объявлений';
                                 </select>
                             </li>
                             <li>
+                                <label class="control-label" for="ad-city">Город</label>
+                                <select id="ad-city" class="form-control" name="ArrayCity[city]">
+                                    <?php echo $selectCategory; ?>
+                                </select>
+                            </li>
+                            <li>
                                 <?= Html::a(
                                     'Случайная строка',
                                     ['/site/index?page='.((($pagination->offset)/($pagination->limit)) + 1)],

@@ -1,6 +1,7 @@
 <?php
 namespace frontend\controllers;
 
+use frontend\models\AdCategory;
 use Yii;
 use yii\base\InvalidArgumentException;
 use yii\web\BadRequestHttpException;
@@ -23,6 +24,7 @@ use frontend\models\EntryForm;
 use frontend\models\UserShow;
 use frontend\models\UserAd;
 use frontend\models\UserCity;
+use frontend\models\AdCategory;
 
 
 /**
@@ -108,9 +110,18 @@ class SiteController extends Controller
             $selectCity .= '<option value="' . $city->id . '">' . $city->city_name . '</option>';
         }
 
+        $categories = AdCategory::find()
+            ->orderBy('name')
+            ->all();
+        $category = '<option value="">Выберите категорию...</option>\n';
+        foreach ($categories as $category) {
+            $category .= '<option value="' . $category->id . '">' . $category->name . '</option>';
+        }
+
         return $this->render('indexBulletinBoard', [
             'userAds' => $userAds,
             'selectCity' =>  $selectCity,
+            'selectCategory' => $category,
             'pagination' => $pagination,
         ]);
     }
