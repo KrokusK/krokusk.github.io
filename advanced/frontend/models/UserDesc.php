@@ -44,6 +44,6 @@ class UserDesc extends \yii\db\ActiveRecord
      */
     public function getUserAds()
     {
-        return $this->hasOne(User_ad::className(), ['id' => 'ad_id']);
+        return $this->hasMany(User_ad::className(), ['user_desc_id' => 'id']);
     }
 }
