@@ -38,8 +38,7 @@ $this->title = 'Сайт объявлений';
                                 <?= Html::a(
                                     'Случайная строка',
                                     ['/site/index?page='.((($pagination->offset)/($pagination->limit)) + 1)],
-                                    ['id' => 'ad-test'],
-                                    ['class' => 'btn btn-lg btn-primary']
+                                    ['class' => 'btn btn-lg btn-primary', 'id' => 'ad-test']
                                 ) ?>
                             </li>
                         </ul>
