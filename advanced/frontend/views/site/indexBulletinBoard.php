@@ -33,8 +33,8 @@ $this->title = 'Сайт объявлений';
                                 </ul>
                             </li>
                             <li>
-                                <label class="control-label" for="record-status">Город</label>
-                                <select id="record-status" class="form-control" name="Record[status]">
+                                <label class="control-label" for="ad-city">Город</label>
+                                <select id="ad-city" class="form-control" name="ArrayCity[city]">
                                     <?= Html::encode("{$selectCity}") ?>
                                 </select>
                             </li>
