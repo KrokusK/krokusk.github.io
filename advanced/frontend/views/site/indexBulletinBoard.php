@@ -1,12 +1,15 @@
 <?php
 use yii\helpers\Html;
 use yii\widgets\LinkPager;
+use yii\widgets\Pjax;
 
 /* @var $this yii\web\View */
 
 $this->title = 'Сайт объявлений';
 ?>
 <div class="site-index">
+
+    <?php Pjax::begin(); ?>
 
     <div class="container">
         <div class="row">
@@ -28,6 +31,24 @@ $this->title = 'Сайт объявлений';
                                     <li role="separator" class="divider"></li>
                                     <li><a href="#">One more separated link</a></li>
                                 </ul>
+                            </li>
+                            <li>
+                                <select class="form-control" id="dashboard-city">
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                </select>
+                            </li>
+                            <li>
+                                <label class="control-label" for="record-status">Статус записи</label>
+                                <select id="record-status" class="form-control" name="Record[status]">
+                                    <option value="">Выберите статус...</option>
+                                    <option value="0">Активный</option>
+                                    <option value="1">Отключен</option>
+                                    <option value="2">Удален</option>
+                                </select>
                             </li>
                         </ul>
                         <form class="navbar-form navbar-right">
@@ -80,7 +101,7 @@ $this->title = 'Сайт объявлений';
         </div>
     </div>
 
-
+    <?php Pjax::end(); ?>
 
 
 </div>
