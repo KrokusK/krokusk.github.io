@@ -112,15 +112,15 @@ class SiteController extends Controller
         $categories = AdCategory::find()
             ->orderBy('name')
             ->all();
-        $category = '<option value="">Выберите категорию...</option>\n';
+        $selectCategory = '<option value="">Выберите категорию...</option>\n';
         foreach ($categories as $category) {
-            $category .= '<option value="' . $category->id . '">' . $category->name . '</option>';
+            $selectCategory .= '<option value="' . $category->id . '">' . $category->name . '</option>';
         }
 
         return $this->render('indexBulletinBoard', [
             'userAds' => $userAds,
             'selectCity' =>  $selectCity,
-            'selectCategory' => $category,
+            'selectCategory' => $selectCategory,
             'pagination' => $pagination,
         ]);
     }
