@@ -34,13 +34,12 @@ $this->title = 'Сайт объявлений';
                                 </ul>
                             </li>
                             <li>
+                                <?php ActiveForm::begin(['id' => 'form-category', 'action' => Yii::$app->urlManager->createUrl('site/index')]); ?>
                                 <label class="control-label" for="ad-city">Город</label>
                                 <select id="ad-city" class="form-control" name="ArrayCity[city]">
                                     <?php echo $selectCity; ?>
                                 </select>
-                            </li>
-                            <li>
-                                <?php ActiveForm::begin(['id' => 'form-category', 'action' => Yii::$app->urlManager->createUrl('site/index')]); ?>
+                                
                                 <label class="control-label" for="ad-city">Категория</label>
                                 <select id="ad-city" class="form-control" name="ArrayCity[city]">
                                     <?php echo $selectCategory; ?>
