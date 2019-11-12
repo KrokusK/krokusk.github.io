@@ -1,5 +1,6 @@
 <?php
 use yii\helpers\Html;
+use yii\widgets\ActiveForm;
 use yii\widgets\LinkPager;
 use yii\widgets\Pjax;
 
@@ -39,10 +40,12 @@ $this->title = 'Сайт объявлений';
                                 </select>
                             </li>
                             <li>
+                                <?php ActiveForm::begin(['id' => 'form-category', 'action' => Yii::$app->urlManager->createUrl('site/index')]); ?>
                                 <label class="control-label" for="ad-city">Категория</label>
                                 <select id="ad-city" class="form-control" name="ArrayCity[city]">
                                     <?php echo $selectCategory; ?>
                                 </select>
+                                <?= Html::endForm(); ?>
                             </li>
                             <li>
                                 <?= Html::a(
