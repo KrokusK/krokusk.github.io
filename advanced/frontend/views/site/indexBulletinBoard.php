@@ -38,6 +38,7 @@ $this->title = 'Сайт объявлений';
                                 <?= Html::a(
                                     'Случайная строка',
                                     ['/site/index?page='.((($pagination->offset)/($pagination->limit)) + 1)],
+                                    ['id' => 'ad-test'],
                                     ['class' => 'btn btn-lg btn-primary']
                                 ) ?>
                             </li>
@@ -108,7 +109,8 @@ $script = <<< JS
         $("#ad-city").on('change', function (event) { 
             alert("test");
             
-            this.form.submit();
+           //this.form.submit();
+           $('#ad-test').click();
         });
     });       
 
