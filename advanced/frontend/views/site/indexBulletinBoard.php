@@ -45,7 +45,7 @@ $this->title = 'Сайт объявлений';
                                 <select id="ad-city" class="form-control" name="ArrayCity[city]">
                                     <?php echo $selectCategory; ?>
                                 </select>
-                                <?= Html::endForm(); ?>
+                                <?php ActiveForm::end(); ?>
                             </li>
                             <li>
                                 <?= Html::a(
