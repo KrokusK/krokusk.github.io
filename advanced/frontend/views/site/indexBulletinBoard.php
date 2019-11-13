@@ -36,22 +36,15 @@ $this->title = 'Сайт объявлений';
                                 </select>
                                 <?php ActiveForm::end(); ?>
                             </li>
-                            <li>
-                                <?= Html::a(
-                                    'Случайная строка',
-                                    ['/site/index?page='.((($pagination->offset)/($pagination->limit)) + 1)],
-                                    ['class' => 'btn btn-lg btn-primary', 'id' => 'ad-test']
-                                ) ?>
-                            </li>
                         </ul>
                         <ul class="nav navbar-nav navbar-right">
                             <li>
-                                <form class="navbar-form navbar-right">
+                                <?php ActiveForm::begin(['class' => 'navbar-form navbar-right','id' => 'form-search', 'action' => Yii::$app->urlManager->createUrl('site/index')]); ?>
                                     <div class="form-group">
                                         <input type="text" class="form-control" placeholder="Search">
                                     </div>
                                     <button type="submit" class="btn btn-default">Submit</button>
-                                </form>
+                                <?php ActiveForm::end(); ?>
                             </li>
                         </ul>
 
