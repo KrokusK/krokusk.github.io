@@ -110,7 +110,7 @@ $script = <<< JS
         $("#ad-city").on('change', function (event) {
            var action = $('#form-city').attr('action') + '?cit=' + $("#ad-city").val() + '&cat=' + $("#ad-category").val();
            alert(action);
-           $('#form-category').attr('action', action);
+           $('#form-city').attr('action', action);
             
            this.form.submit();
            //$('#ad-test').click();
