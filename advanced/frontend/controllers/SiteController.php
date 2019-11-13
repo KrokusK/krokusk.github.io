@@ -123,7 +123,11 @@ class SiteController extends Controller
             ->all();
         $selectCity = '<option value="">Выберите город...</option>\n';
         foreach ($cities as $city) {
-            $selectCity .= '<option value="' . $city->id . '">' . $city->city_name . '</option>';
+            if ($cit == $city->id) {
+                $selectCity .= '<option value="' . $city->id . '" selected>' . $city->city_name . '</option>';
+            } else {
+                $selectCity .= '<option value="' . $city->id . '">' . $city->city_name . '</option>';
+            }
         }
 
         $categories = AdCategory::find()
@@ -131,7 +135,11 @@ class SiteController extends Controller
             ->all();
         $selectCategory = '<option value="">Выберите категорию...</option>\n';
         foreach ($categories as $category) {
-            $selectCategory .= '<option value="' . $category->id . '">' . $category->name . '</option>';
+            if ($cat == $category->id) {
+                $selectCategory .= '<option value="' . $category->id . '" selected>' . $category->name . '</option>';
+            } else {
+                $selectCategory .= '<option value="' . $category->id . '">' . $category->name . '</option>';
+            }
         }
 
         return $this->render('indexBulletinBoard', [
