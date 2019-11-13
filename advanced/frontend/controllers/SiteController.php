@@ -85,16 +85,7 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        //$cit = Yii::$app->request->get('cit');
-        //$cat = Yii::$app->request->get('cat');
-        //$ser = Yii::$app->request->get('ser');
-
-        //if(!preg_match("/^[a-zA-Z0-9 .\/]*$/",$field)) {
-        // $fielderror = "Field can only contain a-z A-Z 0-9 . /";
-        //}
-
-        //$value = isset($array['foo']['bar']->name) ? $array['foo']['bar']->name : null;
-
+        // check input parametrs for GET method
         $cit = (!preg_match("/^[0-9]*$/",Yii::$app->request->get('cit'))) ? Yii::$app->request->get('cit') : null;
         $cat = (!preg_match("/^[0-9]*$/",Yii::$app->request->get('cat'))) ? Yii::$app->request->get('cat') : null;
         $ser = (!preg_match("/^[a-zA-Z0-9]*$/",Yii::$app->request->get('ser'))) ? Yii::$app->request->get('ser') : null;
