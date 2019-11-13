@@ -88,8 +88,6 @@ class SiteController extends Controller
         $cit = Yii::$app->request->get('cit');
         $cat = Yii::$app->request->get('cat');
 
-
-
         if(!empty($cit) && empty($cat)) {
             $query = UserAd::find()
                 ->where('city_id=:cit',[':cit' => $cit]);
@@ -111,43 +109,12 @@ class SiteController extends Controller
             'totalCount' => $query->count(),
         ]);
 
-
-
-        if(!empty($cit) && empty($cat)) {
-            $userAds = $query->orderBy('header')
-                ->offset($pagination->offset)
-                ->limit($pagination->limit)
-                ->where('city_id=:cit',[':cit' => $cit])
-                //->leftJoin('photo_ad', '"user_ad"."id" = "photo_ad"."ad_id"')
-                ->with('adPhotos')
-                ->all();
-        }
-        else if(empty($cit) && !empty($cat)) {
-            $userAds = $query->orderBy('header')
-                ->offset($pagination->offset)
-                ->limit($pagination->limit)
-                ->where('category_id=:cat',[':cat' => $cat])
-                //->leftJoin('photo_ad', '"user_ad"."id" = "photo_ad"."ad_id"')
-                ->with('adPhotos')
-                ->all();
-        }
-        else if(!empty($cit) && !empty($cat)) {
-            $userAds = $query->orderBy('header')
-                ->offset($pagination->offset)
-                ->limit($pagination->limit)
-                ->where('city_id=:cit',[':cit' => $cit])
-                ->andWhere('category_id=:cat',[':cat' => $cat])
-                //->leftJoin('photo_ad', '"user_ad"."id" = "photo_ad"."ad_id"')
-                ->with('adPhotos')
-                ->all();
-        } else {
-            $userAds = $query->orderBy('header')
-                ->offset($pagination->offset)
-                ->limit($pagination->limit)
-                //->leftJoin('photo_ad', '"user_ad"."id" = "photo_ad"."ad_id"')
-                ->with('adPhotos')
-                ->all();
-        }
+        $userAds = $query->orderBy('header')
+            ->offset($pagination->offset)
+            ->limit($pagination->limit)
+            //->leftJoin('photo_ad', '"user_ad"."id" = "photo_ad"."ad_id"')
+            ->with('adPhotos')
+            ->all();
 
         $cities = UserCity::find()
             //->where(['status' => Cities::STATUS_ACTIVE])
