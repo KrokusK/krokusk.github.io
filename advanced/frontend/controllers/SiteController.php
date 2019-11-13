@@ -85,15 +85,33 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        $query = UserAd::find();
+        $cit = Yii::$app->request->get('cit');
+        $cat = Yii::$app->request->get('cat');
+
+
+
+        if(!empty($cit) && empty($cat)) {
+            $query = UserAd::find()
+                ->where('city_id=:cit',[':cit' => $cit]);
+        }
+        else if(empty($cit) && !empty($cat)) {
+            $query = UserAd::find()
+                ->where('category_id=:cat',[':cat' => $cat]);
+        }
+        else if(!empty($cit) && !empty($cat)) {
+            $query = UserAd::find()
+                ->where('city_id=:cit',[':cit' => $cit])
+                ->andWhere('category_id=:cat',[':cat' => $cat]);
+        } else {
+            $query = UserAd::find();
+        }
 
         $pagination = new Pagination([
             'defaultPageSize' => 6,
             'totalCount' => $query->count(),
         ]);
 
-        $cit = Yii::$app->request->get('cit');
-        $cat = Yii::$app->request->get('cat');
+
 
         if(!empty($cit) && empty($cat)) {
             $userAds = $query->orderBy('header')
