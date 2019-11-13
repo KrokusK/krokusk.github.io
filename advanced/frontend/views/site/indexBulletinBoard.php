@@ -108,7 +108,7 @@ $this->title = 'Сайт объявлений';
 $script = <<< JS
    $(document).ready(function () { 
         $("#ad-city").on('change', function (event) {
-           var action = $('#form-city').attr('action') + '?cit=' + $("#ad-city").val() + '?cat=' + $("#ad-category").val();
+           var action = $('#form-city').attr('action') + '?cit=' + $("#ad-city").val() + '&cat=' + $("#ad-category").val();
            alert(action);
            $('#form-category').attr('action', action);
             
@@ -117,7 +117,7 @@ $script = <<< JS
         });
         
         $("#ad-category").on('change', function (event) { 
-           var action = $('#form-category').attr('action') + '?cit=' + $("#ad-city").val() + '?cat=' + $("#ad-category").val();
+           var action = $('#form-category').attr('action') + '?cit=' + $("#ad-city").val() + '&cat=' + $("#ad-category").val();
            alert(action);
            $('#form-category').attr('action', action);
             
