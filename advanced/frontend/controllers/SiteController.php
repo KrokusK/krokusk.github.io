@@ -87,7 +87,7 @@ class SiteController extends Controller
     {
         $cit = Yii::$app->request->get('cit');
         $cat = Yii::$app->request->get('cat');
-        $cat = Yii::$app->request->get('ser');
+        $ser = Yii::$app->request->get('ser');
 
         if(!empty($cit) && empty($cat)) {
             $query = UserAd::find()
