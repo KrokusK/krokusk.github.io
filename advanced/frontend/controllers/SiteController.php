@@ -87,6 +87,7 @@ class SiteController extends Controller
     {
         $cit = Yii::$app->request->get('cit');
         $cat = Yii::$app->request->get('cat');
+        $cat = Yii::$app->request->get('ser');
 
         if(!empty($cit) && empty($cat)) {
             $query = UserAd::find()
@@ -101,7 +102,14 @@ class SiteController extends Controller
                 ->where('city_id=:cit',[':cit' => $cit])
                 ->andWhere('category_id=:cat',[':cat' => $cat]);
         } else {
-            $query = UserAd::find();
+            if(!empty($ser)) {
+                $query = UserAd::find()
+                    ->where('header=:ser',[':ser' => $ser])
+                    ->orWhere('content=:ser',[':ser' => $ser]);
+
+            } else {
+                $query = UserAd::find();
+            }
         }
 
         $pagination = new Pagination([
