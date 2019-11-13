@@ -92,6 +92,9 @@ class SiteController extends Controller
             'totalCount' => $query->count(),
         ]);
 
+        $cit = $request->get('cit');
+        $cat = $request->get('cat');
+
         if(!empty($cit) && empty($cat)) {
 
         }
