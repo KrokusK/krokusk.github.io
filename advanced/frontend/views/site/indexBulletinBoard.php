@@ -107,15 +107,17 @@ $this->title = 'Сайт объявлений';
 <?php
 $script = <<< JS
    $(document).ready(function () { 
-        $("#ad-city").on('change', function (event) { 
-            //alert("test");
+        $("#ad-city").on('change', function (event) {
+           var action = $('#form-city').attr('action') + '?cit=' + $("#ad-city").val() + '?cat=' + $("#ad-category").val();
+           alert(action);
+           $('#form-category').attr('action', action);
             
            this.form.submit();
            //$('#ad-test').click();
         });
         
         $("#ad-category").on('change', function (event) { 
-           var action = $('#form-category').attr('action') + '?cat=' + $("#ad-category").val();
+           var action = $('#form-category').attr('action') + '?cit=' + $("#ad-city").val() + '?cat=' + $("#ad-category").val();
            alert(action);
            $('#form-category').attr('action', action);
             
