@@ -104,9 +104,8 @@ class SiteController extends Controller
         } else {
             if(!empty($ser)) {
                 $query = UserAd::find()
-                    ->where(['like', 'header', $ser])
-                    ->orWhere(['like', 'content', $ser]);
-
+                    ->where(['like', 'LOWER(header)', strtolower($ser)])
+                    ->orWhere(['like', 'LOWER(content)', strtolower($ser)]);
             } else {
                 $query = UserAd::find();
             }
