@@ -115,7 +115,9 @@ $script = <<< JS
         });
         
         $("#ad-category").on('change', function (event) { 
-            //alert($('#ad-test'));
+           var action = $('#form-category').attr('action') + '?cat=' + $("#ad-category").val();
+           alert(action);
+           $('#form-category').attr('action', action);
             
            this.form.submit();
            //$('#ad-test').click();
