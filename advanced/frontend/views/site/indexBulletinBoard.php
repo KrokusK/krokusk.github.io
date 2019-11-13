@@ -113,6 +113,13 @@ $script = <<< JS
            this.form.submit();
            //$('#ad-test').click();
         });
+        
+        $("#ad-category").on('change', function (event) { 
+            //alert($('#ad-test'));
+            
+           this.form.submit();
+           //$('#ad-test').click();
+        });
     });       
 
 JS;
