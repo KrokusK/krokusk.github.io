@@ -10,7 +10,7 @@ $this->title = 'Сайт объявлений';
 ?>
 <div class="site-index">
 
-    <?php Pjax::begin(); ?>
+    <?php //Pjax::begin(); ?>
 
     <div class="container">
         <div class="row">
@@ -29,10 +29,12 @@ $this->title = 'Сайт объявлений';
                                 <?php ActiveForm::end(); ?>
                             </li>
                             <li>
-                                <label class="control-label" for="ad-city">Категория</label>
+                                <?php ActiveForm::begin(['class' => 'navbar-form navbar-left','id' => 'form-category', 'action' => Yii::$app->urlManager->createUrl('site/index')]); ?>
+                                <label class="control-label" for="ad-category">Категория</label>
                                 <select id="ad-category" class="form-control" name="ad-category">
                                     <?php echo $selectCategory; ?>
                                 </select>
+                                <?php ActiveForm::end(); ?>
                             </li>
                             <li>
                                 <?= Html::a(
@@ -100,16 +102,16 @@ $this->title = 'Сайт объявлений';
 
 
 
-    <?php Pjax::end(); ?>
+    <?php //Pjax::end(); ?>
 
 <?php
 $script = <<< JS
    $(document).ready(function () { 
         $("#ad-city").on('change', function (event) { 
-            alert("test");
+            //alert("test");
             
-           //this.form.submit();
-           $('#ad-test').click();
+           this.form.submit();
+           //$('#ad-test').click();
         });
     });       
 
