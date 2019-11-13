@@ -92,8 +92,8 @@ class SiteController extends Controller
             'totalCount' => $query->count(),
         ]);
 
-        $cit = $request->get('cit');
-        $cat = $request->get('cat');
+        $cit = Yii::$app->request->get('cit');
+        $cat = Yii::$app->request->get('cat');
 
         if(!empty($cit) && empty($cat)) {
 
