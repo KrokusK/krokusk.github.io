@@ -96,13 +96,32 @@ class SiteController extends Controller
         $cat = Yii::$app->request->get('cat');
 
         if(!empty($cit) && empty($cat)) {
-
+            $userAds = $query->orderBy('header')
+                ->offset($pagination->offset)
+                ->limit($pagination->limit)
+                ->where('city_id=:cit',[':cit' => $cit])
+                //->leftJoin('photo_ad', '"user_ad"."id" = "photo_ad"."ad_id"')
+                ->with('adPhotos')
+                ->all();
         }
         else if(empty($cit) && !empty($cat)) {
-
+            $userAds = $query->orderBy('header')
+                ->offset($pagination->offset)
+                ->limit($pagination->limit)
+                ->where('category_id=:cat',[':cat' => $cat])
+                //->leftJoin('photo_ad', '"user_ad"."id" = "photo_ad"."ad_id"')
+                ->with('adPhotos')
+                ->all();
         }
         else if(!empty($cit) && !empty($cat)) {
-
+            $userAds = $query->orderBy('header')
+                ->offset($pagination->offset)
+                ->limit($pagination->limit)
+                ->where('city_id=:cit',[':cit' => $cit])
+                ->andWhere('category_id=:cat',[':cat' => $cat])
+                //->leftJoin('photo_ad', '"user_ad"."id" = "photo_ad"."ad_id"')
+                ->with('adPhotos')
+                ->all();
         } else {
             $userAds = $query->orderBy('header')
                 ->offset($pagination->offset)
