@@ -40,10 +40,12 @@ $this->title = 'Сайт объявлений';
                         <ul class="nav navbar-nav navbar-right">
                             <li>
                                 <?php ActiveForm::begin(['class' => 'navbar-form navbar-right','id' => 'form-search', 'action' => Yii::$app->urlManager->createUrl('site/index')]); ?>
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Search">
-                                    </div>
-                                    <button type="submit" class="btn btn-default">Submit</button>
+                                    <table>
+                                        <tr>
+                                            <td><input type="text" class="form-control" placeholder="Search"></td>
+                                            <td><button type="submit" class="btn btn-default">Submit</button></td>
+                                        </tr>
+                                    </table>
                                 <?php ActiveForm::end(); ?>
                             </li>
                         </ul>
