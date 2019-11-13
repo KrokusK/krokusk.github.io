@@ -42,8 +42,8 @@ $this->title = 'Сайт объявлений';
                                 <?php ActiveForm::begin(['class' => 'navbar-form navbar-right','id' => 'form-search', 'action' => Yii::$app->urlManager->createUrl('site/index')]); ?>
                                     <table>
                                         <tr>
-                                            <td><input type="text" class="form-control" placeholder="Search"></td>
-                                            <td><button type="submit" class="btn btn-default">Submit</button></td>
+                                            <td><input type="text" class="form-control" placeholder="Search" id="in-search"></td>
+                                            <td><button type="submit" class="btn btn-default" id="btn-search">Submit</button></td>
                                         </tr>
                                     </table>
                                 <?php ActiveForm::end(); ?>
@@ -115,6 +115,15 @@ $script = <<< JS
            var action = $('#form-category').attr('action') + '?cit=' + $("#ad-city").val() + '&cat=' + $("#ad-category").val();
            alert(action);
            $('#form-category').attr('action', action);
+            
+           this.form.submit();
+           //$('#ad-test').click();
+        });
+        
+        $("#btn-search").on('click', function (event) { 
+           var action = $('#form-search').attr('action') + '?ser=' + $("#in-search").val();
+           alert(action);
+           $('#form-search').attr('action', action);
             
            this.form.submit();
            //$('#ad-test').click();
