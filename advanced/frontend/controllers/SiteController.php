@@ -92,12 +92,22 @@ class SiteController extends Controller
             'totalCount' => $query->count(),
         ]);
 
-        $userAds = $query->orderBy('header')
-            ->offset($pagination->offset)
-            ->limit($pagination->limit)
-            //->leftJoin('photo_ad', '"user_ad"."id" = "photo_ad"."ad_id"')
-            ->with('adPhotos')
-            ->all();
+        if(!empty($cit) && empty($cat)) {
+
+        }
+        else if(empty($cit) && !empty($cat)) {
+
+        }
+        else if(!empty($cit) && !empty($cat)) {
+
+        } else {
+            $userAds = $query->orderBy('header')
+                ->offset($pagination->offset)
+                ->limit($pagination->limit)
+                //->leftJoin('photo_ad', '"user_ad"."id" = "photo_ad"."ad_id"')
+                ->with('adPhotos')
+                ->all();
+        }
 
         $cities = UserCity::find()
             //->where(['status' => Cities::STATUS_ACTIVE])
