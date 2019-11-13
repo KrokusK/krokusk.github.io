@@ -75,20 +75,6 @@ $this->title = 'Сайт объявлений';
 
         </div>
         <div class="row">
-            <h1>Users</h1>
-            <ul>
-                <?php foreach ($userAds as $userAd): ?>
-                    <li>
-                        <?= Html::encode("/site/index?page=".((($pagination->offset)/($pagination->limit)) + 1)) ?>
-
-                        <?= Html::encode(var_dump($userAd->adPhotos[0]["photo_path"])) ?>
-                        <?= Html::encode(var_dump($userAd->header)) ?>
-                        <?= Html::encode(var_dump($userAd->created_at)) ?>
-                    </li>
-                <?php endforeach; ?>
-            </ul>
-        </div>
-        <div class="row">
             <div class="text-center">
                 <?= LinkPager::widget(['pagination' => $pagination]) ?>
             </div>
