@@ -104,7 +104,7 @@ $script = <<< JS
    $(document).ready(function () { 
         $("#ad-city").on('change', function (event) {
            var action = $('#form-city').attr('action') + '?cit=' + $("#ad-city").val() + '&cat=' + $("#ad-category").val();
-           alert(action);
+           //alert(action);
            $('#form-city').attr('action', action);
             
            this.form.submit();
@@ -113,7 +113,7 @@ $script = <<< JS
         
         $("#ad-category").on('change', function (event) { 
            var action = $('#form-category').attr('action') + '?cit=' + $("#ad-city").val() + '&cat=' + $("#ad-category").val();
-           alert(action);
+           //alert(action);
            $('#form-category').attr('action', action);
             
            this.form.submit();
@@ -122,7 +122,7 @@ $script = <<< JS
         
         $("#btn-search").on('click', function (event) { 
            var action = $('#form-search').attr('action') + '?ser=' + $("#in-search").val();
-           alert(action);
+           //alert(action);
            $('#form-search').attr('action', action);
             
            this.form.submit();
