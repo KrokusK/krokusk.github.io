@@ -357,7 +357,7 @@ class SiteController extends Controller
                 $this->redirect("/site/index");
             } else {
                 return $this->render('adById', [
-                    'userAds' => $userAd,
+                    'userAd' => $userAd,
                 ]);
             }
         } else {
