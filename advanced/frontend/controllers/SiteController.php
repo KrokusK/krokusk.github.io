@@ -347,7 +347,7 @@ class SiteController extends Controller
     {
         // check input parametrs for GET method
         $ad = (preg_match("/^[0-9]*$/",Yii::$app->request->get('ad'))) ? Yii::$app->request->get('ad') : null;
-        
+
         if(!empty($ad)) {
             $query = null;
             $query = UserAd::find($ad);
@@ -355,7 +355,13 @@ class SiteController extends Controller
             if(is_null($query)) {
                 $this->redirect("/site/index");
             } else {
+                $userAd = $query
+                    ->with('adPhotos')
+                    ->one();
 
+                return $this->render('indexBulletinBoard', [
+                    'userAds' => $userAd,
+                ]);
             }
         } else {
             $this->redirect("/site/index");
