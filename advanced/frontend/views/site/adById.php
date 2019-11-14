@@ -16,7 +16,7 @@ $this->title = 'Сайт объявлений';
         <div class="row">
 
 
-            <?php foreach ($userAds as $userAd): ?>
+
                 <div class="col-sm-6 col-md-4">
                     <div class="thumbnail">
                         <img src="" alt="Image">
@@ -28,7 +28,7 @@ $this->title = 'Сайт объявлений';
                         </div>
                     </div>
                 </div>
-            <?php endforeach; ?>
+            
 
 
         </div>
