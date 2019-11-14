@@ -349,16 +349,13 @@ class SiteController extends Controller
         $ad = (preg_match("/^[0-9]*$/",Yii::$app->request->get('ad'))) ? Yii::$app->request->get('ad') : null;
 
         if(!empty($ad)) {
-            $query = null;
-            $query = UserAd::find($ad);
+            $userAd = UserAd::find(['id' => (int)$ad])
+                ->with('adPhotos')
+                ->one();
 
-            if(is_null($query)) {
+            if(empty($userAd)) {
                 $this->redirect("/site/index");
             } else {
-                $userAd = $query
-                    ->with('adPhotos')
-                    ->one();
-
                 return $this->render('adById', [
                     'userAds' => $userAd,
                 ]);
