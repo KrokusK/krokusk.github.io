@@ -359,7 +359,7 @@ class SiteController extends Controller
                     ->with('adPhotos')
                     ->one();
 
-                return $this->render('ad-by-id', [
+                return $this->render('AdById', [
                     'userAds' => $userAd,
                 ]);
             }
