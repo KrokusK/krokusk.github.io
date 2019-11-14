@@ -343,7 +343,7 @@ class SiteController extends Controller
      *
      * @return mixed
      */
-    public function actionAdd()
+    public function actionAd()
     {
         // check input parametrs for GET method
         $ad = (preg_match("/^[0-9]*$/",Yii::$app->request->get('ad'))) ? Yii::$app->request->get('ad') : null;
@@ -359,7 +359,7 @@ class SiteController extends Controller
                     ->with('adPhotos')
                     ->one();
 
-                return $this->render('indexBulletinBoard', [
+                return $this->render('ad-by-id', [
                     'userAds' => $userAd,
                 ]);
             }
