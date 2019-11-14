@@ -358,6 +358,7 @@ class SiteController extends Controller
             } else {
                 return $this->render('adById', [
                     'userAd' => $userAd,
+                    'idAd' => (int)$ad,
                 ]);
             }
         } else {
