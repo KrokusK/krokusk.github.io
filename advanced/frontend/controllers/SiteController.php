@@ -346,19 +346,19 @@ class SiteController extends Controller
     public function actionAd()
     {
         // check input parametrs for GET method
-        $ad = (preg_match("/^[0-9]*$/",Yii::$app->request->get('ad'))) ? Yii::$app->request->get('ad') : null;
+        $adn = (preg_match("/^[0-9]*$/",Yii::$app->request->get('adn'))) ? Yii::$app->request->get('adn') : null;
 
-        if(!empty($ad)) {
-            $userAds = UserAd::find(['id' => (int)$ad])
+        if(!empty($adn)) {
+            $userAds = UserAd::find(['id' => (int)$adn])
                 //->with('adPhotos')
                 ->all();
 
-            if(empty($userAd)) {
+            if(empty($userAds)) {
                 $this->redirect("/site/index");
             } else {
                 return $this->render('adById', [
                     'userAd' => $userAds,
-                    'idAd' => (int)$ad,
+                    'idAd' => (int)$adn,
                 ]);
             }
         } else {
