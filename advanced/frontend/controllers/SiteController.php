@@ -347,11 +347,18 @@ class SiteController extends Controller
     {
         // check input parametrs for GET method
         $ad = (preg_match("/^[0-9]*$/",Yii::$app->request->get('ad'))) ? Yii::$app->request->get('ad') : null;
-
+        
         if(!empty($ad)) {
+            $query = null;
             $query = UserAd::find($ad);
+
+            if(is_null($query)) {
+                $this->redirect("/site/index");
+            } else {
+
+            }
         } else {
-            $this->redirect("site/index");
+            $this->redirect("/site/index");
         }
 
     }
