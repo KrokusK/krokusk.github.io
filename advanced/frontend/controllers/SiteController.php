@@ -189,7 +189,7 @@ class SiteController extends Controller
         ]);
     }
 
-    public function actionIndex_old()
+    public function actionIndex_old1()
     {
         //return $this->render('index');
 
@@ -336,6 +336,24 @@ class SiteController extends Controller
         Yii::$app->user->logout();
 
         return $this->goHome();
+    }
+
+    /**
+     * Displays Add-one Page.
+     *
+     * @return mixed
+     */
+    public function actionAdd()
+    {
+        // check input parametrs for GET method
+        $ad = (preg_match("/^[0-9]*$/",Yii::$app->request->get('ad'))) ? Yii::$app->request->get('ad') : null;
+
+        if(!empty($ad)) {
+            $query = UserAd::find($ad);
+        } else {
+            $this->redirect("site/index");
+        }
+
     }
 
     /**
