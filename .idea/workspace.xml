@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d97bdc22-9d4b-4578-b4be-b96d66aca924" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/advanced/frontend/views/site/AdById.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/advanced/frontend/controllers/SiteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/advanced/frontend/controllers/SiteController.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -23,7 +23,7 @@
   <component name="ProjectId" id="1SKOvz27B5adiUDik6cxRTvRHsy" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/advanced/console/migrations" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/advanced/frontend/views/site" />
     <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
   </component>
   <component name="RecentsManager">
@@ -76,7 +76,7 @@
       <workItem from="1573487907184" duration="227000" />
       <workItem from="1573528518628" duration="28783000" />
       <workItem from="1573611647891" duration="16837000" />
-      <workItem from="1573701430386" duration="6142000" />
+      <workItem from="1573701430386" duration="6489000" />
     </task>
     <servers />
   </component>
