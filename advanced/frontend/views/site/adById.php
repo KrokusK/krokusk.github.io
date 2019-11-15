@@ -19,6 +19,14 @@ $this->title = 'Сайт объявлений';
                 <tr>
                     <td>
                         <div class="thumbnail">
+                            
+                            <div class="caption">
+                                <h3><?= Html::encode("{$userAd->header}") ?></h3>
+                                <p>Цена: <?= Html::encode("{$userAd->amount}") ?></p>
+                                <p>Создано: <?= Html::encode(date('d.m.Y H:i:s', $userAd->created_at)) ?></p>
+                                <p><a href="#" class="btn btn-primary" role="button">Посмотреть</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                            </div>
+
                             <?php foreach ($userAd->adPhotos as $objPhoto): ?>
 
                                 <div class="col-sm-6 col-md-4">
@@ -26,12 +34,7 @@ $this->title = 'Сайт объявлений';
                                 </div>
 
                             <?php endforeach; ?>
-                            <div class="caption">
-                                <h3><?= Html::encode("{$userAd->header}") ?></h3>
-                                <p>Цена: <?= Html::encode("{$userAd->amount}") ?></p>
-                                <p>Создано: <?= Html::encode(date('d.m.Y H:i:s', $userAd->created_at)) ?></p>
-                                <p><a href="#" class="btn btn-primary" role="button">Посмотреть</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
-                            </div>
+
                         </div>
                     </td>
                     <td>
