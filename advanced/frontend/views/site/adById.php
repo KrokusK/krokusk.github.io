@@ -42,18 +42,7 @@ $this->title = 'Сайт объявлений';
                         </div>
                     </td>
                     <td>
-                        <div class="container">
-                            <div class="card-group">
-                                <div class="card img-fluid">
-                                    <img class="card-img-top" src="<?= Html::encode("{$objPhoto["photo_path"]}") ?>" alt="Card image" style="width:100%">
-                                    <div class="card-img-overlay">
-                                        <h5 class="card-title">FIRST CARD</h5>
-                                        <hr>
-                                        <p class="card-text">Tech virtual drone online browser platform through in a system. Document fab developers encryption smartphone powered, bespoke blockstack edit atoms.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+
                     </td>
                 </tr>
             </table>
@@ -63,6 +52,18 @@ $this->title = 'Сайт объявлений';
 
         </div>
 
+    </div>
+    <div class="container">
+        <div class="card-group">
+            <div class="card img-fluid">
+                <img class="card-img-top" src="<?= Html::encode("{$objPhoto["photo_path"]}") ?>" alt="Card image" style="width:10%">
+                <div class="card-img-overlay">
+                    <h5 class="card-title">FIRST CARD</h5>
+                    <hr>
+                    <p class="card-text">Tech virtual drone online browser platform through in a system. Document fab developers encryption smartphone powered, bespoke blockstack edit atoms.</p>
+                </div>
+            </div>
+        </div>
     </div>
 
 
