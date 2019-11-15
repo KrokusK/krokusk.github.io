@@ -63,6 +63,7 @@ $this->title = 'Сайт объявлений';
                     <div class="thumbnail">
                         <img src="" alt="Image">
                         <div class="caption">
+                            <p><?= echo var_dump($userAd); ?></p>
                             <h3><?= Html::encode("{$userAd->header}") ?></h3>
                             <p>Цена: <?= Html::encode("{$userAd->amount}") ?></p>
                             <p>Создано: <?= Html::encode(date('d.m.Y H:i:s', $userAd->created_at)) ?></p>
