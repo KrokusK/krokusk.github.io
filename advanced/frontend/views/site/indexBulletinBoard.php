@@ -58,10 +58,10 @@ $this->title = 'Сайт объявлений';
         <div class="row">
 
 
-            <?php foreach ($userAds as $userAd): ?>
+
                 <div class="col-sm-6 col-md-4">
                     <div class="thumbnail">
-                        <img src="<?= Html::encode("{$userAd->adPhotos[0]["photo_path"]}") ?>" alt="Image">
+                        <img src="" alt="Image">
                         <div class="caption">
                             <h3><?= Html::encode("{$userAd->header}") ?></h3>
                             <p>Цена: <?= Html::encode("{$userAd->amount}") ?></p>
@@ -70,7 +70,7 @@ $this->title = 'Сайт объявлений';
                         </div>
                     </div>
                 </div>
-            <?php endforeach; ?>
+
 
 
         </div>
