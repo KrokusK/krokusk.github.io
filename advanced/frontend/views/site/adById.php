@@ -12,8 +12,8 @@ $this->title = 'Сайт объявлений';
 
     <?php //Pjax::begin(); ?>
 
-    <div class="container">
-        <div class="row">
+    <div class="container align-top">
+        <div class="row align-top">
 
             <table style="height: 100px;">
                 <tbody>
@@ -58,7 +58,7 @@ $this->title = 'Сайт объявлений';
             </table>
 
         </div>
-        <div class="row">
+        <div class="row align-top">
             <table style="height: 100px;">
                 <tbody>
                 <tr>
