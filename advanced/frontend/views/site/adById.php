@@ -42,12 +42,43 @@ $this->title = 'Сайт объявлений';
                         </div>
                     </td>
                     <td>
-                        <div class="card" style="width: 18rem;">
-                            <img class="card-img-top" src="<?= Html::encode("{$userAd->adPhotos[0]["photo_path"]}") ?>" alt="Card image cap">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                        <div class="container">
+                            <div class="card-group">
+                                <div class="card img-fluid">
+                                    <img class="card-img-top" src="https://via.placeholder.com/260x313.png?text=placeholder+image" alt="Card image" style="width:100%">
+                                    <div class="card-img-overlay">
+                                        <h5 class="card-title">FIRST CARD</h5>
+                                        <hr>
+                                        <p class="card-text">Tech virtual drone online browser platform through in a system. Document fab developers encryption smartphone powered, bespoke blockstack edit atoms.</p>
+                                    </div>
+                                </div>
+
+                                <div class="card img-fluid">
+                                    <img class="card-img-top" src="https://via.placeholder.com/260x313.png?text=placeholder+image" alt="Card image" style="width:100%">
+                                    <div class="card-img-overlay">
+                                        <h5 class="card-title">SECOND CARD</h5>
+                                        <hr>
+                                        <p class="card-text">But stream software offline. Professor install angel sector anywhere create at components smart.</p>
+                                    </div>
+                                </div>
+
+                                <div class="card img-fluid">
+                                    <img class="card-img-top" src="https://via.placeholder.com/260x313.png?text=placeholder+image" alt="Card image" style="width:100%">
+                                    <div class="card-img-overlay">
+                                        <h5 class="card-title">THIRD CARD WITH MUCH LONGER TITLE</h5>
+                                        <hr>
+                                        <p class="card-text">Document fab developers encryption smartphone powered, bespoke blockstack edit atoms.</p>
+                                    </div>
+                                </div>
+
+                                <div class="card img-fluid">
+                                    <img class="card-img-top" src="https://via.placeholder.com/260x313.png?text=placeholder+image" alt="Card image" style="width:100%">
+                                    <div class="card-img-overlay">
+                                        <h5 class="card-title">FOURTH CARD</h5>
+                                        <hr>
+                                        <p class="card-text">Now digital designs id anywhere atoms. Now strategy startups documents designs. Venture crypto adopters niche. Video algorithm system ultra-private policies engineering.</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </td>
