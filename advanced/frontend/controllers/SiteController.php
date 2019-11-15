@@ -352,7 +352,8 @@ class SiteController extends Controller
             $userAd = UserAd::find()
                 ->where (['id' => (int)$adNum])
                 ->with('adPhotos')
-                ->all();
+                //->asArray()
+                ->one();
 
             if(empty($userAd)) {
                 $this->redirect("/site/index");
