@@ -19,9 +19,15 @@ $this->title = 'Сайт объявлений';
 
             <div class="col-sm-6 col-md-4">
                 <div class="thumbnail">
-                    <?php foreach ($userAd->adPhotos as $objPhoto): ?>
-                        <img src="<?= Html::encode("{$objPhoto["photo_path"]}") ?>" alt="Image">
-                    <?php endforeach; ?>
+                    <div class="container">
+                        <div class="row">
+                            <?php foreach ($userAd->adPhotos as $objPhoto): ?>
+                                <div class="col-sm-6 col-md-4">
+                                    <img src="<?= Html::encode("{$objPhoto["photo_path"]}") ?>" alt="Image">
+                                </div>
+                            <?php endforeach; ?>
+                        </div>
+                    </div>
                     <div class="caption">
                         <p><?php var_dump($userAd->adPhotos); ?></p>
                         <h3><?= Html::encode("{$idAd}") ?></h3>
