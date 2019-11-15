@@ -42,13 +42,12 @@ $this->title = 'Сайт объявлений';
                         </div>
                     </td>
                     <td>
-                        <div class="thumbnail">
-                            <img src="<?= Html::encode("{$userAd->adPhotos[0]["photo_path"]}") ?>" alt="Image">
-                            <div class="caption">
-                                <h3><?= Html::encode("{$userAd->header}") ?></h3>
-                                <p>Цена: <?= Html::encode("{$userAd->amount}") ?></p>
-                                <p>Создано: <?= Html::encode(date('d.m.Y H:i:s', $userAd->created_at)) ?></p>
-                                <p><a href="#" class="btn btn-primary" role="button">Посмотреть</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                        <div class="card" style="width: 18rem;">
+                            <img class="card-img-top" src="<?= Html::encode("{$userAd->adPhotos[0]["photo_path"]}") ?>" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <a href="#" class="btn btn-primary">Go somewhere</a>
                             </div>
                         </div>
                     </td>
