@@ -21,6 +21,7 @@ $this->title = 'Сайт объявлений';
                     <div class="thumbnail">
                         <img src="<?= Html::encode("{$userAd->adPhotos[0]["photo_path"]}") ?>" alt="Image">
                         <div class="caption">
+                            <p><?= echo var_dump($userAd); ?></p>
                             <h3><?= Html::encode("{$idAd}") ?></h3>
                             <h3><?= Html::encode("{$userAd->header}") ?></h3>
                             <p>Цена: <?= Html::encode("{$userAd->amount}") ?></p>
