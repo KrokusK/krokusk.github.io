@@ -15,7 +15,8 @@ $this->title = 'Сайт объявлений';
     <div class="container">
         <div class="row">
 
-            <table>
+            <table style="height: 100px;">
+                <tbody>
                 <tr>
                     <td class="align-top">
                         <div class="thumbnail">
@@ -53,6 +54,7 @@ $this->title = 'Сайт объявлений';
                         </div>
                     </td>
                 </tr>
+                </tbody>
             </table>
 
         </div>
