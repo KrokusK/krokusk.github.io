@@ -59,7 +59,18 @@ $this->title = 'Сайт объявлений';
 
         </div>
         <div class="row">
-
+            <table style="height: 100px;">
+                <tbody>
+                <tr>
+                    <td class="align-baseline">baseline</td>
+                    <td class="align-top">top</td>
+                    <td class="align-middle">middle</td>
+                    <td class="align-bottom">bottom</td>
+                    <td class="align-text-top">text-top</td>
+                    <td class="align-text-bottom">text-bottom</td>
+                </tr>
+                </tbody>
+            </table>
         </div>
 
     </div>
