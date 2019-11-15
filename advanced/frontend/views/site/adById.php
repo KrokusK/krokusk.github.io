@@ -19,6 +19,18 @@ $this->title = 'Сайт объявлений';
                 <div class="thumbnail">
 
                     <div class="content-main">
+                        <div class="col-sm-6 col-md-8">
+                            <h3><?= Html::encode("{$userAd->header}") ?></h3>
+                        </div>
+                        <div class="col-sm-6 col-md-4">
+                            <p>Цена: <?= Html::encode("{$userAd->amount}") ?></p>
+                        </div>
+                        <div class="col-sm-6 col-md-4">
+                            <p>Создано: <?= Html::encode(date('d.m.Y H:i:s', $userAd->created_at)) ?>   Город:</p>
+                        </div>
+                    </div>
+
+                    <div class="content-secondary">
                         <?php foreach ($userAd->adPhotos as $objPhoto): ?>
 
                             <div class="col-sm-6 col-md-4">
