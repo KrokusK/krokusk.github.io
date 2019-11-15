@@ -17,7 +17,7 @@ $this->title = 'Сайт объявлений';
 
             <table>
                 <tr>
-                    <td>
+                    <td class="align-top">
                         <div class="thumbnail">
 
                             <div class="caption">
@@ -41,8 +41,16 @@ $this->title = 'Сайт объявлений';
 
                         </div>
                     </td>
-                    <td>
-
+                    <td class="align-top">
+                        <div class="thumbnail">
+                            <img src="<?= Html::encode("{$userAd->adPhotos[0]["photo_path"]}") ?>" alt="Image">
+                            <div class="caption">
+                                <h3><?= Html::encode("{$userAd->header}") ?></h3>
+                                <p>Цена: <?= Html::encode("{$userAd->amount}") ?></p>
+                                <p>Создано: <?= Html::encode(date('d.m.Y H:i:s', $userAd->created_at)) ?></p>
+                                <p><a href="#" class="btn btn-primary" role="button">Посмотреть</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                            </div>
+                        </div>
                     </td>
                 </tr>
             </table>
@@ -53,18 +61,7 @@ $this->title = 'Сайт объявлений';
         </div>
 
     </div>
-    <div class="container">
-        <div class="card-group">
-            <div class="card img-fluid">
-                <img class="card-img-top" src="<?= Html::encode("{$objPhoto["photo_path"]}") ?>" alt="Card image" style="width:10%">
-                <div class="card-img-overlay">
-                    <h5 class="card-title">FIRST CARD</h5>
-                    <hr>
-                    <p class="card-text">Tech virtual drone online browser platform through in a system. Document fab developers encryption smartphone powered, bespoke blockstack edit atoms.</p>
-                </div>
-            </div>
-        </div>
-    </div>
+
 
 
 
