@@ -16,7 +16,6 @@ $this->title = 'Сайт объявлений';
 
         <div class="row">
             <div class="col-md-8">
-                <div class="thumbnail">
 
                     <div class="content-main">
                         <div class="col-sm-6 col-md-9 col-lg-9">
@@ -51,7 +50,6 @@ $this->title = 'Сайт объявлений';
                         </div>
                     </div>
 
-                </div>
             </div>
             <div class="col-md-4">
                 <div class="thumbnail">
