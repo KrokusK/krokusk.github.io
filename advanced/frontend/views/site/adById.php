@@ -27,9 +27,6 @@ $this->title = 'Сайт объявлений';
                             <h3></h3>
                             <h4>Цена: <?= Html::encode("{$userAd->amount}") ?><h4>
                         </div>
-                        <div class="col-sm-6 col-md-4 offset-sm-0 offset-md-0">
-                            Создано: <?= Html::encode(date('d.m.Y H:i:s', $userAd->created_at)) ?>   Город:
-                        </div>
                     </div>
 
                     <div class="content-secondary">
