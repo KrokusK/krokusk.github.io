@@ -61,7 +61,7 @@ $this->title = 'Сайт объявлений';
             <?php foreach ($userAds as $userAd): ?>
                 <div class="col-sm-6 col-md-4">
                     <div class="thumbnail">
-                        <a href="/site/ad?ad=<?= Html::encode("{$userAd->adCaterories["id"]}") ?>">
+                        <a href="/site/ad?ad=<?= Html::encode("{$userAd["id"]}") ?>">
                             <img src="<?= Html::encode("{$userAd->adPhotos[0]["photo_path"]}") ?>" alt="Image">
                         </a>
                         <div class="caption">
