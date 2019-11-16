@@ -15,7 +15,7 @@ $this->title = 'Сайт объявлений';
     <div class="container-fluid">
 
         <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-8 col-lg-8">
 
                     <div class="content-main">
                         <div class="col-sm-6 col-md-9 col-lg-9">
@@ -49,7 +49,7 @@ $this->title = 'Сайт объявлений';
                     </div>
 
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 col-lg-4">
                 <div class="thumbnail">
                     <img src="<?= Html::encode("{$userAd->userDescs["avatar"]}") ?>" alt="Image">
                     <div class="caption">
