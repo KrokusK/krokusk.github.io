@@ -352,7 +352,7 @@ class SiteController extends Controller
             $userAd = UserAd::find()
                 ->where (['id' => (int)$adNum])
                 ->andWhere (['status_id' => 2])
-                ->with('userDescs', 'userCities', 'adCaterories', 'adPhotos')
+                ->with('userDescs', 'userDescs.users', 'userCities', 'adCaterories', 'adPhotos')
                 //->asArray()
                 ->one();
 
