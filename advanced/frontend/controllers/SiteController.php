@@ -351,7 +351,8 @@ class SiteController extends Controller
         if(!empty($adNum)) {
             $userAd = UserAd::find()
                 ->where (['id' => (int)$adNum])
-                ->with('adPhotos')
+                ->andWhere (['status_id' => 2])
+                ->with('userDescs', 'userCities', 'adCaterories', 'adPhotos')
                 //->asArray()
                 ->one();
 
