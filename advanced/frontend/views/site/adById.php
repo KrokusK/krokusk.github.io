@@ -40,10 +40,8 @@ $this->title = 'Сайт объявлений';
                     <br><br>
                     <div class="content-secondary">
                         <div class="col-sm-6 col-md-12 col-lg-12">
-                            <h3><?= Html::encode("{$userAd->header}") ?></h3>
-                            <p>Цена: <?= Html::encode("{$userAd->amount}") ?></p>
-                            <p>Создано: <?= Html::encode(date('d.m.Y H:i:s', $userAd->created_at)) ?></p>
-                            <p><a href="#" class="btn btn-primary" role="button">Посмотреть</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+
+                            <p><?= Html::encode("{$userAd->content}") ?></p>
                             <p>
                                 <p><?php var_dump($userAd->adPhotos); ?></p>
                             </p>
