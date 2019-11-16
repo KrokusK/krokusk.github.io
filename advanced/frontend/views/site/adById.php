@@ -19,7 +19,7 @@ $this->title = 'Сайт объявлений';
 
                     <div class="content-main">
                         <div class="col-sm-6 col-md-9 col-lg-9">
-                            <h3><?= Html::encode("{$userAd->header}") ?></h3>
+                            <h2><?= Html::encode("{$userAd->header}") ?></h2>
                             <h4>Создано: <?= Html::encode(date('d.m.Y H:i:s', $userAd->created_at)) ?>   Город: <?= Html::encode("{$userAd->userCities['city_name']}") ?></h4>
                         </div>
                         <div class="col-sm-6 col-md-3 col-lg-3">
@@ -53,10 +53,9 @@ $this->title = 'Сайт объявлений';
                 <div class="thumbnail">
                     <img src="<?= Html::encode("{$userAd->adPhotos[0]["photo_path"]}") ?>" alt="Image">
                     <div class="caption">
-                        <h3><?= Html::encode("{$userAd->header}") ?></h3>
-                        <p>Цена: <?= Html::encode("{$userAd->amount}") ?></p>
-                        <p>Создано: <?= Html::encode(date('d.m.Y H:i:s', $userAd->created_at)) ?></p>
-                        <p><a href="#" class="btn btn-primary" role="button">Посмотреть</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                        <h4>Имя :</h4><?= Html::encode("{$userAd->name}") ?>
+                        <h4>Телефон :</h4><?= Html::encode("{$userAd->phone}") ?>
+                        <h4>О себе :</h4><?= Html::encode("{$userAd->about}") ?>
                     </div>
                 </div>
             </div>
