@@ -53,9 +53,9 @@ $this->title = 'Сайт объявлений';
                 <div class="thumbnail">
                     <img src="<?= Html::encode("{$userAd->adPhotos[0]["photo_path"]}") ?>" alt="Image">
                     <div class="caption">
-                        <h4>Имя :</h4><?= Html::encode("{$userAd->name}") ?>
-                        <h4>Телефон :</h4><?= Html::encode("{$userAd->phone}") ?>
-                        <h4>О себе :</h4><?= Html::encode("{$userAd->about}") ?>
+                        <h4>Имя :</h4><?= Html::encode("{$userAd->userDescs["name"]}") ?>
+                        <h4>Телефон :</h4><?= Html::encode("{$userAd->userDescs["phone"]}") ?>
+                        <h4>О себе :</h4><?= Html::encode("{$userAd->userDescs["about"]}") ?>
                     </div>
                 </div>
             </div>
