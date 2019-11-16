@@ -19,11 +19,13 @@ $this->title = 'Сайт объявлений';
                 <div class="thumbnail">
 
                     <div class="content-main">
-                        <div class="col-sm-6 col-md-8">
+                        <div class="col-sm-6 col-md-10 col-lg-10">
                             <h3><?= Html::encode("{$userAd->header}") ?></h3>
+                            <h4>Создано: <?= Html::encode(date('d.m.Y H:i:s', $userAd->created_at)) ?>   Город:</h4>
                         </div>
-                        <div class="col-sm-6 col-md-4">
-                            Цена: <?= Html::encode("{$userAd->amount}") ?>
+                        <div class="col-sm-6 col-md-2 col-lg-10">
+                            <h3></h3>
+                            <h4>Цена: <?= Html::encode("{$userAd->amount}") ?><h4>
                         </div>
                         <div class="col-sm-6 col-md-4 offset-sm-0 offset-md-0">
                             Создано: <?= Html::encode(date('d.m.Y H:i:s', $userAd->created_at)) ?>   Город:
@@ -33,7 +35,7 @@ $this->title = 'Сайт объявлений';
                     <div class="content-secondary">
                         <?php foreach ($userAd->adPhotos as $objPhoto): ?>
 
-                            <div class="col-sm-6 col-md-4">
+                            <div class="col-sm-6 col-md-4 col-lg-4">
                                 <img src="<?= Html::encode("{$objPhoto["photo_path"]}") ?>" alt="Image">
                             </div>
 
