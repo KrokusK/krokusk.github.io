@@ -359,8 +359,16 @@ class SiteController extends Controller
             if(empty($userAd)) {
                 $this->redirect("/site/index");
             } else {
+                $userId = $userAd->userDescs["user_id"];
+
+                $countUserAds = UserAd::find()
+                    ->where (['user_id' => (int)$userId])
+                    ->andWhere (['status_id' => 2])
+                    ->count();
+
                 return $this->render('adById', [
                     'userAd' => $userAd,
+                    'countActAds' => $countUserAds,
                     'idAd' => (int)$adNum,
                 ]);
             }
