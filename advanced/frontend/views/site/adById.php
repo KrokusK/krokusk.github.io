@@ -20,7 +20,7 @@ $this->title = 'Сайт объявлений';
                     <div class="content-main">
                         <div class="col-sm-6 col-md-9 col-lg-9">
                             <h3><?= Html::encode("{$userAd->header}") ?></h3>
-                            <h4>Создано: <?= Html::encode(date('d.m.Y H:i:s', $userAd->created_at)) ?>   Город:</h4>
+                            <h4>Создано: <?= Html::encode(date('d.m.Y H:i:s', $userAd->created_at)) ?>   Город: <?= Html::encode(date('d.m.Y H:i:s', $userAd->userCities[0]['city_name'])) ?></h4>
                         </div>
                         <div class="col-sm-6 col-md-3 col-lg-3">
                             <h3></h3>
