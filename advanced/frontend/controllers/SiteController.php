@@ -122,7 +122,7 @@ class SiteController extends Controller
             ->offset($pagination->offset)
             ->limit($pagination->limit)
             //->leftJoin('photo_ad', '"user_ad"."id" = "photo_ad"."ad_id"')
-            ->with('adPhotos')
+            ->with('adPhotos', 'adCaterories')
             ->all();
 
         $cities = UserCity::find()
