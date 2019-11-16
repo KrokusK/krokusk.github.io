@@ -40,7 +40,7 @@ $this->title = 'Сайт объявлений';
                     <br><br>
                     <div class="content-secondary">
                         <div class="col-sm-6 col-md-12 col-lg-12">
-
+                            <br><br>
                             <p><?= Html::encode("{$userAd->content}") ?></p>
                             <p>
                                 <p><?php var_dump($userAd->adPhotos); ?></p>
