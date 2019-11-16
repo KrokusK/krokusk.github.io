@@ -16,7 +16,7 @@ $this->title = 'Сайт объявлений';
 
         <div class="row">
             <div class="col-md-8 col-lg-8">
-                <p><a href="/site/index" class="btn btn-default" role="button">Объявления</a> / <a href="/site/index" class="btn btn-default" role="button"><?= Html::encode("{$userAd->adCaterories["name"]}") ?></a></p>
+                <p><a href="/site/index" class="btn btn-default" role="button">Объявления</a> / <a href="/site/index?cit=&cat=<?= Html::encode("{$userAd->adCaterories["id"]}") ?>" class="btn btn-default" role="button"><?= Html::encode("{$userAd->adCaterories["name"]}") ?></a></p>
             </div>
         </div>
 
