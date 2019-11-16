@@ -21,6 +21,21 @@ class UserDesc extends \yii\db\ActiveRecord
     }
 
     /**
+     * {@inheritdoc}
+     */
+    public function rules()
+    {
+        return [
+            [['user_id', 'name', 'city_id', 'about', 'phone'], 'required', 'message' => 'Поле должно быть заполнено'],
+            [['name'], 'string', 'max' => 255, 'message' => 'Число знаков не должно превышать 255'],
+            [['city_id'], 'default', 'value' => 1],
+            [['city_id'], 'integer', 'message' => 'Город не выбран из списка'],
+            [['about'], 'string', 'max' => 255, 'message' => 'Число знаков не должно превышать 255'],
+            [['phone'], 'match', 'pattern' => '/^\+7\s\([0-9]{3}\)\s[0-9]{3}\-[0-9]{2}\-[0-9]{2}$/', 'message' => 'Номер телефона должен быть введен в формате: +7 (999) 999-99-99'],
+        ];
+    }
+
+    /**
      *
      * Link to table User
      */
