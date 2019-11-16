@@ -359,10 +359,10 @@ class SiteController extends Controller
             if(empty($userAd)) {
                 $this->redirect("/site/index");
             } else {
-                $userId = $userAd->userDescs["user_id"];
+                $userDescId = $userAd["user_desc_id"];
 
                 $countUserAds = UserAd::find()
-                    ->where (['user_id' => (int)$userId])
+                    ->where (['user_desc_id' => (int)$userDescId])
                     ->andWhere (['status_id' => 2])
                     ->count();
 
