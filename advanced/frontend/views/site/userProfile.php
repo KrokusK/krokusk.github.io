@@ -6,6 +6,8 @@ use yii\widgets\ActiveForm;
     <div class="row">
         <div class="col-md-12 col-lg-12">
 
+            <div class="animated bounceInTop" >
+                <?php $form = ActiveForm::begin(['id' => 'form-user-profile', 'action' => Yii::$app->urlManager->createUrl('site/profile'), 'enableAjaxValidation' => true, 'validationUrl' => Yii::$app->urlManager->createUrl('site/profile-validate')]); ?>
 
                 <div class="content-main">
                     <div class="row">
@@ -15,17 +17,13 @@ use yii\widgets\ActiveForm;
                             </div>
                         </div>
                         <div class="col-sm-6 col-md-8 col-lg-8">
-                            <div class="animated bounceInTop" >
-                                <?php $form = ActiveForm::begin(['id' => 'form-user-profile', 'action' => Yii::$app->urlManager->createUrl('site/profile'), 'enableAjaxValidation' => true, 'validationUrl' => Yii::$app->urlManager->createUrl('site/profile-validate')]); ?>
-                                    <?= $form->field($model, 'name')->input('text', ['maxlength' => true])->hint('Пожалуйста, введите ваше Имя')->label('Имя'); ?>
-                                    <?= $form->field($model, 'phone')->input('text')->hint('Пожалуйста, введите ваш телефон')->label('Телефон в формате: +7 (999) 999-99-99'); ?>
-                                    <?= $form->field($model, 'about')->input('text', ['maxlength' => true])->hint('Пожалуйста, напишите о себе')->label('О себе'); ?>
-                                <?php ActiveForm::end(); ?>
-                            </div>
+                            <?= $form->field($model, 'name')->input('text', ['maxlength' => true])->hint('Пожалуйста, введите ваше Имя')->label('Имя'); ?>
+                            <?= $form->field($model, 'phone')->input('text')->hint('Пожалуйста, введите ваш телефон')->label('Телефон в формате: +7 (999) 999-99-99'); ?>
+                            <?= $form->field($model, 'about')->input('text', ['maxlength' => true])->hint('Пожалуйста, напишите о себе')->label('О себе'); ?>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-sm-6 col-md-4 col-lg-4 col-md-offset-8 col-lg-offset-8">
+                        <div class="col-sm-6 col-md-2 col-lg-2 col-md-offset-10 col-lg-offset-10">
                             <div class=" view-btn text-left">
                                 <?= Html::submitButton($model->isNewRecord ? 'Сохранить' : 'Обновить', ['class' => $model->isNewRecord ? 'btn btn-default' : 'btn btn-default']) ?>
                             </div>
@@ -33,7 +31,8 @@ use yii\widgets\ActiveForm;
                     </div>
                 </div>
 
-
+                <?php ActiveForm::end(); ?>
+            </div>
         </div>
     </div>
 </div>
