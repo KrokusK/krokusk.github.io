@@ -39,12 +39,11 @@ use yii\widgets\ActiveForm;
 
 <!-- POPUP MODAL CONTACT -->
 <div class="modal inmodal contact" id="modalAlert" role="dialog" data-keyboard="false" data-backdrop="static">
-    <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-    </div>
-    <div class="alert alert-danger" role="alert">
-        <div class="modal-dialog modal-md "></div>
-    </div>
+    <div class="modal-dialog modal-md "></div>
+</div>
+
+<div class="modal-content animated bounceInTop" >
+
 </div>
 
 <?php
@@ -73,7 +72,10 @@ $script = <<< JS
                        //toastr["success"](response.message,response.status); 
                        alert(response.message);
                        message = response.message;
-                       $('#modalAlert').modal('show').find('.modal-dialog').load(message);
+                       inerHtmlMessage = "<div class=\"alert alert-danger\" role=\"alert\">";
+                       inerHtmlMessage += "<h3>" + response.message + "</h4>";
+                       inerHtmlMessage += "</div>";
+                       $('#modalAlert').modal('show').find('.modal-dialog').load(inerHtmlMessage);
                        //$('#addAppFormModel').modal('hide');
                    },
                    complete: function() {
