@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d97bdc22-9d4b-4578-b4be-b96d66aca924" name="Default Changelist" comment="" />
+    <list default="true" id="d97bdc22-9d4b-4578-b4be-b96d66aca924" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/advanced/frontend/views/site/userProfile.php" beforeDir="false" afterPath="$PROJECT_DIR$/advanced/frontend/views/site/userProfile.php" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,7 +78,7 @@
       <workItem from="1573701430386" duration="10432000" />
       <workItem from="1573784389723" duration="17950000" />
       <workItem from="1573877469202" duration="15439000" />
-      <workItem from="1573967485870" duration="6429000" />
+      <workItem from="1573967485870" duration="7096000" />
     </task>
     <servers />
   </component>
