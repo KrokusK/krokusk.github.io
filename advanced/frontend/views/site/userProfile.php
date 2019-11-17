@@ -72,9 +72,9 @@ $script = <<< JS
                            inerHtmlMessage = "<div class=\"alert alert-success\" role=\"alert\">";
                            inerHtmlMessage += "<div class=\"modal-header\">";                           
                            inerHtmlMessage += "<button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>";
-                           inerHtmlMessage += "<h4 class=\"modal-title text-left\">Внимание :</h4>";
+                           inerHtmlMessage += "<h3 class=\"modal-title text-left\">Данные переданы!</h3>";
                            inerHtmlMessage += "</div>";
-                           inerHtmlMessage += "<h3>" + response.message + "</h3>";
+                           inerHtmlMessage += "<h4>" + response.message + "</h4>";
                            inerHtmlMessage += "</div>";
                            $('#modalAlert').modal('show').find('.modal-dialog').html(inerHtmlMessage);
                            //$('#addAppFormModel').modal('hide');
@@ -82,9 +82,9 @@ $script = <<< JS
                            inerHtmlMessage = "<div class=\"alert alert-danger\" role=\"alert\">";
                            inerHtmlMessage += "<div class=\"modal-header\">";
                            inerHtmlMessage += "<button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>";
-                           inerHtmlMessage += "<h4 class=\"modal-title text-left\">Внимание :</h4>";
+                           inerHtmlMessage += "<h3 class=\"modal-title text-left\">Внимание!</h3>";
                            inerHtmlMessage += "</div>";
-                           inerHtmlMessage += "<h3>" + response.message + "</h3>";
+                           inerHtmlMessage += "<h4>" + response.message + "</h4>";
                            inerHtmlMessage += "</div>";
                            $('#modalAlert').modal('show').find('.modal-dialog').html(inerHtmlMessage);
                            //$('#addAppFormModel').modal('hide');
