@@ -1,7 +1,6 @@
 <?php
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
-use frontend\models\UserDesc;
 ?>
 <div class="container-fluid">
     <div class="row">
@@ -17,13 +16,10 @@ use frontend\models\UserDesc;
                         </div>
                         <div class="col-sm-6 col-md-8 col-lg-8">
                             <div class="animated bounceInTop" >
-                                <?php
-                                $form = ActiveForm::begin(['id' => 'form-user-profile', 'action' => Yii::$app->urlManager->createUrl('site/profile'), 'enableAjaxValidation' => true, 'validationUrl' => Yii::$app->urlManager->createUrl('site/profile-validate')]);
-                                ?>
-                                <?= $form->field($model, 'company_name')->input('text', ['maxlength' => true])->hint('Пожалуйста, введите Имя компании')->label('Имя компании'); ?>
-                                <?= $form->field($model, 'company_address')->input('text', ['maxlength' => true])->hint('Пожалуйста, введите Адрес компании')->label('Адрес компании'); ?>
-                                <?= $form->field($model, 'company_phone')->input('text')->hint('Пожалуйста, введите Телефон компании')->label('Телефон компании в формате: +7 (999) 999-99-99'); ?>
-                                <?= $form->field($model, 'company_site')->input('text', ['maxlength' => true])->hint('Пожалуйста, введите Сайт компании')->label('Сайт компании'); ?>
+                                <?php $form = ActiveForm::begin(['id' => 'form-user-profile', 'action' => Yii::$app->urlManager->createUrl('site/profile'), 'enableAjaxValidation' => true, 'validationUrl' => Yii::$app->urlManager->createUrl('site/profile-validate')]); ?>
+                                    <?= $form->field($model, 'name')->input('text', ['maxlength' => true])->hint('Пожалуйста, введите ваше Имя')->label('Имя'); ?>
+                                    <?= $form->field($model, 'phone')->input('text')->hint('Пожалуйста, введите ваш телефон')->label('Телефон в формате: +7 (999) 999-99-99'); ?>
+                                    <?= $form->field($model, 'about')->input('text', ['maxlength' => true])->hint('Пожалуйста, напишите о себе')->label('О себе'); ?>
                                 <?php ActiveForm::end(); ?>
                             </div>
                         </div>

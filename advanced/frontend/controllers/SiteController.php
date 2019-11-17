@@ -380,6 +380,42 @@ class SiteController extends Controller
     }
 
     /**
+     * Profile save page.
+     *
+     * @return mixed
+     */
+    public function actionProfile()
+    {
+        $model = new UserDesc();
+
+        if (Yii::$app->request->isAjax && $model->load(Yii::$app->request->post())) {
+            $transaction = \Yii::$app->db->beginTransaction();
+            try {
+
+                $model->avatar = "http://avatars.mds.yandex.net/get-direct/196252/C-kJri9Flw-S0RlC2uHK7A/y300";
+
+                if ($model->validate()) {
+                    $flag = $model->save(false);
+                    if ($flag == true) {
+                        $transaction->commit();
+                        return Json::encode(array('status' => 'success', 'type' => 'success', 'message' => 'User pfofile saved successfully.'));
+                    } else {
+                        $transaction->rollBack();
+                    }
+                } else {
+                    return Json::encode(array('status' => 'warning', 'type' => 'warning', 'message' => 'User profile can not saved.'));
+                }
+            } catch (Exception $ex) {
+                $transaction->rollBack();
+            }
+        } else {
+            return $this->render('userProfile', [
+                'model' => $model,
+            ]);
+        }
+    }
+
+    /**
      * Displays Profile validate page.
      *
      * @return mixed
