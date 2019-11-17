@@ -70,9 +70,9 @@ $script = <<< JS
                        //message = response.message;
                        if (parseInt(response.status) == 1) {
                            inerHtmlMessage = "<div class=\"alert alert-success\" role=\"alert\">";
-                           inerHtmlMessage += "<div class=\"modal-header\">";
-                           inerHtmlMessage += "<h4>Внимание :</h4>";
+                           inerHtmlMessage += "<div class=\"modal-header\">";                           
                            inerHtmlMessage += "<button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>";
+                           inerHtmlMessage += "<h4 class=\"modal-title text-left\">Внимание :</h4>";
                            inerHtmlMessage += "</div>";
                            inerHtmlMessage += "<h3>" + response.message + "</h3>";
                            inerHtmlMessage += "</div>";
@@ -81,8 +81,8 @@ $script = <<< JS
                        } else {
                            inerHtmlMessage = "<div class=\"alert alert-danger\" role=\"alert\">";
                            inerHtmlMessage += "<div class=\"modal-header\">";
-                           inerHtmlMessage += "<h4>Внимание :</h4>";
                            inerHtmlMessage += "<button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>";
+                           inerHtmlMessage += "<h4 class=\"modal-title text-left\">Внимание :</h4>";
                            inerHtmlMessage += "</div>";
                            inerHtmlMessage += "<h3>" + response.message + "</h3>";
                            inerHtmlMessage += "</div>";
