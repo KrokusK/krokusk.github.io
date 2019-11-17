@@ -1,6 +1,7 @@
 <?php
 namespace frontend\controllers;
 
+use frontend\models\UserDesc;
 use Yii;
 use yii\base\InvalidArgumentException;
 use yii\web\BadRequestHttpException;
@@ -339,7 +340,7 @@ class SiteController extends Controller
     }
 
     /**
-     * Displays Add-one Page.
+     * Displays One ad page.
      *
      * @return mixed
      */
@@ -376,6 +377,21 @@ class SiteController extends Controller
             $this->redirect("/site/index");
         }
 
+    }
+
+    /**
+     * Displays Profile validate page.
+     *
+     * @return mixed
+     */
+    public function actionProfileValidate()
+    {
+        $model = new UserDesc();
+
+        if (Yii::$app->request->isAjax && $model->load(Yii::$app->request->post())) {
+            \Yii::$app->response->format = Response::FORMAT_JSON;
+            return ActiveForm::validate($model);
+        }
     }
 
     /**
