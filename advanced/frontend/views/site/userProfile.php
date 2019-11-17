@@ -37,6 +37,14 @@ use yii\widgets\ActiveForm;
     </div>
 </div>
 
+<!-- POPUP MODAL CONTACT -->
+<div class="modal inmodal contact" id="modalAlert" role="dialog" data-keyboard="false" data-backdrop="static">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+    </div>
+    <div class="modal-dialog modal-md "></div>
+</div>
+
 <?php
 $script = <<< JS
 
@@ -62,6 +70,8 @@ $script = <<< JS
                        //toastr.success(response.message);
                        //toastr["success"](response.message,response.status); 
                        alert(response.message);
+                       $message = response.message;
+                       $('#modalAlert').modal('show').find('.modal-dialog').load('$message');
                        //$('#addAppFormModel').modal('hide');
                    },
                    complete: function() {
