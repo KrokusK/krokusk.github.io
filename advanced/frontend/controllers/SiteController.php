@@ -409,7 +409,16 @@ class SiteController extends Controller
                 $transaction->rollBack();
             }
         } else {
+            $cities = UserCity::find()
+                ->orderBy('city_name')
+                ->all();
+            $selectCity = [];
+            foreach ($cities as $item) {
+                array_push($selectCity, ["{$city->id}" => "{$city->city_name}"]);
+            }
+
             return $this->render('userProfile', [
+                'selectCity' => $selectCity,
                 'model' => $model,
             ]);
         }
