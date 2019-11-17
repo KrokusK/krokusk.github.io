@@ -398,12 +398,12 @@ class SiteController extends Controller
                     $flag = $model->save(false);
                     if ($flag == true) {
                         $transaction->commit();
-                        return Json::encode(array('status' => 'success', 'type' => 'success', 'message' => 'User pfofile saved successfully.'));
+                        return Json::encode(array('status' => 'success', 'type' => 'success', 'message' => 'Профиль пользователя успешно сохранен!'));
                     } else {
                         $transaction->rollBack();
                     }
                 } else {
-                    return Json::encode(array('status' => 'warning', 'type' => 'warning', 'message' => 'User profile can not saved.'));
+                    return Json::encode(array('status' => 'warning', 'type' => 'warning', 'message' => 'Профиль пользователя не может быть сохранен!'));
                 }
             } catch (Exception $ex) {
                 $transaction->rollBack();
