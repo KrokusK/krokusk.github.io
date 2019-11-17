@@ -70,8 +70,8 @@ $script = <<< JS
                        //toastr.success(response.message);
                        //toastr["success"](response.message,response.status); 
                        alert(response.message);
-                       $message = response.message;
-                       $('#modalAlert').modal('show').find('.modal-dialog').load('$message');
+                       message = response.message;
+                       $('#modalAlert').modal('show').find('.modal-dialog').load(message);
                        //$('#addAppFormModel').modal('hide');
                    },
                    complete: function() {
