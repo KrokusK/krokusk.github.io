@@ -84,10 +84,10 @@ AppAsset::register($this);
             . '</li>';
         //$menuItems[] = ['label' => 'Личный кабинет', 'url' => ['/site/index']];
         $menuItems[] = '<li class="nav-item">'
-            . Html::beginForm(['/site/index'], 'get')
+            . Html::beginForm(['/site/profile'], 'get')
             . Html::submitButton(
                 'Личный кабинет',
-                ['class' => 'btn btn-link', 'id' => 'personal-account']
+                ['class' => 'btn btn-link', 'id' => 'personal-profile']
             )
             . Html::endForm()
             . '</li>';
