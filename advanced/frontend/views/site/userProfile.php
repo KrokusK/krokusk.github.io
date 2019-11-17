@@ -42,13 +42,13 @@ use yii\widgets\ActiveForm;
 $script = <<< JS
 
    $(document).ready(function () { 
-        $("#form-add-app-profile").on('beforeSubmit', function (event) { 
+        $("#form-user-profile").on('beforeSubmit', function (event) { 
             //alert("test");
 
             event.preventDefault();            
-            var form_data = new FormData($('#form-add-app-profile')[0]);
+            var form_data = new FormData($('#form-user-profile')[0]);
             $.ajax({
-                   url: $("#form-add-app-profile").attr('action'), 
+                   url: $("#form-user-profile").attr('action'), 
                    dataType: 'JSON',  
                    cache: false,
                    contentType: false,
@@ -63,14 +63,14 @@ $script = <<< JS
                        //toastr.success(response.message);
                        //toastr["success"](response.message,response.status); 
                        alert(response.message);
-                       $('#addAppFormModel').modal('hide');
+                       //$('#addAppFormModel').modal('hide');
                    },
                    complete: function() {
                        alert("complete");
                    },
                    error: function (data) {
-                      toastr.warning("","There may a error on uploading. Try again later");    
-                      alert("error");
+                      //toastr.warning("","There may a error on uploading. Try again later");    
+                      alert(response.message);
                    }
                 });                
             return false;
