@@ -63,7 +63,7 @@ $script = <<< JS
                        //alert("beforeSend");
                    },
                    success: function(response){                      
-                       alert("success");
+                       //alert("success");
                        //toastr.success(response.message);
                        //toastr["success"](response.message,response.status); 
                        //alert(response.message);
@@ -74,7 +74,7 @@ $script = <<< JS
                            inerHtmlMessage += "<button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>";
                            inerHtmlMessage += "<h3 class=\"modal-title text-left\">Данные переданы!</h3>";
                            inerHtmlMessage += "</div>";
-                           inerHtmlMessage += "<h4>" + response.message + "</h4>";
+                           inerHtmlMessage += "<h4 class=\"text-center\">" + response.message + "</h4>";
                            inerHtmlMessage += "</div>";
                            $('#modalAlert').modal('show').find('.modal-dialog').html(inerHtmlMessage);
                            //$('#addAppFormModel').modal('hide');
@@ -84,14 +84,14 @@ $script = <<< JS
                            inerHtmlMessage += "<button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>";
                            inerHtmlMessage += "<h3 class=\"modal-title text-left\">Внимание!</h3>";
                            inerHtmlMessage += "</div>";
-                           inerHtmlMessage += "<h4>" + response.message + "</h4>";
+                           inerHtmlMessage += "<h4 class=\"text-center\">" + response.message + "</h4>";
                            inerHtmlMessage += "</div>";
                            $('#modalAlert').modal('show').find('.modal-dialog').html(inerHtmlMessage);
                            //$('#addAppFormModel').modal('hide');
                        }
                    },
                    complete: function() {
-                       alert("complete");
+                       //alert("complete");
                    },
                    error: function (data) {
                       //toastr.warning("","There may a error on uploading. Try again later");    
