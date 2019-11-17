@@ -69,9 +69,12 @@ $script = <<< JS
                        alert(response.message);
                        message = response.message;
                        inerHtmlMessage = "<div class=\"alert alert-danger\" role=\"alert\">";
+                       inerHtmlMessage += "<div class="modal-header">
+                       inerHtmlMessage += "<button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>";
+                       inerHtmlMessage += "</div>
                        inerHtmlMessage += "<h3>" + response.message + "</h3>";
                        inerHtmlMessage += "</div>";
-                       $('#modalAlert').modal('show').find('.modal-dialog')..html(inerHtmlMessage);
+                       $('#modalAlert').modal('show').find('.modal-dialog').html(inerHtmlMessage);
                        //$('#addAppFormModel').modal('hide');
                    },
                    complete: function() {
