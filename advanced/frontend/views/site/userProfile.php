@@ -18,6 +18,12 @@ use yii\widgets\ActiveForm;
                         </div>
                         <div class="col-sm-6 col-md-8 col-lg-8">
                             <?= $form->field($model, 'name')->input('text', ['maxlength' => true])->hint('Пожалуйста, введите ваше Имя')->label('Имя'); ?>
+                            <?php
+                                $params = [
+                                    'prompt' => 'Выберите город...'
+                                ];
+                                $form->field($model, 'city_id')->dropDownList($selectCity,$params)hint('Пожалуйста, выберите город')->label('Город');
+                            ?>
                             <?= $form->field($model, 'phone')->input('text')->hint('Пожалуйста, введите ваш телефон')->label('Телефон в формате: +7 (999) 999-99-99'); ?>
                             <?= $form->field($model, 'about')->input('text', ['maxlength' => true])->hint('Пожалуйста, напишите о себе')->label('О себе'); ?>
                         </div>
