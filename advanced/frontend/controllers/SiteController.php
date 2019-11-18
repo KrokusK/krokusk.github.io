@@ -418,10 +418,15 @@ class SiteController extends Controller
             //    array_push($selectCity, ["{$city['id']}" => "{$city['city_name']}"]);
             //}
             $citiesId = UserCity::find()->select(['id'])->asArray()->all();
+            $citiesIdStr = [];
+            foreach ($citiesId as $item) {
+                array_push($citiesIdStr, ["{$item['id']}" => "{$item['city_name']}"]);
+            }
 
             return $this->render('userProfile', [
                 'selectCity' => $cities,
                 'citiesId' => $citiesId,
+                'citiesIdStr' => $citiesIdStr,
                 'model' => $model,
             ]);
         }
