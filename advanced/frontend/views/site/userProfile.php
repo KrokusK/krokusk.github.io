@@ -42,7 +42,7 @@ use yii\widgets\ActiveForm;
         </div>
     </div>
     <div class="row">
-        <p><?php var_dump($userAd->userDescs); ?></p>
+        <p><?php var_dump($selectCity); ?></p>
     </div>
 </div>
 
