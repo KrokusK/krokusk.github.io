@@ -393,7 +393,8 @@ class SiteController extends Controller
             return $this->goHome();
         } else {
             $model->user_id = Yii::$app->user->getId();
-            $model->name = array(UserDesc::find()->select(['name'])->where(['user_id' => Yii::$app->user->getId()])->asArray()->one())['name'];
+            $arrayName = UserDesc::find()->select(['name'])->where(['user_id' => Yii::$app->user->getId()])->asArray()->one();
+            $model->name = $arrayName['name'];
         }
 
         if (Yii::$app->request->isAjax && $model->load(Yii::$app->request->post())) {
