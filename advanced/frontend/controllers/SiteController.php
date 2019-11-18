@@ -387,8 +387,12 @@ class SiteController extends Controller
      */
     public function actionProfile()
     {
+        if (!Yii::$app->user->isGuest) {
+            return $this->goHome();
+        }
+
         $model = new UserDesc();
-        $model->user_id = User::getId();
+        //$model->user_id = $model->getUsers()->getId();
 
         if (Yii::$app->request->isAjax && $model->load(Yii::$app->request->post())) {
             $transaction = \Yii::$app->db->beginTransaction();
@@ -418,7 +422,7 @@ class SiteController extends Controller
 
             return $this->render('userProfile', [
                 'selectCity' => $cities,
-                'UserId' => $model->user_id,
+                //'UserId' => $model->user_id,
                 'model' => $model,
             ]);
         }
