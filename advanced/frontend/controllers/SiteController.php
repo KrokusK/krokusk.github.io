@@ -1,6 +1,7 @@
 <?php
 namespace frontend\controllers;
 
+use common\models\User;
 use frontend\models\UserDesc;
 use Yii;
 use yii\base\InvalidArgumentException;
@@ -387,6 +388,7 @@ class SiteController extends Controller
     public function actionProfile()
     {
         $model = new UserDesc();
+        $model->user_id = User::getId();
 
         if (Yii::$app->request->isAjax && $model->load(Yii::$app->request->post())) {
             $transaction = \Yii::$app->db->beginTransaction();
@@ -416,6 +418,7 @@ class SiteController extends Controller
 
             return $this->render('userProfile', [
                 'selectCity' => $cities,
+                'UserId' => $model->user_id,
                 'model' => $model,
             ]);
         }
