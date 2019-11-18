@@ -49,6 +49,7 @@ use yii\widgets\ActiveForm;
     </div>
     <div class="row">
         <p><?php var_dump($selectCity); ?></p>
+        <p><?php var_dump(ArrayHelper::map($selectCity, 'id', 'city_name')); ?></p>
     </div>
 </div>
 
