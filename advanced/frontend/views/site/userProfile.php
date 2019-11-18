@@ -1,5 +1,6 @@
 <?php
 use yii\helpers\Html;
+use \yii\helpers\ArrayHelper;
 use yii\widgets\ActiveForm;
 ?>
 <div class="container-fluid">
@@ -28,7 +29,7 @@ use yii\widgets\ActiveForm;
                                 //];
                                 //$form->field($model, 'city_id')->dropDownList($temp,$params)->hint('Пожалуйста, выберите город')->label('Город');
                             ?>
-                            <?= $form->field($model, 'city_id')->dropDownList(\yii\helpers\ArrayHelper::map($selectCity, 'id', 'city_name')); ?>
+                            <?= //$form->field($model, 'city_id')->dropDownList(ArrayHelper::map($selectCity, 'id', 'city_name')); ?>
                             <?= $form->field($model, 'phone')->input('text')->hint('Пожалуйста, введите ваш телефон')->label('Телефон в формате: +7 (999) 999-99-99'); ?>
                             <?= $form->field($model, 'about')->input('text', ['maxlength' => true])->hint('Пожалуйста, напишите о себе')->label('О себе'); ?>
                         </div>
