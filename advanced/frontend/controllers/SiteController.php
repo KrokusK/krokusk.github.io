@@ -387,12 +387,14 @@ class SiteController extends Controller
      */
     public function actionProfile()
     {
+        $model = new UserDesc();
+
         if (Yii::$app->user->isGuest) {
             return $this->goHome();
+        } else {
+            $model->user_id = Yii::$app->user->getId();
+            $model->name = UserDesc::find()->select(['name'])->where(['user_id' => Yii::$app->user->getId()])->one();
         }
-
-        $model = new UserDesc();
-        $model->user_id = Yii::$app->user->getId();
 
         if (Yii::$app->request->isAjax && $model->load(Yii::$app->request->post())) {
             $transaction = \Yii::$app->db->beginTransaction();
