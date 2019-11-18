@@ -18,7 +18,7 @@ use yii\widgets\ActiveForm;
                             </div>
                         </div>
                         <div class="col-sm-6 col-md-8 col-lg-8">
-                            <?= $form->field($model, 'name', 'value'=>$model->name)->input('text', ['maxlength' => true])->hint('Пожалуйста, введите ваше Имя')->label('Имя'); ?>
+                            <?= $form->field($model, 'name')->input('text', ['value'=>'test'], ['maxlength' => true])->hint('Пожалуйста, введите ваше Имя')->label('Имя'); ?>
                             <?php
                                 $params = [
                                     'prompt' => 'Выберите город...'
