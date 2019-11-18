@@ -392,7 +392,7 @@ class SiteController extends Controller
         }
 
         $model = new UserDesc();
-        //$model->user_id = $model->getUsers()->getId();
+        $model->user_id = Yii::$app->user->getId();
 
         if (Yii::$app->request->isAjax && $model->load(Yii::$app->request->post())) {
             $transaction = \Yii::$app->db->beginTransaction();
@@ -422,7 +422,7 @@ class SiteController extends Controller
 
             return $this->render('userProfile', [
                 'selectCity' => $cities,
-                //'UserId' => $model->user_id,
+                'UserId' => $model->user_id,
                 'model' => $model,
             ]);
         }
