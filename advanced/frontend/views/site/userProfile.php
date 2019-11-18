@@ -22,7 +22,11 @@ use yii\widgets\ActiveForm;
                                 $params = [
                                     'prompt' => 'Выберите город...'
                                 ];
-                                $form->field($model, 'city_id')->dropDownList($selectCity,$params)->hint('Пожалуйста, выберите город')->label('Город');
+                                $temp = [
+                                    '1' => 'Северск',
+                                    '2' => 'Томск'
+                                ];
+                                $form->field($model, 'city_id')->dropDownList($temp,$params)->hint('Пожалуйста, выберите город')->label('Город');
                             ?>
                             <?= $form->field($model, 'phone')->input('text')->hint('Пожалуйста, введите ваш телефон')->label('Телефон в формате: +7 (999) 999-99-99'); ?>
                             <?= $form->field($model, 'about')->input('text', ['maxlength' => true])->hint('Пожалуйста, напишите о себе')->label('О себе'); ?>
