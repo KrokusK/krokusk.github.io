@@ -395,7 +395,8 @@ class SiteController extends Controller
         } else {
             $model->user_id = Yii::$app->user->getId();
             $model->name = ArrayHelper::getValue(UserDesc::find()->select(['name'])->where(['user_id' => Yii::$app->user->getId()])->asArray()->one(),'name');
-
+            $model->phone = ArrayHelper::getValue(UserDesc::find()->select(['phone'])->where(['user_id' => Yii::$app->user->getId()])->asArray()->one(),'phone');
+            $model->about = ArrayHelper::getValue(UserDesc::find()->select(['about'])->where(['user_id' => Yii::$app->user->getId()])->asArray()->one(),'about');
         }
 
         if (Yii::$app->request->isAjax && $model->load(Yii::$app->request->post())) {
