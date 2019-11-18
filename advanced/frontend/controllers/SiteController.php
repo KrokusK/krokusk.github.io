@@ -411,6 +411,7 @@ class SiteController extends Controller
         } else {
             $cities = UserCity::find()
                 ->orderBy('city_name')
+                ->asArray()
                 ->all();
             $selectCity = [];
             foreach ($cities as $city) {
