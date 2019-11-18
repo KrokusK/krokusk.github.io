@@ -419,7 +419,7 @@ class SiteController extends Controller
             }
 
             return $this->render('userProfile', [
-                'selectCity' => $selectCity,
+                'selectCity' => $cities,
                 'model' => $model,
             ]);
         }
