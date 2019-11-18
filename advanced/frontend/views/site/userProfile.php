@@ -24,8 +24,8 @@ use yii\widgets\ActiveForm;
                                     'prompt' => 'Выберите город...'
                                 ];
                                 $temp = [
-                                    '1' => 'Северск',
-                                    '2' => 'Томск'
+                                    1 => 'Северск',
+                                    2 => 'Томск'
                                 ];
                                 echo $form->field($model, 'city_id')->dropDownList($temp,$params)->hint('Пожалуйста, выберите город')->label('Город');
                             ?>
