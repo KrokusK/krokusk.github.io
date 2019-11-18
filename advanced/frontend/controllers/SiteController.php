@@ -415,7 +415,7 @@ class SiteController extends Controller
                 ->all();
             $selectCity = [];
             foreach ($cities as $city) {
-                array_push($selectCity, ["{$city->id}" => "{$city->city_name}"]);
+                array_push($selectCity, ["{$city['id']}" => "{$city['city_name']}"]);
             }
 
             return $this->render('userProfile', [
