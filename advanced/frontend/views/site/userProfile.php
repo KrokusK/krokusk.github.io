@@ -41,6 +41,9 @@ use yii\widgets\ActiveForm;
             </div>
         </div>
     </div>
+    <div class="row">
+        <p><?php var_dump($userAd->userDescs); ?></p>
+    </div>
 </div>
 
 <!-- POPUP MODAL CONTACT -->
