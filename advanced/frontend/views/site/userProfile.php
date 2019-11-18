@@ -29,7 +29,7 @@ use yii\widgets\ActiveForm;
                                 ];
                                 echo $form->field($model, 'city_id')->dropDownList($temp,$params)->hint('Пожалуйста, выберите город')->label('Город');
                             ?>
-                            <?php $form->field($model, 'city_id')->dropDownList(ArrayHelper::map($selectCity, 'id', 'city_name'))->hint('Пожалуйста, выберите город')->label('Город'); ?>
+                            <?php echo $form->field($model, 'city_id')->dropDownList(ArrayHelper::map($selectCity, 'id', 'city_name'))->hint('Пожалуйста, выберите город')->label('Город'); ?>
                             <?= $form->field($model, 'phone')->input('text')->hint('Пожалуйста, введите ваш телефон')->label('Телефон в формате: +7 (999) 999-99-99'); ?>
                             <?= $form->field($model, 'about')->input('text', ['maxlength' => true])->hint('Пожалуйста, напишите о себе')->label('О себе'); ?>
                         </div>
@@ -49,6 +49,8 @@ use yii\widgets\ActiveForm;
     </div>
     <div class="row">
         <p><?php var_dump($selectCity); ?></p>
+        <br><br>
+        <p><?php var_dump($temp); ?></p>
         <br><br>
         <p><?php var_dump($citiesId); ?></p>
         <br><br>
