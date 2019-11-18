@@ -50,7 +50,7 @@ use yii\widgets\ActiveForm;
     <div class="row">
         <p><?php var_dump($selectCity); ?></p>
         <br><br>
-        <p><?php var_dump($temp); ?></p>
+        <p><?php //var_dump($temp); ?></p>
         <br><br>
         <p><?php var_dump($citiesId); ?></p>
         <br><br>
