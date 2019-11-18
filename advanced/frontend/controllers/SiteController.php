@@ -13,6 +13,7 @@ use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use yii\widgets\ActiveForm;
 use yii\helpers\Json;
+use yii\helpers\ArrayHelper;
 use yii\data\Pagination;
 use common\models\LoginForm;
 use frontend\models\ResendVerificationEmailForm;
@@ -394,7 +395,7 @@ class SiteController extends Controller
         } else {
             $model->user_id = Yii::$app->user->getId();
             $model->name = ArrayHelper::getValue(UserDesc::find()->select(['name'])->where(['user_id' => Yii::$app->user->getId()])->asArray()->one(),'name');
-            
+
         }
 
         if (Yii::$app->request->isAjax && $model->load(Yii::$app->request->post())) {
