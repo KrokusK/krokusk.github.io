@@ -1,6 +1,6 @@
 <?php
 use yii\helpers\Html;
-use \yii\helpers\ArrayHelper;
+use yii\helpers\ArrayHelper;
 use yii\widgets\ActiveForm;
 ?>
 <div class="container-fluid">
