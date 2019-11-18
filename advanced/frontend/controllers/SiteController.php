@@ -420,7 +420,7 @@ class SiteController extends Controller
             $citiesId = UserCity::find()->select(['id'])->asArray()->all();
             $citiesIdStr = [];
             foreach ($citiesId as $item) {
-                array_push($citiesIdStr, ["{$item['id']}");
+                array_push($citiesIdStr, ["{$item['id']}"]);
             }
 
             return $this->render('userProfile', [
