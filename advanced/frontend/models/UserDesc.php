@@ -35,7 +35,7 @@ class UserDesc extends \yii\db\ActiveRecord
                     $citiesId = UserCity::find()->select(['id'])->asArray()->all();
                         $citiesIdStr = [];
                         foreach ($citiesId as $item) {
-                            array_push($citiesIdStr, ["{$item['id']}");
+                            array_push($citiesIdStr, ["{$item['id']}"]);
                         }
                         return $citiesIdStr;
                     },
