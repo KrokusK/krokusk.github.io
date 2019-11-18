@@ -48,13 +48,13 @@ use yii\widgets\ActiveForm;
         </div>
     </div>
     <div class="row">
-        <p><?php var_dump($selectCity); ?></p>
-        <br><br>
-        <p><?php //var_dump($temp); ?></p>
+        <p><?php var_dump(['1','2']); ?></p>
         <br><br>
         <p><?php var_dump($citiesId); ?></p>
         <br><br>
         <p><?php var_dump($citiesIdStr); ?></p>
+        <br><br>
+        <p><?php var_dump($selectCity); ?></p>
         <br><br>
         <p><?php var_dump(ArrayHelper::map($selectCity, 'id', 'city_name')); ?></p>
     </div>
