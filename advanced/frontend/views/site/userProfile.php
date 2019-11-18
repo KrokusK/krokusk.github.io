@@ -23,13 +23,9 @@ use yii\widgets\ActiveForm;
                                 $params = [
                                     'prompt' => 'Выберите город...'
                                 ];
-                                //$temp = [
-                                //     '1' => 'Северск',
-                                //     '2' => 'Томск'
-                                //];
-                                //echo $form->field($model, 'city_id')->dropDownList($temp,$params)->hint('Пожалуйста, выберите город')->label('Город');
+
+                                echo $form->field($model, 'city_id')->dropDownList(ArrayHelper::map($selectCity, 'id', 'city_name'),$params)->hint('Пожалуйста, выберите город')->label('Город');
                             ?>
-                            <?php echo $form->field($model, 'city_id')->dropDownList(ArrayHelper::map($selectCity, 'id', 'city_name'),$params)->hint('Пожалуйста, выберите город')->label('Город'); ?>
                             <?= $form->field($model, 'phone')->input('text')->hint('Пожалуйста, введите ваш телефон')->label('Телефон в формате: +7 (999) 999-99-99'); ?>
                             <?= $form->field($model, 'about')->input('text', ['maxlength' => true])->hint('Пожалуйста, напишите о себе')->label('О себе'); ?>
                         </div>
@@ -48,15 +44,10 @@ use yii\widgets\ActiveForm;
         </div>
     </div>
     <div class="row">
-        <p><?php var_dump(['1','2']); ?></p>
         <br><br>
-        <p><?php var_dump($citiesId); ?></p>
+        <p><?php //var_dump($selectCity); ?></p>
         <br><br>
-        <p><?php var_dump($citiesIdStr); ?></p>
-        <br><br>
-        <p><?php var_dump($selectCity); ?></p>
-        <br><br>
-        <p><?php var_dump(ArrayHelper::map($selectCity, 'id', 'city_name')); ?></p>
+        <p><?php //var_dump(ArrayHelper::map($selectCity, 'id', 'city_name')); ?></p>
     </div>
 </div>
 

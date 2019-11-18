@@ -413,20 +413,9 @@ class SiteController extends Controller
                 ->orderBy('city_name')
                 //->asArray()
                 ->all();
-            //$selectCity = [];
-            //foreach ($cities as $city) {
-            //    array_push($selectCity, ["{$city['id']}" => "{$city['city_name']}"]);
-            //}
-            $citiesId = UserCity::find()->select(['id'])->asArray()->all();
-            $citiesIdStr = [];
-            foreach ($citiesId as $item) {
-                array_push($citiesIdStr, "{$item['id']}");
-            }
 
             return $this->render('userProfile', [
                 'selectCity' => $cities,
-                'citiesId' => $citiesId,
-                'citiesIdStr' => $citiesIdStr,
                 'model' => $model,
             ]);
         }

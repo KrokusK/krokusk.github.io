@@ -40,7 +40,7 @@ class UserDesc extends \yii\db\ActiveRecord
                         }
                         return $citiesIdStr;
                     },
-                'message' => 'Город не выбран из списка'],            
+                'message' => 'Город не выбран из списка'],
             [['about'], 'string', 'max' => 255, 'message' => 'Число знаков не должно превышать 255'],
             [['phone'], 'match', 'pattern' => '/^\+7\s\([0-9]{3}\)\s[0-9]{3}\-[0-9]{2}\-[0-9]{2}$/', 'message' => 'Номер телефона должен быть введен в формате: +7 (999) 999-99-99'],
         ];
