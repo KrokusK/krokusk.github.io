@@ -18,7 +18,6 @@ use yii\widgets\ActiveForm;
                                     <img src="<?= Html::encode("{$model->avatar}") ?>" alt="Image">
                                     <?= $form->field($modelUploadOneFile, 'imageFile')->fileInput(['class' => 'form-control', 'src' => $model->avatar])->hint('Пожалуйста, загрузить ваш аватар')->label('Аватар'); ?>
 
-                                    <?= Html::submitButton($isNewRecordUserDesc ? 'Сохранить' : 'Обновить', ['id' => 'button-user-profile', 'class' => $isNewRecordUserDesc ? 'btn btn-default' : 'btn btn-default']) ?>
                                 <?php ActiveForm::end(); ?>
                             </div>
                         </div>
