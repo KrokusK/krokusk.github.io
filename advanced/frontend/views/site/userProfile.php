@@ -22,7 +22,8 @@ use yii\widgets\ActiveForm;
                                 <?= $form->field($model, 'name')->input(['class' => 'form-control', 'value'=>$model->name, 'maxlength' => true])->hint('Пожалуйста, введите ваше Имя')->label('Имя'); ?>
                                 <?php
                                     $params = [
-                                        'prompt' => 'Выберите город...'
+                                        'prompt' => 'Выберите город...',
+                                        'options' => [$model->city_id => ["Selected"=>true]]
                                     ];
 
                                     echo $form->field($model, 'city_id')->dropDownList(ArrayHelper::map($selectCity, 'id', 'city_name'), $params)->hint('Пожалуйста, выберите город')->label('Город');
