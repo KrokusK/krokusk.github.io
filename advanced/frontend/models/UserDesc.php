@@ -5,13 +5,20 @@ namespace frontend\models;
 use common\models\User;
 use Yii;
 use yii\db\ActiveRecord;
+use yii\base\Model;
+use yii\web\UploadedFile;
 
 /**
  * This is the model class for table "user".
  *
  */
-class UserDesc extends \yii\db\ActiveRecord
+class UserDesc extends ActiveRecord
 {
+    /**
+     * @var UploadedFile
+     */
+    public $imageFile;
+
     /**
      * {@inheritdoc}
      */
@@ -43,7 +50,18 @@ class UserDesc extends \yii\db\ActiveRecord
                 'message' => 'Город не выбран из списка'],
             [['about'], 'string', 'max' => 255, 'message' => 'Число знаков не должно превышать 255'],
             [['phone'], 'match', 'pattern' => '/^\+7\s\([0-9]{3}\)\s[0-9]{3}\-[0-9]{2}\-[0-9]{2}$/', 'message' => 'Номер телефона должен быть введен в формате: +7 (999) 999-99-99'],
+            [['imageFile'], 'file', 'skipOnEmpty' => false, 'mimeTypes' => ['image/gif', 'image/jpeg', 'image/pjpeg', 'image/png'], 'extensions' => ['gif', 'jpg', 'jpeg', 'png'], 'maxSize' => 5*1024*1024],
         ];
+    }
+
+    public function upload()
+    {
+        if ($this->validate()) {
+            $this->imageFile->saveAs('uploads/' . $this->imageFile->baseName . '.' . $this->imageFile->extension);
+            return true;
+        } else {
+            return false;
+        }
     }
 
     /**

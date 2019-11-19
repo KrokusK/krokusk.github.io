@@ -9,6 +9,7 @@ use yii\web\BadRequestHttpException;
 use yii\web\Controller;
 use yii\web\Request;
 use yii\web\Response;
+use yii\web\UploadedFile;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use yii\widgets\ActiveForm;
@@ -27,7 +28,7 @@ use frontend\models\UserShow;
 use frontend\models\UserAd;
 use frontend\models\UserCity;
 use frontend\models\AdCategory;
-use frontend\models\UploadOneFile;
+//use frontend\models\UploadOneFile;
 
 
 /**
@@ -408,7 +409,7 @@ class SiteController extends Controller
     public function actionProfile()
     {
         $model = new UserDesc();
-        $modelUploadOneFile = new UploadOneFile();
+        //$modelUploadOneFile = new UploadOneFile();
 
         if (Yii::$app->user->isGuest) {
             return $this->goHome();
@@ -433,6 +434,13 @@ class SiteController extends Controller
                 $model->avatar = "http://avatars.mds.yandex.net/get-direct/196252/C-kJri9Flw-S0RlC2uHK7A/y300";
 
                 if ($model->validate()) {
+
+                    $model->imageFile = UploadedFile::getInstance($model, 'imageFile');
+                    if ($model->upload()) {
+                        // file is uploaded successfully
+                        $model->avatar = '/uploads/'.$model->imageFile->baseName . '.' . $model->imageFile->extension;
+                    }
+
                     $flag = $model->save(false);
                     if ($flag == true) {
                         $transaction->commit();
