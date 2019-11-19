@@ -88,6 +88,17 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
+        // check user profile
+        if (Yii::$app->user->getId()) {
+            $model = new UserDesc();
+            $model->user_id = Yii::$app->user->getId();
+
+            return $this->render('userProfile', [
+                'UserId' => $model->user_id,
+                'model' => $model,
+            ]);
+        }
+
         // check input parametrs for GET method
         $cit = (preg_match("/^[0-9]*$/",Yii::$app->request->get('cit'))) ? Yii::$app->request->get('cit') : null;
         $cat = (preg_match("/^[0-9]*$/",Yii::$app->request->get('cat'))) ? Yii::$app->request->get('cat') : null;
