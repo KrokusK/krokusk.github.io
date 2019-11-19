@@ -434,7 +434,7 @@ class SiteController extends Controller
                 $model->avatar = "http://avatars.mds.yandex.net/get-direct/196252/C-kJri9Flw-S0RlC2uHK7A/y300";
 
                 if ($model->validate()) {
- 
+
                     //$model->imageFile = UploadedFile::getInstance($model, 'imageFile');
                     //if ($model->upload()) {
                         // file is uploaded successfully

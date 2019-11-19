@@ -12,6 +12,7 @@ use yii\widgets\ActiveForm;
                 <div class="content-main">
                     <div class="row">
                         <?php //$form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']], ['id' => 'form-user-profile', 'action' => Yii::$app->urlManager->createUrl('site/profile'), 'enableAjaxValidation' => true, 'validationUrl' => Yii::$app->urlManager->createUrl('site/profile-validate')]); ?>
+                        <?php $form = ActiveForm::begin(['id' => 'form-user-profile', 'action' => Yii::$app->urlManager->createUrl('site/profile'), 'enableAjaxValidation' => true, 'validationUrl' => Yii::$app->urlManager->createUrl('site/profile-validate')]); ?>
 
                             <div class="col-sm-6 col-md-4 col-lg-4">
                                 <div class="thumbnail">
@@ -20,7 +21,7 @@ use yii\widgets\ActiveForm;
                                 </div>
                             </div>
                             <div class="col-sm-6 col-md-8 col-lg-8">
-                                <?php $form = ActiveForm::begin(['id' => 'form-user-profile', 'action' => Yii::$app->urlManager->createUrl('site/profile'), 'enableAjaxValidation' => true, 'validationUrl' => Yii::$app->urlManager->createUrl('site/profile-validate')]); ?>
+                                <?php //$form = ActiveForm::begin(['id' => 'form-user-profile', 'action' => Yii::$app->urlManager->createUrl('site/profile'), 'enableAjaxValidation' => true, 'validationUrl' => Yii::$app->urlManager->createUrl('site/profile-validate')]); ?>
 
                                     <?= $form->field($model, 'name')->input(['class' => 'form-control', 'value'=>$model->name, 'maxlength' => true])->hint('Пожалуйста, введите ваше Имя')->label('Имя'); ?>
                                     <?php
@@ -33,10 +34,10 @@ use yii\widgets\ActiveForm;
                                     ?>
                                     <?= $form->field($model, 'phone')->input(['class' => 'form-control', 'value'=>$model->phone])->hint('Пожалуйста, введите ваш телефон')->label('Телефон в формате: +7 (999) 999-99-99'); ?>
                                     <?= $form->field($model, 'about')->textarea(['class' => 'form-control', 'rows' => 3, 'value' => $model->about, 'maxlength' => true])->hint('Пожалуйста, напишите о себе')->label('О себе'); ?>
-                                <?php ActiveForm::end(); ?>
+                                <?php //ActiveForm::end(); ?>
                             </div>
 
-                        <?php //ActiveForm::end(); ?>
+                        <?php ActiveForm::end(); ?>
                     </div>
                     <div class="row">
                         <div class="col-sm-6 col-md-2 col-lg-2 col-md-offset-10 col-lg-offset-10">
