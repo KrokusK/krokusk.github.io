@@ -98,9 +98,7 @@ $script = <<< JS
                            inerHtmlMessage += "</div>";
                            inerHtmlMessage += "<h4 class=\"text-center\">" + response.message + "</h4>";
                            inerHtmlMessage += "</div>";
-                           if ($('#modalAlert').modal('show').find('.modal-dialog').html(inerHtmlMessage)) {
-                               window.location.href = '/site/index';
-                           }
+                           $('#modalAlert').modal('show').find('.modal-dialog').html(inerHtmlMessage);                              
                            //$('#addAppFormModel').modal('hide');
                        } else {
                            inerHtmlMessage = "<div class=\"alert alert-danger\" role=\"alert\">";
@@ -124,6 +122,10 @@ $script = <<< JS
                 });                
             return false;
 
+        });
+        
+        $('#modalAlert').on('hidden.bs.modal', function () {
+            window.location.href = '/site/index';
         });
     });       
 
