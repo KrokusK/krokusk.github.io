@@ -83,6 +83,7 @@ $script = <<< JS
                    cache: false,
                    contentType: false,
                    processData: false,
+                   enctype: 'multipart/form-data',
                    data: form_data, //$(this).serialize(), 
                    //data: data, //$(this).serialize(),                     
                    type: 'post',                        
