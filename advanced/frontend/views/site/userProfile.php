@@ -32,8 +32,8 @@ use yii\widgets\ActiveForm;
 
                                         echo $form->field($model, 'city_id')->dropDownList(ArrayHelper::map($selectCity, 'id', 'city_name'), $params)->hint('Пожалуйста, выберите город')->label('Город');
                                     ?>
-                                    <?= $form->field($model, 'phone')->input(['class' => 'form-control', 'value'=>$model->phone])->hint('Пожалуйста, введите ваш телефон')->label('Телефон в формате: +7 (999) 999-99-99'); ?>
-                                    <?= $form->field($model, 'about')->textarea(['class' => 'form-control', 'rows' => 3, 'value' => $model->about, 'maxlength' => true])->hint('Пожалуйста, напишите о себе')->label('О себе'); ?>
+                                    <?= $form->field($model, 'phone', ['enableAjaxValidation' => true])->input(['class' => 'form-control', 'value'=>$model->phone])->hint('Пожалуйста, введите ваш телефон')->label('Телефон в формате: +7 (999) 999-99-99'); ?>
+                                    <?= $form->field($model, 'about', ['enableAjaxValidation' => true])->textarea(['class' => 'form-control', 'rows' => 3, 'value' => $model->about, 'maxlength' => true])->hint('Пожалуйста, напишите о себе')->label('О себе'); ?>
                                 <?php //ActiveForm::end(); ?>
                             </div>
 
