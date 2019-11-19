@@ -92,7 +92,7 @@ class SiteController extends Controller
         $model = new UserDesc();
         $model->user_id = Yii::$app->user->getId();
 
-        if ((!UserDesc::find()->where(['user_id' => $model->user_id])->asArray()->one()) && (!$model->user_id)) {
+        if ((!UserDesc::find()->where(['user_id' => $model->user_id])->asArray()->one()) && !empty($model->user_id)) {
             $cities = UserCity::find()
                 ->orderBy('city_name')
                 //->asArray()
