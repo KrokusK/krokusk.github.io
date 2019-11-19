@@ -92,7 +92,7 @@ class SiteController extends Controller
         $model = new UserDesc();
         $model->user_id = Yii::$app->user->getId();
 
-        if (!UserDesc::find()->where(['user_id' => $model->user_id])->asArray()->one()) {
+        if ((!UserDesc::find()->where(['user_id' => $model->user_id])->asArray()->one()) && (!$model->user_id)) {
             $cities = UserCity::find()
                 ->orderBy('city_name')
                 //->asArray()
@@ -356,8 +356,7 @@ class SiteController extends Controller
     {
         Yii::$app->user->logout();
 
-        //return $this->goHome();
-        return $this->redirect("/site/index");
+        return $this->goHome();
     }
 
     /**
