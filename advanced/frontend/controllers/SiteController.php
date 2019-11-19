@@ -394,7 +394,7 @@ class SiteController extends Controller
             return $this->goHome();
         } else {
             $model->user_id = Yii::$app->user->getId();
-            $arrayUserDesc = UserDesc::find()->where(['user_id' => $model->user_id])->asArray()->one()
+            $arrayUserDesc = UserDesc::find()->where(['user_id' => $model->user_id])->asArray()->one();
             $model->name = ArrayHelper::getValue($arrayUserDesc,'name');
             $model->phone = ArrayHelper::getValue($arrayUserDesc,'phone');
             $model->about = ArrayHelper::getValue($arrayUserDesc,'about');
