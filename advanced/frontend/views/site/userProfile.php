@@ -16,7 +16,7 @@ use yii\widgets\ActiveForm;
                             <div class="col-sm-6 col-md-4 col-lg-4">
                                 <div class="thumbnail">
                                         <img src="<?= Html::encode("{$model->avatar}") ?>" alt="Image">
-                                        <?= $form->field($model, 'imageFile')->fileInput(['class' => 'form-control', 'src' => $model->avatar])->hint('Пожалуйста, загрузить ваш аватар')->label('Аватар'); ?>
+                                        <?php //$form->field($model, 'imageFile')->fileInput(['class' => 'form-control', 'src' => $model->avatar])->hint('Пожалуйста, загрузить ваш аватар')->label('Аватар'); ?>
                                 </div>
                             </div>
                             <div class="col-sm-6 col-md-8 col-lg-8">
