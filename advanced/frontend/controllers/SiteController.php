@@ -93,7 +93,13 @@ class SiteController extends Controller
             $model = new UserDesc();
             $model->user_id = Yii::$app->user->getId();
 
+            $cities = UserCity::find()
+                ->orderBy('city_name')
+                //->asArray()
+                ->all();
+
             return $this->render('userProfile', [
+                'selectCity' => $cities,
                 'UserId' => $model->user_id,
                 'model' => $model,
             ]);
