@@ -435,11 +435,11 @@ class SiteController extends Controller
 
                 if ($model->validate()) {
 
-                    //$model->imageFile = UploadedFile::getInstance($model, 'imageFile');
-                    //if ($model->upload()) {
+                    $model->imageFile = UploadedFile::getInstance($model, 'imageFile');
+                    if ($model->upload()) {
                         // file is uploaded successfully
-                        //$model->avatar = '/uploads/'.$model->imageFile->baseName . '.' . $model->imageFile->extension;
-                    //}
+                        $model->avatar = '/uploads/'.$model->imageFile->baseName . '.' . $model->imageFile->extension;
+                    }
 
                     $flag = $model->save(false);
                     if ($flag == true) {
