@@ -23,7 +23,7 @@ use yii\widgets\ActiveForm;
                             <div class="col-sm-6 col-md-8 col-lg-8">
                                 <?php //$form = ActiveForm::begin(['id' => 'form-user-profile', 'action' => Yii::$app->urlManager->createUrl('site/profile'), 'enableAjaxValidation' => true, 'validationUrl' => Yii::$app->urlManager->createUrl('site/profile-validate')]); ?>
 
-                                    <?= $form->field($model, 'name')->input(['class' => 'form-control', 'value'=>$model->name, 'maxlength' => true, ['enableAjaxValidation' => true, 'validationUrl' => Yii::$app->urlManager->createUrl('site/profile-validate')]])->hint('Пожалуйста, введите ваше Имя')->label('Имя'); ?>
+                                    <?= $form->field($model, 'name', ['enableAjaxValidation' => true, 'validationUrl' => Yii::$app->urlManager->createUrl('site/profile-validate')])->input(['class' => 'form-control', 'value'=>$model->name, 'maxlength' => true])->hint('Пожалуйста, введите ваше Имя')->label('Имя'); ?>
                                     <?php
                                         $params = [
                                             'prompt' => 'Выберите город...',
