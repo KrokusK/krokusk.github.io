@@ -17,7 +17,7 @@ use yii\widgets\ActiveForm;
                             </div>
                         </div>
                         <div class="col-sm-6 col-md-8 col-lg-8">
-                            <?php $form = ActiveForm::begin(['id' => 'form-user-profile', 'action' => {Yii::$app->urlManager->createUrl('site/profile')}, 'enableAjaxValidation' => true, 'validationUrl' => Yii::$app->urlManager->createUrl('site/profile-validate')]); ?>
+                            <?php $form = ActiveForm::begin(['id' => 'form-user-profile', 'action' => Yii::$app->urlManager->createUrl('site/profile'), 'enableAjaxValidation' => true, 'validationUrl' => Yii::$app->urlManager->createUrl('site/profile-validate')]); ?>
 
                                 <?= $form->field($model, 'name')->input('text', ['value'=>$model->name, 'maxlength' => true])->hint('Пожалуйста, введите ваше Имя')->label('Имя'); ?>
                                 <?php
