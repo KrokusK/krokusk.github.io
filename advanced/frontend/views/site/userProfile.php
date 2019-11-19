@@ -82,8 +82,10 @@ $script = <<< JS
                    cache: false,
                    contentType: false,
                    processData: false,
-                   data: data, //$(this).serialize(),                      
-                   type: 'post',                        
+                   //data: form_data, //$(this).serialize(), 
+                   data: data, //$(this).serialize(),                     
+                   //type: 'post',    
+                   type: ppiFormMethod,                    
                    beforeSend: function() {
                        //alert("beforeSend");
                    },
