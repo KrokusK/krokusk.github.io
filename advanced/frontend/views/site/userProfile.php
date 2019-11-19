@@ -49,7 +49,7 @@ use yii\widgets\ActiveForm;
     </div>
     <div class="row">
         <br><br>
-        <p><?php //echo "User id : ".$UserId ?></p>
+        <p><?php //echo "User id : ".$model->user_id ?></p>
         <br><br>
         <p><?php //echo "User name : ".var_dump($model->name) ?></p>
         <br><br>

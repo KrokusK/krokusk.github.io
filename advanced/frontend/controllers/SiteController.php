@@ -100,7 +100,6 @@ class SiteController extends Controller
 
             return $this->render('userProfile', [
                 'selectCity' => $cities,
-                'UserId' => $model->user_id,
                 'model' => $model,
             ]);
         }
@@ -448,7 +447,6 @@ class SiteController extends Controller
 
             return $this->render('userProfile', [
                 'selectCity' => $cities,
-                'UserId' => $model->user_id,
                 'model' => $model,
             ]);
         }
