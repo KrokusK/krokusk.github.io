@@ -12,7 +12,7 @@ use yii\widgets\ActiveForm;
                 <div class="content-main">
                     <div class="row">
                         <?php //$form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']], ['id' => 'form-user-profile', 'action' => Yii::$app->urlManager->createUrl('site/profile'), 'enableAjaxValidation' => true, 'validationUrl' => Yii::$app->urlManager->createUrl('site/profile-validate')]); ?>
-                        <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']], ['id' => 'form-user-profile', 'action' => Yii::$app->urlManager->createUrl('site/profile'), 'enableAjaxValidation' => true, 'validationUrl' => Yii::$app->urlManager->createUrl('site/profile-validate')]); ?>
+                        <?php $form = ActiveForm::begin(['id' => 'form-user-profile', 'action' => Yii::$app->urlManager->createUrl('site/profile'), 'enableAjaxValidation' => true, 'validationUrl' => Yii::$app->urlManager->createUrl('site/profile-validate')]); ?>
 
                             <div class="col-sm-6 col-md-4 col-lg-4">
                                 <div class="thumbnail">
