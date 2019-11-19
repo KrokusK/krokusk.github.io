@@ -97,9 +97,12 @@ $script = <<< JS
                            inerHtmlMessage += "<h3 class=\"modal-title text-left\">Данные переданы!</h3>";
                            inerHtmlMessage += "</div>";
                            inerHtmlMessage += "<h4 class=\"text-center\">" + response.message + "</h4>";
-                           inerHtmlMessage += "</div>";
+                           inerHtmlMessage += "</div>";                           
+                           $('#modalAlert').on('hidden.bs.modal', function () {
+                                window.location.href = '/site/index';
+                           });
                            $('#modalAlert').modal('show').find('.modal-dialog').html(inerHtmlMessage);
-                           window.location.href = '/site/index';
+                           
                            //$('#addAppFormModel').modal('hide');
                        } else {
                            inerHtmlMessage = "<div class=\"alert alert-danger\" role=\"alert\">";
@@ -125,9 +128,7 @@ $script = <<< JS
 
         });
         
-        $('#modalAlert').on('hidden.bs.modal', function () {
-            window.location.href = '/site/index';
-        });
+        
     });       
 
 JS;
