@@ -621,8 +621,7 @@ class SiteController extends Controller
 
 
 
-
-
+    
 
     public function actionSay($message = 'Hello')
     {
