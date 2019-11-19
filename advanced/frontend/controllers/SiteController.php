@@ -462,7 +462,7 @@ class SiteController extends Controller
 
             return $this->render('userProfile', [
                 'selectCity' => $cities,
-                'modelUploadOneFile' => $modelUploadOneFile,
+                //'modelUploadOneFile' => $modelUploadOneFile,
                 'isNewRecordUserDesc' => $isNewRecordUserDesc,
                 'model' => $model,
             ]);
