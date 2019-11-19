@@ -98,8 +98,10 @@ class SiteController extends Controller
                 //->asArray()
                 ->all();
 
+            $isNewRecordUserDesc = true;
             return $this->render('userProfile', [
                 'selectCity' => $cities,
+                'isNewRecordUserDesc' => $isNewRecordUserDesc,
                 'model' => $model,
             ]);
         }
@@ -411,11 +413,13 @@ class SiteController extends Controller
         } else {
             $model->user_id = Yii::$app->user->getId();
 
+            $isNewRecordUserDesc = true;
             if ($arrayUserDesc = UserDesc::find()->where(['user_id' => $model->user_id])->asArray()->one()) {
                 $model->name = ArrayHelper::getValue($arrayUserDesc,'name');
                 $model->city_id = ArrayHelper::getValue($arrayUserDesc,'city_id');
                 $model->phone = ArrayHelper::getValue($arrayUserDesc,'phone');
                 $model->about = ArrayHelper::getValue($arrayUserDesc,'about');
+                $isNewRecordUserDesc = false;
             }
         }
 
@@ -447,6 +451,7 @@ class SiteController extends Controller
 
             return $this->render('userProfile', [
                 'selectCity' => $cities,
+                'isNewRecordUserDesc' => $isNewRecordUserDesc,
                 'model' => $model,
             ]);
         }
