@@ -8,7 +8,6 @@ use yii\widgets\ActiveForm;
         <div class="col-md-12 col-lg-12">
 
             <div class="animated bounceInTop" >
-                <?php $form = ActiveForm::begin(['id' => 'form-user-profile', 'action' => Yii::$app->urlManager->createUrl('site/profile'), 'enableAjaxValidation' => true, 'validationUrl' => Yii::$app->urlManager->createUrl('site/profile-validate')]); ?>
 
                 <div class="content-main">
                     <div class="row">
@@ -18,28 +17,32 @@ use yii\widgets\ActiveForm;
                             </div>
                         </div>
                         <div class="col-sm-6 col-md-8 col-lg-8">
-                            <?= $form->field($model, 'name')->input('text', ['value'=>$model->name], ['maxlength' => true])->hint('Пожалуйста, введите ваше Имя')->label('Имя'); ?>
-                            <?php
-                                $params = [
-                                    'prompt' => 'Выберите город...'
-                                ];
+                            <?php $form = ActiveForm::begin(['id' => 'form-user-profile', 'action' => Yii::$app->urlManager->createUrl('site/profile'), 'enableAjaxValidation' => true, 'validationUrl' => Yii::$app->urlManager->createUrl('site/profile-validate')]); ?>
 
-                                echo $form->field($model, 'city_id')->dropDownList(ArrayHelper::map($selectCity, 'id', 'city_name'),$params)->hint('Пожалуйста, выберите город')->label('Город');
-                            ?>
-                            <?= $form->field($model, 'phone')->input('text', ['value'=>$model->phone])->hint('Пожалуйста, введите ваш телефон')->label('Телефон в формате: +7 (999) 999-99-99'); ?>
-                            <?= $form->field($model, 'about')->input('text', ['value'=>$model->about], ['maxlength' => true])->hint('Пожалуйста, напишите о себе')->label('О себе'); ?>
+                                <?= $form->field($model, 'name')->input('text', ['value'=>$model->name], ['maxlength' => true])->hint('Пожалуйста, введите ваше Имя')->label('Имя'); ?>
+                                <?php
+                                    $params = [
+                                        'prompt' => 'Выберите город...'
+                                    ];
+
+                                    echo $form->field($model, 'city_id')->dropDownList(ArrayHelper::map($selectCity, 'id', 'city_name'),$params)->hint('Пожалуйста, выберите город')->label('Город');
+                                ?>
+                                <?= $form->field($model, 'phone')->input('text', ['value'=>$model->phone])->hint('Пожалуйста, введите ваш телефон')->label('Телефон в формате: +7 (999) 999-99-99'); ?>
+                                <?= $form->field($model, 'about')->input('textarea', ['class' => 'form-control', 'rows' => 3, 'value'=>$model->about], ['maxlength' => true])->hint('Пожалуйста, напишите о себе')->label('О себе'); ?>
+
+                            <?php ActiveForm::end(); ?>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-sm-6 col-md-2 col-lg-2 col-md-offset-10 col-lg-offset-10">
                             <div class=" view-btn text-left">
-                                <?= Html::submitButton($model->isNewRecord ? 'Сохранить' : 'Обновить', ['class' => $model->isNewRecord ? 'btn btn-default' : 'btn btn-default']) ?>
+                                <?= Html::submitButton($model->isNewRecord ? 'Сохранить' : 'Обновить', ['id' => 'button-user-profile', 'class' => $model->isNewRecord ? 'btn btn-default' : 'btn btn-default']) ?>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <?php ActiveForm::end(); ?>
+
             </div>
         </div>
     </div>
@@ -64,7 +67,7 @@ use yii\widgets\ActiveForm;
 $script = <<< JS
 
    $(document).ready(function () { 
-        $("#form-user-profile").on('beforeSubmit', function (event) { 
+        $("#button-user-profile").on('click', function (event) { 
             //alert("test");
 
             event.preventDefault();            
