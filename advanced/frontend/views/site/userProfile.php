@@ -98,7 +98,8 @@ $script = <<< JS
                            inerHtmlMessage += "</div>";
                            inerHtmlMessage += "<h4 class=\"text-center\">" + response.message + "</h4>";
                            inerHtmlMessage += "</div>";
-                           $('#modalAlert').modal('show').find('.modal-dialog').html(inerHtmlMessage);                              
+                           $('#modalAlert').modal('show').find('.modal-dialog').html(inerHtmlMessage);
+                           window.location.href = '/site/index';
                            //$('#addAppFormModel').modal('hide');
                        } else {
                            inerHtmlMessage = "<div class=\"alert alert-danger\" role=\"alert\">";
