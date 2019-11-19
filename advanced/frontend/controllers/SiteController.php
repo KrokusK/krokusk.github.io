@@ -419,6 +419,7 @@ class SiteController extends Controller
                 $model->city_id = ArrayHelper::getValue($arrayUserDesc,'city_id');
                 $model->phone = ArrayHelper::getValue($arrayUserDesc,'phone');
                 $model->about = ArrayHelper::getValue($arrayUserDesc,'about');
+                $model->avatar = ArrayHelper::getValue($arrayUserDesc,'avatar');
                 $isNewRecordUserDesc = false;
             }
         }
