@@ -27,6 +27,7 @@ use frontend\models\UserShow;
 use frontend\models\UserAd;
 use frontend\models\UserCity;
 use frontend\models\AdCategory;
+use frontend\models\UploadOneFile;
 
 
 /**
@@ -407,6 +408,7 @@ class SiteController extends Controller
     public function actionProfile()
     {
         $model = new UserDesc();
+        $modelUploadOneFile = new UploadOneFile();
 
         if (Yii::$app->user->isGuest) {
             return $this->goHome();
@@ -452,6 +454,7 @@ class SiteController extends Controller
 
             return $this->render('userProfile', [
                 'selectCity' => $cities,
+                'modelUploadOneFile' => $modelUploadOneFile,
                 'isNewRecordUserDesc' => $isNewRecordUserDesc,
                 'model' => $model,
             ]);
