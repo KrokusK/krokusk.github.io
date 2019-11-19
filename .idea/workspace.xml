@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d97bdc22-9d4b-4578-b4be-b96d66aca924" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/advanced/frontend/models/UploadOneFile.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/advanced/frontend/controllers/SiteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/advanced/frontend/controllers/SiteController.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -22,14 +24,14 @@
   <component name="ProjectId" id="1SKOvz27B5adiUDik6cxRTvRHsy" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/advanced/frontend/views/site" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/advanced/frontend/models" />
     <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="J:\SmartWorldAcademy\OpenServer\OSPanel\domains\krokusk.github.io\advanced\frontend\models" />
       <recent name="J:\SmartWorldAcademy\OpenServer\OSPanel\domains\krokusk.github.io\advanced\frontend\views\site" />
       <recent name="J:\SmartWorldAcademy\OpenServer\OSPanel\domains\krokusk.github.io\advanced\console\migrations" />
-      <recent name="J:\SmartWorldAcademy\OpenServer\OSPanel\domains\krokusk.github.io\advanced\frontend\models" />
       <recent name="J:\SmartWorldAcademy\OpenServer\OSPanel\domains\krokusk.github.io\advanced\frontend\views\CompanyApp" />
       <recent name="J:\SmartWorldAcademy\OpenServer\OSPanel\domains\krokusk.github.io\advanced\frontend\controllers" />
     </key>
@@ -80,7 +82,7 @@
       <workItem from="1573877469202" duration="15439000" />
       <workItem from="1573967485870" duration="15242000" />
       <workItem from="1574042572013" duration="18907000" />
-      <workItem from="1574128370747" duration="10198000" />
+      <workItem from="1574128370747" duration="11717000" />
     </task>
     <servers />
   </component>
