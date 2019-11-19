@@ -16,7 +16,7 @@ use yii\widgets\ActiveForm;
                                 <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']], ['id' => 'form-user-avatar', 'action' => Yii::$app->urlManager->createUrl('site/avatar'), 'enableAjaxValidation' => true, 'validationUrl' => Yii::$app->urlManager->createUrl('site/avatar-validate')]); ?>
 
                                     <img src="<?= Html::encode("{$model->avatar}") ?>" alt="Image">
-                                    <?= $form->field($modelUploadOneFile, 'imageFile')->fileInput(['class' => 'form-control', 'src' => $model->avatar])->hint('Пожалуйста, загрузить ваш аватар')->label('Аватар'); ?>
+                                    <?= $form->field($model, 'imageFile')->fileInput(['class' => 'form-control', 'src' => $model->avatar])->hint('Пожалуйста, загрузить ваш аватар')->label('Аватар'); ?>
 
                                 <?php ActiveForm::end(); ?>
                             </div>
