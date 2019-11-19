@@ -13,7 +13,11 @@ use yii\widgets\ActiveForm;
                     <div class="row">
                         <div class="col-sm-6 col-md-4 col-lg-4">
                             <div class="thumbnail">
-                                <img src="http://avatars.mds.yandex.net/get-direct/196252/C-kJri9Flw-S0RlC2uHK7A/y300" alt="Image">
+                                <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']], ['id' => 'form-user-avatar', 'action' => Yii::$app->urlManager->createUrl('site/avatar'), 'enableAjaxValidation' => true, 'validationUrl' => Yii::$app->urlManager->createUrl('site/avatar-validate')]); ?>
+
+                                    <img src="http://avatars.mds.yandex.net/get-direct/196252/C-kJri9Flw-S0RlC2uHK7A/y300" alt="Image">
+
+                                <?php ActiveForm::end(); ?>
                             </div>
                         </div>
                         <div class="col-sm-6 col-md-8 col-lg-8">
