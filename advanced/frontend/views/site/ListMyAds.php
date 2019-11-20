@@ -78,11 +78,12 @@ $this->title = 'Сайт объявлений';
                         </div>
                         <div class="col-sm-6 col-md-4 col-lg-4 col-md-offset-8 col-lg-offset-8">
                             <section>
-                            <span class="text-right">
+                            <span class="text-right align-top">
                                 <h4>Статус :</h4>
                                 <h4>Цена: <?= Html::encode("{$userAd->amount}") ?></h4>
-                                <img src="<?= Html::encode("{$userAd->adPhotos[0]["photo_path"]}") ?>" alt="Image">
                             </span>
+                                <img src="<?= Html::encode("{$userAd->adPhotos[0]["photo_path"]}") ?>" alt="Image">
+
                             </section>
                         </div>
                     </div>
