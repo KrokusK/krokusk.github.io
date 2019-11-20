@@ -449,7 +449,7 @@ class SiteController extends Controller
                         $path = Yii::$app->params['uploadPath'] . $model->image_web_filename;
                         $image->saveAs($path);
 
-                        $model->avatar = $path;
+                        $model->avatar = '/uploads/UserDesc/' . $model->image_web_filename;
                     }
 
                     //if ($model->save()) {
