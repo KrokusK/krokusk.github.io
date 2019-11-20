@@ -152,7 +152,7 @@ class SiteController extends Controller
             //->leftJoin('photo_ad', '"user_ad"."id" = "photo_ad"."ad_id"')
             ->with('adPhotos')
             ->all();
-
+ 
         $cities = UserCity::find()
             //->where(['status' => Cities::STATUS_ACTIVE])
             //->andWhere('country_id=:id',[':id' => $id])
