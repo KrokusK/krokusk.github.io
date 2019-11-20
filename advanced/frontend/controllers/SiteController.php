@@ -437,6 +437,7 @@ class SiteController extends Controller
                     $image = UploadedFile::getInstance($model, 'imageFile');
                     if (!is_null($image)) {
                         $model->imageFile = $image;
+                        $model->validate();
                         $model->image_src_filename = $image->name;
                         $tmp = explode(".", $image->name);
                         $ext = end($tmp);
