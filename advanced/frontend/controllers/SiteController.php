@@ -101,7 +101,6 @@ class SiteController extends Controller
             $model->user_id = Yii::$app->user->getId();
             return $this->render('userProfile', [
                 'selectCity' => $cities,
-                'isNewRecordUserDesc' => true,
                 'model' => $model,
             ]);
         }
@@ -410,12 +409,10 @@ class SiteController extends Controller
             return $this->goHome();
         } else {
 
-            $isNewRecordUserDesc = false; // Variable need for view userProfile (Button Save or Update)
             $model = UserDesc::find()->where(['user_id' => Yii::$app->user->getId()])->one();
             if (empty($model)) {
                 $model = new UserDesc();
                 $model->user_id = Yii::$app->user->getId();
-                $isNewRecordUserDesc = true;
             }
 
 
@@ -498,8 +495,6 @@ class SiteController extends Controller
 
                 return $this->render('userProfile', [
                     'selectCity' => $cities,
-                    //'modelUploadOneFile' => $modelUploadOneFile,
-                    'isNewRecordUserDesc' => $isNewRecordUserDesc,
                     'model' => $model,
                 ]);
             }
