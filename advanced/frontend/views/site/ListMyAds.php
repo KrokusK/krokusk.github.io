@@ -67,14 +67,16 @@ $this->title = 'Сайт объявлений';
                     <?php foreach ($userAds as $userAd): ?>
                         <tr>
                             <td class="align-top">
-                                <div class="text-left">
-                                    <h3><?= Html::encode("{$userAd->header}") ?></h3>
-                                </div>
-                                <div class="text-left">
-                                    <h4>Создано: <?= Html::encode(date('d.m.Y H:i:s', $userAd->created_at)) ?> Категория :  Город : </h4>
-                                </div>
-                                <div class="text-left">
-                                    Содержание!
+                                <div class="col-sm-6 col-md-6 col-lg-6">
+                                    <div class="text-left">
+                                        <h3><?= Html::encode("{$userAd->header}") ?></h3>
+                                    </div>
+                                    <div class="text-left">
+                                        <h4>Создано: <?= Html::encode(date('d.m.Y H:i:s', $userAd->created_at)) ?> Категория :  Город : </h4>
+                                    </div>
+                                    <div class="text-left">
+                                        Содержание!
+                                    </div>
                                 </div>
                             </td>
                             <td class="align-top">
@@ -85,7 +87,7 @@ $this->title = 'Сайт объявлений';
                                     </span>
                                     <img class="text-right align-top" src="<?= Html::encode("{$userAd->adPhotos[0]["photo_path"]}") ?>" alt="Image">
 
-                                
+
                             </td>
                         </tr>
                     <?php endforeach; ?>
