@@ -91,19 +91,18 @@ class SiteController extends Controller
     public function actionIndex()
     {
         // check user profile
-        $model = new UserDesc();
-        $model->user_id = Yii::$app->user->getId();
+        //$model = new UserDesc();
+        //$model->user_id = Yii::$app->user->getId();
 
-        if ((!UserDesc::find()->where(['user_id' => $model->user_id])->asArray()->one()) && !empty($model->user_id)) {
+        if ((!UserDesc::find()->where(['user_id' => Yii::$app->user->getId()])->asArray()->one()) && !empty(Yii::$app->user->getId())) {
             $cities = UserCity::find()
                 ->orderBy('city_name')
                 //->asArray()
                 ->all();
 
-            $isNewRecordUserDesc = true;
             return $this->render('userProfile', [
                 'selectCity' => $cities,
-                'isNewRecordUserDesc' => $isNewRecordUserDesc,
+                'isNewRecordUserDesc' => true,
                 'model' => $model,
             ]);
         }
