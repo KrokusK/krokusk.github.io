@@ -67,7 +67,7 @@ $this->title = 'Сайт объявлений';
                     <?php foreach ($userAds as $userAd): ?>
                         <tr>
                             <td class="align-top col-sm-6 col-md-8 col-lg-8">
-                                
+
                                     <div class="text-left">
                                         <h3><?= Html::encode("{$userAd->header}") ?></h3>
                                     </div>
@@ -79,7 +79,7 @@ $this->title = 'Сайт объявлений';
                                     </div>
 
                             </td>
-                            <td class="align-top">
+                            <td class="align-top col-sm-6 col-md-4 col-lg-4 col-md-offset-8 col-lg-offset-8">
 
                                     <span class="text-right align-top">
                                         <h4>Статус :</h4>
