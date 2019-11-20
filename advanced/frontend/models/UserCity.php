@@ -12,6 +12,12 @@ use yii\db\ActiveRecord;
 class UserCity extends \yii\db\ActiveRecord
 {
     /**
+     * status ad
+     */
+    const STATUS_INACTIVE = 1;
+    const STATUS_ACTIVE = 2;
+
+    /**
      * {@inheritdoc}
      */
     public static function tableName()
