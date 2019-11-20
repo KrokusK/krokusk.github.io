@@ -437,6 +437,7 @@ class SiteController extends Controller
 
                 //if ($model->load(Yii::$app->request->post())) {
                     $image = UploadedFile::getInstance($model, 'imageFile');
+                    var_dump ($image);
                     if (!is_null($image)) {
                         $model->image_src_filename = $image->name;
                         $ext = end((explode(".", $image->name)));
