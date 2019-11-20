@@ -412,20 +412,21 @@ class SiteController extends Controller
             return $this->goHome();
         } else {
 
+            $isNewRecordUserDesc = false;
             $model = UserDesc::find()->where(['user_id' => Yii::$app->user->getId()])->one();
             if (empty($model)) {
                 $model = new UserDesc();
                 $model->user_id = Yii::$app->user->getId();
-            } 
+                $isNewRecordUserDesc = true;
+            }
 
-            $isNewRecordUserDesc = true;
+
             if ($arrayUserDesc = UserDesc::find()->where(['user_id' => $model->user_id])->asArray()->one()) {
                 $model->name = ArrayHelper::getValue($arrayUserDesc,'name');
                 $model->city_id = ArrayHelper::getValue($arrayUserDesc,'city_id');
                 $model->phone = ArrayHelper::getValue($arrayUserDesc,'phone');
                 $model->about = ArrayHelper::getValue($arrayUserDesc,'about');
                 $model->avatar = ArrayHelper::getValue($arrayUserDesc,'avatar');
-                $isNewRecordUserDesc = false;
             }
 
 
