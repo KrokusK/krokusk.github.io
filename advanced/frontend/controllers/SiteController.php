@@ -433,7 +433,7 @@ class SiteController extends Controller
 
 
                 $image = UploadedFile::getInstance($model, 'imageFile');
-                if (!is_null($image)) {
+                if (!empty($image) && $image->size !== 0) {
                     $model->imageFile = $image;
 
                     if ($model->validate()) {
