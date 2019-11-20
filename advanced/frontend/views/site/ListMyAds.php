@@ -73,7 +73,7 @@ $this->title = 'Сайт объявлений';
                                                 echo Html::encode("{$userAd->header}");
                                             ?>
                                         </h3>
-                                        <h4>Создано: <?= Html::encode(date('d.m.Y H:i:s', $userAd->created_at)) ?> Категория : <?= Html::encode("{$userAd->adCaterories[0]["name"]}") ?>  Город : <?= Html::encode("{$userAd->userCities[0]["city_name"]}") ?></h4>
+                                        <h4>Создано: <?= Html::encode(date('d.m.Y H:i:s', $userAd->created_at)) ?> Категория : <?= Html::encode("{$userAd->adCategories[0]["name"]}") ?>  Город : <?= Html::encode("{$userAd->userCities[0]["city_name"]}") ?></h4>
                                         <p>Содержание!</p>
                                     </div>
                             </td>

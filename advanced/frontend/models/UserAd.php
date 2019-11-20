@@ -49,7 +49,7 @@ class UserAd extends \yii\db\ActiveRecord
      *
      * Link to table Ad_category
      */
-    public function getAdCaterories()
+    public function getAdCategories()
     {
         return $this->hasOne(AdCategory::className(), ['id' => 'category_id']);
     }
