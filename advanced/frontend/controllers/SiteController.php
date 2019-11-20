@@ -422,8 +422,9 @@ class SiteController extends Controller
                 $model->city_id = ArrayHelper::getValue($arrayUserDesc,'city_id');
                 $model->phone = ArrayHelper::getValue($arrayUserDesc,'phone');
                 $model->about = ArrayHelper::getValue($arrayUserDesc,'about');
-                //$model->avatar = ArrayHelper::getValue($arrayUserDesc,'avatar');
-                $model->avatar = '/uploads/UserDesc/AxiQgESs98pdN7eCdpKK1_xPi2b2shiz.png';
+                $model->avatar = ArrayHelper::getValue($arrayUserDesc,'avatar');
+                //$model->avatar = '/uploads/UserDesc/AxiQgESs98pdN7eCdpKK1_xPi2b2shiz.png';
+                //$model->avatar = "http://avatars.mds.yandex.net/get-direct/196252/C-kJri9Flw-S0RlC2uHK7A/y300";
                 $isNewRecordUserDesc = false;
             }
         }
@@ -432,13 +433,10 @@ class SiteController extends Controller
             $transaction = \Yii::$app->db->beginTransaction();
             try {
 
-                //$model->avatar = "http://avatars.mds.yandex.net/get-direct/196252/C-kJri9Flw-S0RlC2uHK7A/y300";
-
-
-
                 //if ($model->load(Yii::$app->request->post())) {
                     $image = UploadedFile::getInstance($model, 'imageFile');
                     if (!is_null($image)) {
+                        $model->imageFile = $image;
                         $model->image_src_filename = $image->name;
                         $tmp = explode(".", $image->name);
                         $ext = end($tmp);
