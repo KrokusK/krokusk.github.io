@@ -410,7 +410,7 @@ class SiteController extends Controller
             return $this->goHome();
         } else {
 
-            $isNewRecordUserDesc = false;
+            $isNewRecordUserDesc = false; // Variable need for view userProfile (Button Save or Update)
             $model = UserDesc::find()->where(['user_id' => Yii::$app->user->getId()])->one();
             if (empty($model)) {
                 $model = new UserDesc();
