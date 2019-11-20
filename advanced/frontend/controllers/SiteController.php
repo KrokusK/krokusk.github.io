@@ -152,7 +152,7 @@ class SiteController extends Controller
             //->leftJoin('photo_ad', '"user_ad"."id" = "photo_ad"."ad_id"')
             ->with('adPhotos')
             ->all();
- 
+
         $cities = UserCity::find()
             //->where(['status' => Cities::STATUS_ACTIVE])
             //->andWhere('country_id=:id',[':id' => $id])
@@ -380,7 +380,7 @@ class SiteController extends Controller
             $userAd = UserAd::find()
                 ->where (['id' => (int)$adNum])
                 ->andWhere (['status_id' => 2])
-                ->with('userDescs', 'userDescs.users', 'userCities', 'adCaterories', 'adPhotos')
+                ->with('userDescs', 'userDescs.users', 'userCities', 'adCategories', 'adPhotos')
                 //->asArray()
                 ->one();
 
