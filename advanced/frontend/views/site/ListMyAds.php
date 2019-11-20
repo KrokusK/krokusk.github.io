@@ -11,8 +11,8 @@ $this->title = 'Сайт объявлений';
 
     <div class="container">
         <div class="row">
-            <div class="col-sm-12 col-md-12">
-                <h2>Мои объвления</h2>
+            <div class="col-sm-12 col-md-12; text-align: center;">
+                <h2>Мои объявления</h2>
             </div>
         </div>
         <div class="row">
