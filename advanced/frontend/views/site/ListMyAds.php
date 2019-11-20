@@ -9,7 +9,7 @@ use yii\widgets\Pjax;
 $this->title = 'Сайт объявлений';
 ?>
 
-    <td class="container">
+    <div class="container">
         <div class="row">
             <div class="col-sm-12 col-md-12">
                 <div class="text-center">
@@ -59,7 +59,7 @@ $this->title = 'Сайт объявлений';
                 </div><!-- /.container-fluid -->
             </nav>
         </div>
-        <tr class="row">
+        <div class="row">
 
 
             <table style="height: 100px; weight: 100px">
@@ -91,39 +91,7 @@ $this->title = 'Сайт объявлений';
 
 
         </div>
-        <div class="row">
 
-
-            <div class="content-main">
-                <?php foreach ($userAds as $userAd): ?>
-                    <div class="row">
-                        <div class="col-sm-6 col-md-6 col-lg-6">
-                            <div class="text-left">
-                                <h3><?= Html::encode("{$userAd->header}") ?></h3>
-                            </div>
-                            <div class="text-left">
-                                <h4>Создано: <?= Html::encode(date('d.m.Y H:i:s', $userAd->created_at)) ?> Категория :  Город : </h4>
-                            </div>
-                            <div class="text-left">
-                                Содержание!
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-md-5 col-lg-5 col-md-offset-7 col-lg-offset-7">
-                            <section>
-                                <span class="text-right align-top">
-                                    <h4>Статус :</h4>
-                                    <h4>Цена: <?= Html::encode("{$userAd->amount}") ?></h4>
-                                </span>
-                                <img class="text-right align-top" src="<?= Html::encode("{$userAd->adPhotos[0]["photo_path"]}") ?>" alt="Image">
-
-                            </section>
-                        </div>
-                    </div>
-                <?php endforeach; ?>
-            </div>
-
-
-        </div>
         <div class="row">
             <div class="text-center">
                 <?= LinkPager::widget(['pagination' => $pagination]) ?>
