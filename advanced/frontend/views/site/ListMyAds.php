@@ -77,11 +77,13 @@ $this->title = 'Сайт объявлений';
                             </div>
                         </div>
                         <div class="col-sm-6 col-md-4 col-lg-4 col-md-offset-8 col-lg-offset-8">
-                            <span class="align-top">
+                            <section>
+                            <span class="text-right">
                                 <h4>Статус :</h4>
                                 <h4>Цена: <?= Html::encode("{$userAd->amount}") ?></h4>
                                 <img src="<?= Html::encode("{$userAd->adPhotos[0]["photo_path"]}") ?>" alt="Image">
                             </span>
+                            </section>
                         </div>
                     </div>
                 <?php endforeach; ?>
