@@ -478,7 +478,7 @@ class SiteController extends Controller
                         $transaction->rollBack();
                     }
                 } else {
-                    return Json::encode(array('status' => '0', 'type' => 'warning', 'message' => 'Профиль пользователя не может быть сохранен.'));
+                    return Json::encode(array('status' => '0', 'type' => 'warning', 'message' => 'Профиль пользователя не может быть сохранен. image_web_filename='.$model->image_web_filename));
                 }
             } catch (Exception $ex) {
                 $transaction->rollBack();
