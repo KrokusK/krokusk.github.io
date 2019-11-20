@@ -437,10 +437,10 @@ class SiteController extends Controller
 
                 //if ($model->load(Yii::$app->request->post())) {
                     $image = UploadedFile::getInstance($model, 'imageFile');
-                    var_dump ($image);
                     if (!is_null($image)) {
                         $model->image_src_filename = $image->name;
-                        $ext = end((explode(".", $image->name)));
+                        $tmp = explode(".", $image->name);
+                        $ext = end($tmp);
                         // generate a unique file name to prevent duplicate filenames
                         $model->image_web_filename = Yii::$app->security->generateRandomString().".{$ext}";
                         // the path to save file, you can set an uploadPath
