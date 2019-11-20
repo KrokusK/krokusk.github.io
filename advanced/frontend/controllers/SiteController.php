@@ -411,8 +411,12 @@ class SiteController extends Controller
         if (Yii::$app->user->isGuest) {
             return $this->goHome();
         } else {
-            $model = new UserDesc();
-            $model->user_id = Yii::$app->user->getId();
+
+            $model = UserDesc::find()->where(['user_id' => Yii::$app->user->getId()])->one();
+            if (empty($model)) {
+                $model = new UserDesc();
+                $model->user_id = Yii::$app->user->getId();
+            } 
 
             $isNewRecordUserDesc = true;
             if ($arrayUserDesc = UserDesc::find()->where(['user_id' => $model->user_id])->asArray()->one()) {
