@@ -4,7 +4,6 @@
     <list default="true" id="d97bdc22-9d4b-4578-b4be-b96d66aca924" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/advanced/frontend/controllers/SiteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/advanced/frontend/controllers/SiteController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/advanced/frontend/models/UserDesc.php" beforeDir="false" afterPath="$PROJECT_DIR$/advanced/frontend/models/UserDesc.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -84,7 +83,7 @@
       <workItem from="1574042572013" duration="18907000" />
       <workItem from="1574128370747" duration="24260000" />
       <workItem from="1574176954422" duration="2143000" />
-      <workItem from="1574213594033" duration="1141000" />
+      <workItem from="1574213594033" duration="1721000" />
     </task>
     <servers />
   </component>
