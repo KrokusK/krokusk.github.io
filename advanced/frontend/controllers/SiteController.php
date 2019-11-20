@@ -423,8 +423,6 @@ class SiteController extends Controller
                 $model->phone = ArrayHelper::getValue($arrayUserDesc,'phone');
                 $model->about = ArrayHelper::getValue($arrayUserDesc,'about');
                 $model->avatar = ArrayHelper::getValue($arrayUserDesc,'avatar');
-                //$model->avatar = '/uploads/UserDesc/AxiQgESs98pdN7eCdpKK1_xPi2b2shiz.png';
-                //$model->avatar = "http://avatars.mds.yandex.net/get-direct/196252/C-kJri9Flw-S0RlC2uHK7A/y300";
                 $isNewRecordUserDesc = false;
             }
         }
@@ -437,19 +435,6 @@ class SiteController extends Controller
                 $image = UploadedFile::getInstance($model, 'imageFile');
                 if (!is_null($image)) {
                     $model->imageFile = $image;
-
-
-
-
-                //if ($model->save()) {
-                //    return $this->redirect(['view', 'id' => $model->id]);
-                //}  else {
-                //    var_dump ($model->getErrors());
-                //    die();
-                //}
-
-
-
 
                     if ($model->validate()) {
 
@@ -476,14 +461,26 @@ class SiteController extends Controller
                         $flag = $model->save(false);
                         if ($flag == true) {
                             $transaction->commit();
-                            return Json::encode(array('status' => '1', 'type' => 'success', 'message' => 'Профиль пользователя успешно сохранен.'));
+                            return Json::encode(array('status' => '1', 'type' => 'success', 'message' => 'Профиль пользователя успешно сохранен. model->avatar='.$model->avatar));
                         } else {
                             $transaction->rollBack();
                         }
                     } else {
                         return Json::encode(array('status' => '0', 'type' => 'warning', 'message' => 'Профиль пользователя не может быть сохранен. model->avatar='.$model->avatar));
                     }
-                 }
+                 } else {
+                    if ($model->validate()) {
+                        $flag = $model->save(false);
+                        if ($flag == true) {
+                            $transaction->commit();
+                            return Json::encode(array('status' => '1', 'type' => 'success', 'message' => 'Профиль пользователя успешно сохранен. model->avatar='.$model->avatar));
+                        } else {
+                            $transaction->rollBack();
+                        }
+                    } else {
+                        return Json::encode(array('status' => '0', 'type' => 'warning', 'message' => 'Профиль пользователя не может быть сохранен. model->avatar='.$model->avatar));
+                    }
+                }
 
 
             } catch (Exception $ex) {
