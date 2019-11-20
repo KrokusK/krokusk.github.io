@@ -433,11 +433,33 @@ class SiteController extends Controller
             $transaction = \Yii::$app->db->beginTransaction();
             try {
 
-                //if ($model->load(Yii::$app->request->post())) {
-                    $image = UploadedFile::getInstance($model, 'imageFile');
-                    if (!is_null($image)) {
-                        $model->imageFile = $image;
-                        $model->validate();
+
+                $image = UploadedFile::getInstance($model, 'imageFile');
+                if (!is_null($image)) {
+                    $model->imageFile = $image;
+
+
+
+
+                //if ($model->save()) {
+                //    return $this->redirect(['view', 'id' => $model->id]);
+                //}  else {
+                //    var_dump ($model->getErrors());
+                //    die();
+                //}
+
+
+
+
+                    if ($model->validate()) {
+
+                        //$model->imageFile = UploadedFile::getInstance($model, 'imageFile');
+                        //if ($model->upload()) {
+                        //    // file is uploaded successfully
+                        //    $model->avatar = '/uploads/'.$model->imageFile->baseName . '.' . $model->imageFile->extension;
+                        //}
+
+                        // save avatar
                         $model->image_src_filename = $image->name;
                         $tmp = explode(".", $image->name);
                         $ext = end($tmp);
@@ -450,36 +472,20 @@ class SiteController extends Controller
                         $image->saveAs($path);
 
                         $model->avatar = '/uploads/UserDesc/' . $model->image_web_filename;
-                    }
 
-                    //if ($model->save()) {
-                    //    return $this->redirect(['view', 'id' => $model->id]);
-                    //}  else {
-                    //    var_dump ($model->getErrors());
-                    //    die();
-                    //}
-                //}
-
-
-
-                if ($model->validate()) {
-
-                    //$model->imageFile = UploadedFile::getInstance($model, 'imageFile');
-                    //if ($model->upload()) {
-                    //    // file is uploaded successfully
-                    //    $model->avatar = '/uploads/'.$model->imageFile->baseName . '.' . $model->imageFile->extension;
-                    //}
-
-                    $flag = $model->save(false);
-                    if ($flag == true) {
-                        $transaction->commit();
-                        return Json::encode(array('status' => '1', 'type' => 'success', 'message' => 'Профиль пользователя успешно сохранен.'));
+                        $flag = $model->save(false);
+                        if ($flag == true) {
+                            $transaction->commit();
+                            return Json::encode(array('status' => '1', 'type' => 'success', 'message' => 'Профиль пользователя успешно сохранен.'));
+                        } else {
+                            $transaction->rollBack();
+                        }
                     } else {
-                        $transaction->rollBack();
+                        return Json::encode(array('status' => '0', 'type' => 'warning', 'message' => 'Профиль пользователя не может быть сохранен. model->avatar='.$model->avatar));
                     }
-                } else {
-                    return Json::encode(array('status' => '0', 'type' => 'warning', 'message' => 'Профиль пользователя не может быть сохранен. model->avatar='.$model->avatar));
-                }
+                 }
+
+
             } catch (Exception $ex) {
                 $transaction->rollBack();
             }
