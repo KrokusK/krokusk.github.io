@@ -66,7 +66,7 @@ $this->title = 'Сайт объявлений';
                 <tbody>
                     <?php foreach ($userAds as $userAd): ?>
                         <tr>
-                            <td class="align-top col-sm-6 col-md-8 col-lg-8">
+                            <td class="align-top col-sm-12 col-md-12 col-lg-12">
 
                                     <div class="text-left">
                                         <h3><?= Html::encode("{$userAd->header}") ?></h3>
