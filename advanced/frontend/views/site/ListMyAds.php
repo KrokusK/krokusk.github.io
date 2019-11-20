@@ -70,22 +70,18 @@ $this->title = 'Сайт объявлений';
 
                                     <div class="text-left">
                                         <h3><?= Html::encode("{$userAd->header}") ?></h3>
-                                    </div>
-                                    <div class="text-left">
                                         <h4>Создано: <?= Html::encode(date('d.m.Y H:i:s', $userAd->created_at)) ?> Категория :  Город : </h4>
-                                    </div>
-                                    <div class="text-left">
-                                        Содержание!
+                                        <p>Содержание!</p>
                                     </div>
 
                             </td>
                             <td class="align-top col-sm-6 col-md-6 col-lg-6">
 
-                                    <span class="text-left align-top">
+                                    <div class="text-left align-top">
                                         <h4>Статус :</h4>
                                         <h4>Цена: <?= Html::encode("{$userAd->amount}") ?></h4>
-                                    </span>
-                                    <img class="text-right align-top" src="<?= Html::encode("{$userAd->adPhotos[0]["photo_path"]}") ?>" alt="Image">
+                                        <img class="text-right align-top" src="<?= Html::encode("{$userAd->adPhotos[0]["photo_path"]}") ?>" alt="Image">
+                                    </div>
 
 
                             </td>
