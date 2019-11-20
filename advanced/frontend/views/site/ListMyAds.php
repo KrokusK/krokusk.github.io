@@ -76,7 +76,7 @@ $this->title = 'Сайт объявлений';
                                 Содержание!
                             </div>
                         </div>
-                        <div class="col-sm-6 col-md-4 col-lg-4 col-md-offset-8 col-lg-offset-8">
+                        <div class="col-sm-6 col-md-5 col-lg-5 col-md-offset-7 col-lg-offset-7">
                             <section>
                                 <span class="text-right align-top">
                                     <h4>Статус :</h4>
@@ -89,10 +89,6 @@ $this->title = 'Сайт объявлений';
                     </div>
                 <?php endforeach; ?>
             </div>
-
-
-
-
 
 
         </div>
