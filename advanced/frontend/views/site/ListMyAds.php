@@ -66,8 +66,15 @@ $this->title = 'Сайт объявлений';
                 <?php foreach ($userAds as $userAd): ?>
                     <div class="row">
                         <div class="col-sm-6 col-md-8 col-lg-8">
-                            <h3><?= Html::encode("{$userAd->header}") ?></h3>
-                            <h4>Создано: <?= Html::encode(date('d.m.Y H:i:s', $userAd->created_at)) ?></h4>
+                            <div class="text-left">
+                                <h3><?= Html::encode("{$userAd->header}") ?></h3>
+                            </div>
+                            <div class="text-left">
+                                <h4>Создано: <?= Html::encode(date('d.m.Y H:i:s', $userAd->created_at)) ?> Категория :  Город : </h4>
+                            </div>
+                            <div class="text-left">
+                                Содержание!
+                            </div>
                         </div>
                         <div class="col-sm-6 col-md-4 col-lg-4 col-md-offset-8 col-lg-offset-8">
                             <h4>Статус :</h4>
