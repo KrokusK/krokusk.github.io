@@ -79,7 +79,7 @@ $this->title = 'Сайт объявлений';
                                     </div>
 
                             </td>
-                            <td class="align-top col-sm-6 col-md-4 col-lg-4 col-md-offset-8 col-lg-offset-8">
+                            <td class="align-top col-sm-6 col-md-4 col-lg-4 col-md-offset-12 col-lg-offset-12">
 
                                     <span class="text-right align-top">
                                         <h4>Статус :</h4>
