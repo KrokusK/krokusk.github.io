@@ -431,15 +431,43 @@ class SiteController extends Controller
             $transaction = \Yii::$app->db->beginTransaction();
             try {
 
-                $model->avatar = "http://avatars.mds.yandex.net/get-direct/196252/C-kJri9Flw-S0RlC2uHK7A/y300";
+                //$model->avatar = "http://avatars.mds.yandex.net/get-direct/196252/C-kJri9Flw-S0RlC2uHK7A/y300";
+
+
+
+                //if ($model->load(Yii::$app->request->post())) {
+                    $image = UploadedFile::getInstance($model, 'imageFile');
+                    if (!is_null($image)) {
+                        $model->image_src_filename = $image->name;
+                        $ext = end((explode(".", $image->name)));
+                        // generate a unique file name to prevent duplicate filenames
+                        $model->image_web_filename = Yii::$app->security->generateRandomString().".{$ext}";
+                        // the path to save file, you can set an uploadPath
+                        // in Yii::$app->params (as used in example below)
+                        Yii::$app->params['uploadPath'] = Yii::$app->basePath . '/web/uploads/UserDesc/';
+                        $path = Yii::$app->params['uploadPath'] . $model->image_web_filename;
+                        $image->saveAs($path);
+
+                        $model->avatar = $path;
+                    }
+
+                    //if ($model->save()) {
+                    //    return $this->redirect(['view', 'id' => $model->id]);
+                    //}  else {
+                    //    var_dump ($model->getErrors());
+                    //    die();
+                    //}
+                //}
+
+
 
                 if ($model->validate()) {
 
-                    $model->imageFile = UploadedFile::getInstance($model, 'imageFile');
-                    if ($model->upload()) {
-                        // file is uploaded successfully
-                        $model->avatar = '/uploads/'.$model->imageFile->baseName . '.' . $model->imageFile->extension;
-                    }
+                    //$model->imageFile = UploadedFile::getInstance($model, 'imageFile');
+                    //if ($model->upload()) {
+                    //    // file is uploaded successfully
+                    //    $model->avatar = '/uploads/'.$model->imageFile->baseName . '.' . $model->imageFile->extension;
+                    //}
 
                     $flag = $model->save(false);
                     if ($flag == true) {

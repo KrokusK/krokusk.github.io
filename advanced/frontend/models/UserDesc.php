@@ -18,6 +18,8 @@ class UserDesc extends ActiveRecord
      * @var UploadedFile
      */
     public $imageFile;
+    public $image_src_filename;
+    public $image_web_filename;
 
     /**
      * {@inheritdoc}
