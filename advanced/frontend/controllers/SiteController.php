@@ -112,19 +112,19 @@ class SiteController extends Controller
 
         if(!empty($cit) && empty($cat)) {
             $query = UserAd::find()
-                ->where(['AND', ['city_id=:cit',[':cit' => $cit]], ['status_id' => UserCity::STATUS_ACTIVE]]);
+                ->where(['AND', ['city_id' => $cit], ['status_id' => UserCity::STATUS_ACTIVE]]);
                 //->where('city_id=:cit',[':cit' => $cit])
                 //->andWhere(['status_id' => UserCity::STATUS_ACTIVE]);
         }
         else if(empty($cit) && !empty($cat)) {
             $query = UserAd::find()
-                ->where(['AND', ['category_id=:cat',[':cat' => $cat]], ['status_id' => UserCity::STATUS_ACTIVE]]);
+                ->where(['AND', ['category_id' => $cat], ['status_id' => UserCity::STATUS_ACTIVE]]);
                 //->where('category_id=:cat',[':cat' => $cat])
                 //->andWhere(['status_id' => UserCity::STATUS_ACTIVE]);
         }
         else if(!empty($cit) && !empty($cat)) {
             $query = UserAd::find()
-                ->where(['AND', ['city_id=:cit',[':cit' => $cit]], ['category_id=:cat',[':cat' => $cat]], ['status_id' => UserCity::STATUS_ACTIVE]]);
+                ->where(['AND', ['city_id' => $cit], ['category_id' => $cat], ['status_id' => UserCity::STATUS_ACTIVE]]);
                 //->where('city_id=:cit',[':cit' => $cit])
                 //->andWhere('category_id=:cat',[':cat' => $cat])
                 //->andWhere(['status_id' => UserCity::STATUS_ACTIVE]);
