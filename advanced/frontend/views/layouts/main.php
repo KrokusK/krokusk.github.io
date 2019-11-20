@@ -73,9 +73,9 @@ AppAsset::register($this);
             )
             . Html::endForm()
             . '</li>';
-        //$menuItems[] = ['label' => 'Мои объявления', 'url' => ['/site/index']];
+        //$menuItems[] = ['label' => 'Мои объявления', 'url' => ['/site/list-my-ads']];
         $menuItems[] = '<li class="nav-item">'
-            . Html::beginForm(['/site/index'], 'get')
+            . Html::beginForm(['/site/list-my-ads'], 'get')
             . Html::submitButton(
                 'Мои объявления',
                 ['class' => 'btn btn-link', 'id' => 'personal-ad']

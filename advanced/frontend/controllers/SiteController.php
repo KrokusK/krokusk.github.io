@@ -399,6 +399,102 @@ class SiteController extends Controller
     }
 
     /**
+     * Displays list my ads.
+     *
+     * @return mixed
+     */
+    public function actionListMyAds()
+    {
+        // check user profile
+        if ((!UserDesc::find()->where(['user_id' => Yii::$app->user->getId()])->asArray()->one()) && !empty(Yii::$app->user->getId())) {
+            $cities = UserCity::find()
+                ->orderBy('city_name')
+                //->asArray()
+                ->all();
+
+            $model = new UserDesc();
+            $model->user_id = Yii::$app->user->getId();
+            return $this->render('userProfile', [
+                'selectCity' => $cities,
+                'model' => $model,
+            ]);
+        }
+
+        // check input parametrs for GET method
+        $cit = (preg_match("/^[0-9]*$/",Yii::$app->request->get('cit'))) ? Yii::$app->request->get('cit') : null;
+        $cat = (preg_match("/^[0-9]*$/",Yii::$app->request->get('cat'))) ? Yii::$app->request->get('cat') : null;
+        $ser = (preg_match("/^[a-zA-Z0-9]*$/",Yii::$app->request->get('ser'))) ? Yii::$app->request->get('ser') : null;
+
+        if(!empty($cit) && empty($cat)) {
+            $query = UserAd::find()
+                ->where('city_id=:cit',[':cit' => $cit]);
+        }
+        else if(empty($cit) && !empty($cat)) {
+            $query = UserAd::find()
+                ->where('category_id=:cat',[':cat' => $cat]);
+        }
+        else if(!empty($cit) && !empty($cat)) {
+            $query = UserAd::find()
+                ->where('city_id=:cit',[':cit' => $cit])
+                ->andWhere('category_id=:cat',[':cat' => $cat]);
+        } else {
+            if(!empty($ser)) {
+                $query = UserAd::find()
+                    ->where(['like', 'LOWER(header)', strtolower($ser)])
+                    ->orWhere(['like', 'LOWER(content)', strtolower($ser)])
+                    ->orWhere(['amount' => (int)$ser]);
+            } else {
+                $query = UserAd::find();
+            }
+        }
+
+        $pagination = new Pagination([
+            'defaultPageSize' => 6,
+            'totalCount' => $query->count(),
+        ]);
+
+        $userAds = $query->orderBy('header')
+            ->offset($pagination->offset)
+            ->limit($pagination->limit)
+            //->leftJoin('photo_ad', '"user_ad"."id" = "photo_ad"."ad_id"')
+            ->with('adPhotos')
+            ->all();
+
+        $cities = UserCity::find()
+            //->where(['status' => Cities::STATUS_ACTIVE])
+            //->andWhere('country_id=:id',[':id' => $id])
+            ->orderBy('city_name')
+            ->all();
+        $selectCity = '<option value="">Выберите город...</option>\n';
+        foreach ($cities as $city) {
+            if ($cit == $city->id) {
+                $selectCity .= '<option value="' . $city->id . '" selected>' . $city->city_name . '</option>';
+            } else {
+                $selectCity .= '<option value="' . $city->id . '">' . $city->city_name . '</option>';
+            }
+        }
+
+        $categories = AdCategory::find()
+            ->orderBy('name')
+            ->all();
+        $selectCategory = '<option value="">Выберите категорию...</option>\n';
+        foreach ($categories as $category) {
+            if ($cat == $category->id) {
+                $selectCategory .= '<option value="' . $category->id . '" selected>' . $category->name . '</option>';
+            } else {
+                $selectCategory .= '<option value="' . $category->id . '">' . $category->name . '</option>';
+            }
+        }
+
+        return $this->render('indexBulletinBoard', [
+            'userAds' => $userAds,
+            'selectCity' =>  $selectCity,
+            'selectCategory' => $selectCategory,
+            'pagination' => $pagination,
+        ]);
+    }
+
+    /**
      * Profile save page.
      *
      * @return mixed
