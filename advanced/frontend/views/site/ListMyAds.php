@@ -9,7 +9,7 @@ use yii\widgets\Pjax;
 $this->title = 'Сайт объявлений';
 ?>
 
-    <div class="container">
+    <td class="container">
         <div class="row">
             <div class="col-sm-12 col-md-12">
                 <div class="text-center">
@@ -58,6 +58,41 @@ $this->title = 'Сайт объявлений';
 
                 </div><!-- /.container-fluid -->
             </nav>
+        </div>
+        <tr class="row">
+
+
+            <table style="height: 100px;">
+                <tbody>
+                    <?php foreach ($userAds as $userAd): ?>
+                        <tr>
+                            <td class="align-top">
+                                <div class="text-left">
+                                    <h3><?= Html::encode("{$userAd->header}") ?></h3>
+                                </div>
+                                <div class="text-left">
+                                    <h4>Создано: <?= Html::encode(date('d.m.Y H:i:s', $userAd->created_at)) ?> Категория :  Город : </h4>
+                                </div>
+                                <div class="text-left">
+                                    Содержание!
+                                </div>
+                            </td>
+                            <td class="align-top">
+
+                                    <span class="text-right align-top">
+                                        <h4>Статус :</h4>
+                                        <h4>Цена: <?= Html::encode("{$userAd->amount}") ?></h4>
+                                    </span>
+                                    <img class="text-right align-top" src="<?= Html::encode("{$userAd->adPhotos[0]["photo_path"]}") ?>" alt="Image">
+
+                                
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+
+
         </div>
         <div class="row">
 
