@@ -65,7 +65,7 @@ $this->title = 'Сайт объявлений';
             <div class="content-main">
                 <?php foreach ($userAds as $userAd): ?>
                     <div class="row">
-                        <div class="col-sm-6 col-md-8 col-lg-8">
+                        <div class="col-sm-6 col-md-6 col-lg-6">
                             <div class="text-left">
                                 <h3><?= Html::encode("{$userAd->header}") ?></h3>
                             </div>
@@ -76,7 +76,7 @@ $this->title = 'Сайт объявлений';
                                 Содержание!
                             </div>
                         </div>
-                        <div class="col-sm-6 col-md-4 col-lg-4 col-md-offset-8 col-lg-offset-8">
+                        <div class="col-sm-6 col-md-4 col-lg-4 col-md-offset-6 col-lg-offset-6">
                             <h4>Статус :</h4>
                             <h4>Цена: <?= Html::encode("{$userAd->amount}") ?></h4>
                             <img src="<?= Html::encode("{$userAd->adPhotos[0]["photo_path"]}") ?>" alt="Image">
