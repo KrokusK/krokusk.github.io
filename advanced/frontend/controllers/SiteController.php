@@ -112,24 +112,32 @@ class SiteController extends Controller
 
         if(!empty($cit) && empty($cat)) {
             $query = UserAd::find()
-                ->where('city_id=:cit',[':cit' => $cit]);
+                ->where(['AND', ['city_id=:cit',[':cit' => $cit]], ['status_id' => UserCity::STATUS_ACTIVE]]);
+                //->where('city_id=:cit',[':cit' => $cit])
+                //->andWhere(['status_id' => UserCity::STATUS_ACTIVE]);
         }
         else if(empty($cit) && !empty($cat)) {
             $query = UserAd::find()
-                ->where('category_id=:cat',[':cat' => $cat]);
+                ->where(['AND', ['category_id=:cat',[':cat' => $cat]], ['status_id' => UserCity::STATUS_ACTIVE]]);
+                //->where('category_id=:cat',[':cat' => $cat])
+                //->andWhere(['status_id' => UserCity::STATUS_ACTIVE]);
         }
         else if(!empty($cit) && !empty($cat)) {
             $query = UserAd::find()
-                ->where('city_id=:cit',[':cit' => $cit])
-                ->andWhere('category_id=:cat',[':cat' => $cat]);
+                ->where(['AND', ['city_id=:cit',[':cit' => $cit]], ['category_id=:cat',[':cat' => $cat]], ['status_id' => UserCity::STATUS_ACTIVE]]);
+                //->where('city_id=:cit',[':cit' => $cit])
+                //->andWhere('category_id=:cat',[':cat' => $cat])
+                //->andWhere(['status_id' => UserCity::STATUS_ACTIVE]);
         } else {
             if(!empty($ser)) {
                 $query = UserAd::find()
-                    ->where(['like', 'LOWER(header)', strtolower($ser)])
-                    ->orWhere(['like', 'LOWER(content)', strtolower($ser)])
-                    ->orWhere(['amount' => (int)$ser]);
+                    ->where(['AND',['OR', ['like', 'LOWER(header)', strtolower($ser)], ['like', 'LOWER(content)', strtolower($ser)], ['amount' => (int)$ser]],['status_id' => UserCity::STATUS_ACTIVE]]);
+                    //->where(['like', 'LOWER(header)', strtolower($ser)])
+                    //->orWhere(['like', 'LOWER(content)', strtolower($ser)])
+                    //->orWhere(['amount' => (int)$ser]);
             } else {
-                $query = UserAd::find();
+                $query = UserAd::find()
+                    ->andWhere(['status_id' => UserCity::STATUS_ACTIVE]);
             }
         }
 
