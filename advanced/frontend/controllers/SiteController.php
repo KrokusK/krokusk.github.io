@@ -486,7 +486,7 @@ class SiteController extends Controller
             }
         }
 
-        return $this->render('indexBulletinBoard', [
+        return $this->render('ListMyAds', [
             'userAds' => $userAds,
             'selectCity' =>  $selectCity,
             'selectCategory' => $selectCategory,

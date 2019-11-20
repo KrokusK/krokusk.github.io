@@ -2,6 +2,8 @@
 use yii\helpers\Html;
 use yii\helpers\ArrayHelper;
 use yii\widgets\ActiveForm;
+
+$this->title = 'Сайт объявлений';
 ?>
 <div class="container-fluid">
     <div class="row">
