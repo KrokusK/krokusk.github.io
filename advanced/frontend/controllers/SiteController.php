@@ -443,14 +443,16 @@ class SiteController extends Controller
         }
         else if(!empty($cit) && !empty($cat)) {
             $query = UserAd::find()
-                ->where('city_id=:cit',[':cit' => $cit])
-                ->andWhere('category_id=:cat',[':cat' => $cat]);
+                ->where(['AND', ['city_id' => $cit], ['category_id' => $cat]]);
+                //->where('city_id=:cit',[':cit' => $cit])
+                //->andWhere('category_id=:cat',[':cat' => $cat]);
         } else {
             if(!empty($ser)) {
                 $query = UserAd::find()
-                    ->where(['like', 'LOWER(header)', strtolower($ser)])
-                    ->orWhere(['like', 'LOWER(content)', strtolower($ser)])
-                    ->orWhere(['amount' => (int)$ser]);
+                    ->where(['OR', ['like', 'LOWER(header)', strtolower($ser)], ['like', 'LOWER(content)', strtolower($ser)], ['amount' => (int)$ser]]);
+                    //->where(['like', 'LOWER(header)', strtolower($ser)])
+                    //->orWhere(['like', 'LOWER(content)', strtolower($ser)])
+                    //->orWhere(['amount' => (int)$ser]);
             } else {
                 $query = UserAd::find();
             }
