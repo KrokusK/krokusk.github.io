@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d97bdc22-9d4b-4578-b4be-b96d66aca924" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/advanced/console/migrations/m191121_044753_test_tables.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/advanced/frontend/controllers/SiteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/advanced/frontend/controllers/SiteController.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -23,14 +23,14 @@
   <component name="ProjectId" id="1SKOvz27B5adiUDik6cxRTvRHsy" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/advanced/frontend/views/site" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/advanced/console/migrations" />
     <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="J:\SmartWorldAcademy\OpenServer\OSPanel\domains\krokusk.github.io\advanced\console\migrations" />
       <recent name="J:\SmartWorldAcademy\OpenServer\OSPanel\domains\krokusk.github.io\advanced\frontend\views\site" />
       <recent name="J:\SmartWorldAcademy\OpenServer\OSPanel\domains\krokusk.github.io\advanced\frontend\models" />
-      <recent name="J:\SmartWorldAcademy\OpenServer\OSPanel\domains\krokusk.github.io\advanced\console\migrations" />
       <recent name="J:\SmartWorldAcademy\OpenServer\OSPanel\domains\krokusk.github.io\advanced\frontend\views\CompanyApp" />
       <recent name="J:\SmartWorldAcademy\OpenServer\OSPanel\domains\krokusk.github.io\advanced\frontend\controllers" />
     </key>
@@ -84,7 +84,8 @@
       <workItem from="1574128370747" duration="24260000" />
       <workItem from="1574176954422" duration="2143000" />
       <workItem from="1574213594033" duration="27601000" />
-      <workItem from="1574269234788" duration="292000" />
+      <workItem from="1574269234788" duration="1087000" />
+      <workItem from="1574325876724" duration="355000" />
     </task>
     <servers />
   </component>
