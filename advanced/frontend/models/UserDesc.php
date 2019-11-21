@@ -81,7 +81,7 @@ class UserDesc extends ActiveRecord
      */
     public function getUserCities()
     {
-        return $this->hasOne(User_city::className(), ['id' => 'city_id']);
+        return $this->hasOne(UserCity::className(), ['id' => 'city_id']);
     }
 
     /**
@@ -90,6 +90,6 @@ class UserDesc extends ActiveRecord
      */
     public function getUserAds()
     {
-        return $this->hasMany(User_ad::className(), ['user_desc_id' => 'id']);
+        return $this->hasMany(UserAd::className(), ['user_desc_id' => 'id']);
     }
 }
