@@ -436,7 +436,8 @@ class SiteController extends Controller
         if(!empty($cit) && empty($cat)) {
             $query = UserAd::find()
                 ->with('userDescs')
-                ->where('city_id=:cit',[':cit' => $cit]);
+                ->where('city_id=:cit',[':cit' => $cit])
+                ->andWhere('userDescs["user_id"]=:userid',[':userid' => Yii::$app->user->getId()]);
         }
         else if(empty($cit) && !empty($cat)) {
             $query = UserAd::find()
