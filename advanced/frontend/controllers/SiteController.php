@@ -428,6 +428,12 @@ class SiteController extends Controller
             ]);
         }
 
+        $arrayUserMyAds = UserDesc::find()
+            ->where(['user_id' => Yii::$app->user->getId()])
+            ->with('userAds')
+            ->asArray()
+            ->all();
+
         // check input parametrs for GET method
         $cit = (preg_match("/^[0-9]*$/",Yii::$app->request->get('cit'))) ? Yii::$app->request->get('cit') : null;
         $cat = (preg_match("/^[0-9]*$/",Yii::$app->request->get('cat'))) ? Yii::$app->request->get('cat') : null;
@@ -435,25 +441,20 @@ class SiteController extends Controller
 
         if(!empty($cit) && empty($cat)) {
             $query = UserAd::find()
-                ->with('userDescs')
-                ->where('city_id=:cit',[':cit' => $cit])
-                ->andWhere('userDescs["user_id"]=:userid',[':userid' => Yii::$app->user->getId()]);
+                ->where('city_id=:cit',[':cit' => $cit]);
         }
         else if(empty($cit) && !empty($cat)) {
             $query = UserAd::find()
-                ->with('userDescs')
                 ->where('category_id=:cat',[':cat' => $cat]);
         }
         else if(!empty($cit) && !empty($cat)) {
             $query = UserAd::find()
-                ->with('userDescs')
                 ->where(['AND', ['city_id' => $cit], ['category_id' => $cat]]);
                 //->where('city_id=:cit',[':cit' => $cit])
                 //->andWhere('category_id=:cat',[':cat' => $cat]);
         } else {
             if(!empty($ser)) {
                 $query = UserAd::find()
-                    ->with('userDescs')
                     ->where(['OR', ['like', 'LOWER(header)', strtolower($ser)], ['like', 'LOWER(content)', strtolower($ser)], ['amount' => (int)$ser]]);
                     //->where(['like', 'LOWER(header)', strtolower($ser)])
                     //->orWhere(['like', 'LOWER(content)', strtolower($ser)])
