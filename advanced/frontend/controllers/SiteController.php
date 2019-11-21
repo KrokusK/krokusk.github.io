@@ -476,7 +476,7 @@ class SiteController extends Controller
                     //->orWhere(['like', 'LOWER(content)', strtolower($ser)])
                     //->orWhere(['amount' => (int)$ser]);
             } else {
-                $query = UserAd::find()
+                $query = UserAd::find();
                     //->with('userDescs');
             }
         }
