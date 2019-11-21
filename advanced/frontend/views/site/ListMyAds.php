@@ -91,7 +91,10 @@ $this->title = 'Сайт объявлений';
 
 
         </div>
-
+        <div class="row">
+            <br><br>
+            <p><?php echo "arrayUserDescMyAds : ".var_dump($arrayUserDescMyAds->userAds) ?></p>
+        </div>
         <div class="row">
             <div class="text-center">
                 <?= LinkPager::widget(['pagination' => $pagination]) ?>
