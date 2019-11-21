@@ -428,11 +428,19 @@ class SiteController extends Controller
             ]);
         }
 
-        $arrayUserMyAds = UserDesc::find()
+        // find all ads for user
+
+        $arrayUserDescMyAds = UserDesc::find()
             ->where(['user_id' => Yii::$app->user->getId()])
             ->with('userAds')
-            ->asArray()
+            //->asArray()
             ->all();
+        //arrayAdsId = [];
+        //foreach ($arrayUserMyAds as $item):
+        //    $item->userAds[0]["id"];
+        //endforeach;
+        $arrayMyAds = ArrayHelper::map($arrayUserDescMyAds->userAds, 'id');
+
 
         // check input parametrs for GET method
         $cit = (preg_match("/^[0-9]*$/",Yii::$app->request->get('cit'))) ? Yii::$app->request->get('cit') : null;
@@ -442,6 +450,7 @@ class SiteController extends Controller
         if(!empty($cit) && empty($cat)) {
             $query = UserAd::find()
                 ->where('city_id=:cit',[':cit' => $cit]);
+                //->andWhere('in','user_desc_id', array());
         }
         else if(empty($cit) && !empty($cat)) {
             $query = UserAd::find()
