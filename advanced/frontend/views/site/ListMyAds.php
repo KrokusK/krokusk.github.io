@@ -93,7 +93,7 @@ $this->title = 'Сайт объявлений';
         </div>
         <div class="row">
             <br><br>
-            <p><?php echo "arrayUserDescMyAds : ".var_dump($arrayUserDescMyAds["userAds"]) ?></p>
+            <p><?php echo "arrayUserDescMyAds : ".var_dump($arrayUserDescMyAds[0]['userAds'][0]['id']) ?></p>
         </div>
         <div class="row">
             <div class="text-center">
