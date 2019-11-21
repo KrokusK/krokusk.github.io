@@ -439,7 +439,7 @@ class SiteController extends Controller
         //foreach ($arrayUserMyAds as $item):
         //    $item->userAds[0]["id"];
         //endforeach;
-        $arrayMyAds = ArrayHelper::map($arrayUserDescMyAds->userAds, 'id');
+        $arrayMyAds = ArrayHelper::map($arrayUserDescMyAds->userAds[0], 'id');
 
 
         // check input parametrs for GET method
