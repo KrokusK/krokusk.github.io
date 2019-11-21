@@ -429,9 +429,8 @@ class SiteController extends Controller
         }
 
         // find all ads for user
-        $query = UserDesc::find()
-            ->where(['user_id' => Yii::$app->user->getId()]);
-        $arrayUserDescMyAds = $query
+        $arrayUserDescMyAds = UserDesc::find()
+            ->where(['user_id' => Yii::$app->user->getId()])
             ->with('userAds')
             //->asArray()
             ->all();
