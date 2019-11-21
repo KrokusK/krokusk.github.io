@@ -433,14 +433,21 @@ class SiteController extends Controller
         $arrayUserDescMyAds = UserDesc::find()
             ->where(['user_id' => Yii::$app->user->getId()])
             ->with('userAds')
-            //->asArray()
+            ->asArray()
             ->all();
         //arrayAdsId = [];
         //foreach ($arrayUserMyAds as $item):
         //    $item->userAds[0]["id"];
         //endforeach;
-        $arrayMyAds = ArrayHelper::map($arrayUserDescMyAds->userAds[0], 'id');
 
+        $arrayMyAds = ArrayHelper::map($arrayUserDescMyAds->userAds, 'id');
+        /*
+        //                <?php foreach ($userAd->adPhotos as $objPhoto): ?>
+        //                    <div class="col-sm-6 col-md-4 col-lg-4">
+        //                        <img src="<?= Html::encode("{$objPhoto["photo_path"]}") ?>" alt="Image">
+        //                    </div>
+        //                <?php endforeach; ?>
+        */
 
         // check input parametrs for GET method
         $cit = (preg_match("/^[0-9]*$/",Yii::$app->request->get('cit'))) ? Yii::$app->request->get('cit') : null;
