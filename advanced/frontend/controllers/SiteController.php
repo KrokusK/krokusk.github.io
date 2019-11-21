@@ -439,7 +439,7 @@ class SiteController extends Controller
         //    $item->userAds[0]["id"];
         //endforeach;
 
-        //$arrayMyAds = ArrayHelper::map($arrayUserDescMyAds[0]->userAds, 'id');
+        $arrayMyAds = ArrayHelper::map($arrayUserDescMyAds[0]['userAds'], 'id');
         /*
         //                <?php foreach ($userAd->adPhotos as $objPhoto): ?>
         //                    <div class="col-sm-6 col-md-4 col-lg-4">
