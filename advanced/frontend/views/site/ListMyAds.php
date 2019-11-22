@@ -147,7 +147,7 @@ $script = <<< JS
 
 //QUICK CREARE CONTACT MODEL
 $(document).on('click', '#AdPhoto', function () {       
-    $('#loginFormModel').modal('show').find('.modal-dialog').load('{Yii::$app->urlManager->createUrl('/site/login-modal')}');
+    $('#loginFormModel').modal('show').find('.modal-dialog').load("{Yii::$app->urlManager->createUrl('/site/login-modal')}");
 });
 
 JS;
