@@ -463,7 +463,7 @@ class SiteController extends Controller
         if(!empty($cit) && empty($cat)) {
             $query = UserAd::find()
                 ->where('city_id=:cit',[':cit' => $cit]);
-                //->andWhere('in','user_desc_id', array());
+                //->andWhere('in','user_desc_id', $arrayMyAdsId);
         }
         else if(empty($cit) && !empty($cat)) {
             $query = UserAd::find()
@@ -482,7 +482,8 @@ class SiteController extends Controller
                     //->orWhere(['like', 'LOWER(content)', strtolower($ser)])
                     //->orWhere(['amount' => (int)$ser]);
             } else {
-                $query = UserAd::find();
+                $query = UserAd::find()
+                    ->andWhere('in','user_desc_id', $arrayMyAdsId);
                     //->with('userDescs');
             }
         }
