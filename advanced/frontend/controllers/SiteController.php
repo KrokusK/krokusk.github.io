@@ -438,22 +438,13 @@ class SiteController extends Controller
         $arrayMyAdsId = [];
         foreach ($UserDescMyAds[0]['userAds'] as $item):
             array_push( $arrayMyAdsId,$item['id']);
-            //$MyId = $item['id'];
         endforeach;
 
-        //arrayAdsId = [];
-        //foreach ($arrayUserMyAds as $item):
-        //    $item->userAds[0]["id"];
-        //endforeach;
-
-        //$arrayMyAds = ArrayHelper::map($arrayUserDescMyAds[0]['userAds'], 'id');
-        /*
-        //                <?php foreach ($userAd->adPhotos as $objPhoto): ?>
-        //                    <div class="col-sm-6 col-md-4 col-lg-4">
-        //                        <img src="<?= Html::encode("{$objPhoto["photo_path"]}") ?>" alt="Image">
-        //                    </div>
-        //                <?php endforeach; ?>
-        */
+        // Get id from user_description table
+        $UserDesc = UserDesc::find()
+            ->where(['user_id' => Yii::$app->user->getId()])
+            ->asArray()
+            ->one();
 
         // check input parametrs for GET method
         $cit = (preg_match("/^[0-9]*$/",Yii::$app->request->get('cit'))) ? Yii::$app->request->get('cit') : null;
@@ -483,8 +474,8 @@ class SiteController extends Controller
                     //->orWhere(['amount' => (int)$ser]);
             } else {
                 $query = UserAd::find()
-                    ->andWhere('in','user_desc_id', $arrayMyAdsId);
-                    //->with('userDescs');
+                    ->where('user_desc_id=:UserDescId',[':UserDescId' => $UserDesc['id']]);
+                    //->Where('in','id', $arrayMyAdsId);
             }
         }
 
