@@ -429,17 +429,23 @@ class SiteController extends Controller
         }
 
         // find all ads for user
-        $arrayUserDescMyAds = UserDesc::find()
+        $UserDescMyAds = UserDesc::find()
             ->where(['user_id' => Yii::$app->user->getId()])
             ->with('userAds')
-            ->asArray()
+            //->asArray()
             ->all();
+
+        $arrayMyAdsId = [];
+        foreach ($UserDescMyAds->userAds as $objAd):
+            array_push( $arrayMyAdsId,$objAd['id']) ;
+        endforeach;
+
         //arrayAdsId = [];
         //foreach ($arrayUserMyAds as $item):
         //    $item->userAds[0]["id"];
         //endforeach;
 
-        $arrayMyAds = ArrayHelper::map($arrayUserDescMyAds[0]['userAds'], 'id');
+        //$arrayMyAds = ArrayHelper::map($arrayUserDescMyAds[0]['userAds'], 'id');
         /*
         //                <?php foreach ($userAd->adPhotos as $objPhoto): ?>
         //                    <div class="col-sm-6 col-md-4 col-lg-4">
@@ -519,7 +525,7 @@ class SiteController extends Controller
         }
 
         return $this->render('ListMyAds', [
-            'arrayUserDescMyAds' => $arrayUserDescMyAds,
+            'arrayUserDescMyAds' => $arrayMyAdsId,
             'userAds' => $userAds,
             'selectCity' =>  $selectCity,
             'selectCategory' => $selectCategory,
