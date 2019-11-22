@@ -530,6 +530,34 @@ class SiteController extends Controller
     }
 
     /**
+     * load slider
+     *
+     * @return mixed
+     */
+
+    public function actionAdSlider()
+    {
+        if (!Yii::$app->user->isGuest) {
+            return $this->goHome();
+        }
+
+        $UserDesc = UserDesc::find()
+            ->where(['user_id' => Yii::$app->user->getId()])
+            ->asArray()
+            ->one();
+
+        $userAds = UserAd::find()
+            ->where('user_desc_id=:UserDescId', [':UserDescId' => $UserDesc['id']])
+            ->with('adPhotos')
+            ->all();
+
+        return $this->renderAjax('AdSlider', [
+            'userAds' => $userAds,
+        ]);
+
+    }
+
+    /**
      * Profile save page.
      *
      * @return mixed
