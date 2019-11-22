@@ -2,6 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d97bdc22-9d4b-4578-b4be-b96d66aca924" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/advanced/frontend/views/site/AdSlider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/advanced/frontend/controllers/SiteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/advanced/frontend/controllers/SiteController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/advanced/frontend/views/layouts/main.php" beforeDir="false" afterPath="$PROJECT_DIR$/advanced/frontend/views/layouts/main.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/advanced/frontend/views/site/ListMyAds.php" beforeDir="false" afterPath="$PROJECT_DIR$/advanced/frontend/views/site/ListMyAds.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -22,7 +26,7 @@
   <component name="ProjectId" id="1SKOvz27B5adiUDik6cxRTvRHsy" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/advanced/console/migrations" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/advanced/frontend/views/site" />
     <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
   </component>
   <component name="RecentsManager">
@@ -85,7 +89,7 @@
       <workItem from="1574213594033" duration="27601000" />
       <workItem from="1574269234788" duration="1087000" />
       <workItem from="1574325876724" duration="12498000" />
-      <workItem from="1574386615190" duration="10855000" />
+      <workItem from="1574386615190" duration="12204000" />
     </task>
     <servers />
   </component>
