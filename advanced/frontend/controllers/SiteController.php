@@ -537,9 +537,9 @@ class SiteController extends Controller
 
     public function actionAdSlider()
     {
-        //if (Yii::$app->user->isGuest) {
-        //    return $this->goHome();
-        //}
+        if (Yii::$app->user->isGuest) {
+            return $this->goHome();
+        }
 
         $UserDesc = UserDesc::find()
             ->where(['user_id' => Yii::$app->user->getId()])
