@@ -20,7 +20,7 @@ $this->title = 'Сайт объявлений';
             <div class="thumbnail">
                 <div class="caption">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <div><?= Html::encode($userAds->header) ?></div>
+                    <div><?= Html::encode("{$userAd->header}") ?></div>
                 </div>
                 <div id="carousel" class="carousel slide" data-ride="carousel">
                     <!-- Индикаторы -->
