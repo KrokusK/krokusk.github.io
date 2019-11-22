@@ -83,7 +83,7 @@ $this->title = 'Сайт объявлений';
                                         <h4>Цена: <?= Html::encode("{$userAd->amount}") ?> руб.</h4>
 
                                             <img class="text-right align-top" id="AdPhoto<?= Html::encode("{$userAd["id"]}") ?>" src="<?= Html::encode("{$userAd->adPhotos[0]["photo_path"]}") ?>" alt="Image">
-                                        
+
                                     </div>
                             </td>
                         </tr>
