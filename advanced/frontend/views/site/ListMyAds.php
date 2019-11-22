@@ -118,8 +118,8 @@ $this->title = 'Сайт объявлений';
 <?php
 foreach ($userAds as $userAd):
 
-$urlLogin = Yii::$app->urlManager->createUrl('/site/ad-slider');
 $AdPhotoId = 'AdPhoto'.$userAd['id'];
+$urlLogin = Yii::$app->urlManager->createUrl('/site/ad-slider?ad='.$userAd['id']);
 
 $script = <<< JS
 //QUICK CREARE CONTACT MODEL
