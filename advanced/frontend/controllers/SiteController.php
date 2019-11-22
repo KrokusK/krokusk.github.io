@@ -432,7 +432,7 @@ class SiteController extends Controller
         $UserDescMyAds = UserDesc::find()
             ->where(['user_id' => Yii::$app->user->getId()])
             ->with('userAds')
-            //->asArray()
+            ->asArray()
             ->all();
 
         $arrayMyAdsId = [];
