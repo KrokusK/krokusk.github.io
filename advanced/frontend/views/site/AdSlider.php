@@ -12,14 +12,12 @@ $this->title = 'Сайт объявлений';
     <div class="row">
         <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal">&times;</button>
-            <h1><?= Html::encode($this->title) ?></h1>
-
-            <p>Пожалуйста, заполните следующие поля для входа:</p>
         </div>
     </div>
     <div class="row">
         <div class="col-sm-6 col-md-4">
             <div class="thumbnail">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
                 <div id="carousel" class="carousel slide" data-ride="carousel">
                     <!-- Индикаторы -->
                     <ol class="carousel-indicators">
