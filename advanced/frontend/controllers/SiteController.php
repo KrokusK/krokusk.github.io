@@ -437,7 +437,8 @@ class SiteController extends Controller
 
         $arrayMyAdsId = [];
         foreach ($UserDescMyAds[0]['userAds'] as $item):
-            array_push( $arrayMyAdsId,$item['id']) ;
+            array_push( $arrayMyAdsId,$item['id']);
+            //$MyId = $item['id'];
         endforeach;
 
         //arrayAdsId = [];
@@ -525,7 +526,8 @@ class SiteController extends Controller
         }
 
         return $this->render('ListMyAds', [
-            'arrayUserDescMyAds' => $arrayMyAdsId,
+            'UserDescMyAds' => $UserDescMyAds,
+            'arrayMyAdsId' => $arrayMyAdsId,
             'userAds' => $userAds,
             'selectCity' =>  $selectCity,
             'selectCategory' => $selectCategory,
