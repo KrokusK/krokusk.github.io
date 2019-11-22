@@ -436,8 +436,8 @@ class SiteController extends Controller
             ->all();
 
         $arrayMyAdsId = [];
-        foreach ($UserDescMyAds->userAds as $objAd):
-            array_push( $arrayMyAdsId,$objAd['id']) ;
+        foreach ($UserDescMyAds[0]['userAds'] as $item):
+            array_push( $arrayMyAdsId,$item['id']) ;
         endforeach;
 
         //arrayAdsId = [];
