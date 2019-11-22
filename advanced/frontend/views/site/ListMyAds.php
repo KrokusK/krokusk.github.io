@@ -109,21 +109,26 @@ $this->title = 'Сайт объявлений';
 
 
 <!-- POPUP MODAL CONTACT -->
-<div class="modal inmodal contact" id="loginFormModel" role="dialog" data-keyboard="false" data-backdrop="static">
+<div class="modal inmodal contact" id="AdPhotoList" role="dialog" data-keyboard="false" data-backdrop="static">
     <div class="modal-dialog modal-md "></div>
 </div>
 
 <?php
+foreach ($userAds as $userAd):
+
 $urlLogin = Yii::$app->urlManager->createUrl('/site/login-modal');
+$AdPhotoId = 'AdPhoto'.$userAd["id"]
 
 $script = <<< JS
 //QUICK CREARE CONTACT MODEL
-$(document).on('click', '#board-login', function () {       
-    $('#loginFormModel').modal('show').find('.modal-dialog').load('$urlLogin');
+$(document).on('click', '#$AdPhotoId', function () {       
+    $('#AdPhotoList').modal('show').find('.modal-dialog').load('$urlLogin');
 });
 
 JS;
 $this->registerJs($script);
+
+endforeach;
 ?>
 
 <?php
