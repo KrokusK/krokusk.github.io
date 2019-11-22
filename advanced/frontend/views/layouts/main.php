@@ -137,7 +137,7 @@ $(document).on('click', '#board-login', function () {
 JS;
 $this->registerJs($script);
 ?>
-
+ 
 <!-- POPUP MODAL CONTACT -->
 <div class="modal inmodal contact" id="loginFormModel" role="dialog" data-keyboard="false" data-backdrop="static">
     <div class="modal-dialog modal-md "></div>
