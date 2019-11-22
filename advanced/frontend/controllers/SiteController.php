@@ -455,12 +455,12 @@ class SiteController extends Controller
 
         if(!empty($cit) && empty($cat)) {
             $query = UserAd::find()
-                ->where(['AND', ['city_id=:cit',[':cit' => $cit]], ['user_desc_id'=> $UserDesc['id']]]);
+                ->where(['AND', ['city_id' => $cit], ['user_desc_id'=> $UserDesc['id']]]);
                 //->andWhere('in','user_desc_id', $arrayMyAdsId);
         }
         else if(empty($cit) && !empty($cat)) {
             $query = UserAd::find()
-                ->where(['AND', ['category_id=:cat',[':cat' => $cat]], ['user_desc_id'=> $UserDesc['id']]]);
+                ->where(['AND', ['category_id' => $cat], ['user_desc_id'=> $UserDesc['id']]]);
         }
         else if(!empty($cit) && !empty($cat)) {
             $query = UserAd::find()
