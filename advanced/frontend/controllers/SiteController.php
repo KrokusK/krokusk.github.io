@@ -455,28 +455,28 @@ class SiteController extends Controller
 
         if(!empty($cit) && empty($cat)) {
             $query = UserAd::find()
-                ->where(['AND', ['city_id=:cit',[':cit' => $cit]], ['user_desc_id=:UserDescId',[':UserDescId' => $UserDesc['id']]]]);
+                ->where(['AND', ['city_id=:cit',[':cit' => $cit]], ['user_desc_id'=> $UserDesc['id']]]);
                 //->andWhere('in','user_desc_id', $arrayMyAdsId);
         }
         else if(empty($cit) && !empty($cat)) {
             $query = UserAd::find()
-                ->where(['AND', ['category_id=:cat',[':cat' => $cat]], ['user_desc_id=:UserDescId',[':UserDescId' => $UserDesc['id']]]]);
+                ->where(['AND', ['category_id=:cat',[':cat' => $cat]], ['user_desc_id'=> $UserDesc['id']]]);
         }
         else if(!empty($cit) && !empty($cat)) {
             $query = UserAd::find()
-                ->where(['AND', ['city_id' => $cit], ['category_id' => $cat], ['user_desc_id=:UserDescId',[':UserDescId' => $UserDesc['id']]]]);
+                ->where(['AND', ['city_id' => $cit], ['category_id' => $cat], ['user_desc_id'=> $UserDesc['id']]]);
                 //->where('city_id=:cit',[':cit' => $cit])
                 //->andWhere('category_id=:cat',[':cat' => $cat]);
         } else {
             if(!empty($ser)) {
                 $query = UserAd::find()
-                    ->where(['AND', ['OR', ['like', 'LOWER(header)', strtolower($ser)], ['like', 'LOWER(content)', strtolower($ser)], ['amount' => (int)$ser]], ['user_desc_id=:UserDescId',[':UserDescId' => $UserDesc['id']]]]);
+                    ->where(['AND', ['OR', ['like', 'LOWER(header)', strtolower($ser)], ['like', 'LOWER(content)', strtolower($ser)], ['amount' => (int)$ser]], ['user_desc_id'=> $UserDesc['id']]]);
                     //->where(['like', 'LOWER(header)', strtolower($ser)])
                     //->orWhere(['like', 'LOWER(content)', strtolower($ser)])
                     //->orWhere(['amount' => (int)$ser]);
             } else {
                 $query = UserAd::find()
-                    ->where('user_desc_id=:UserDescId',[':UserDescId' => $UserDesc['id']]);
+                    ->where('user_desc_id=:UserDescId', [':UserDescId' => $UserDesc['id']]);
                     //->where('in','id', $arrayMyAdsId);
             }
         }
