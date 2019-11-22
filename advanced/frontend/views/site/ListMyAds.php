@@ -81,7 +81,7 @@ $this->title = 'Сайт объявлений';
                                     <div class="text-left align-top">
                                         <h4>Статус : <?= Html::encode("{$userAd->adStatus["name"]}") ?></h4>
                                         <h4>Цена: <?= Html::encode("{$userAd->amount}") ?> руб.</h4>
-                                        <img class="text-right align-top" id="AdPhoto" src="<?= Html::encode("{$userAd->adPhotos[0]["photo_path"]}") ?>" alt="Image">
+                                        <img class="text-right align-top" id="AdPhoto<?= Html::encode("{$userAd["id"]}") ?>" src="<?= Html::encode("{$userAd->adPhotos[0]["photo_path"]}") ?>" alt="Image">
                                     </div>
                             </td>
                         </tr>
@@ -113,6 +113,18 @@ $this->title = 'Сайт объявлений';
     <div class="modal-dialog modal-md "></div>
 </div>
 
+<?php
+$urlLogin = Yii::$app->urlManager->createUrl('/site/login-modal');
+
+$script = <<< JS
+//QUICK CREARE CONTACT MODEL
+$(document).on('click', '#board-login', function () {       
+    $('#loginFormModel').modal('show').find('.modal-dialog').load('$urlLogin');
+});
+
+JS;
+$this->registerJs($script);
+?>
 
 <?php
 $script = <<< JS
@@ -144,11 +156,6 @@ $script = <<< JS
            //$('#ad-test').click();
         });
     });       
-
-//QUICK CREARE CONTACT MODEL
-$(document).on('click', '#AdPhoto', function () {       
-    $('#loginFormModel').modal('show').find('.modal-dialog').load("{Yii::$app->urlManager->createUrl('/site/login-modal')}");
-});
 
 JS;
 $this->registerJs($script);
