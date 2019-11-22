@@ -537,7 +537,9 @@ class SiteController extends Controller
 
     public function actionAdSlider()
     {
-        if (Yii::$app->user->isGuest) {
+        $ad = (preg_match("/^[0-9]*$/",Yii::$app->request->get('ad'))) ? Yii::$app->request->get('ad') : null;
+
+        if (Yii::$app->user->isGuest || is_null($ad)) {
             return $this->goHome();
         }
 
@@ -546,13 +548,13 @@ class SiteController extends Controller
             ->asArray()
             ->one();
 
-        $userAds = UserAd::find()
-            ->where('user_desc_id=:UserDescId', [':UserDescId' => $UserDesc['id']])
+        $userAd = UserAd::find()
+            ->where(['AND',['id' => $ad],['user_desc_id' => $UserDesc['id']]])
             ->with('adPhotos')
             ->all();
 
         return $this->renderAjax('AdSlider', [
-            'userAds' => $userAds,
+            'userAd' => $userAd,
         ]);
 
     }
