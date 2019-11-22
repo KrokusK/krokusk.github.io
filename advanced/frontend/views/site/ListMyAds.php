@@ -117,7 +117,7 @@ $this->title = 'Сайт объявлений';
 foreach ($userAds as $userAd):
 
 $urlLogin = Yii::$app->urlManager->createUrl('/site/login-modal');
-$AdPhotoId = 'AdPhoto'.$userAd["id"]
+$AdPhotoId = 'AdPhoto'.$userAd['id'];
 
 $script = <<< JS
 //QUICK CREARE CONTACT MODEL
