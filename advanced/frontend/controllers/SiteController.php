@@ -429,6 +429,7 @@ class SiteController extends Controller
         }
 
         // find all ads for user
+        /*
         $UserDescMyAds = UserDesc::find()
             ->where(['user_id' => Yii::$app->user->getId()])
             ->with('userAds')
@@ -439,6 +440,7 @@ class SiteController extends Controller
         foreach ($UserDescMyAds[0]['userAds'] as $item):
             array_push( $arrayMyAdsId,$item['id']);
         endforeach;
+        */
 
         // Get id from user_description table
         $UserDesc = UserDesc::find()
@@ -475,7 +477,7 @@ class SiteController extends Controller
             } else {
                 $query = UserAd::find()
                     ->where('user_desc_id=:UserDescId',[':UserDescId' => $UserDesc['id']]);
-                    //->Where('in','id', $arrayMyAdsId);
+                    //->where('in','id', $arrayMyAdsId);
             }
         }
 
@@ -518,8 +520,8 @@ class SiteController extends Controller
         }
 
         return $this->render('ListMyAds', [
-            'UserDescMyAds' => $UserDescMyAds,
-            'arrayMyAdsId' => $arrayMyAdsId,
+            //'UserDescMyAds' => $UserDescMyAds,
+            //'arrayMyAdsId' => $arrayMyAdsId,
             'userAds' => $userAds,
             'selectCity' =>  $selectCity,
             'selectCategory' => $selectCategory,
