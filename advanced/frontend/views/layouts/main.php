@@ -66,7 +66,7 @@ AppAsset::register($this);
     } else {
         //$menuItems[] = ['label' => 'Добавить объявление', 'url' => ['/site/index']];
         $menuItems[] = '<li class="nav-item">'
-            . Html::beginForm(['/site/index'], 'get')
+            . Html::beginForm(['/site/create-ad'], 'get')
             . Html::submitButton(
                 'Добавить объявление',
                 ['class' => 'btn btn-primary', 'id' => 'add-ad']
