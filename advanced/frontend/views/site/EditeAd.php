@@ -43,7 +43,7 @@ $this->title = 'Сайт объявлений';
                         </div>
                     <?php ActiveForm::end(); ?>
                     <div class="row">
-                        <div class="col-sm-6 col-md-2 col-lg-2 col-md-offset-10 col-lg-offset-10">
+                        <div class="col-sm-2 col-md-2 col-lg-2 col-md-offset-6 col-lg-offset-6">
                             <div class=" view-btn text-left">
                                 <?= Html::submitButton($model->isNewRecord ? 'Сохранить' : 'Обновить', ['id' => 'button-user-profile', 'class' => $model->isNewRecord ? 'btn btn-default' : 'btn btn-default']) ?>
                             </div>
