@@ -18,7 +18,10 @@ $this->title = 'Сайт объявлений';
                             <tbody>
                             <tr>
                                 <td class="text-left align-top col-sm-7 col-md-7 col-lg-7">
-                                    <div><?php echo Html::encode("{$userAd['header']}") ?></div>
+                                    <div><?php
+                                            //echo Html::encode("{$userAd['header']}");
+                                            var_dump($userAd);
+                                        ?></div>
                                 </td>
                                 <td class="text-right align-top col-sm-5 col-md-5 col-lg-5">
                                         &nbsp;&nbsp;
