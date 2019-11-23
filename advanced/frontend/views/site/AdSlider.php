@@ -21,12 +21,12 @@ $this->title = 'Сайт объявлений';
                                     <div><?php //Html::encode("{$userAd->header}") ?></div>
                                 </td>
                                 <td class="text-right align-top col-sm-5 col-md-5 col-lg-5">
-                                    <div class="row">
                                         &nbsp;&nbsp;
                                         <button class="btn btn-default" style="border-radius: 50%" data-action="prev">&lt;</button>
                                         <button class="btn btn-default" style="border-radius: 50%" data-action="next">&gt;</button>
-                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                    </div>
+                                </td>
+                                <td>
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
                                 </td>
                             </tr>
                             </tbody>
