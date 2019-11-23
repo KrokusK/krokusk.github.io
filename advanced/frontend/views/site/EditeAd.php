@@ -14,7 +14,7 @@ $this->title = 'Сайт объявлений';
                 <div class="content-main">
                     <?php $form = ActiveForm::begin(['id' => 'form-user-profile', 'action' => Yii::$app->urlManager->createUrl('site/profile'), 'validationUrl' => Yii::$app->urlManager->createUrl('site/profile-validate')]); ?>
                         <div class="row">
-                            <div class="col-sm-6 col-md-8 col-lg-8">
+                            <div class="col-sm-6 col-md-8 col-lg-8 col-md-offset-2 col-lg-offset-2">
                                 <?php //$form = ActiveForm::begin(['id' => 'form-user-profile', 'action' => Yii::$app->urlManager->createUrl('site/profile'), 'enableAjaxValidation' => true, 'validationUrl' => Yii::$app->urlManager->createUrl('site/profile-validate')]); ?>
 
                                     <?= $form->field($model, 'name', ['enableAjaxValidation' => true])->input(['class' => 'form-control', 'value'=>$model->name, 'maxlength' => true])->hint('Пожалуйста, введите ваше Имя')->label('Имя'); ?>
@@ -32,7 +32,7 @@ $this->title = 'Сайт объявлений';
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-sm-6 col-md-4 col-lg-4">
+                            <div class="col-sm-6 col-md-4 col-lg-4 col-md-offset-2 col-lg-offset-2">
                                 <div class="thumbnail">
                                     <div class=" view-btn text-left">
                                         <img src="<?= Html::encode("{$model->avatar}") ?>" alt="Image">
@@ -43,7 +43,7 @@ $this->title = 'Сайт объявлений';
                         </div>
                     <?php ActiveForm::end(); ?>
                     <div class="row">
-                        <div class="col-sm-2 col-md-2 col-lg-2 col-md-offset-6 col-lg-offset-6">
+                        <div class="col-sm-2 col-md-2 col-lg-2 col-md-offset-8 col-lg-offset-8">
                             <div class=" view-btn text-left">
                                 <?= Html::submitButton($model->isNewRecord ? 'Сохранить' : 'Обновить', ['id' => 'button-user-profile', 'class' => $model->isNewRecord ? 'btn btn-default' : 'btn btn-default']) ?>
                             </div>
