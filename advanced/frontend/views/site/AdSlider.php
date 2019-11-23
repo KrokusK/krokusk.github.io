@@ -15,12 +15,28 @@ $this->title = 'Сайт объявлений';
 
     </div>
     <div class="row">
-        <div class="col-sm-6 col-md-4">
+        <div class="col-sm-6 col-md-10 col-lg-10">
 
             <div class="thumbnail">
                 <div class="caption">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <div><?php //Html::encode("{$userAd->header}") ?></div>
+                    <table>
+                        <tbody>
+                        <tr>
+                            <td class="align-top col-sm-3 col-md-3 col-lg-3">
+                                <div><?php //Html::encode("{$userAd->header}") ?></div>
+                            </td>
+                            <td class="align-top col-sm-3 col-md-3 col-lg-3">
+                                <p>Button</p>
+                            </td>
+                            <td class="align-top col-sm-3 col-md-3 col-lg-3">
+                                <p>Button</p>
+                            </td>
+                            <td class="align-top col-sm-3 col-md-3 col-lg-3">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
                 </div>
                 <div id="carousel" class="carousel slide" data-ride="carousel">
                     <!-- Индикаторы -->
