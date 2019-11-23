@@ -29,10 +29,10 @@ $this->title = 'Сайт объявлений';
                             <td class="align-top col-sm-3 col-md-3 col-lg-3">&nbsp;&nbsp;<span class="fa fa-circle fa-lg" style="color:#ff0000;"></span></td>
                             <td class="align-top col-sm-3 col-md-3 col-lg-3">
                                 <button class='btn-circle' style="border-radius: 50%">?</button>
-                                <button class="btn btn-primary" data-action="prev">Предыдущий</button>
+                                <button class="btn btn-primary" style="border-radius: 50%" data-action="prev">&lt;</button>
                             </td>
                             <td class="align-top col-sm-3 col-md-3 col-lg-3">
-                                <button class="btn btn-primary" data-action="next">Следующий</button>
+                                <button class="btn btn-primary" style="border-radius: 50%" data-action="next">&gt;</button>
                             </td>
                             <td class="align-top col-sm-3 col-md-3 col-lg-3">
                                 <button type="button" class="close" data-dismiss="modal">&times;</button>
