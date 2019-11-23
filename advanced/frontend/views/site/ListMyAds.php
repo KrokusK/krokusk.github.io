@@ -62,7 +62,7 @@ $this->title = 'Сайт объявлений';
         <div class="row">
 
 
-            <table style="height: 100px; weight: 100px">
+            <table>
                 <tbody>
                     <?php foreach ($userAds as $userAd): ?>
                         <tr>
