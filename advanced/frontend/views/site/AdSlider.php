@@ -52,7 +52,7 @@ $this->title = 'Сайт объявлений';
                                 <div class="item <?php if($i == 0)  echo "active"?>">
                                     <img src="<?= Html::encode("{$item['photo_path']}")?>" alt="">
                                 </div>
-                            <?php 
+                            <?php
                                 $i++;
                                 endforeach;
                             ?>

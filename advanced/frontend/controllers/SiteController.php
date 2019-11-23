@@ -561,6 +561,99 @@ class SiteController extends Controller
     }
 
     /**
+     * Create Ad
+     *
+     * @return mixed
+     */
+
+    public function actionCreateAd()
+    {
+        if (Yii::$app->user->isGuest) {
+            return $this->goHome();
+        }
+
+        $model = UserDesc::find()->where(['user_id' => Yii::$app->user->getId()])->one();
+        if (empty($model)) {
+            $model = new UserDesc();
+            $model->user_id = Yii::$app->user->getId();
+        }
+
+        if (Yii::$app->request->isAjax && $model->load(Yii::$app->request->post())) {
+            $transaction = \Yii::$app->db->beginTransaction();
+            try {
+
+
+                $image = UploadedFile::getInstance($model, 'imageFile');
+                if (!empty($image) && $image->size !== 0) {
+                    $model->imageFile = $image;
+
+                    if ($model->validate()) {
+
+                        //$model->imageFile = UploadedFile::getInstance($model, 'imageFile');
+                        //if ($model->upload()) {
+                        //    // file is uploaded successfully
+                        //    $model->avatar = '/uploads/'.$model->imageFile->baseName . '.' . $model->imageFile->extension;
+                        //}
+
+                        // save avatar
+                        $model->image_src_filename = $image->name;
+                        $tmp = explode(".", $image->name);
+                        $ext = end($tmp);
+                        // generate a unique file name to prevent duplicate filenames
+                        $model->image_web_filename = Yii::$app->security->generateRandomString().".{$ext}";
+                        // the path to save file, you can set an uploadPath
+                        // in Yii::$app->params (as used in example below)
+                        Yii::$app->params['uploadPath'] = Yii::$app->basePath . '/web/uploads/UserDesc/';
+                        $path = Yii::$app->params['uploadPath'] . $model->image_web_filename;
+                        $image->saveAs($path);
+
+                        $model->avatar = '/uploads/UserDesc/' . $model->image_web_filename;
+
+                        $flag = $model->save(false);
+                        if ($flag == true) {
+                            $transaction->commit();
+                            return Json::encode(array('status' => '1', 'type' => 'success', 'message' => 'Профиль пользователя успешно сохранен. model->avatar='.$model->avatar));
+                        } else {
+                            $transaction->rollBack();
+                        }
+                    } else {
+                        return Json::encode(array('status' => '0', 'type' => 'warning', 'message' => 'Профиль пользователя не может быть сохранен. model->avatar='.$model->avatar));
+                    }
+                } else {
+                    if ($model->validate()) {
+                        //
+                        $model->avatar = "";
+
+                        $flag = $model->save(false);
+                        if ($flag == true) {
+                            $transaction->commit();
+                            return Json::encode(array('status' => '1', 'type' => 'success', 'message' => 'Профиль пользователя успешно сохранен. model->avatar='.$model->avatar));
+                        } else {
+                            $transaction->rollBack();
+                        }
+                    } else {
+                        return Json::encode(array('status' => '0', 'type' => 'warning', 'message' => 'Профиль пользователя не может быть сохранен. model->avatar='.$model->avatar));
+                    }
+                }
+
+
+            } catch (Exception $ex) {
+                $transaction->rollBack();
+            }
+        } else {
+            $cities = UserCity::find()
+                ->orderBy('city_name')
+                //->asArray()
+                ->all();
+
+            return $this->render('EditeAd', [
+                'selectCity' => $cities,
+                'model' => $model,
+            ]);
+        }
+    }
+
+    /**
      * Profile save page.
      *
      * @return mixed
