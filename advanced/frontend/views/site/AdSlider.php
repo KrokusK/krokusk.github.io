@@ -56,7 +56,7 @@ $this->title = 'Сайт объявлений';
                             <img src="https://93.img.avito.st/208x156/5922273093.jpg" alt="...">
                         </div>
                     </div>
-                    <!-- Элементы управления -->
+                    <!-- Элементы управления
                     <a class="left carousel-control" href="#carousel" role="button" data-slide="prev">
                         <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
                         <span class="sr-only">Предыдущий</span>
@@ -65,6 +65,7 @@ $this->title = 'Сайт объявлений';
                         <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
                         <span class="sr-only">Следующий</span>
                     </a>
+                    -->
                 </div>
             </div>
         </div>
