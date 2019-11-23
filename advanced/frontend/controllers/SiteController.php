@@ -551,6 +551,7 @@ class SiteController extends Controller
         $userAd = UserAd::find()
             ->where(['AND',['id' => $ad],['user_desc_id' => $UserDesc['id']]])
             ->with('adPhotos')
+            ->asArray()
             ->all();
 
         return $this->renderAjax('AdSlider', [
