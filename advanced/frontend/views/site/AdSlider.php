@@ -29,7 +29,10 @@ $this->title = 'Сайт объявлений';
                                 <p>Button</p>
                             </td>
                             <td class="align-top col-sm-3 col-md-3 col-lg-3">
-                                <p>Button</p>
+                                <a class="right carousel-control" href="#carousel" role="button" data-slide="next">
+                                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                                    <span class="sr-only">Следующий</span>
+                                </a>
                             </td>
                             <td class="align-top col-sm-3 col-md-3 col-lg-3">
                                 <button type="button" class="close" data-dismiss="modal">&times;</button>
