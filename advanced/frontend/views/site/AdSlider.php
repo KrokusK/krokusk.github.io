@@ -26,13 +26,10 @@ $this->title = 'Сайт объявлений';
                                 <div><?php //Html::encode("{$userAd->header}") ?></div>
                             </td>
                             <td class="align-top col-sm-3 col-md-3 col-lg-3">
-                                <p>Button</p>
+                                <button class="btn btn-primary" data-action="prev">Предыдущий</button>
                             </td>
                             <td class="align-top col-sm-3 col-md-3 col-lg-3">
-                                <a class="right carousel-control" href="#carousel" role="button" data-slide="next">
-                                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                                    <span class="sr-only">Следующий</span>
-                                </a>
+                                <button class="btn btn-primary" data-action="next">Следующий</button>
                             </td>
                             <td class="align-top col-sm-3 col-md-3 col-lg-3">
                                 <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -73,3 +70,23 @@ $this->title = 'Сайт объявлений';
         </div>
     </div>
 </div>
+
+<?php
+$script = <<< JS
+
+<script>
+    $(function () {
+        // метод cycle
+        $('.btn').click(function () {
+            var action = $(this).attr('data-action');
+            if (action.indexOf('to') >= 0) {
+                var action = parseInt(action.substring(3))-1;
+            }
+            $('#carousel').carousel(action);
+        });
+    });
+</script>
+
+JS;
+$this->registerJs($script);
+?>
