@@ -45,7 +45,7 @@ $this->title = 'Сайт объявлений';
                         <div class="carousel-inner">
                             <?php foreach ($userAd[0]['adPhotos'] as $item): ?>
                             <?php var_dump($userAd[0]['adPhotos']); ?>
-                                <div class="item">
+                                <div class="item active">
                                     <img src="https://41.img.avito.st/208x156/2596509641.jpg" alt="">
                                 </div>
                                 <div class="item">
