@@ -25,10 +25,10 @@ $this->title = 'Сайт объявлений';
                             <td class="align-top col-sm-3 col-md-3 col-lg-3">
                                 <div><?php //Html::encode("{$userAd->header}") ?></div>
                             </td>
-                            <td class="align-top col-sm-3 col-md-3 col-lg-3">
+                            <td class="align-top col-sm-3 col-md-3 col-lg-3 col-md-offset-3 col-lg-offset-3">
                                 <button class="btn btn-primary" data-action="prev">Предыдущий</button>
                             </td>
-                            <td class="align-top col-sm-3 col-md-3 col-lg-3">
+                            <td class="align-top col-sm-3 col-md-3 col-lg-3 col-md-offset-3 col-lg-offset-3">
                                 <button class="btn btn-primary" data-action="next">Следующий</button>
                             </td>
                             <td class="align-top col-sm-3 col-md-3 col-lg-3">
@@ -38,7 +38,7 @@ $this->title = 'Сайт объявлений';
                         </tbody>
                     </table>
                 </div>
-                <div id="carousel" class="carousel slide" data-ride="carousel">
+                <div id="carousel" class="carousel slide" data-ride="false">
                     <!-- Индикаторы -->
                     <ol class="carousel-indicators">
                         <li data-target="#carousel" data-slide-to="0" class="active"></li>
