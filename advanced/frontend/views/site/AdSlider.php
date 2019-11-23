@@ -22,19 +22,18 @@ $this->title = 'Сайт объявлений';
                     <table>
                         <tbody>
                         <tr>
-                            <td class="align-top col-sm-3 col-md-3 col-lg-3">
+                            <td class="align-top col-sm-2 col-md-2 col-lg-2">
                                 <div><?php //Html::encode("{$userAd->header}") ?></div>
                             </td>
-                            <td class="align-top col-sm-3 col-md-3 col-lg-3">&nbsp;&nbsp;<span class="badge">100</span></td>
-                            <td class="align-top col-sm-3 col-md-3 col-lg-3">&nbsp;&nbsp;<span class="fa fa-circle fa-lg" style="color:#ff0000;"></span></td>
-                            <td class="align-top col-sm-3 col-md-3 col-lg-3">
-                                <button class='btn-circle' style="border-radius: 50%">?</button>
+                            <td class="align-top col-sm-2 col-md-2 col-lg-2">&nbsp;&nbsp;</td>
+                            <td class="align-top col-sm-2 col-md-2 col-lg-2">&nbsp;&nbsp;</td>
+                            <td class="align-top col-sm-2 col-md-2 col-lg-2">
                                 <button class="btn btn-primary" style="border-radius: 50%" data-action="prev">&lt;</button>
                             </td>
-                            <td class="align-top col-sm-3 col-md-3 col-lg-3">
+                            <td class="align-top col-sm-2 col-md-2 col-lg-2">
                                 <button class="btn btn-primary" style="border-radius: 50%" data-action="next">&gt;</button>
                             </td>
-                            <td class="align-top col-sm-3 col-md-3 col-lg-3">
+                            <td class="align-top col-sm-2 col-md-2 col-lg-2">
                                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                             </td>
                         </tr>
