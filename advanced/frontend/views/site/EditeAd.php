@@ -6,64 +6,66 @@ use yii\widgets\ActiveForm;
 $this->title = 'Сайт объявлений';
 ?>
 <div class="container-fluid">
-    <div class="row">
-        <div class="col-md-12 col-lg-12">
+    <div class="thumbnail">
+        <div class="row">
+            <div class="col-md-12 col-lg-12">
 
-            <div class="animated bounceInTop" >
+                <div class="animated bounceInTop" >
 
-                <div class="content-main">
-                    <?php $form = ActiveForm::begin(['id' => 'form-user-profile', 'action' => Yii::$app->urlManager->createUrl('site/profile'), 'validationUrl' => Yii::$app->urlManager->createUrl('site/profile-validate')]); ?>
-                        <div class="row">
-                            <div class="col-sm-6 col-md-8 col-lg-8 col-md-offset-2 col-lg-offset-2">
-                                <?php //$form = ActiveForm::begin(['id' => 'form-user-profile', 'action' => Yii::$app->urlManager->createUrl('site/profile'), 'enableAjaxValidation' => true, 'validationUrl' => Yii::$app->urlManager->createUrl('site/profile-validate')]); ?>
+                    <div class="content-main">
+                        <?php $form = ActiveForm::begin(['id' => 'form-user-profile', 'action' => Yii::$app->urlManager->createUrl('site/profile'), 'validationUrl' => Yii::$app->urlManager->createUrl('site/profile-validate')]); ?>
+                            <div class="row">
+                                <div class="col-sm-6 col-md-8 col-lg-8 col-md-offset-2 col-lg-offset-2">
+                                    <?php //$form = ActiveForm::begin(['id' => 'form-user-profile', 'action' => Yii::$app->urlManager->createUrl('site/profile'), 'enableAjaxValidation' => true, 'validationUrl' => Yii::$app->urlManager->createUrl('site/profile-validate')]); ?>
 
-                                    <?= $form->field($model, 'name', ['enableAjaxValidation' => true])->input(['class' => 'form-control', 'value'=>$model->name, 'maxlength' => true])->hint('Пожалуйста, введите ваше Имя')->label('Имя'); ?>
-                                    <?php
-                                        $params = [
-                                            'prompt' => 'Выберите город...',
-                                            'options' => [$model->city_id => ["Selected"=>true]]
-                                        ];
+                                        <?= $form->field($model, 'name', ['enableAjaxValidation' => true])->input(['class' => 'form-control', 'value'=>$model->name, 'maxlength' => true])->hint('Пожалуйста, введите ваше Имя')->label('Имя'); ?>
+                                        <?php
+                                            $params = [
+                                                'prompt' => 'Выберите город...',
+                                                'options' => [$model->city_id => ["Selected"=>true]]
+                                            ];
 
-                                        echo $form->field($model, 'city_id')->dropDownList(ArrayHelper::map($selectCity, 'id', 'city_name'), $params)->hint('Пожалуйста, выберите город')->label('Город');
-                                    ?>
-                                    <?= $form->field($model, 'phone', ['enableAjaxValidation' => true])->input(['class' => 'form-control', 'value'=>$model->phone])->hint('Пожалуйста, введите ваш телефон')->label('Телефон в формате: +7 (999) 999-99-99'); ?>
-                                    <?= $form->field($model, 'about', ['enableAjaxValidation' => true])->textarea(['class' => 'form-control', 'rows' => 3, 'value' => $model->about, 'maxlength' => true])->hint('Пожалуйста, напишите о себе')->label('О себе'); ?>
-                                <?php //ActiveForm::end(); ?>
+                                            echo $form->field($model, 'city_id')->dropDownList(ArrayHelper::map($selectCity, 'id', 'city_name'), $params)->hint('Пожалуйста, выберите город')->label('Город');
+                                        ?>
+                                        <?= $form->field($model, 'phone', ['enableAjaxValidation' => true])->input(['class' => 'form-control', 'value'=>$model->phone])->hint('Пожалуйста, введите ваш телефон')->label('Телефон в формате: +7 (999) 999-99-99'); ?>
+                                        <?= $form->field($model, 'about', ['enableAjaxValidation' => true])->textarea(['class' => 'form-control', 'rows' => 3, 'value' => $model->about, 'maxlength' => true])->hint('Пожалуйста, напишите о себе')->label('О себе'); ?>
+                                    <?php //ActiveForm::end(); ?>
+                                </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-6 col-md-4 col-lg-4 col-md-offset-2 col-lg-offset-2">
-                                <div class="thumbnail">
-                                    <div class=" view-btn text-left">
-                                        <img src="<?= Html::encode("{$model->avatar}") ?>" alt="Image">
-                                        <?php echo $form->field($model, 'imageFile')->fileInput(['class' => 'form-control'])->hint('Пожалуйста, загрузить ваш аватар')->label('Аватар'); ?>
+                            <div class="row">
+                                <div class="col-sm-6 col-md-4 col-lg-4 col-md-offset-2 col-lg-offset-2">
+                                    <div class="thumbnail">
+                                        <div class=" view-btn text-left">
+                                            <img src="<?= Html::encode("{$model->avatar}") ?>" alt="Image">
+                                            <?php echo $form->field($model, 'imageFile')->fileInput(['class' => 'form-control'])->hint('Пожалуйста, загрузить ваш аватар')->label('Аватар'); ?>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    <?php ActiveForm::end(); ?>
-                    <div class="row">
-                        <div class="col-sm-2 col-md-2 col-lg-2 col-md-offset-8 col-lg-offset-8">
-                            <div class=" view-btn text-left">
-                                <?= Html::submitButton($model->isNewRecord ? 'Сохранить' : 'Обновить', ['id' => 'button-user-profile', 'class' => $model->isNewRecord ? 'btn btn-default' : 'btn btn-default']) ?>
+                        <?php ActiveForm::end(); ?>
+                        <div class="row">
+                            <div class="col-sm-2 col-md-2 col-lg-2 col-md-offset-8 col-lg-offset-8">
+                                <div class=" view-btn text-left">
+                                    <?= Html::submitButton($model->isNewRecord ? 'Сохранить' : 'Обновить', ['id' => 'button-user-profile', 'class' => $model->isNewRecord ? 'btn btn-default' : 'btn btn-default']) ?>
+                                </div>
                             </div>
                         </div>
                     </div>
+
+
                 </div>
-
-
             </div>
         </div>
-    </div>
-    <div class="row">
-        <br><br>
-        <p><?php //echo "User id : ".$model->user_id ?></p>
-        <br><br>
-        <p><?php //echo "User name : ".var_dump($model->name) ?></p>
-        <br><br>
-        <p><?php //var_dump($selectCity); ?></p>
-        <br><br>
-        <p><?php //var_dump(ArrayHelper::map($selectCity, 'id', 'city_name')); ?></p>
+        <div class="row">
+            <br><br>
+            <p><?php //echo "User id : ".$model->user_id ?></p>
+            <br><br>
+            <p><?php //echo "User name : ".var_dump($model->name) ?></p>
+            <br><br>
+            <p><?php //var_dump($selectCity); ?></p>
+            <br><br>
+            <p><?php //var_dump(ArrayHelper::map($selectCity, 'id', 'city_name')); ?></p>
+        </div>
     </div>
 </div>
 
