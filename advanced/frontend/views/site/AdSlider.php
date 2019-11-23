@@ -43,15 +43,17 @@ $this->title = 'Сайт объявлений';
                             <li data-target="#carousel" data-slide-to="2"></li>
                         </ol>
                         <div class="carousel-inner">
-                            <div class="item active">
-                                <img src="https://41.img.avito.st/208x156/2596509641.jpg" alt="...">
-                            </div>
-                            <div class="item">
-                                <img src="https://23.img.avito.st/208x156/6035099023.jpg" alt="...">
-                            </div>
-                            <div class="item">
-                                <img src="https://93.img.avito.st/208x156/5922273093.jpg" alt="...">
-                            </div>
+                            <?php foreach ($userAd[0]['adPhotos'] as $item): ?>
+                                <div class="item">
+                                    <img src="https://41.img.avito.st/208x156/2596509641.jpg" alt="">
+                                </div>
+                                <div class="item">
+                                    <img src="https://23.img.avito.st/208x156/6035099023.jpg" alt="">
+                                </div>
+                                <div class="item">
+                                    <img src="https://93.img.avito.st/208x156/5922273093.jpg" alt="">
+                                </div>
+                            <?php endforeach; ?>
                         </div>
                         <!-- Элементы управления
                         <a class="left carousel-control" href="#carousel" role="button" data-slide="prev">
