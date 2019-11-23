@@ -17,14 +17,14 @@ $this->title = 'Сайт объявлений';
                         <table>
                             <tbody>
                             <tr>
-                                <td class="text-left align-top col-sm-8 col-md-8 col-lg-8">
+                                <td class="text-left align-top col-sm-7 col-md-7 col-lg-7">
                                     <div><?php //Html::encode("{$userAd->header}") ?></div>
                                 </td>
-                                <td class="text-right align-top col-sm-4 col-md-4 col-lg-4">
+                                <td class="text-right align-top col-sm-5 col-md-5 col-lg-5">
                                     &nbsp;&nbsp;
                                     <button class="btn btn-default" style="border-radius: 50%" data-action="prev">&lt;</button>
                                     <button class="btn btn-default" style="border-radius: 50%" data-action="next">&gt;</button>
-                                    <button type="button" class="btn btn-default close" data-dismiss="modal">&times;</button>
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
                                 </td>
                             </tr>
                             </tbody>
