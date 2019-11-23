@@ -14,7 +14,7 @@ $this->title = 'Сайт объявлений';
                 <div class="content-main">
                     <?php $form = ActiveForm::begin(['id' => 'form-user-profile', 'action' => Yii::$app->urlManager->createUrl('site/profile'), 'validationUrl' => Yii::$app->urlManager->createUrl('site/profile-validate')]); ?>
                         <div class="row">
-                            <div class="col-sm-6 col-md-12 col-lg-12">
+                            <div class="col-sm-6 col-md-8 col-lg-8">
                                 <?php //$form = ActiveForm::begin(['id' => 'form-user-profile', 'action' => Yii::$app->urlManager->createUrl('site/profile'), 'enableAjaxValidation' => true, 'validationUrl' => Yii::$app->urlManager->createUrl('site/profile-validate')]); ?>
 
                                     <?= $form->field($model, 'name', ['enableAjaxValidation' => true])->input(['class' => 'form-control', 'value'=>$model->name, 'maxlength' => true])->hint('Пожалуйста, введите ваше Имя')->label('Имя'); ?>
@@ -32,10 +32,12 @@ $this->title = 'Сайт объявлений';
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-sm-6 col-md-12 col-lg-12">
+                            <div class="col-sm-6 col-md-4 col-lg-4">
                                 <div class="thumbnail">
-                                    <img src="<?= Html::encode("{$model->avatar}") ?>" alt="Image">
-                                    <?php echo $form->field($model, 'imageFile')->fileInput(['class' => 'form-control'])->hint('Пожалуйста, загрузить ваш аватар')->label('Аватар'); ?>
+                                    <div class=" view-btn text-left">
+                                        <img src="<?= Html::encode("{$model->avatar}") ?>" alt="Image">
+                                        <?php echo $form->field($model, 'imageFile')->fileInput(['class' => 'form-control'])->hint('Пожалуйста, загрузить ваш аватар')->label('Аватар'); ?>
+                                    </div>
                                 </div>
                             </div>
                         </div>
