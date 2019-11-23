@@ -43,7 +43,7 @@ $this->title = 'Сайт объявлений';
                             <li data-target="#carousel" data-slide-to="2"></li>
                         </ol>
                         <div class="carousel-inner">
-                            <?php //foreach ($userAd[0]['adPhotos'] as $item): ?>
+                            <?php foreach ($userAd[0]['adPhotos'] as $item): ?>
                             <?php var_dump($userAd[0]['adPhotos']); ?>
                                 <div class="item">
                                     <img src="https://41.img.avito.st/208x156/2596509641.jpg" alt="">
@@ -54,7 +54,7 @@ $this->title = 'Сайт объявлений';
                                 <div class="item">
                                     <img src="https://93.img.avito.st/208x156/5922273093.jpg" alt="">
                                 </div>
-                            <?php //endforeach; ?>
+                            <?php endforeach; ?>
                         </div>
                         <!-- Элементы управления
                         <a class="left carousel-control" href="#carousel" role="button" data-slide="prev">
