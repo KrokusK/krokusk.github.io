@@ -74,7 +74,6 @@ $this->title = 'Сайт объявлений';
 <?php
 $script = <<< JS
 
-<script>
     $(function () {
         // метод cycle
         $('.btn').click(function () {
@@ -85,7 +84,6 @@ $script = <<< JS
             $('#carousel').carousel(action);
         });
     });
-</script>
 
 JS;
 $this->registerJs($script);
