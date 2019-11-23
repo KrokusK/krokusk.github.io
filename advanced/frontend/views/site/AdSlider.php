@@ -22,18 +22,13 @@ $this->title = 'Сайт объявлений';
                     <table>
                         <tbody>
                         <tr>
-                            <td class="align-top col-sm-2 col-md-2 col-lg-2">
+                            <td class="align-top col-sm-4 col-md-4 col-lg-4">
                                 <div><?php //Html::encode("{$userAd->header}") ?></div>
                             </td>
-                            <td class="align-top col-sm-2 col-md-2 col-lg-2">&nbsp;&nbsp;</td>
-                            <td class="align-top col-sm-2 col-md-2 col-lg-2">&nbsp;&nbsp;</td>
-                            <td class="align-top col-sm-2 col-md-2 col-lg-2">
+                            <td class="text-right align-top col-sm-8 col-md-8 col-lg-8">
+                                &nbsp;&nbsp;
                                 <button class="btn btn-primary" style="border-radius: 50%" data-action="prev">&lt;</button>
-                            </td>
-                            <td class="align-top col-sm-2 col-md-2 col-lg-2">
                                 <button class="btn btn-primary" style="border-radius: 50%" data-action="next">&gt;</button>
-                            </td>
-                            <td class="align-top col-sm-2 col-md-2 col-lg-2">
                                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                             </td>
                         </tr>
