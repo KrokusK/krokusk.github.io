@@ -43,12 +43,19 @@ $this->title = 'Сайт объявлений';
                             <li data-target="#carousel" data-slide-to="2"></li>
                         </ol>
                         <div class="carousel-inner">
-                            <?php foreach ($userAd[0]['adPhotos'] as $item): ?>
-                            <?php //var_dump($userAd[0]['adPhotos']); ?>
-                                <div class="item active">
+                            <?php
+                                $i = 0;
+                                //var_dump($userAd[0]['adPhotos']);
+                                foreach ($userAd[0]['adPhotos'] as $item):
+                            ?>
+                            <?php  ?>
+                                <div class="item <?php if($i == 0)  echo "active"?>">
                                     <img src="<?= Html::encode("{$item['photo_path']}")?>" alt="">
                                 </div>
-                            <?php endforeach; ?>
+                            <?php
+                                $i++;
+                                endforeach;
+                            ?>
                         </div>
                         <!-- Элементы управления
                         <a class="left carousel-control" href="#carousel" role="button" data-slide="prev">
