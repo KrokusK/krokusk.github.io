@@ -18,11 +18,7 @@ $this->title = 'Сайт объявлений';
 
                             <div class="col-md-offset-2 col-lg-offset-2">
 
-                                <div class="thumbnail">
-
-                                    <table><tbody><tr><td class="col-sm-6 col-md-12 col-lg-12">
-
-
+                                    <table><tbody><tr><td class="col-sm-12 col-md-12 col-lg-12">
 
                                         <div class="row">
                                             <div class="thumbnail">
@@ -56,8 +52,6 @@ $this->title = 'Сайт объявлений';
                                         </div>
 
                                     </td><td></td></tr></tbody></table>
-
-                                </div>
 
                             </div>
 
