@@ -21,7 +21,7 @@ $this->title = 'Сайт объявлений';
 
                                 <div class="thumbnail">
 
-                                    <table><tbody><tr><td class="thumbnail col-sm-6 col-md-10 col-lg-10">
+                                    <table><tbody><tr><td class="thumbnail col-sm-6 col-md-8 col-lg-8">
 
                                     <div>
 
