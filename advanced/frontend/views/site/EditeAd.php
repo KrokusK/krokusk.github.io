@@ -23,7 +23,7 @@ $this->title = 'Сайт объявлений';
 
                                     <table><tbody><tr><td class="col-sm-6 col-md-12 col-lg-12"><div class="thumbnail">
 
-                                    <div>
+                                    <div class="col-sm-6 col-md-8 col-lg-8">
 
                                         <div class="row">
 
