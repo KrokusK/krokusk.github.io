@@ -568,6 +568,7 @@ class SiteController extends Controller
 
     public function actionCreateAd()
     {
+
         if (Yii::$app->user->isGuest) {
             return $this->goHome();
         }
