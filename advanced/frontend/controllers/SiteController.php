@@ -28,6 +28,7 @@ use frontend\models\UserShow;
 use frontend\models\UserAd;
 use frontend\models\UserCity;
 use frontend\models\AdCategory;
+use frontend\models\PhotoAd;
 //use frontend\models\UploadOneFile;
 
 
