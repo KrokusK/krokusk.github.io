@@ -49,7 +49,7 @@ $this->title = 'Сайт объявлений';
                                         <?php ActiveForm::end(); ?>
 
                                         <div class="text-right">
-                                            <?= Html::submitButton($model->isNewRecord ? 'Сохранить' : 'Обновить', ['id' => 'button-user-profile', 'class' => $model->isNewRecord ? 'btn btn-default' : 'btn btn-default']) ?>
+                                            <?= Html::submitButton(($modelUserAd->isNewRecord && $modelPhotoAd->isNewRecord) ? 'Сохранить' : 'Обновить', ['id' => 'button-user-profile', 'class' => $model->isNewRecord ? 'btn btn-default' : 'btn btn-default']) ?>
                                         </div>
                                     </div>
                                 </td>
