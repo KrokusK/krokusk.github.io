@@ -43,16 +43,17 @@ $this->title = 'Сайт объявлений';
                                                 <?= $form->field($model, 'about', ['enableAjaxValidation' => true])->textarea(['class' => 'form-control', 'rows' => 3, 'value' => $model->about, 'maxlength' => true])->hint('Пожалуйста, напишите о себе')->label('О себе'); ?>
                                             <?php //ActiveForm::end(); ?>
 
-                                            </div>
 
-                                        </div>
-                                        <div class="row">
+
+
 
                                             <div class="thumbnail">
                                                 <div class=" view-btn text-center">
                                                     <img src="<?= Html::encode("{$model->avatar}") ?>" alt="Image">
                                                     <?php echo $form->field($model, 'imageFile')->fileInput(['class' => 'form-control'])->hint('Пожалуйста, загрузить ваш аватар')->label('Аватар'); ?>
                                                 </div>
+                                            </div>
+
                                             </div>
 
                                         </div>
