@@ -22,7 +22,7 @@ $this->title = 'Сайт объявлений';
                             <div class="thumbnail">
 
                             <div class="row">
-                                <div class="col-sm-6 col-md-8 col-lg-8 col-md-offset-2 col-lg-offset-2">
+
                                     <?php //$form = ActiveForm::begin(['id' => 'form-user-profile', 'action' => Yii::$app->urlManager->createUrl('site/profile'), 'enableAjaxValidation' => true, 'validationUrl' => Yii::$app->urlManager->createUrl('site/profile-validate')]); ?>
 
                                         <?= $form->field($model, 'name', ['enableAjaxValidation' => true])->input(['class' => 'form-control', 'value'=>$model->name, 'maxlength' => true])->hint('Пожалуйста, введите ваше Имя')->label('Имя'); ?>
@@ -37,17 +37,17 @@ $this->title = 'Сайт объявлений';
                                         <?= $form->field($model, 'phone', ['enableAjaxValidation' => true])->input(['class' => 'form-control', 'value'=>$model->phone])->hint('Пожалуйста, введите ваш телефон')->label('Телефон в формате: +7 (999) 999-99-99'); ?>
                                         <?= $form->field($model, 'about', ['enableAjaxValidation' => true])->textarea(['class' => 'form-control', 'rows' => 3, 'value' => $model->about, 'maxlength' => true])->hint('Пожалуйста, напишите о себе')->label('О себе'); ?>
                                     <?php //ActiveForm::end(); ?>
-                                </div>
+
                             </div>
                             <div class="row">
-                                <div class="col-sm-6 col-md-4 col-lg-4 col-md-offset-2 col-lg-offset-2">
+
                                     <div class="thumbnail">
                                         <div class=" view-btn text-center">
                                             <img src="<?= Html::encode("{$model->avatar}") ?>" alt="Image">
                                             <?php echo $form->field($model, 'imageFile')->fileInput(['class' => 'form-control'])->hint('Пожалуйста, загрузить ваш аватар')->label('Аватар'); ?>
                                         </div>
                                     </div>
-                                </div>
+                                
                             </div>
 
                             </div>
