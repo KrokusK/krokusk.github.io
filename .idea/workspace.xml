@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d97bdc22-9d4b-4578-b4be-b96d66aca924" name="Default Changelist" comment="" />
+    <list default="true" id="d97bdc22-9d4b-4578-b4be-b96d66aca924" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/advanced/frontend/views/site/EditeAd.php" beforeDir="false" afterPath="$PROJECT_DIR$/advanced/frontend/views/site/EditeAd.php" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,7 +87,7 @@
       <workItem from="1574325876724" duration="12498000" />
       <workItem from="1574386615190" duration="19398000" />
       <workItem from="1574474544991" duration="10501000" />
-      <workItem from="1574646415235" duration="643000" />
+      <workItem from="1574646415235" duration="935000" />
     </task>
     <servers />
   </component>
