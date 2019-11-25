@@ -56,7 +56,7 @@ $this->title = 'Сайт объявлений';
 
                                     </div>
 
-                                    </td></tr></tbody></table>
+                                    </td><td></td></tr></tbody></table>
 
                                 </div>
 
