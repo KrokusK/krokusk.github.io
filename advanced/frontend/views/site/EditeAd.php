@@ -16,7 +16,7 @@ $this->title = 'Сайт объявлений';
                                 <td class="col-sm-12 col-md-12 col-lg-12">
                                     <div class="thumbnail">
 
-                                        <?php $form = ActiveForm::begin(['id' => 'form-user-profile', 'action' => Yii::$app->urlManager->createUrl('site/profile'), 'validationUrl' => Yii::$app->urlManager->createUrl('site/profile-validate')]); ?>
+                                        <?php $form = ActiveForm::begin(['id' => 'form-user-ad', 'action' => Yii::$app->urlManager->createUrl('site/create-ad'), 'validationUrl' => Yii::$app->urlManager->createUrl('site/ad-validate')]); ?>
 
                                         <?= $form->field($model, 'name', ['enableAjaxValidation' => true])->input(['class' => 'form-control', 'value'=>$model->name, 'maxlength' => true])->hint('Пожалуйста, введите ваше Имя')->label('Имя'); ?>
                                         <?php
@@ -34,7 +34,7 @@ $this->title = 'Сайт объявлений';
                                         <div class="thumbnail">
                                             <div class=" view-btn text-center">
                                                 <img src="<?= Html::encode("{$model->avatar}") ?>" alt="Image">
-                                                <?php echo $form->field($model, 'imageFile')->fileInput(['class' => 'form-control'])->hint('Пожалуйста, загрузить ваш аватар')->label('Аватар'); ?>
+                                                <?php echo $form->field($model, 'imageFiles[]')->fileInput(['class' => 'form-control', 'multiple' => true])->hint('Пожалуйста, загрузить ваш аватар')->label('Аватар'); ?>
                                             </div>
                                         </div>
 
