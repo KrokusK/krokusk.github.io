@@ -572,7 +572,7 @@ class SiteController extends Controller
             return $this->goHome();
         }
 
-        $model = UserDesc::find()->where(['user_id' => Yii::$app->user->getId()])->one();
+        $modelUserDesc = UserDesc::find()->where(['user_id' => Yii::$app->user->getId()])->one();
         if (empty($model)) {
             $modelUserDesc = new UserDesc();
             $modelUserDesc->user_id = Yii::$app->user->getId();
