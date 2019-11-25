@@ -21,7 +21,9 @@ $this->title = 'Сайт объявлений';
 
                             <div class="thumbnail">
 
-                            <div class="row">
+                                <div class="content-main">
+
+                                <div class="row">
 
                                     <?php //$form = ActiveForm::begin(['id' => 'form-user-profile', 'action' => Yii::$app->urlManager->createUrl('site/profile'), 'enableAjaxValidation' => true, 'validationUrl' => Yii::$app->urlManager->createUrl('site/profile-validate')]); ?>
 
@@ -38,8 +40,8 @@ $this->title = 'Сайт объявлений';
                                         <?= $form->field($model, 'about', ['enableAjaxValidation' => true])->textarea(['class' => 'form-control', 'rows' => 3, 'value' => $model->about, 'maxlength' => true])->hint('Пожалуйста, напишите о себе')->label('О себе'); ?>
                                     <?php //ActiveForm::end(); ?>
 
-                            </div>
-                            <div class="row">
+                                </div>
+                                <div class="row">
 
                                     <div class="thumbnail">
                                         <div class=" view-btn text-center">
@@ -47,8 +49,10 @@ $this->title = 'Сайт объявлений';
                                             <?php echo $form->field($model, 'imageFile')->fileInput(['class' => 'form-control'])->hint('Пожалуйста, загрузить ваш аватар')->label('Аватар'); ?>
                                         </div>
                                     </div>
-                                
-                            </div>
+
+                                </div>
+                                    
+                                </div>
 
                             </div>
 
