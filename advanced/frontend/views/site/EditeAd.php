@@ -6,16 +6,15 @@ use yii\widgets\ActiveForm;
 $this->title = 'Сайт объявлений';
 ?>
 <div class="container-fluid">
-    <div class="thumbnail">
+
         <div class="row">
             <div class="col-md-12 col-lg-12">
 
                 <div class="animated bounceInTop" >
 
-                    <div class="thumbnail">
+
 
                     <div class="content-main">
-                        <?php $form = ActiveForm::begin(['id' => 'form-user-profile', 'action' => Yii::$app->urlManager->createUrl('site/profile'), 'validationUrl' => Yii::$app->urlManager->createUrl('site/profile-validate')]); ?>
 
                             <div class="col-md-offset-2 col-lg-offset-2">
 
@@ -28,31 +27,29 @@ $this->title = 'Сайт объявлений';
                                         <div class="row">
                                             <div class="thumbnail">
 
-                                            <?php //$form = ActiveForm::begin(['id' => 'form-user-profile', 'action' => Yii::$app->urlManager->createUrl('site/profile'), 'enableAjaxValidation' => true, 'validationUrl' => Yii::$app->urlManager->createUrl('site/profile-validate')]); ?>
+                                                <?php $form = ActiveForm::begin(['id' => 'form-user-profile', 'action' => Yii::$app->urlManager->createUrl('site/profile'), 'validationUrl' => Yii::$app->urlManager->createUrl('site/profile-validate')]); ?>
 
-                                                <?= $form->field($model, 'name', ['enableAjaxValidation' => true])->input(['class' => 'form-control', 'value'=>$model->name, 'maxlength' => true])->hint('Пожалуйста, введите ваше Имя')->label('Имя'); ?>
-                                                <?php
-                                                    $params = [
-                                                        'prompt' => 'Выберите город...',
-                                                        'options' => [$model->city_id => ["Selected"=>true]]
-                                                    ];
+                                                    <?= $form->field($model, 'name', ['enableAjaxValidation' => true])->input(['class' => 'form-control', 'value'=>$model->name, 'maxlength' => true])->hint('Пожалуйста, введите ваше Имя')->label('Имя'); ?>
+                                                    <?php
+                                                        $params = [
+                                                            'prompt' => 'Выберите город...',
+                                                            'options' => [$model->city_id => ["Selected"=>true]]
+                                                        ];
 
-                                                    echo $form->field($model, 'city_id')->dropDownList(ArrayHelper::map($selectCity, 'id', 'city_name'), $params)->hint('Пожалуйста, выберите город')->label('Город');
-                                                ?>
-                                                <?= $form->field($model, 'phone', ['enableAjaxValidation' => true])->input(['class' => 'form-control', 'value'=>$model->phone])->hint('Пожалуйста, введите ваш телефон')->label('Телефон в формате: +7 (999) 999-99-99'); ?>
-                                                <?= $form->field($model, 'about', ['enableAjaxValidation' => true])->textarea(['class' => 'form-control', 'rows' => 3, 'value' => $model->about, 'maxlength' => true])->hint('Пожалуйста, напишите о себе')->label('О себе'); ?>
-                                            <?php //ActiveForm::end(); ?>
-
+                                                        echo $form->field($model, 'city_id')->dropDownList(ArrayHelper::map($selectCity, 'id', 'city_name'), $params)->hint('Пожалуйста, выберите город')->label('Город');
+                                                    ?>
+                                                    <?= $form->field($model, 'phone', ['enableAjaxValidation' => true])->input(['class' => 'form-control', 'value'=>$model->phone])->hint('Пожалуйста, введите ваш телефон')->label('Телефон в формате: +7 (999) 999-99-99'); ?>
+                                                    <?= $form->field($model, 'about', ['enableAjaxValidation' => true])->textarea(['class' => 'form-control', 'rows' => 3, 'value' => $model->about, 'maxlength' => true])->hint('Пожалуйста, напишите о себе')->label('О себе'); ?>
 
 
+                                                    <div class="thumbnail">
+                                                        <div class=" view-btn text-center">
+                                                            <img src="<?= Html::encode("{$model->avatar}") ?>" alt="Image">
+                                                            <?php echo $form->field($model, 'imageFile')->fileInput(['class' => 'form-control'])->hint('Пожалуйста, загрузить ваш аватар')->label('Аватар'); ?>
+                                                        </div>
+                                                    </div>
 
-
-                                            <div class="thumbnail">
-                                                <div class=" view-btn text-center">
-                                                    <img src="<?= Html::encode("{$model->avatar}") ?>" alt="Image">
-                                                    <?php echo $form->field($model, 'imageFile')->fileInput(['class' => 'form-control'])->hint('Пожалуйста, загрузить ваш аватар')->label('Аватар'); ?>
-                                                </div>
-                                            </div>
+                                                <?php ActiveForm::end(); ?>
 
                                             </div>
 
@@ -64,7 +61,7 @@ $this->title = 'Сайт объявлений';
 
                             </div>
 
-                        <?php ActiveForm::end(); ?>
+
                         <div class="row">
                             <div class="col-sm-2 col-md-2 col-lg-2 col-md-offset-8 col-lg-offset-8">
                                 <div class=" view-btn text-left">
@@ -74,7 +71,7 @@ $this->title = 'Сайт объявлений';
                         </div>
                     </div>
 
-                    </div>
+
 
                 </div>
             </div>
@@ -89,7 +86,7 @@ $this->title = 'Сайт объявлений';
             <br><br>
             <p><?php //var_dump(ArrayHelper::map($selectCity, 'id', 'city_name')); ?></p>
         </div>
-    </div>
+
 </div>
 
 <!-- POPUP MODAL CONTACT -->
