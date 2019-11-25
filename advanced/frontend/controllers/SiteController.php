@@ -573,43 +573,98 @@ class SiteController extends Controller
         }
 
         $modelUserDesc = UserDesc::find()->where(['user_id' => Yii::$app->user->getId()])->one();
-        if (empty($model)) {
-            $modelUserDesc = new UserDesc();
-            $modelUserDesc->user_id = Yii::$app->user->getId();
+        if (empty($modelUserDesc)) {
+            return $this->goHome();
         }
 
         $modelUserAd = new UserAd();
+        $modelPhotoAd = new PhotoAd();
 
-        if (Yii::$app->request->isAjax && $modelUserAd->load(Yii::$app->request->post())) {
-            $transaction = \Yii::$app->db->beginTransaction();
-            try {
-                    if ($model->validate()) {
-                        //
-                        $model->avatar = "";
+        if (Yii::$app->request->isAjax && $modelUserAd->load(Yii::$app->request->post()) && $modelPhotoAd->load(Yii::$app->request->post())) {
+                $modelPhotoAd->imageFiles = UploadedFile::getInstance($modelPhotoAd, 'imageFiles');
+                if ($modelPhotoAd->upload()) { // save ad photos
+                    $modelUserAd->user_desc_id = $modelUserDesc->id;
 
-                        $flag = $model->save(false);
-                        if ($flag == true) {
-                            $transaction->commit();
-                            return Json::encode(array('status' => '1', 'type' => 'success', 'message' => 'Профиль пользователя успешно сохранен. model->avatar='.$model->avatar));
-                        } else {
-                            $transaction->rollBack();
+                    if ($modelUserAd->validate()) {
+                        $transactionUserAd = \Yii::$app->db->beginTransaction();
+                        try {
+                            $flagUserAd = $modelPhotoAd->save(false);
+                            if ($flagUserAd == true) {
+                                $transactionUserAd->commit();
+
+                                $modelPhotoAd->ad_id = $modelUserAd->id;
+                            } else {
+                                $transactionUserAd->rollBack();
+                                return Json::encode(array('status' => '0', 'type' => 'warning', 'message' => 'Ваше объявление не может быть сохранено.'));
+                            }
+                        } catch (Exception $ex) {
+                            $transactionUserAd->rollBack();
+                            return Json::encode(array('status' => '0', 'type' => 'warning', 'message' => 'Ваше объявление не может быть сохранено.'));
                         }
+
+                        foreach ($modelPhotoAd->arrayWebFilename as $file) {
+                            $transactionAdPhoto = \Yii::$app->db->beginTransaction();
+                            try {
+                                $modelPhotoAd->photo_path = '/uploads/UserDesc/' . $file;
+
+                                $flagPhotoAd = $modelPhotoAd->save(false);
+                                if ($flagPhotoAd == true) {
+                                    $transactionAdPhoto->commit();
+                                } else {
+                                    $transactionAdPhoto->rollBack();
+                                    return Json::encode(array('status' => '0', 'type' => 'warning', 'message' => 'Ваше фото не может быть сохранено.'));
+                                }
+                            } catch (Exception $ex) {
+                                $transactionAdPhoto->rollBack();
+                                return Json::encode(array('status' => '0', 'type' => 'warning', 'message' => 'Ваше фото не может быть сохранено.'));
+                            }
+                        }
+
+                        return Json::encode(array('status' => '1', 'type' => 'success', 'message' => 'Ваше объявление успешно сохранено.'));
+
                     } else {
-                        return Json::encode(array('status' => '0', 'type' => 'warning', 'message' => 'Профиль пользователя не может быть сохранен. model->avatar='.$model->avatar));
+                        return Json::encode(array('status' => '0', 'type' => 'warning', 'message' => 'Ваше объявление не может быть сохранено.'));
                     }
-            } catch (Exception $ex) {
-                $transaction->rollBack();
-            }
+                } else {
+                    return Json::encode(array('status' => '0', 'type' => 'warning', 'message' => 'Ваше объявление не может быть сохранено.'));
+                }
         } else {
             $cities = UserCity::find()
                 ->orderBy('city_name')
                 //->asArray()
                 ->all();
+            $categories = AdCategory::find()
+                ->orderBy('name')
+                //->asArray()
+                ->all();
 
             return $this->render('EditeAd', [
                 'selectCity' => $cities,
-                'model' => $modelUserDesc,
+                'selectCategory' => $categories,
+                'modelUserAd' => $modelUserAd,
+                'modelPhotoAd' => $modelPhotoAd,
             ]);
+        }
+    }
+
+    /**
+     * Displays ad validate page.
+     *
+     * @return mixed
+     */
+    public function actionAdValidate()
+    {
+        $modelUserAd = new UserAd();
+        $modelPhotoAd = new PhotoAd();
+
+        if (Yii::$app->request->isAjax && ($modelUserAd->load(Yii::$app->request->post()) || $modelPhotoAd->load(Yii::$app->request->post()))) {
+            \Yii::$app->response->format = Response::FORMAT_JSON;
+            if (!empty($modelUserAd)) {
+                return ActiveForm::validate($modelUserAd);
+            }
+            if (!empty($modelPhotoAd)) {
+                return ActiveForm::validate($modelPhotoAd);
+            }
         }
     }
 
