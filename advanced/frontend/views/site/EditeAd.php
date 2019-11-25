@@ -16,7 +16,7 @@ $this->title = 'Сайт объявлений';
 
                     <div class="content-main">
 
-                            <div class="col-md-offset-2 col-lg-offset-2">
+                            <div class="col-sm-6 col-md-6 col-lg-6 col-md-offset-3 col-lg-offset-3">
 
                                     <table><tbody><tr><td class="col-sm-12 col-md-12 col-lg-12">
 
