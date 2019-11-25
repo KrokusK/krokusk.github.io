@@ -18,8 +18,6 @@ $this->title = 'Сайт объявлений';
 
                                     <table><tbody><tr><td class="col-sm-12 col-md-12 col-lg-12">
 
-
-
                                         <div class="row">
 
                                             <div class="thumbnail">
@@ -48,21 +46,13 @@ $this->title = 'Сайт объявлений';
 
                                                 <?php ActiveForm::end(); ?>
 
-
-
-
-
-                                                    <div class="text-right">
-                                                        <?= Html::submitButton($model->isNewRecord ? 'Сохранить' : 'Обновить', ['id' => 'button-user-profile', 'class' => $model->isNewRecord ? 'btn btn-default' : 'btn btn-default']) ?>
-                                                    </div>
-
-
+                                                <div class="text-right">
+                                                    <?= Html::submitButton($model->isNewRecord ? 'Сохранить' : 'Обновить', ['id' => 'button-user-profile', 'class' => $model->isNewRecord ? 'btn btn-default' : 'btn btn-default']) ?>
+                                                </div>
                                             </div>
                                         </div>
 
-
-
-                                    </td><td></td></tr></tbody></table>
+                                    </td></tr></tbody></table>
 
                             </div>
 
