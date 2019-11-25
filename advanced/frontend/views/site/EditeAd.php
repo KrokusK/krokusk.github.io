@@ -17,11 +17,11 @@ $this->title = 'Сайт объявлений';
                     <div class="content-main">
                         <?php $form = ActiveForm::begin(['id' => 'form-user-profile', 'action' => Yii::$app->urlManager->createUrl('site/profile'), 'validationUrl' => Yii::$app->urlManager->createUrl('site/profile-validate')]); ?>
 
-                            <div class="col-sm-6 col-md-8 col-lg-8 col-md-offset-2 col-lg-offset-2">
+                            <div class="col-md-offset-2 col-lg-offset-2">
 
                             <div class="thumbnail">
 
-                                <div>
+                                <div class="col-sm-6 col-md-8 col-lg-8">
 
                                 <div class="row">
 
