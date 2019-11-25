@@ -18,8 +18,10 @@ $this->title = 'Сайт объявлений';
 
                                     <table><tbody><tr><td class="col-sm-12 col-md-12 col-lg-12">
 
+                                        <div class="thumbnail">
+
                                         <div class="row">
-                                            <div class="thumbnail">
+
 
                                                 <?php $form = ActiveForm::begin(['id' => 'form-user-profile', 'action' => Yii::$app->urlManager->createUrl('site/profile'), 'validationUrl' => Yii::$app->urlManager->createUrl('site/profile-validate')]); ?>
 
@@ -45,7 +47,7 @@ $this->title = 'Сайт объявлений';
 
                                                 <?php ActiveForm::end(); ?>
 
-                                            </div>
+
 
                                         </div>
                                         <div class="row">
@@ -54,6 +56,8 @@ $this->title = 'Сайт объявлений';
                                                     <?= Html::submitButton($model->isNewRecord ? 'Сохранить' : 'Обновить', ['id' => 'button-user-profile', 'class' => $model->isNewRecord ? 'btn btn-default' : 'btn btn-default']) ?>
                                                 </div>
                                             </div>
+                                        </div>
+
                                         </div>
 
                                     </td><td></td></tr></tbody></table>
