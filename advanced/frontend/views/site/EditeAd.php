@@ -8,7 +8,7 @@ $this->title = 'Сайт объявлений';
 <div class="container-fluid">
 
         <div class="row">
-            <div class="col-md-12 col-lg-12">
+
 
                 <div class="animated bounceInTop" >
 
@@ -17,8 +17,6 @@ $this->title = 'Сайт объявлений';
                             <div class="col-sm-6 col-md-6 col-lg-6 col-md-offset-3 col-lg-offset-3">
 
                                     <table><tbody><tr><td class="col-sm-12 col-md-12 col-lg-12">
-
-
 
                                             <div class="thumbnail">
 
@@ -50,7 +48,6 @@ $this->title = 'Сайт объявлений';
                                                     <?= Html::submitButton($model->isNewRecord ? 'Сохранить' : 'Обновить', ['id' => 'button-user-profile', 'class' => $model->isNewRecord ? 'btn btn-default' : 'btn btn-default']) ?>
                                                 </div>
                                             </div>
-                                        
 
                                     </td></tr></tbody></table>
 
@@ -59,7 +56,7 @@ $this->title = 'Сайт объявлений';
                     </div>
 
                 </div>
-            </div>
+
         </div>
         <div class="row">
             <br><br>
