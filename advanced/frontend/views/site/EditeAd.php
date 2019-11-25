@@ -21,7 +21,7 @@ $this->title = 'Сайт объявлений';
 
                                 <div class="thumbnail">
 
-                                    <table><tbody><tr><td class="thumbnail col-sm-6 col-md-12 col-lg-12">
+                                    <table><div class="thumbnail"><tbody><tr><td class="col-sm-6 col-md-12 col-lg-12">
 
                                     <div>
 
@@ -56,7 +56,7 @@ $this->title = 'Сайт объявлений';
 
                                     </div>
 
-                                    </td><td></td></tr></tbody></table>
+                                    </td><td></td></tr></tbody></div>></table>
 
                                 </div>
 
