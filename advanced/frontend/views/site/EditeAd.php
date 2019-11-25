@@ -6,57 +6,51 @@ use yii\widgets\ActiveForm;
 $this->title = 'Сайт объявлений';
 ?>
 <div class="container-fluid">
-
         <div class="row">
+            <div class="animated bounceInTop" >
+                <div class="content-main">
+                    <div class="col-sm-6 col-md-6 col-lg-6 col-md-offset-3 col-lg-offset-3">
+                        <table>
+                            <tbody>
+                            <tr>
+                                <td class="col-sm-12 col-md-12 col-lg-12">
+                                    <div class="thumbnail">
+
+                                        <?php $form = ActiveForm::begin(['id' => 'form-user-profile', 'action' => Yii::$app->urlManager->createUrl('site/profile'), 'validationUrl' => Yii::$app->urlManager->createUrl('site/profile-validate')]); ?>
+
+                                        <?= $form->field($model, 'name', ['enableAjaxValidation' => true])->input(['class' => 'form-control', 'value'=>$model->name, 'maxlength' => true])->hint('Пожалуйста, введите ваше Имя')->label('Имя'); ?>
+                                        <?php
+                                        $params = [
+                                            'prompt' => 'Выберите город...',
+                                            'options' => [$model->city_id => ["Selected"=>true]]
+                                        ];
+
+                                        echo $form->field($model, 'city_id')->dropDownList(ArrayHelper::map($selectCity, 'id', 'city_name'), $params)->hint('Пожалуйста, выберите город')->label('Город');
+                                        ?>
+                                        <?= $form->field($model, 'phone', ['enableAjaxValidation' => true])->input(['class' => 'form-control', 'value'=>$model->phone])->hint('Пожалуйста, введите ваш телефон')->label('Телефон в формате: +7 (999) 999-99-99'); ?>
+                                        <?= $form->field($model, 'about', ['enableAjaxValidation' => true])->textarea(['class' => 'form-control', 'rows' => 3, 'value' => $model->about, 'maxlength' => true])->hint('Пожалуйста, напишите о себе')->label('О себе'); ?>
 
 
-                <div class="animated bounceInTop" >
-
-                    <div class="content-main">
-
-                            <div class="col-sm-6 col-md-6 col-lg-6 col-md-offset-3 col-lg-offset-3">
-
-                                    <table><tbody><tr><td class="col-sm-12 col-md-12 col-lg-12">
-
-                                            <div class="thumbnail">
-
-                                                <?php $form = ActiveForm::begin(['id' => 'form-user-profile', 'action' => Yii::$app->urlManager->createUrl('site/profile'), 'validationUrl' => Yii::$app->urlManager->createUrl('site/profile-validate')]); ?>
-
-                                                    <?= $form->field($model, 'name', ['enableAjaxValidation' => true])->input(['class' => 'form-control', 'value'=>$model->name, 'maxlength' => true])->hint('Пожалуйста, введите ваше Имя')->label('Имя'); ?>
-                                                    <?php
-                                                        $params = [
-                                                            'prompt' => 'Выберите город...',
-                                                            'options' => [$model->city_id => ["Selected"=>true]]
-                                                        ];
-
-                                                        echo $form->field($model, 'city_id')->dropDownList(ArrayHelper::map($selectCity, 'id', 'city_name'), $params)->hint('Пожалуйста, выберите город')->label('Город');
-                                                    ?>
-                                                    <?= $form->field($model, 'phone', ['enableAjaxValidation' => true])->input(['class' => 'form-control', 'value'=>$model->phone])->hint('Пожалуйста, введите ваш телефон')->label('Телефон в формате: +7 (999) 999-99-99'); ?>
-                                                    <?= $form->field($model, 'about', ['enableAjaxValidation' => true])->textarea(['class' => 'form-control', 'rows' => 3, 'value' => $model->about, 'maxlength' => true])->hint('Пожалуйста, напишите о себе')->label('О себе'); ?>
-
-
-                                                    <div class="thumbnail">
-                                                        <div class=" view-btn text-center">
-                                                            <img src="<?= Html::encode("{$model->avatar}") ?>" alt="Image">
-                                                            <?php echo $form->field($model, 'imageFile')->fileInput(['class' => 'form-control'])->hint('Пожалуйста, загрузить ваш аватар')->label('Аватар'); ?>
-                                                        </div>
-                                                    </div>
-
-                                                <?php ActiveForm::end(); ?>
-
-                                                <div class="text-right">
-                                                    <?= Html::submitButton($model->isNewRecord ? 'Сохранить' : 'Обновить', ['id' => 'button-user-profile', 'class' => $model->isNewRecord ? 'btn btn-default' : 'btn btn-default']) ?>
-                                                </div>
+                                        <div class="thumbnail">
+                                            <div class=" view-btn text-center">
+                                                <img src="<?= Html::encode("{$model->avatar}") ?>" alt="Image">
+                                                <?php echo $form->field($model, 'imageFile')->fileInput(['class' => 'form-control'])->hint('Пожалуйста, загрузить ваш аватар')->label('Аватар'); ?>
                                             </div>
+                                        </div>
 
-                                    </td></tr></tbody></table>
+                                        <?php ActiveForm::end(); ?>
 
-                            </div>
-
+                                        <div class="text-right">
+                                            <?= Html::submitButton($model->isNewRecord ? 'Сохранить' : 'Обновить', ['id' => 'button-user-profile', 'class' => $model->isNewRecord ? 'btn btn-default' : 'btn btn-default']) ?>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
                     </div>
-
                 </div>
-
+            </div>
         </div>
         <div class="row">
             <br><br>
