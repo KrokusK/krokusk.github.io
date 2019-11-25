@@ -18,23 +18,31 @@ $this->title = 'Сайт объявлений';
 
                                         <?php $form = ActiveForm::begin(['id' => 'form-user-ad', 'action' => Yii::$app->urlManager->createUrl('site/create-ad'), 'validationUrl' => Yii::$app->urlManager->createUrl('site/ad-validate')]); ?>
 
-                                        <?= $form->field($model, 'name', ['enableAjaxValidation' => true])->input(['class' => 'form-control', 'value'=>$model->name, 'maxlength' => true])->hint('Пожалуйста, введите ваше Имя')->label('Имя'); ?>
+                                        <?= $form->field($modelUserAd, 'header', ['enableAjaxValidation' => true])->input(['class' => 'form-control', 'value'=>$modelUserAd->header, 'maxlength' => true])->hint('Пожалуйста, введите ваше Имя')->label('Заголовок'); ?>
                                         <?php
-                                        $params = [
-                                            'prompt' => 'Выберите город...',
-                                            'options' => [$model->city_id => ["Selected"=>true]]
+                                        $paramsCategory = [
+                                            'prompt' => 'Выберите категорию...',
+                                            'options' => [$modelUserAd->category_id => ["Selected"=>true]]
                                         ];
 
-                                        echo $form->field($model, 'city_id')->dropDownList(ArrayHelper::map($selectCity, 'id', 'city_name'), $params)->hint('Пожалуйста, выберите город')->label('Город');
-                                        ?>
-                                        <?= $form->field($model, 'phone', ['enableAjaxValidation' => true])->input(['class' => 'form-control', 'value'=>$model->phone])->hint('Пожалуйста, введите ваш телефон')->label('Телефон в формате: +7 (999) 999-99-99'); ?>
-                                        <?= $form->field($model, 'about', ['enableAjaxValidation' => true])->textarea(['class' => 'form-control', 'rows' => 3, 'value' => $model->about, 'maxlength' => true])->hint('Пожалуйста, напишите о себе')->label('О себе'); ?>
+                                        echo $form->field($modelUserAd, 'category_id')->dropDownList(ArrayHelper::map($selectCategory, 'id', 'name'), $paramsCategory)->hint('Пожалуйста, выберите категорию')->label('Категория');
 
+                                        echo $form->field($modelUserAd, 'content', ['enableAjaxValidation' => true])->textarea(['class' => 'form-control', 'rows' => 3, 'value' => $modelUserAd->content, 'maxlength' => true])->hint('Пожалуйста, напишите текст объявления')->label('Описание');
+
+                                        $paramsCity = [
+                                            'prompt' => 'Выберите город...',
+                                            'options' => [$modelUserAd->city_id => ["Selected"=>true]]
+                                        ];
+
+                                        echo $form->field($modelUserAd, 'city_id')->dropDownList(ArrayHelper::map($selectCity, 'id', 'city_name'), $paramsCity)->hint('Пожалуйста, выберите город')->label('Город');
+
+                                        echo $form->field($modelUserAd, 'amount', ['enableAjaxValidation' => true])->input(['class' => 'form-control', 'value' => $modelUserAd->amount])->hint('Пожалуйста, напишите цену')->label('Цена');
+                                        ?>
 
                                         <div class="thumbnail">
                                             <div class=" view-btn text-center">
-                                                <img src="<?= Html::encode("{$model->avatar}") ?>" alt="Image">
-                                                <?php echo $form->field($model, 'imageFiles[]')->fileInput(['class' => 'form-control', 'multiple' => true])->hint('Пожалуйста, загрузить ваш аватар')->label('Аватар'); ?>
+
+                                                <?php echo $form->field($modelPhotoAd, 'imageFiles[]')->fileInput(['class' => 'form-control', 'multiple' => true])->hint('Пожалуйста, загрузите фотографии')->label('Фотографии'); ?>
                                             </div>
                                         </div>
 
