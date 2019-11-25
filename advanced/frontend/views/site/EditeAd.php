@@ -51,11 +51,11 @@ $this->title = 'Сайт объявлений';
 
 
 
-                                                <div class="col-sm-2 col-md-2 col-lg-2 col-md-offset-8 col-lg-offset-8">
-                                                    <div class=" view-btn text-left">
+
+                                                    <div class="text-right">
                                                         <?= Html::submitButton($model->isNewRecord ? 'Сохранить' : 'Обновить', ['id' => 'button-user-profile', 'class' => $model->isNewRecord ? 'btn btn-default' : 'btn btn-default']) ?>
                                                     </div>
-                                                </div>
+
 
                                             </div>
                                         </div>
