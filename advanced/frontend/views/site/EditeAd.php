@@ -21,11 +21,12 @@ $this->title = 'Сайт объявлений';
 
                                 <div class="thumbnail">
 
-                                    <table><tbody><tr><td class="col-sm-6 col-md-12 col-lg-12"><div class="thumbnail">
+                                    <table><tbody><tr><td class="col-sm-6 col-md-12 col-lg-12">
 
-                                    <div class="col-sm-6 col-md-8 col-lg-8"> 
+
 
                                         <div class="row">
+                                            <div class="thumbnail">
 
                                             <?php //$form = ActiveForm::begin(['id' => 'form-user-profile', 'action' => Yii::$app->urlManager->createUrl('site/profile'), 'enableAjaxValidation' => true, 'validationUrl' => Yii::$app->urlManager->createUrl('site/profile-validate')]); ?>
 
@@ -42,6 +43,8 @@ $this->title = 'Сайт объявлений';
                                                 <?= $form->field($model, 'about', ['enableAjaxValidation' => true])->textarea(['class' => 'form-control', 'rows' => 3, 'value' => $model->about, 'maxlength' => true])->hint('Пожалуйста, напишите о себе')->label('О себе'); ?>
                                             <?php //ActiveForm::end(); ?>
 
+                                            </div>
+
                                         </div>
                                         <div class="row">
 
@@ -54,9 +57,7 @@ $this->title = 'Сайт объявлений';
 
                                         </div>
 
-                                    </div>
-
-                                            </div></td><td></td></tr></tbody></table>
+                                    </td><td></td></tr></tbody></table>
 
                                 </div>
 
