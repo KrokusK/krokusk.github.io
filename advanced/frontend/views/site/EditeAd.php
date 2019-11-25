@@ -16,6 +16,9 @@ $this->title = 'Сайт объявлений';
 
                     <div class="content-main">
                         <?php $form = ActiveForm::begin(['id' => 'form-user-profile', 'action' => Yii::$app->urlManager->createUrl('site/profile'), 'validationUrl' => Yii::$app->urlManager->createUrl('site/profile-validate')]); ?>
+
+                            <div class="thumbnail">
+
                             <div class="row">
                                 <div class="col-sm-6 col-md-8 col-lg-8 col-md-offset-2 col-lg-offset-2">
                                     <?php //$form = ActiveForm::begin(['id' => 'form-user-profile', 'action' => Yii::$app->urlManager->createUrl('site/profile'), 'enableAjaxValidation' => true, 'validationUrl' => Yii::$app->urlManager->createUrl('site/profile-validate')]); ?>
@@ -44,6 +47,9 @@ $this->title = 'Сайт объявлений';
                                     </div>
                                 </div>
                             </div>
+
+                            </div>
+
                         <?php ActiveForm::end(); ?>
                         <div class="row">
                             <div class="col-sm-2 col-md-2 col-lg-2 col-md-offset-8 col-lg-offset-8">
