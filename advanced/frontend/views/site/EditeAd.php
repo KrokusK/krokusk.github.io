@@ -14,7 +14,7 @@ $this->title = 'Сайт объявлений';
 
                     <div class="content-main">
 
-                            <div class="col-sm-6 col-md-6 col-lg-6 col-md-offset-3 col-lg-offset-3">
+                            <div class="text-center">
 
                                     <table><tbody><tr><td class="col-sm-12 col-md-12 col-lg-12">
 
@@ -56,13 +56,6 @@ $this->title = 'Сайт объявлений';
 
                             </div>
 
-                        <div class="row">
-                            <div class="col-sm-2 col-md-2 col-lg-2 col-md-offset-8 col-lg-offset-8">
-                                <div class=" view-btn text-left">
-                                    <?= Html::submitButton($model->isNewRecord ? 'Сохранить' : 'Обновить', ['id' => 'button-user-profile', 'class' => $model->isNewRecord ? 'btn btn-default' : 'btn btn-default']) ?>
-                                </div>
-                            </div>
-                        </div>
                     </div>
 
                 </div>
