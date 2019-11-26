@@ -42,7 +42,7 @@ $this->title = 'Сайт объявлений';
                                         <div class="thumbnail">
                                             <div class=" view-btn text-center">
 
-                                                <?php echo $form->field($modelPhotoAd, 'imageFiles[]')->fileInput(['class' => 'form-control', 'multiple' => true])->hint('Пожалуйста, загрузите фотографии \<br\>(не более 3-х фотографий и не более 10 Мб каждая)')->label('Фотографии'); ?>
+                                                <?php echo $form->field($modelPhotoAd, 'imageFiles[]')->fileInput(['class' => 'form-control', 'multiple' => true])->hint('Пожалуйста, загрузите фотографии (не более 3-х фотографий и не более 10 Мб каждая)')->label('Фотографии'); ?>
                                             </div>
                                         </div>
 
