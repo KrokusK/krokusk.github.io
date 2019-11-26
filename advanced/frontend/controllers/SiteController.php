@@ -596,7 +596,7 @@ class SiteController extends Controller
                             if ($flagUserAd == true) {
                                 $transactionUserAd->commit();
 
-                                $modelPhotoAd->ad_id = $modelUserAd->id;
+                                //$modelPhotoAd->ad_id = $modelUserAd->id;
                             } else {
                                 $transactionUserAd->rollBack();
                                 return Json::encode(array('status' => '0', 'type' => 'warning', 'message' => 'Ваше объявление не может быть сохранено. var1'));
@@ -609,13 +609,15 @@ class SiteController extends Controller
                         foreach ($modelPhotoAd->arrayWebFilename as $file) {
                             $transactionAdPhoto = \Yii::$app->db->beginTransaction();
                             try {
-                                $modelPhotoAd->photo_path = '/uploads/PhotoAd/'.$file;
-                                $modelPhotoAd->created_at = time();
-                                $modelPhotoAd->updated_at = time();
-                                $modelPhotoAd->id = null;
-                                $modelPhotoAd->isNewRecord = true;
+                                $modelPhotoAdFile = new PhotoAd();
+                                $modelPhotoAdFile->ad_id = $modelUserAd->id;
+                                $modelPhotoAdFile->created_at = time();
+                                $modelPhotoAdFile->updated_at = time();
+                                $modelPhotoAdFile->photo_path = '/uploads/PhotoAd/'.$file;
+                                //$modelPhotoAd->id = null;
+                                //$modelPhotoAd->isNewRecord = true;
+                                $flagPhotoAd = $modelPhotoAdFile->save(false);
 
-                                $flagPhotoAd = $modelPhotoAd->save(false);
                                 if ($flagPhotoAd == true) {
                                     $transactionAdPhoto->commit();
                                 } else {
