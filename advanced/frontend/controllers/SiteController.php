@@ -749,7 +749,7 @@ class SiteController extends Controller
                                 return Json::encode(array('status' => '0', 'type' => 'warning', 'message' => 'Профиль пользователя не может быть сохранен. problem2'));
                             }
                         } else {
-                            return Json::encode(array('status' => '0', 'type' => 'warning', 'message' => 'Профиль пользователя не может быть сохранен. problem3'.$model->user_id.' '.$model->name.' '.$model->city_id.' '.$model->phone.' '.$model->about.' '.$model->avatar));
+                            return Json::encode(array('status' => '0', 'type' => 'warning', 'message' => 'Профиль пользователя не может быть сохранен. problem3'));
                         }
                      } else {
                         if ($model->validate()) {
