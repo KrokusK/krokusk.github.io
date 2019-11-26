@@ -585,6 +585,7 @@ class SiteController extends Controller
                 $modelPhotoAd->imageFiles = UploadedFile::getInstances($modelPhotoAd, 'imageFiles');
                 if ($modelPhotoAd->upload()) { // save ad photos
                     $modelUserAd->user_desc_id = $modelUserDesc->id;
+                    $modelUserAd->status_id = UserAd::STATUS_ACTIVE;
                     $modelUserAd->created_at = time();
                     $modelUserAd->updated_at = time();
 
@@ -626,7 +627,7 @@ class SiteController extends Controller
                         return Json::encode(array('status' => '1', 'type' => 'success', 'message' => 'Ваше объявление успешно сохранено.'));
 
                     } else {
-                        return Json::encode(array('status' => '0', 'type' => 'warning', 'message' => 'Ваше объявление не может быть сохранено. var5'.var_dump($modelUserDesc, $modelUserAd->user_desc_id, $modelUserAd->status_id, $modelUserAd->created_at, $modelUserAd->updated_at, $modelUserAd->header, $modelUserAd->content, $modelUserAd->city_id, $modelUserAd->amount, $modelUserAd->category_id)));
+                        return Json::encode(array('status' => '0', 'type' => 'warning', 'message' => 'Ваше объявление не может быть сохранено. var5'.var_dump($modelUserAd->user_desc_id, $modelUserAd->status_id, $modelUserAd->created_at, $modelUserAd->updated_at, $modelUserAd->header, $modelUserAd->content, $modelUserAd->city_id, $modelUserAd->amount, $modelUserAd->category_id)));
                     }
                 } else {
                     return Json::encode(array('status' => '0', 'type' => 'warning', 'message' => 'Ваше объявление не может быть сохранено. var6'.$modelPhotoAd->msg));
