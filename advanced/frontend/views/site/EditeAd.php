@@ -40,11 +40,11 @@ $this->title = 'Сайт объявлений';
                                         ?>
 
                                         <div class="thumbnail">
-                                            <div class=" view-btn text-center">
+                                            <div class="view-btn text-center">
                                                 <div class="preview">
                                                     <p>No files currently selected for upload</p>
                                                 </div>
-                                                <?php echo $form->field($modelPhotoAd, 'imageFiles[]')->fileInput(['id' => 'files-send-ad', 'class' => 'form-control', 'multiple' => true])->hint('Пожалуйста, загрузите фотографии (не более 3-х фотографий и не более 10 Мб каждая)')->label('Фотографии'); ?>
+                                                <?php echo $form->field($modelPhotoAd, 'imageFiles[]', 'id' => 'files-send-ad')->fileInput(['class' => 'form-control', 'multiple' => true])->hint('Пожалуйста, загрузите фотографии (не более 3-х фотографий и не более 10 Мб каждая)')->label('Фотографии'); ?>
                                             </div>
                                         </div>
 
