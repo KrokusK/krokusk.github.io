@@ -20,6 +20,7 @@ class PhotoAd extends \yii\db\ActiveRecord
     public $image_src_filename;
     public $image_web_filename;
     public $arrayWebFilename;
+    public $msg;
 
     /**
      * {@inheritdoc}
@@ -60,11 +61,13 @@ class PhotoAd extends \yii\db\ActiveRecord
                     $path = Yii::$app->params['uploadPath'] . $this->image_web_filename;
                     $image->saveAs($path);
                 } else {
+                    $this->msg = 'problem1';
                     return false;
                 }
             }
             return true;
         } else {
+            $this->msg = 'problem2';
             return false;
         }
     }

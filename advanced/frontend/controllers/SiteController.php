@@ -627,7 +627,7 @@ class SiteController extends Controller
                         return Json::encode(array('status' => '0', 'type' => 'warning', 'message' => 'Ваше объявление не может быть сохранено. var5'));
                     }
                 } else {
-                    return Json::encode(array('status' => '0', 'type' => 'warning', 'message' => 'Ваше объявление не может быть сохранено. vsr6'));
+                    return Json::encode(array('status' => '0', 'type' => 'warning', 'message' => 'Ваше объявление не может быть сохранено. var6'.$modelPhotoAd->msg));
                 }
         } else {
             $cities = UserCity::find()
