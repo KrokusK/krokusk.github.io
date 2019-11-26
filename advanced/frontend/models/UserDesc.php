@@ -66,7 +66,7 @@ class UserDesc extends ActiveRecord
         //    return false;
         //}
 
-        $image = $this->imageFiles;
+        $image = $this->imageFile;
         if (!empty($image) && $image->size !== 0) {
             // save avatar
             $this->image_src_filename = $image->name;
