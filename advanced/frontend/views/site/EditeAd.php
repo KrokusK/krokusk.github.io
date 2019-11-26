@@ -175,12 +175,10 @@ $script = <<< JS
                         para.textContent = 'Имя файла ' + curFiles[i].name + ', размер файла ' + returnFileSize(curFiles[i].size) + '.';
                         var image = document.createElement('img');
                         image.src = window.URL.createObjectURL(curFiles[i]);
-                        //image.id = 'img-ad-' + i;
-                
+                                        
                         btnClose.type = 'button';
                         btnClose.className = 'close';
-                        btnClose.textContent = 'x'; 
-                        //btnClose.id = 'btn-close-' + i;
+                        btnClose.textContent = 'x';                         
                         btnClose.onclick = deletePhoto(i);
                         listItem.appendChild(image); 
                         listItem.appendChild(btnClose);
