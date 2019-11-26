@@ -616,7 +616,7 @@ class SiteController extends Controller
                                 $modelPhotoAdFile->photo_path = '/uploads/PhotoAd/'.$file;
                                 //$modelPhotoAd->id = null;
                                 //$modelPhotoAd->isNewRecord = true;
-                                $flagPhotoAd = $modelPhotoAdFile->save(false);
+                                $flagPhotoAd = $modelPhotoAdFile->save(false); 
 
                                 if ($flagPhotoAd == true) {
                                     $transactionAdPhoto->commit();
