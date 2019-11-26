@@ -37,7 +37,7 @@ class PhotoAd extends \yii\db\ActiveRecord
         return [
             [['ad_id', 'photo_path'], 'required'],
             [['photo_path'], 'string', 'max' => 255],
-            [['imageFiles'], 'file', 'skipOnEmpty' => true, 'mimeTypes' => ['image/gif', 'image/jpeg', 'image/pjpeg', 'image/png'], 'extensions' => ['gif', 'jpg', 'jpeg', 'png'], 'maxSize' => 5*1024*1024, 'message' => 'Файл не соответствует требованиям'],
+            [['imageFiles'], 'file', 'skipOnEmpty' => false, 'maxFiles' => 3,'mimeTypes' => ['image/gif', 'image/jpeg', 'image/pjpeg', 'image/png'], 'extensions' => ['gif', 'jpg', 'jpeg', 'png'], 'maxSize' => 5*1024*1024, 'message' => 'Файл не соответствует требованиям'],
         ];
     }
 
