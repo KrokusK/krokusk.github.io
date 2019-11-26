@@ -20,6 +20,7 @@ class UserDesc extends ActiveRecord
     public $imageFile;
     public $image_src_filename;
     public $image_web_filename;
+    public $msg;
 
     /**
      * {@inheritdoc}
@@ -58,10 +59,29 @@ class UserDesc extends ActiveRecord
 
     public function upload()
     {
-        if ($this->validate()) {
-            $this->imageFile->saveAs('uploads/' . $this->imageFile->baseName . '.' . $this->imageFile->extension);
+        //if ($this->validate()) {
+        //    $this->imageFile->saveAs('uploads/' . $this->imageFile->baseName . '.' . $this->imageFile->extension);
+        //    return true;
+        //} else {
+        //    return false;
+        //}
+
+        $image = $this->imageFiles;
+        if (!empty($image) && $image->size !== 0) {
+            // save avatar
+            $this->image_src_filename = $image->name;
+            $tmp = explode(".", $image->name);
+            $ext = end($tmp);
+            // generate a unique file name to prevent duplicate filenames
+            $this->image_web_filename = Yii::$app->security->generateRandomString() . ".{$ext}";
+            // the path to save file, you can set an uploadPath
+            // in Yii::$app->params (as used in example below)
+            Yii::$app->params['uploadPath'] = Yii::$app->basePath . '/web/uploads/UserDesc/';
+            $path = Yii::$app->params['uploadPath'] . $this->image_web_filename;
+            $image->saveAs($path);
             return true;
         } else {
+            $this->msg = 'problem1';
             return false;
         }
     }
