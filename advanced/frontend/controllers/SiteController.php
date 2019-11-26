@@ -745,9 +745,11 @@ class SiteController extends Controller
                                 } else {
                                     $transaction->rollBack();
                                 }
+                            } else {
+                                return Json::encode(array('status' => '0', 'type' => 'warning', 'message' => 'Профиль пользователя не может быть сохранен. problem2'));
                             }
                         } else {
-                            return Json::encode(array('status' => '0', 'type' => 'warning', 'message' => 'Профиль пользователя не может быть сохранен. problem2'));
+                            return Json::encode(array('status' => '0', 'type' => 'warning', 'message' => 'Профиль пользователя не может быть сохранен. problem3'.$model->user_id.' '.$model->name.' '.$model->city_id.' '.$model->phone.' '.$model->about.' '.$model->avatar));
                         }
                      } else {
                         if ($model->validate()) {
@@ -762,7 +764,7 @@ class SiteController extends Controller
                                 $transaction->rollBack();
                             }
                         } else {
-                            return Json::encode(array('status' => '0', 'type' => 'warning', 'message' => 'Профиль пользователя не может быть сохранен. problem3'));
+                            return Json::encode(array('status' => '0', 'type' => 'warning', 'message' => 'Профиль пользователя не может быть сохранен. problem4'));
                         }
                     }
 
