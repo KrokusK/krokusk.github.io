@@ -150,7 +150,7 @@ $script = <<< JS
         var input = document.querySelector('#photoad-imagefiles');
         var preview = document.querySelector('.preview');
     
-        input.style.opacity = 0;
+        //input.style.opacity = 0;
         
         input.addEventListener('change', updateImageDisplay);
         
@@ -162,7 +162,7 @@ $script = <<< JS
             var curFiles = input.files;
             if(curFiles.length === 0) {
                 var para = document.createElement('p');
-                para.textContent = 'No files currently selected for upload';
+                para.textContent = 'Файлы не выбраны для загрузки';
                 preview.appendChild(para);
             } else {
                 var list = document.createElement('ol');
@@ -171,7 +171,7 @@ $script = <<< JS
                     var listItem = document.createElement('li');
                     var para = document.createElement('p');
                     if(validFileType(curFiles[i])) {
-                        para.textContent = 'File name ' + curFiles[i].name + ', file size ' + returnFileSize(curFiles[i].size) + '.';
+                        para.textContent = 'File name ' + curFiles[i].name + ', размер файла ' + returnFileSize(curFiles[i].size) + '.';
                         var image = document.createElement('img');
                         image.src = window.URL.createObjectURL(curFiles[i]);
                 
@@ -179,7 +179,7 @@ $script = <<< JS
                         listItem.appendChild(para);
                 
                     } else {
-                        para.textContent = 'File name ' + curFiles[i].name + ': Not a valid file type. Update your selection.';
+                        para.textContent = 'File name ' + curFiles[i].name + ': Выбраны неверные типы файлов.';
                         listItem.appendChild(para);
                     }
                 
