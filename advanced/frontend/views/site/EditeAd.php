@@ -171,7 +171,7 @@ $script = <<< JS
                     var listItem = document.createElement('li');
                     var para = document.createElement('p');
                     if(validFileType(curFiles[i])) {
-                        para.textContent = 'File name ' + curFiles[i].name + ', размер файла ' + returnFileSize(curFiles[i].size) + '.';
+                        para.textContent = 'Имя файла ' + curFiles[i].name + ', размер файла ' + returnFileSize(curFiles[i].size) + '.';
                         var image = document.createElement('img');
                         image.src = window.URL.createObjectURL(curFiles[i]);
                 
@@ -179,7 +179,7 @@ $script = <<< JS
                         listItem.appendChild(para);
                 
                     } else {
-                        para.textContent = 'File name ' + curFiles[i].name + ': Выбраны неверные типы файлов.';
+                        para.textContent = 'Имя файла ' + curFiles[i].name + ': Выбраны неверные типы файлов.';
                         listItem.appendChild(para);
                     }
                 
