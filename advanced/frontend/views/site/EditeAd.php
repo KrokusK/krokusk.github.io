@@ -16,7 +16,7 @@ $this->title = 'Сайт объявлений';
                                 <td class="col-sm-12 col-md-12 col-lg-12">
                                     <div class="thumbnail">
 
-                                        <?php $form = ActiveForm::begin(['id' => 'form-user-ad', 'action' => Yii::$app->urlManager->createUrl('site/create-ad'), 'validationUrl' => Yii::$app->urlManager->createUrl('site/ad-validate')]); ?>
+                                        <?php $form = ActiveForm::begin(['id' => 'form-send-ad', 'action' => Yii::$app->urlManager->createUrl('site/create-ad'), 'validationUrl' => Yii::$app->urlManager->createUrl('site/ad-validate')]); ?>
 
                                         <?= $form->field($modelUserAd, 'header', ['enableAjaxValidation' => true])->input(['class' => 'form-control', 'value'=>$modelUserAd->header, 'maxlength' => true])->hint('Пожалуйста, введите ваше Имя')->label('Заголовок'); ?>
                                         <?php
@@ -49,7 +49,7 @@ $this->title = 'Сайт объявлений';
                                         <?php ActiveForm::end(); ?>
 
                                         <div class="text-right">
-                                            <?= Html::submitButton(($modelUserAd->isNewRecord && $modelPhotoAd->isNewRecord) ? 'Сохранить' : 'Обновить', ['id' => 'button-user-profile', 'class' => ($modelUserAd->isNewRecord && $modelPhotoAd->isNewRecord) ? 'btn btn-default' : 'btn btn-default']) ?>
+                                            <?= Html::submitButton(($modelUserAd->isNewRecord && $modelPhotoAd->isNewRecord) ? 'Сохранить' : 'Обновить', ['id' => 'button-send-ad', 'class' => ($modelUserAd->isNewRecord && $modelPhotoAd->isNewRecord) ? 'btn btn-default' : 'btn btn-default']) ?>
                                         </div>
                                     </div>
                                 </td>
@@ -72,7 +72,7 @@ $this->title = 'Сайт объявлений';
         </div>
 
 </div>
- 
+
 <!-- POPUP MODAL CONTACT -->
 <div class="modal inmodal contact" id="modalAlert" role="dialog" data-keyboard="false" data-backdrop="static">
     <div class="modal-dialog modal-md "></div>
@@ -82,13 +82,13 @@ $this->title = 'Сайт объявлений';
 $script = <<< JS
 
    $(document).ready(function () { 
-        $("#button-user-profile").on('click', function (event) { 
+        $("#button-send-ad").on('click', function (event) { 
             //alert("test");
 
             event.preventDefault();            
-            var form_data = new FormData($('#form-user-profile')[0]);
+            var form_data = new FormData($('#form-send-ad')[0]);
             $.ajax({
-                   url: $("#form-user-profile").attr('action'), 
+                   url: $("#form-send-ad").attr('action'), 
                    dataType: 'JSON',  
                    cache: false,
                    contentType: false,
