@@ -42,7 +42,7 @@ $this->title = 'Сайт объявлений';
                                         <div class="thumbnail">
                                             <div class="view-btn text-center">
                                                 <div class="preview">
-                                                    <p>No files currently selected for upload</p>
+                                                    <p>Нет фотографий для загрузки</p>
                                                 </div>
                                                 <?php echo $form->field($modelPhotoAd, 'imageFiles[]')->fileInput(['class' => 'form-control', 'multiple' => true])->hint('Пожалуйста, загрузите фотографии (не более 3-х фотографий и не более 10 Мб каждая)')->label('Фотографии'); ?>
                                             </div>
