@@ -589,7 +589,7 @@ class SiteController extends Controller
                     if ($modelUserAd->validate()) {
                         $transactionUserAd = \Yii::$app->db->beginTransaction();
                         try {
-                            $flagUserAd = $modelPhotoAd->save(false);
+                            $flagUserAd = $modelUserAd->save(false);
                             if ($flagUserAd == true) {
                                 $transactionUserAd->commit();
 
