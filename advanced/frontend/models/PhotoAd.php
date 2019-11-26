@@ -57,7 +57,7 @@ class PhotoAd extends \yii\db\ActiveRecord
                     array_push($this->arrayWebFilename, "{$this->image_web_filename}");
                     // the path to save file, you can set an uploadPath
                     // in Yii::$app->params (as used in example below)
-                    Yii::$app->params['uploadPath'] = Yii::$app->basePath . '/web/uploads/UserDesc/';
+                    Yii::$app->params['uploadPath'] = Yii::$app->basePath . '/web/uploads/PhotoAd/';
                     $path = Yii::$app->params['uploadPath'] . $this->image_web_filename;
                     $image->saveAs($path);
                 } else {
