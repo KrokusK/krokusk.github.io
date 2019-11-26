@@ -44,7 +44,7 @@ $this->title = 'Сайт объявлений';
                                                 <div class="preview">
                                                     <p>No files currently selected for upload</p>
                                                 </div>
-                                                <?php echo $form->field($modelPhotoAd, 'imageFiles[]')->fileInput(['class' => 'form-control', 'multiple' => true], ['id' => 'files-send-ad'])->hint('Пожалуйста, загрузите фотографии (не более 3-х фотографий и не более 10 Мб каждая)')->label('Фотографии'); ?>
+                                                <?php echo $form->field($modelPhotoAd, 'imageFiles[]')->fileInput(['class' => 'form-control', 'multiple' => true])->hint('Пожалуйста, загрузите фотографии (не более 3-х фотографий и не более 10 Мб каждая)')->label('Фотографии'); ?>
                                             </div>
                                         </div>
 
@@ -147,7 +147,7 @@ $script = <<< JS
         });
         
         //update images 
-        var input = document.querySelector('#files-send-ad');
+        var input = document.querySelector('#photoad-imagefiles');
         var preview = document.querySelector('.preview');
     
         input.style.opacity = 0;
