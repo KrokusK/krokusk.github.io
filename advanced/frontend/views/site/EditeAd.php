@@ -175,10 +175,13 @@ $script = <<< JS
                         para.textContent = 'Имя файла ' + curFiles[i].name + ', размер файла ' + returnFileSize(curFiles[i].size) + '.';
                         var image = document.createElement('img');
                         image.src = window.URL.createObjectURL(curFiles[i]);
+                        //image.id = 'img-ad-' + i;
                 
                         btnClose.type = 'button';
                         btnClose.className = 'close';
-                        btnClose.textContent = 'x';                        
+                        btnClose.textContent = 'x'; 
+                        //btnClose.id = 'btn-close-' + i;
+                        btnClose.onclick = deletePhoto(i);
                         listItem.appendChild(image); 
                         listItem.appendChild(btnClose);
                         listItem.appendChild(para);
@@ -218,6 +221,12 @@ $script = <<< JS
               } else if(number > 1048576) {
                 return (number/1048576).toFixed(1) + 'MB';
               }
+        }
+        
+        function deletePhoto(number) {
+            
+            
+            updateImageDisplay();
         }
         
     });       
