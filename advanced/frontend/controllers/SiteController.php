@@ -624,7 +624,7 @@ class SiteController extends Controller
                         return Json::encode(array('status' => '1', 'type' => 'success', 'message' => 'Ваше объявление успешно сохранено.'));
 
                     } else {
-                        return Json::encode(array('status' => '0', 'type' => 'warning', 'message' => 'Ваше объявление не может быть сохранено. var5'));
+                        return Json::encode(array('status' => '0', 'type' => 'warning', 'message' => 'Ваше объявление не может быть сохранено. var5'.var_dump($modelUserAd)));
                     }
                 } else {
                     return Json::encode(array('status' => '0', 'type' => 'warning', 'message' => 'Ваше объявление не может быть сохранено. var6'.$modelPhotoAd->msg));
