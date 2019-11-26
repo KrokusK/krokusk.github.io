@@ -179,7 +179,7 @@ $script = <<< JS
                         btnClose.type = 'button';
                         btnClose.className = 'close';
                         btnClose.textContent = 'x';                         
-                        btnClose.onclick = deletePhoto(i);
+                        btnClose.onclick = 'deletePhoto(i)';
                         listItem.appendChild(image); 
                         listItem.appendChild(btnClose);
                         listItem.appendChild(para);
