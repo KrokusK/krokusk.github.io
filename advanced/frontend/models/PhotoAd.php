@@ -54,6 +54,7 @@ class PhotoAd extends \yii\db\ActiveRecord
                     $ext = end($tmp);
                     // generate a unique file name to prevent duplicate filenames
                     $this->image_web_filename = Yii::$app->security->generateRandomString().".{$ext}";
+                    var_dump($this->image_web_filename);
                     array_push($arrayWebFilename, "{$this->image_web_filename}");
                     // the path to save file, you can set an uploadPath
                     // in Yii::$app->params (as used in example below)
