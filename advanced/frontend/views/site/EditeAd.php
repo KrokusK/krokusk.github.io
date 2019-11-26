@@ -171,32 +171,33 @@ $script = <<< JS
                     var listItem = document.createElement('li');
                     var para = document.createElement('p');
                     var btnClose = document.createElement('button');
+                    btnClose.type = 'button';
+                    btnClose.className = 'close';
+                    btnClose.textContent = 'x';                         
+                    //btnClose.id = 'removeBtn';
                     if(validFileType(curFiles[i])) {
                         para.textContent = 'Имя файла ' + curFiles[i].name + ', размер файла ' + returnFileSize(curFiles[i].size) + '.';
                         var image = document.createElement('img');
-                        image.src = window.URL.createObjectURL(curFiles[i]);
-                                        
-                        btnClose.type = 'button';
-                        btnClose.className = 'close';
-                        btnClose.textContent = 'x';                         
-                        //btnClose.id = 'removeBtn';
-                        listItem.appendChild(image); 
-                        listItem.appendChild(btnClose);
+                        image.src = window.URL.createObjectURL(curFiles[i]);                                        
+                        
+                        listItem.appendChild(image);                         
                         listItem.appendChild(para);
                 
                     } else {
                         para.textContent = 'Имя файла ' + curFiles[i].name + ': Выбраны неверные типы файлов.';
                         listItem.appendChild(para);
-                    }
-                
-                    list.appendChild(listItem);
+                    }      
                     
-                            //var file = document.querySelector('.test'),
-                       removeBtn = document.querySelector('.close');
+                    list.appendChild(listItem);
+                    preview.appendChild(btnClose);
+                    
+                    //var file = document.querySelector('.test'),
+                    removeBtn = document.querySelector('.close');
         
-                       removeBtn.addEventListener('click', function () {
-                            input.value = '';
-                       }, false);
+                    removeBtn.addEventListener('click', function () {
+                        input.value = '';
+                        updateImageDisplay();
+                    }, false);
                 }
             }
         }
@@ -227,17 +228,6 @@ $script = <<< JS
                 return (number/1048576).toFixed(1) + 'MB';
               }
         }
-        
-        function deletePhoto(number) {
-            //var curFiles = input.files;
-            //curFiles[number].desctruct;
-            //input.value = "";
-            alert('test');
-            updateImageDisplay();
-        }
-        
-
-        
     });       
 
 
