@@ -225,7 +225,7 @@ $script = <<< JS
             //var curFiles = input.files;
             //curFiles[number].desctruct;
             input.value = "";
-            
+            alert('test');
             updateImageDisplay();
         }
         
