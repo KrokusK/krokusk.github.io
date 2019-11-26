@@ -741,13 +741,13 @@ class SiteController extends Controller
                                 $flag = $model->save(false);
                                 if ($flag == true) {
                                     $transaction->commit();
-                                    return Json::encode(array('status' => '1', 'type' => 'success', 'message' => 'Профиль пользователя успешно сохранен. model->avatar=' . $model->avatar));
+                                    return Json::encode(array('status' => '1', 'type' => 'success', 'message' => 'Профиль пользователя успешно сохранен. problem1'));
                                 } else {
                                     $transaction->rollBack();
                                 }
                             }
                         } else {
-                            return Json::encode(array('status' => '0', 'type' => 'warning', 'message' => 'Профиль пользователя не может быть сохранен. model->avatar='.$model->avatar));
+                            return Json::encode(array('status' => '0', 'type' => 'warning', 'message' => 'Профиль пользователя не может быть сохранен. problem2'));
                         }
                      } else {
                         if ($model->validate()) {
@@ -762,7 +762,7 @@ class SiteController extends Controller
                                 $transaction->rollBack();
                             }
                         } else {
-                            return Json::encode(array('status' => '0', 'type' => 'warning', 'message' => 'Профиль пользователя не может быть сохранен. model->avatar='.$model->avatar));
+                            return Json::encode(array('status' => '0', 'type' => 'warning', 'message' => 'Профиль пользователя не может быть сохранен. problem3'));
                         }
                     }
 
