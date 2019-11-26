@@ -180,7 +180,8 @@ $script = <<< JS
                         var image = document.createElement('img');
                         image.src = window.URL.createObjectURL(curFiles[i]);                                        
                         
-                        listItem.appendChild(image);                         
+                        listItem.appendChild(image); 
+                        if (i == 0) listItem.appendChild(btnClose);
                         listItem.appendChild(para);
                 
                     } else {
@@ -188,8 +189,7 @@ $script = <<< JS
                         listItem.appendChild(para);
                     }      
                     
-                    list.appendChild(listItem);
-                    preview.appendChild(btnClose);
+                    list.appendChild(listItem);                    
                     
                     //var file = document.querySelector('.test'),
                     removeBtn = document.querySelector('.close');
