@@ -177,10 +177,10 @@ $script = <<< JS
                         image.src = window.URL.createObjectURL(curFiles[i]);
                 
                         btnClose.type = 'button';
-                        btnClose.class = 'close';
-                        btnClose.textContent = '&times;';
+                        btnClose.className = 'close';
+                        btnClose.textContent = 'x';                        
+                        listItem.appendChild(image); 
                         listItem.appendChild(btnClose);
-                        listItem.appendChild(image);                        
                         listItem.appendChild(para);
                 
                     } else {
