@@ -612,6 +612,7 @@ class SiteController extends Controller
                                 $modelPhotoAd->photo_path = '/uploads/PhotoAd/'.$file;
                                 $modelPhotoAd->created_at = time();
                                 $modelPhotoAd->updated_at = time();
+                                $modelPhotoAd->isNewRecord = true;
 
                                 $flagPhotoAd = $modelPhotoAd->save(false);
                                 if ($flagPhotoAd == true) {
