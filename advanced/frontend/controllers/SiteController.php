@@ -582,7 +582,7 @@ class SiteController extends Controller
         $modelPhotoAd = new PhotoAd();
 
         if (Yii::$app->request->isAjax && $modelUserAd->load(Yii::$app->request->post()) && $modelPhotoAd->load(Yii::$app->request->post())) {
-                $modelPhotoAd->imageFiles = UploadedFile::getInstance($modelPhotoAd, 'imageFiles');
+                $modelPhotoAd->imageFiles = UploadedFile::getInstances($modelPhotoAd, 'imageFiles');
                 if ($modelPhotoAd->upload()) { // save ad photos
                     $modelUserAd->user_desc_id = $modelUserDesc->id;
 
