@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="d97bdc22-9d4b-4578-b4be-b96d66aca924" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/advanced/frontend/controllers/SiteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/advanced/frontend/controllers/SiteController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/advanced/frontend/models/UserAd.php" beforeDir="false" afterPath="$PROJECT_DIR$/advanced/frontend/models/UserAd.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -89,7 +90,7 @@
       <workItem from="1574474544991" duration="10501000" />
       <workItem from="1574646415235" duration="27816000" />
       <workItem from="1574705808233" duration="673000" />
-      <workItem from="1574731838955" duration="9152000" />
+      <workItem from="1574731838955" duration="9577000" />
     </task>
     <servers />
   </component>

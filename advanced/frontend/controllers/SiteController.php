@@ -585,6 +585,7 @@ class SiteController extends Controller
                 $modelPhotoAd->imageFiles = UploadedFile::getInstances($modelPhotoAd, 'imageFiles');
                 if ($modelPhotoAd->upload()) { // save ad photos
                     $modelUserAd->user_desc_id = $modelUserDesc->id;
+                    $modelUserAd->status_id = UserAd::STATUS_ACTIVE;
                     $modelUserAd->created_at = time();
                     $modelUserAd->updated_at = time();
 

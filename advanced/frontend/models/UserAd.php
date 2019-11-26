@@ -13,6 +13,13 @@ class UserAd extends \yii\db\ActiveRecord
     /**
      * {@inheritdoc}
      */
+    const STATUS_DELETED = 0;
+    const STATUS_INACTIVE = 1;
+    const STATUS_ACTIVE = 2;
+
+    /**
+     * {@inheritdoc}
+     */
     public static function tableName()
     {
         return '{{%user_ad}}';
