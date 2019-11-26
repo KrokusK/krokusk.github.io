@@ -741,7 +741,7 @@ class SiteController extends Controller
                                 $flag = $model->save(false);
                                 if ($flag == true) {
                                     $transaction->commit();
-                                    return Json::encode(array('status' => '1', 'type' => 'success', 'message' => 'Профиль пользователя успешно сохранен. problem1'));
+                                    return Json::encode(array('status' => '1', 'type' => 'success', 'message' => 'Профиль пользователя успешно сохранен.'));
                                 } else {
                                     $transaction->rollBack();
                                 }
