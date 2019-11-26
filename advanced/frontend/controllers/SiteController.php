@@ -615,7 +615,7 @@ class SiteController extends Controller
                                 $modelPhotoAd->id = null;
                                 $modelPhotoAd->isNewRecord = true;
 
-                                $flagPhotoAd = $modelPhotoAd->save();
+                                $flagPhotoAd = $modelPhotoAd->save(false);
                                 if ($flagPhotoAd == true) {
                                     $transactionAdPhoto->commit();
                                 } else {
