@@ -708,8 +708,6 @@ class SiteController extends Controller
             if (Yii::$app->request->isAjax && $model->load(Yii::$app->request->post())) {
                 $transaction = \Yii::$app->db->beginTransaction();
                 try {
-
-
                     $image = UploadedFile::getInstance($model, 'imageFile');
                     if (!empty($image) && $image->size !== 0) {
                         $model->imageFile = $image;
@@ -722,20 +720,6 @@ class SiteController extends Controller
                             //    $model->avatar = '/uploads/'.$model->imageFile->baseName . '.' . $model->imageFile->extension;
                             //}
                             if ($model->upload()) { // save avatar
-
-                                // save avatar
-                                /*$model->image_src_filename = $image->name;
-                                $tmp = explode(".", $image->name);
-                                $ext = end($tmp);
-                                // generate a unique file name to prevent duplicate filenames
-                                $model->image_web_filename = Yii::$app->security->generateRandomString() . ".{$ext}";
-                                // the path to save file, you can set an uploadPath
-                                // in Yii::$app->params (as used in example below)
-                                Yii::$app->params['uploadPath'] = Yii::$app->basePath . '/web/uploads/UserDesc/';
-                                $path = Yii::$app->params['uploadPath'] . $model->image_web_filename;
-                                $image->saveAs($path);
-                                */
-
                                 $model->avatar = '/uploads/UserDesc/' . $model->image_web_filename;
 
                                 $flag = $model->save(false);
