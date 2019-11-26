@@ -179,7 +179,7 @@ $script = <<< JS
                         btnClose.type = 'button';
                         btnClose.className = 'close';
                         btnClose.textContent = 'x';                         
-                        btnClose.onclick = 'deletePhoto(i)';
+                        //btnClose.id = 'removeBtn';
                         listItem.appendChild(image); 
                         listItem.appendChild(btnClose);
                         listItem.appendChild(para);
@@ -190,6 +190,13 @@ $script = <<< JS
                     }
                 
                     list.appendChild(listItem);
+                    
+                            //var file = document.querySelector('.test'),
+                       removeBtn = document.querySelector('.close');
+        
+                       removeBtn.addEventListener('click', function () {
+                            input.value = '';
+                       }, false);
                 }
             }
         }
@@ -224,10 +231,12 @@ $script = <<< JS
         function deletePhoto(number) {
             //var curFiles = input.files;
             //curFiles[number].desctruct;
-            input.value = "";
+            //input.value = "";
             alert('test');
             updateImageDisplay();
         }
+        
+
         
     });       
 
