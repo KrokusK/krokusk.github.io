@@ -170,14 +170,17 @@ $script = <<< JS
                 for(var i = 0; i < curFiles.length; i++) {
                     var listItem = document.createElement('li');
                     var para = document.createElement('p');
-                    var btnClose ="<button type=\"button\" class=\"close\">&times;</button>";
+                    var btnClose = document.createElement('button');
                     if(validFileType(curFiles[i])) {
                         para.textContent = 'Имя файла ' + curFiles[i].name + ', размер файла ' + returnFileSize(curFiles[i].size) + '.';
                         var image = document.createElement('img');
                         image.src = window.URL.createObjectURL(curFiles[i]);
                 
-                        listItem.appendChild(image);
+                        btnClose.type = 'button';
+                        btnClose.class = 'close';
+                        btnClose.textContent = '&times;';
                         listItem.appendChild(btnClose);
+                        listItem.appendChild(image);                        
                         listItem.appendChild(para);
                 
                     } else {
