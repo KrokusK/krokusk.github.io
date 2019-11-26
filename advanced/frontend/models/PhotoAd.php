@@ -36,7 +36,7 @@ class PhotoAd extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            //[['ad_id', 'photo_path'], 'required'], 
+            //[['ad_id', 'photo_path'], 'required'],
             //[['photo_path'], 'string', 'max' => 255],
             [['imageFiles'], 'file', 'skipOnEmpty' => false, 'maxFiles' => 3,'mimeTypes' => ['image/gif', 'image/jpeg', 'image/pjpeg', 'image/png'], 'extensions' => ['gif', 'jpg', 'jpeg', 'png'], 'maxSize' => 5*1024*1024, 'message' => 'Файл не соответствует требованиям'],
         ];
@@ -45,7 +45,7 @@ class PhotoAd extends \yii\db\ActiveRecord
     public function upload()
     {
         if ($this->validate()) {
-            $this->arrayWebFilename = [];
+            $this->arrayWebFilename = array();
 
             foreach ($this->imageFiles as $image) {
                 if (!empty($image) && $image->size !== 0) {
