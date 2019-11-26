@@ -596,11 +596,11 @@ class SiteController extends Controller
                                 $modelPhotoAd->ad_id = $modelUserAd->id;
                             } else {
                                 $transactionUserAd->rollBack();
-                                return Json::encode(array('status' => '0', 'type' => 'warning', 'message' => 'Ваше объявление не может быть сохранено.'));
+                                return Json::encode(array('status' => '0', 'type' => 'warning', 'message' => 'Ваше объявление не может быть сохранено. var1'));
                             }
                         } catch (Exception $ex) {
                             $transactionUserAd->rollBack();
-                            return Json::encode(array('status' => '0', 'type' => 'warning', 'message' => 'Ваше объявление не может быть сохранено.'));
+                            return Json::encode(array('status' => '0', 'type' => 'warning', 'message' => 'Ваше объявление не может быть сохранено. var2'));
                         }
 
                         foreach ($modelPhotoAd->arrayWebFilename as $file) {
@@ -613,21 +613,21 @@ class SiteController extends Controller
                                     $transactionAdPhoto->commit();
                                 } else {
                                     $transactionAdPhoto->rollBack();
-                                    return Json::encode(array('status' => '0', 'type' => 'warning', 'message' => 'Ваше фото не может быть сохранено.'));
+                                    return Json::encode(array('status' => '0', 'type' => 'warning', 'message' => 'Ваше фото не может быть сохранено. var3'));
                                 }
                             } catch (Exception $ex) {
                                 $transactionAdPhoto->rollBack();
-                                return Json::encode(array('status' => '0', 'type' => 'warning', 'message' => 'Ваше фото не может быть сохранено.'));
+                                return Json::encode(array('status' => '0', 'type' => 'warning', 'message' => 'Ваше фото не может быть сохранено. var4'));
                             }
                         }
 
                         return Json::encode(array('status' => '1', 'type' => 'success', 'message' => 'Ваше объявление успешно сохранено.'));
 
                     } else {
-                        return Json::encode(array('status' => '0', 'type' => 'warning', 'message' => 'Ваше объявление не может быть сохранено.'));
+                        return Json::encode(array('status' => '0', 'type' => 'warning', 'message' => 'Ваше объявление не может быть сохранено. var5'));
                     }
                 } else {
-                    return Json::encode(array('status' => '0', 'type' => 'warning', 'message' => 'Ваше объявление не может быть сохранено.'));
+                    return Json::encode(array('status' => '0', 'type' => 'warning', 'message' => 'Ваше объявление не может быть сохранено. vsr6'));
                 }
         } else {
             $cities = UserCity::find()
