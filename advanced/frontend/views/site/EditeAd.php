@@ -222,7 +222,8 @@ $script = <<< JS
         }
         
         function deletePhoto(number) {
-            
+            var curFiles = input.files;
+            curFiles[number].desctruct;
             
             updateImageDisplay();
         }
