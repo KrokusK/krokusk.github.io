@@ -609,7 +609,9 @@ class SiteController extends Controller
                         foreach ($modelPhotoAd->arrayWebFilename as $file) {
                             $transactionAdPhoto = \Yii::$app->db->beginTransaction();
                             try {
-                                $modelPhotoAd->photo_path = '/uploads/PhotoAd/' . $file;
+                                $modelPhotoAd->photo_path = '/uploads/PhotoAd/'.$file;
+                                $modelPhotoAd->created_at = time();
+                                $modelPhotoAd->updated_at = time();
 
                                 $flagPhotoAd = $modelPhotoAd->save(false);
                                 if ($flagPhotoAd == true) {
