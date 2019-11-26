@@ -72,7 +72,7 @@ $this->title = 'Сайт объявлений';
         </div>
 
 </div>
-
+ 
 <!-- POPUP MODAL CONTACT -->
 <div class="modal inmodal contact" id="modalAlert" role="dialog" data-keyboard="false" data-backdrop="static">
     <div class="modal-dialog modal-md "></div>
