@@ -78,6 +78,11 @@ $this->title = 'Сайт объявлений';
                                                         ?>
                                                     </h3>
                                                     <h4>Создано: <?= Html::encode(date('d.m.Y H:i:s', $userAd->created_at)) ?> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Категория : <?= Html::encode("{$userAd->adCategories["name"]}") ?> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Город : <?= Html::encode("{$userAd->userCities["city_name"]}") ?></h4>
+                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
                                                     <p>Содержание!</p>
                                                 </td>
                                             </tr>
