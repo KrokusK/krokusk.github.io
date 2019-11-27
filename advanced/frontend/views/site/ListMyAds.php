@@ -92,6 +92,7 @@ $this->title = 'Сайт объявлений';
                                                     <?php } ?>
                                                 </td>
                                                 <td>
+                                                    <?php if ($userAd["status_id"] == 2) { ?>
                                                     &nbsp;
                                                         <?php $form = ActiveForm::begin(['method' => 'delete', 'id' => 'form-disable-ad', 'action' => Yii::$app->urlManager->createUrl('site/disable-ad')]); ?>
                                                             <?= Html::hiddenInput('nad', $userAd["id"]) ?>
@@ -100,6 +101,7 @@ $this->title = 'Сайт объявлений';
                                                             </button>
                                                         <?php ActiveForm::end(); ?>
                                                     &nbsp;
+                                                    <?php } ?>
                                                 </td>
                                             </tr>
                                             <tr>
