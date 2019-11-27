@@ -665,7 +665,7 @@ class SiteController extends Controller
      * @return mixed
      */
 
-    public function actionEditSuperAd()
+    public function actionCreateAdd()
     {
         if (Yii::$app->user->isGuest) {
             return $this->goHome();
