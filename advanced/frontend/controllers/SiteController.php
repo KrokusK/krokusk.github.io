@@ -688,18 +688,27 @@ class SiteController extends Controller
         }
 
 
-        //$modelUserAd = new UserAd();
+        $modelUserAd = new UserAd();
         $modelPhotoAd = new PhotoAd();
 
-        if (Yii::$app->request->isAjax && $modelUserAdId->load(Yii::$app->request->post()) && $modelPhotoAd->load(Yii::$app->request->post())) {
+        if (Yii::$app->request->isAjax && $modelUserAd->load(Yii::$app->request->post()) && $modelPhotoAd->load(Yii::$app->request->post())) {
             $modelPhotoAd->imageFiles = UploadedFile::getInstances($modelPhotoAd, 'imageFiles');
             if ($modelPhotoAd->upload()) { // save ad photos
                 //$modelUserAdId->user_desc_id = $modelUserDesc->id;
                 //$modelUserAdId->status_id = UserAd::STATUS_ACTIVE;
-                $modelUserAdId->id = $nad;
-                $modelPhotoAd->isNewRecord = false;
-                $modelUserAdId->created_at = time();
-                $modelUserAdId->updated_at = time();
+                $values = [
+                    'header' => $modelUserAd->header,
+                    'category_id' => $modelUserAd->category_id,
+                    'content' => $modelUserAd->content,
+                    'city_id' => $modelUserAd->city_id,
+                    'amount' => $modelUserAd->amount,
+                    'updated_at' => time(),
+                ];
+                $modelUserAdId->attributes = $values;
+                //$modelUserAdId->id = $nad;
+                //$modelPhotoAd->isNewRecord = false;
+                //$modelUserAdId->created_at = time();
+                //$modelUserAdId->updated_at = time();
 
                 if ($modelUserAdId->validate()) {
                     $transactionUserAd = \Yii::$app->db->beginTransaction();
