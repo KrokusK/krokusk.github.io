@@ -63,6 +63,8 @@ class SiteController extends Controller
                 'class' => VerbFilter::className(),
                 'actions' => [
                     'logout' => ['post'],
+                    'CreateAd' => ['post'],
+                    'EditeAd' => ['put'],
                 ],
             ],
         ];
@@ -638,6 +640,105 @@ class SiteController extends Controller
                 } else {
                     return Json::encode(array('status' => '0', 'type' => 'warning', 'message' => 'Ваше объявление не может быть сохранено. var6'.$modelPhotoAd->msg));
                 }
+        } else {
+            $cities = UserCity::find()
+                ->orderBy('city_name')
+                //->asArray()
+                ->all();
+            $categories = AdCategory::find()
+                ->orderBy('name')
+                //->asArray()
+                ->all();
+
+            return $this->render('EditeAd', [
+                'selectCity' => $cities,
+                'selectCategory' => $categories,
+                'modelUserAd' => $modelUserAd,
+                'modelPhotoAd' => $modelPhotoAd,
+            ]);
+        }
+    }
+
+    /**
+     * Edite Ad
+     *
+     * @return mixed
+     */
+
+    public function actionEditeAd()
+    {
+        if (Yii::$app->user->isGuest) {
+            return $this->goHome();
+        }
+
+        $modelUserDesc = UserDesc::find()->where(['user_id' => Yii::$app->user->getId()])->one();
+        if (empty($modelUserDesc)) {
+            return $this->goHome();
+        }
+
+        // check input parametrs (id for ad) for PUT method
+        $nad = (preg_match("/^[0-9]*$/",Yii::$app->request->put('nad'))) ? Yii::$app->request->put('nad') : return $this->goHome();
+
+        $modelUserAd = new UserAd();
+        $modelPhotoAd = new PhotoAd();
+
+        if (Yii::$app->request->isAjax && $modelUserAd->load(Yii::$app->request->post()) && $modelPhotoAd->load(Yii::$app->request->post())) {
+            $modelPhotoAd->imageFiles = UploadedFile::getInstances($modelPhotoAd, 'imageFiles');
+            if ($modelPhotoAd->upload()) { // save ad photos
+                $modelUserAd->user_desc_id = $modelUserDesc->id;
+                $modelUserAd->status_id = UserAd::STATUS_ACTIVE;
+                $modelUserAd->created_at = time();
+                $modelUserAd->updated_at = time();
+
+                if ($modelUserAd->validate()) {
+                    $transactionUserAd = \Yii::$app->db->beginTransaction();
+                    try {
+                        $flagUserAd = $modelUserAd->save(false);
+                        if ($flagUserAd == true) {
+                            $transactionUserAd->commit();
+
+                            //$modelPhotoAd->ad_id = $modelUserAd->id;
+                        } else {
+                            $transactionUserAd->rollBack();
+                            return Json::encode(array('status' => '0', 'type' => 'warning', 'message' => 'Ваше объявление не может быть сохранено. var1'));
+                        }
+                    } catch (Exception $ex) {
+                        $transactionUserAd->rollBack();
+                        return Json::encode(array('status' => '0', 'type' => 'warning', 'message' => 'Ваше объявление не может быть сохранено. var2'));
+                    }
+
+                    foreach ($modelPhotoAd->arrayWebFilename as $file) {
+                        $transactionAdPhoto = \Yii::$app->db->beginTransaction();
+                        try {
+                            $modelPhotoAdFile = new PhotoAd();
+                            $modelPhotoAdFile->ad_id = $modelUserAd->id;
+                            $modelPhotoAdFile->created_at = time();
+                            $modelPhotoAdFile->updated_at = time();
+                            $modelPhotoAdFile->photo_path = '/uploads/PhotoAd/'.$file;
+                            //$modelPhotoAd->id = null;
+                            //$modelPhotoAd->isNewRecord = true;
+                            $flagPhotoAd = $modelPhotoAdFile->save(false);
+
+                            if ($flagPhotoAd == true) {
+                                $transactionAdPhoto->commit();
+                            } else {
+                                $transactionAdPhoto->rollBack();
+                                return Json::encode(array('status' => '0', 'type' => 'warning', 'message' => 'Ваше фото не может быть сохранено. var3'));
+                            }
+                        } catch (Exception $ex) {
+                            $transactionAdPhoto->rollBack();
+                            return Json::encode(array('status' => '0', 'type' => 'warning', 'message' => 'Ваше фото не может быть сохранено. var4'));
+                        }
+                    }
+
+                    return Json::encode(array('status' => '1', 'type' => 'success', 'message' => 'Ваше объявление успешно сохранено.'));
+
+                } else {
+                    return Json::encode(array('status' => '0', 'type' => 'warning', 'message' => 'Ваше объявление не может быть сохранено. var5'.var_dump($modelUserAd->user_desc_id, $modelUserAd->status_id, $modelUserAd->created_at, $modelUserAd->updated_at, $modelUserAd->header, $modelUserAd->content, $modelUserAd->city_id, $modelUserAd->amount, $modelUserAd->category_id)));
+                }
+            } else {
+                return Json::encode(array('status' => '0', 'type' => 'warning', 'message' => 'Ваше объявление не может быть сохранено. var6'.$modelPhotoAd->msg));
+            }
         } else {
             $cities = UserCity::find()
                 ->orderBy('city_name')
