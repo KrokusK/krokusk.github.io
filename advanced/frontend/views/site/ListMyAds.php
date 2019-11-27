@@ -81,7 +81,11 @@ $this->title = 'Сайт объявлений';
                                                 </td>
                                                 <td>
                                                     &nbsp;<button type="button" class="btn btn-default">
-                                                        <img src="/uploads/Icons/pensil.png" alt="Image">
+                                                        <?php $form = ActiveForm::begin(['method' => 'post', 'id' => 'form-update-ad', 'action' => Yii::$app->urlManager->createUrl('site/update-ad')]); ?>
+                                                            <img src="/uploads/Icons/pensil.png" alt="Image">
+                                                            <?php //$form->field('nad')->input(['class' => 'form-control', 'value' => $userAd["id"]]); ?>
+                                                            <?= Html::hiddenInput('nad', $userAd["id"]) ?>
+                                                        <?php ActiveForm::end(); ?>
                                                     </button>&nbsp;
                                                 </td>
                                                 <td>
