@@ -63,7 +63,7 @@ class SiteController extends Controller
                 'class' => VerbFilter::className(),
                 'actions' => [
                     'logout' => ['post'],
-                    'createAd' => ['GET', 'POST'],
+                    'createAd' => ['POST'],
                     'updateAd' => ['GET', 'PUT', 'POST'],
                     'deleteAd' => ['POST', 'DELETE'],
                 ],
@@ -666,7 +666,7 @@ class SiteController extends Controller
      * @return mixed
      */
 
-    public function actionChangeAd()
+    public function actionUpdateAd()
     {
         if (Yii::$app->user->isGuest) {
             return $this->goHome();
