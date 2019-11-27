@@ -696,6 +696,7 @@ class SiteController extends Controller
             if ($modelPhotoAd->upload()) { // save ad photos
                 //$modelUserAdId->user_desc_id = $modelUserDesc->id;
                 //$modelUserAdId->status_id = UserAd::STATUS_ACTIVE;
+                $modelUserAdId->id = $nad;
                 $modelUserAdId->created_at = time();
                 $modelUserAdId->updated_at = time();
 
