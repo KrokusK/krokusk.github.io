@@ -85,7 +85,9 @@ $this->title = 'Сайт объявлений';
                                                     </button>&nbsp;
                                                 </td>
                                                 <td>
-                                                    &nbsp;<button type="button" class="btn btn-default">Закрыть</button>&nbsp;
+                                                    &nbsp;<button type="button" class="btn btn-default">
+                                                        <img src="/uploads/Icons/close.png" alt="Image">
+                                                    </button>&nbsp;
                                                 </td>
                                             </tr>
                                             <tr>
