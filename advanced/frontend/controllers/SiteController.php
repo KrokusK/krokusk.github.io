@@ -682,27 +682,27 @@ class SiteController extends Controller
         if (is_null($nad)) return $this->goHome();
 
         // check access to update your ads
-        $modelUserAdId = UserAd::find()->where(['AND', ['id' => $nad], ['user_desc_id' => $modelUserDesc->id] ])->asArray()->one();
+        $modelUserAdId = UserAd::find()->where(['AND', ['id' => $nad], ['user_desc_id' => $modelUserDesc->id], ['status_id' => UserAd::STATUS_ACTIVE]])->asArray()->one();
         if (empty($modelUserAdId)) {
             return $this->goHome();
         }
 
 
-        $modelUserAd = new UserAd();
+        //$modelUserAd = new UserAd();
         $modelPhotoAd = new PhotoAd();
 
-        if (Yii::$app->request->isAjax && $modelUserAd->load(Yii::$app->request->post()) && $modelPhotoAd->load(Yii::$app->request->post())) {
+        if (Yii::$app->request->isAjax && $modelUserAdId->load(Yii::$app->request->post()) && $modelPhotoAd->load(Yii::$app->request->post())) {
             $modelPhotoAd->imageFiles = UploadedFile::getInstances($modelPhotoAd, 'imageFiles');
             if ($modelPhotoAd->upload()) { // save ad photos
-                $modelUserAd->user_desc_id = $modelUserDesc->id;
-                $modelUserAd->status_id = UserAd::STATUS_ACTIVE;
-                $modelUserAd->created_at = time();
-                $modelUserAd->updated_at = time();
+                $modelUserAdId->user_desc_id = $modelUserDesc->id;
+                $modelUserAdId->status_id = UserAd::STATUS_ACTIVE;
+                $modelUserAdId->created_at = time();
+                $modelUserAdId->updated_at = time();
 
-                if ($modelUserAd->validate()) {
+                if ($modelUserAdId->validate()) {
                     $transactionUserAd = \Yii::$app->db->beginTransaction();
                     try {
-                        $flagUserAd = $modelUserAd->save(false);
+                        $flagUserAd = $modelUserAdId->save(false);
                         if ($flagUserAd == true) {
                             $transactionUserAd->commit();
 
@@ -720,7 +720,7 @@ class SiteController extends Controller
                         $transactionAdPhoto = \Yii::$app->db->beginTransaction();
                         try {
                             $modelPhotoAdFile = new PhotoAd();
-                            $modelPhotoAdFile->ad_id = $modelUserAd->id;
+                            $modelPhotoAdFile->ad_id = $modelUserAdId->id;
                             $modelPhotoAdFile->created_at = time();
                             $modelPhotoAdFile->updated_at = time();
                             $modelPhotoAdFile->photo_path = '/uploads/PhotoAd/'.$file;
@@ -761,7 +761,7 @@ class SiteController extends Controller
             return $this->render('EditeAd', [
                 'selectCity' => $cities,
                 'selectCategory' => $categories,
-                'modelUserAd' => $modelUserAd,
+                'modelUserAd' => $modelUserAdId,
                 'modelPhotoAd' => $modelPhotoAd,
             ]);
         }
