@@ -783,6 +783,62 @@ class SiteController extends Controller
     }
 
     /**
+     * Delete Ad
+     *
+     * @return mixed
+     */
+
+    public function actionDisableAd()
+    {
+        if (Yii::$app->user->isGuest) {
+            return $this->goHome();
+        }
+
+        $modelUserDesc = UserDesc::find()->where(['user_id' => Yii::$app->user->getId()])->one();
+        if (empty($modelUserDesc)) {
+            return $this->goHome();
+        }
+
+        // check input parametrs (id for ad) for DELETE method
+        $nad = (preg_match("/^[0-9]*$/",Yii::$app->request->post('nad'))) ? Yii::$app->request->post('nad') : null;
+        if (is_null($nad)) return $this->goHome();
+
+        // check access to update your ads
+        $modelUserAdId = UserAd::find()->where(['AND', ['id' => $nad], ['user_desc_id' => $modelUserDesc->id], ['status_id' => UserAd::STATUS_ACTIVE]])->one();
+        if (empty($modelUserAdId)) {
+            return $this->goHome();
+        }
+
+        $values = [
+            'status_id' =>  UserAd::STATUS_INACTIVE,
+            'updated_at' => time(),
+        ];
+
+        $modelUserAdId->attributes = $values;
+
+        if ($modelUserAdId->validate()) {
+            $transactionUserAd = \Yii::$app->db->beginTransaction();
+            try {
+                $flagUserAd = $modelUserAdId->save(false);
+                if ($flagUserAd) {
+                    $transactionUserAd->commit();
+                } else {
+                    $transactionUserAd->rollBack();
+                    return Json::encode(array('status' => '0', 'type' => 'warning', 'message' => 'Ваше объявление не может быть закрыто. var1'));
+                }
+            } catch (Exception $ex) {
+                $transactionUserAd->rollBack();
+                return Json::encode(array('status' => '0', 'type' => 'warning', 'message' => 'Ваше объявление не может быть закрыто. var2'));
+            }
+
+            return Json::encode(array('status' => '1', 'type' => 'success', 'message' => 'Ваше объявление успешно закрыто.'));
+
+        } else {
+            return Json::encode(array('status' => '0', 'type' => 'warning', 'message' => 'Ваше объявление не может быть закрыто. var5'.var_dump($modelUserAd->user_desc_id, $modelUserAd->status_id, $modelUserAd->created_at, $modelUserAd->updated_at, $modelUserAd->header, $modelUserAd->content, $modelUserAd->city_id, $modelUserAd->amount, $modelUserAd->category_id)));
+        }
+    }
+
+    /**
      * Displays ad validate page.
      *
      * @return mixed
