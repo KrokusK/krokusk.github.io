@@ -81,7 +81,7 @@ $this->title = 'Сайт объявлений';
                                                 </td>
                                                 <td>
                                                     &nbsp;<button type="button" class="btn btn-default">
-                                                        <img src="/uploads/icons/pensil.png" alt="Image">
+                                                        <img src="/uploads/Icons/pensil.png" alt="Image">
                                                     </button>&nbsp;
                                                 </td>
                                                 <td>
