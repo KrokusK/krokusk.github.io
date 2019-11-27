@@ -704,7 +704,7 @@ class SiteController extends Controller
                     'amount' => $modelUserAd->amount,
                     'updated_at' => time(),
                 ];
-                $modelUserAdId = UserAd::find()->where(['AND', ['id' => $nad], ['user_desc_id' => $modelUserDesc->id], ['status_id' => UserAd::STATUS_ACTIVE]])->one();
+                //$modelUserAdId = UserAd::find()->where(['AND', ['id' => $nad], ['user_desc_id' => $modelUserDesc->id], ['status_id' => UserAd::STATUS_ACTIVE]])->one();
                 $modelUserAdId->attributes = $values;
                 //$modelUserAdId->id = $nad;
                 //$modelPhotoAdId->isNewRecord = false;
@@ -714,7 +714,7 @@ class SiteController extends Controller
                 if ($modelUserAdId->validate()) {
                     $transactionUserAd = \Yii::$app->db->beginTransaction();
                     try {
-                        $flagUserAd = $modelUserAdId->save(false);
+                        $flagUserAd = $modelUserAdId->update(false);
                         if ($flagUserAd == true) {
                             $transactionUserAd->commit();
 
