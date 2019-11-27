@@ -681,7 +681,14 @@ class SiteController extends Controller
         $nad = (preg_match("/^[0-9]*$/",Yii::$app->request->post('nad'))) ? Yii::$app->request->post('nad') : null;
         if (is_null($nad)) return $this->goHome();
 
-        $modelUserAd = new UserAd();
+        // check access to update your ads
+        $modelUserAdId = UserAd::find()->where(['AND', ['id' => $nad], ['user_desc_id' => $modelUserDesc->id] ])->asArray()->one();
+        if (empty($modelUserAdId)) {
+            return $this->goHome();
+        }
+
+
+        //$modelUserAd = new UserAd();
         $modelPhotoAd = new PhotoAd();
 
         if (Yii::$app->request->isAjax && $modelUserAd->load(Yii::$app->request->post()) && $modelPhotoAd->load(Yii::$app->request->post())) {
