@@ -706,7 +706,7 @@ class SiteController extends Controller
                 ];
                 $modelUserAdId->attributes = $values;
                 //$modelUserAdId->id = $nad;
-                //$modelPhotoAd->isNewRecord = false;
+                $modelPhotoAdId->isNewRecord = false;
                 //$modelUserAdId->created_at = time();
                 //$modelUserAdId->updated_at = time();
 
