@@ -677,8 +677,8 @@ class SiteController extends Controller
         }
 
         // check input parametrs (id for ad) for PUT method
-        //$nad = (preg_match("/^[0-9]*$/",Yii::$app->request->put('nad'))) ? Yii::$app->request->put('nad') : null;
-        //if (is_null($nad)) return $this->goHome();
+        $nad = (preg_match("/^[0-9]*$/",Yii::$app->request->put('nad'))) ? Yii::$app->request->put('nad') : null;
+        if (is_null($nad)) return $this->goHome();
 
         $modelUserAd = new UserAd();
         $modelPhotoAd = new PhotoAd();
