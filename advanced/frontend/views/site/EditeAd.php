@@ -51,7 +51,7 @@ $this->title = 'Сайт объявлений';
                                         <?php ActiveForm::end(); ?>
 
                                         <div class="text-right">
-                                            <?= Html::submitButton(($modelUserAd->isNewRecord && $modelPhotoAd->isNewRecord) ? 'Сохранить' : 'Обновить', ['id' => 'button-send-ad', 'class' => ($modelUserAd->isNewRecord && $modelPhotoAd->isNewRecord) ? 'btn btn-default' : 'btn btn-default']) ?>
+                                            <?= Html::submitButton(($modelUserAd->isNewRecord) ? 'Сохранить' : 'Обновить', ['id' => 'button-send-ad', 'class' => ($modelUserAd->isNewRecord) ? 'btn btn-default' : 'btn btn-default']) ?>
                                         </div>
                                     </div>
                                 </td>
@@ -68,7 +68,7 @@ $this->title = 'Сайт объявлений';
             <br><br>
             <p><?php //echo "User name : ".var_dump($model->name) ?></p>
             <br><br>
-            <p><?php //var_dump($selectCity); ?></p>
+            <p><?php var_dump($modelUserAd); ?></p>
             <br><br>
             <p><?php //var_dump(ArrayHelper::map($selectCity, 'id', 'city_name')); ?></p>
         </div>
