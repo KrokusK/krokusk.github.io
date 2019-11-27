@@ -68,13 +68,21 @@ $this->title = 'Сайт объявлений';
                         <tr>
                             <td class="align-top col-sm-6 col-md-12 col-lg-12">
                                     <div class="text-left">
-                                        <h3>
-                                            <?php
-                                                echo Html::encode("{$userAd->header}");
-                                            ?>
-                                        </h3>
-                                        <h4>Создано: <?= Html::encode(date('d.m.Y H:i:s', $userAd->created_at)) ?> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Категория : <?= Html::encode("{$userAd->adCategories["name"]}") ?> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Город : <?= Html::encode("{$userAd->userCities["city_name"]}") ?></h4>
-                                        <p>Содержание!</p>
+                                        <table>
+                                            <tbody>
+                                            <tr>
+                                                <td>
+                                                    <h3>
+                                                        <?php
+                                                            echo Html::encode("{$userAd->header}");
+                                                        ?>
+                                                    </h3>
+                                                    <h4>Создано: <?= Html::encode(date('d.m.Y H:i:s', $userAd->created_at)) ?> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Категория : <?= Html::encode("{$userAd->adCategories["name"]}") ?> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Город : <?= Html::encode("{$userAd->userCities["city_name"]}") ?></h4>
+                                                    <p>Содержание!</p>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
                                     </div>
                             </td>
                             <td class="align-top col-sm-6 col-md-6 col-lg-6">
