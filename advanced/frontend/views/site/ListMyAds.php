@@ -81,7 +81,7 @@ $this->title = 'Сайт объявлений';
                                                 </td>
                                                 <td>
                                                     &nbsp;
-                                                        <?php $form = ActiveForm::begin(['method' => 'PUT', 'id' => 'form-update-ad', 'action' => Yii::$app->urlManager->createUrl('site/update-ad')]); ?>
+                                                        <?php $form = ActiveForm::begin(['method' => 'put', 'id' => 'form-update-ad', 'action' => Yii::$app->urlManager->createUrl('site/update-ad')]); ?>
                                                             <?= Html::hiddenInput('nad', $userAd["id"]) ?>
                                                             <button type="submit" class="btn btn-default">
                                                                 <img src="/uploads/Icons/pensil.png" alt="Image">
@@ -91,7 +91,7 @@ $this->title = 'Сайт объявлений';
                                                 </td>
                                                 <td>
                                                     &nbsp;
-                                                        <?php $form = ActiveForm::begin(['method' => 'DELETE', 'id' => 'form-update-ad', 'action' => Yii::$app->urlManager->createUrl('site/delete-ad')]); ?>
+                                                        <?php $form = ActiveForm::begin(['method' => 'delete', 'id' => 'form-update-ad', 'action' => Yii::$app->urlManager->createUrl('site/delete-ad')]); ?>
                                                             <?= Html::hiddenInput('nad', $userAd["id"]) ?>
                                                             <button type="submit" class="btn btn-default">
                                                                 <img src="/uploads/Icons/close.png" alt="Image">
