@@ -688,7 +688,7 @@ class SiteController extends Controller
         }
 
 
-        //$modelUserAd = new UserAd();
+        $modelUserAd = new UserAd();
         $modelPhotoAd = new PhotoAd();
 
         if (Yii::$app->request->isAjax && $modelUserAd->load(Yii::$app->request->post()) && $modelPhotoAd->load(Yii::$app->request->post())) {
