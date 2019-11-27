@@ -117,7 +117,7 @@ $script = <<< JS
                            inerHtmlMessage += "<h4 class=\"text-center\">" + response.message + "</h4>";
                            inerHtmlMessage += "</div>";                           
                            $('#modalAlert').on('hidden.bs.modal', function () {
-                                window.location.href = '/site/index';
+                                window.location.href = '/site/list-my-ads';
                            });
                            $('#modalAlert').modal('show').find('.modal-dialog').html(inerHtmlMessage);
                            
