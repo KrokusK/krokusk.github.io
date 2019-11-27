@@ -65,7 +65,7 @@ class SiteController extends Controller
                     'logout' => ['post'],
                     'create-ad' => ['GET', 'POST'],
                     'update-ad' => ['GET', 'PUT', 'POST'],
-                    'delete-ad' => ['POST', 'DELETE'],
+                    'disable-ad' => ['POST', 'DELETE'],
                 ],
             ],
         ];
