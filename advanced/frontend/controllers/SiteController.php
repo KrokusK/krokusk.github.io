@@ -704,9 +704,10 @@ class SiteController extends Controller
                     'amount' => $modelUserAd->amount,
                     'updated_at' => time(),
                 ];
+                $modelUserAdId = UserAd::find()->where(['AND', ['id' => $nad], ['user_desc_id' => $modelUserDesc->id], ['status_id' => UserAd::STATUS_ACTIVE]])->one();
                 $modelUserAdId->attributes = $values;
                 //$modelUserAdId->id = $nad;
-                $modelPhotoAdId->isNewRecord = false;
+                //$modelPhotoAdId->isNewRecord = false;
                 //$modelUserAdId->created_at = time();
                 //$modelUserAdId->updated_at = time();
 
