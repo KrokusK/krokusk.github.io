@@ -91,7 +91,7 @@ $this->title = 'Сайт объявлений';
                                                 </td>
                                                 <td>
                                                     &nbsp;
-                                                        <?php $form = ActiveForm::begin(['method' => 'delete', 'id' => 'form-update-ad', 'action' => Yii::$app->urlManager->createUrl('site/delete-ad')]); ?>
+                                                        <?php $form = ActiveForm::begin(['method' => 'delete', 'id' => 'form-disable-ad', 'action' => Yii::$app->urlManager->createUrl('site/disable-ad')]); ?>
                                                             <?= Html::hiddenInput('nad', $userAd["id"]) ?>
                                                             <button type="submit" class="btn btn-default">
                                                                 <img src="/uploads/Icons/close.png" alt="Image">
