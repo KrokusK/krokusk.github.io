@@ -682,8 +682,8 @@ class SiteController extends Controller
         if (is_null($nad)) return $this->goHome();
 
         // check access to update your ads
-        $modelUserAdId = UserAd::model()->find()->where(['AND', ['id' => $nad], ['user_desc_id' => $modelUserDesc->id], ['status_id' => UserAd::STATUS_ACTIVE]])->one();
-        $modelPhotoAdId = PhotoAd::model()->find()->where(['ad_id' => $nad])->all();
+        $modelUserAdId = UserAd::find()->where(['AND', ['id' => $nad], ['user_desc_id' => $modelUserDesc->id], ['status_id' => UserAd::STATUS_ACTIVE]])->one();
+        $modelPhotoAdId = PhotoAd::find()->where(['ad_id' => $nad])->all();
         if (empty($modelUserAdId)) {
             return $this->goHome();
         }
@@ -718,8 +718,8 @@ class SiteController extends Controller
                     $transactionUserAd = \Yii::$app->db->beginTransaction();
                     try {
                         $flagUserAdInsert = $modelUserAd->insert(false);
-                        $modelPhotoAdId->delete(false)->where(['ad_id' => (int) $nad]);
-                        $flagUserAdDelete = $modelUserAdId->delete(false)->where(['id' => (int) $nad]);
+                        $modelPhotoAdId->delete()->where(['ad_id' => (int) $nad]);
+                        $flagUserAdDelete = $modelUserAdId->delete()->where(['id' => (int) $nad]);
                         if ($flagUserAdInsert && $flagUserAdDelete) {
                             $transactionUserAd->commit();
 
