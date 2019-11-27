@@ -697,25 +697,28 @@ class SiteController extends Controller
                 //$modelUserAdId->user_desc_id = $modelUserDesc->id;
                 //$modelUserAdId->status_id = UserAd::STATUS_ACTIVE;
                 $values = [
-                    'header' => $modelUserAd->header,
-                    'category_id' => $modelUserAd->category_id,
-                    'content' => $modelUserAd->content,
-                    'city_id' => $modelUserAd->city_id,
-                    'amount' => $modelUserAd->amount,
+                    //'header' => $modelUserAd->header,
+                    //'category_id' => $modelUserAd->category_id,
+                    //'content' => $modelUserAd->content,
+                    //'city_id' => $modelUserAd->city_id,
+                    //'amount' => $modelUserAd->amount,
+                    'user_desc_id' => $modelUserAdId->user_desc_id,
+                    'status_id' =>  UserAd::STATUS_ACTIVE,
+                    'create_at' => $modelUserAdId->create_at,
                     'updated_at' => time(),
                 ];
-                //$modelUserAdId = UserAd::find()->where(['AND', ['id' => $nad], ['user_desc_id' => $modelUserDesc->id], ['status_id' => UserAd::STATUS_ACTIVE]])->one();
-                $modelUserAdId->attributes = $values;
+                 $modelUserAd->attributes = $values;
                 //$modelUserAdId->id = $nad;
                 //$modelPhotoAdId->isNewRecord = false;
                 //$modelUserAdId->created_at = time();
                 //$modelUserAdId->updated_at = time();
 
-                if ($modelUserAdId->validate()) {
+                if ($modelUserAd->validate()) {
                     $transactionUserAd = \Yii::$app->db->beginTransaction();
                     try {
-                        $flagUserAd = $modelUserAdId->update(false, $values);
-                        if ($flagUserAd == true) {
+                        $flagUserAdInsert = $modelUserAd->insert(false);
+                        $flagUserAdDelete = $modelUserAdId->delete(false);
+                        if ($flagUserAdInsert && $flagUserAdDelete) {
                             $transactionUserAd->commit();
 
                             //$modelPhotoAd->ad_id = $modelUserAd->id;
@@ -732,7 +735,7 @@ class SiteController extends Controller
                         $transactionAdPhoto = \Yii::$app->db->beginTransaction();
                         try {
                             $modelPhotoAdFile = new PhotoAd();
-                            $modelPhotoAdFile->ad_id = $modelUserAdId->id;
+                            $modelPhotoAdFile->ad_id = $modelUserAd->id;
                             $modelPhotoAdFile->created_at = time();
                             $modelPhotoAdFile->updated_at = time();
                             $modelPhotoAdFile->photo_path = '/uploads/PhotoAd/'.$file;
