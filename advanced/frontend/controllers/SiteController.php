@@ -683,7 +683,7 @@ class SiteController extends Controller
 
         // check access to update your ads
         $modelUserAdId = UserAd::find()->where(['AND', ['id' => $nad], ['user_desc_id' => $modelUserDesc->id], ['status_id' => UserAd::STATUS_ACTIVE]])->one();
-        $modelPhotoAdId = PhotoAd::find()->where(['ad_id' => $nad])->many();
+        $modelPhotoAdId = PhotoAd::find()->where(['ad_id' => $nad])->all();
         if (empty($modelUserAdId)) {
             return $this->goHome();
         }
