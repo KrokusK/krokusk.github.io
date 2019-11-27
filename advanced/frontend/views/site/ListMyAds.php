@@ -81,8 +81,7 @@ $this->title = 'Сайт объявлений';
                                                 </td>
                                                 <td>
                                                     &nbsp;
-                                                        <?php $form = ActiveForm::begin(['method' => 'post', 'id' => 'form-update-ad', 'action' => Yii::$app->urlManager->createUrl('site/update-ad')]); ?>
-                                                            <?php //$form->field('nad')->input(['class' => 'form-control', 'value' => $userAd["id"]]); ?>
+                                                        <?php $form = ActiveForm::begin(['method' => 'put', 'id' => 'form-update-ad', 'action' => Yii::$app->urlManager->createUrl('site/update-ad')]); ?>
                                                             <?= Html::hiddenInput('nad', $userAd["id"]) ?>
                                                             <button type="submit" class="btn btn-default">
                                                                 <img src="/uploads/Icons/pensil.png" alt="Image">
@@ -91,9 +90,14 @@ $this->title = 'Сайт объявлений';
                                                     &nbsp;
                                                 </td>
                                                 <td>
-                                                    &nbsp;<button type="button" class="btn btn-default">
-                                                        <img src="/uploads/Icons/close.png" alt="Image">
-                                                    </button>&nbsp;
+                                                    &nbsp;
+                                                        <?php $form = ActiveForm::begin(['method' => 'post', 'id' => 'form-update-ad', 'action' => Yii::$app->urlManager->createUrl('site/delete-ad')]); ?>
+                                                            <?= Html::hiddenInput('nad', $userAd["id"]) ?>
+                                                            <button type="submit" class="btn btn-default">
+                                                                <img src="/uploads/Icons/close.png" alt="Image">
+                                                            </button>
+                                                        <?php ActiveForm::end(); ?>
+                                                    &nbsp;
                                                 </td>
                                             </tr>
                                             <tr>
