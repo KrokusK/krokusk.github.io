@@ -63,7 +63,7 @@ class SiteController extends Controller
                 'class' => VerbFilter::className(),
                 'actions' => [
                     'logout' => ['post'],
-                    'create-ad' => ['POST'],
+                    'create-ad' => ['DELETE'],
                     'update-ad' => ['GET', 'PUT', 'POST'],
                     'delete-ad' => ['POST', 'DELETE'],
                 ],
