@@ -718,6 +718,7 @@ class SiteController extends Controller
                     $transactionUserAd = \Yii::$app->db->beginTransaction();
                     try {
                         $flagUserAdInsert = $modelUserAd->insert(false);
+                        $modelPhotoAdId->delete(false);
                         $flagUserAdDelete = $modelUserAdId->delete(false);
                         if ($flagUserAdInsert && $flagUserAdDelete) {
                             $transactionUserAd->commit();
