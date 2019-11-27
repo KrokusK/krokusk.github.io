@@ -719,6 +719,7 @@ class SiteController extends Controller
                     try {
                         $flagUserAdInsert = $modelUserAd->insert(false);
                         $modelPhotoAdId->delete()->where(['ad_id' => (int) $nad]);
+                        PhotoAd::delete()->where(['ad_id' => (int) $nad]);
                         $modelPhotoAdId->delete();
                         $flagUserAdDelete = $modelUserAdId->delete()->where(['id' => (int) $nad]);
                         $modelUserAdId->delete();
