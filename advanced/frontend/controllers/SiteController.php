@@ -682,7 +682,7 @@ class SiteController extends Controller
         if (is_null($nad)) return $this->goHome();
 
         // check access to update your ads
-        $modelUserAdId = UserAd::find()->where(['AND', ['id' => $nad], ['user_desc_id' => $modelUserDesc->id], ['status_id' => UserAd::STATUS_ACTIVE]])->asArray()->one();
+        $modelUserAdId = UserAd::find()->where(['AND', ['id' => $nad], ['user_desc_id' => $modelUserDesc->id], ['status_id' => UserAd::STATUS_ACTIVE]])->one();
         if (empty($modelUserAdId)) {
             return $this->goHome();
         }
