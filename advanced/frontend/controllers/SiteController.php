@@ -697,6 +697,7 @@ class SiteController extends Controller
                 //$modelUserAdId->user_desc_id = $modelUserDesc->id;
                 //$modelUserAdId->status_id = UserAd::STATUS_ACTIVE;
                 $modelUserAdId->id = $nad;
+                $modelPhotoAd->isNewRecord = false;
                 $modelUserAdId->created_at = time();
                 $modelUserAdId->updated_at = time();
 
