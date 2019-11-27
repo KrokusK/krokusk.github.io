@@ -80,6 +80,7 @@ $this->title = 'Сайт объявлений';
                                                     <h4>Создано: <?= Html::encode(date('d.m.Y H:i:s', $userAd->created_at)) ?> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Категория : <?= Html::encode("{$userAd->adCategories["name"]}") ?> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Город : <?= Html::encode("{$userAd->userCities["city_name"]}") ?></h4>
                                                 </td>
                                                 <td>
+                                                    <?php if ($userAd["status_id"] == 2) { ?>
                                                     &nbsp;
                                                         <?php $form = ActiveForm::begin(['method' => 'put', 'id' => 'form-update-ad', 'action' => Yii::$app->urlManager->createUrl('site/update-ad')]); ?>
                                                             <?= Html::hiddenInput('nad', $userAd["id"]) ?>
@@ -88,6 +89,7 @@ $this->title = 'Сайт объявлений';
                                                             </button>
                                                         <?php ActiveForm::end(); ?>
                                                     &nbsp;
+                                                    <?php } ?>
                                                 </td>
                                                 <td>
                                                     &nbsp;
