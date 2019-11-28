@@ -826,7 +826,7 @@ class SiteController extends Controller
             }
 
             // if profile data in database is not empty that get model attributes
-            $arrayUserDesc = UserDesc::find()->where(['user_id' => $model->user_id])->asArray()->one()
+            $arrayUserDesc = UserDesc::find()->where(['user_id' => $model->user_id])->asArray()->one();
             if (!empty($arrayUserDesc)) {
                 $model->name = ArrayHelper::getValue($arrayUserDesc,'name');
                 $model->city_id = ArrayHelper::getValue($arrayUserDesc,'city_id');
