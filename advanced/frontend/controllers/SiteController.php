@@ -727,7 +727,8 @@ class SiteController extends Controller
                         //$modelPhotoAdId->delete();
                         //$flagUserAdDelete = $modelUserAdId->delete()->where(['id' => (int) $nad]);
                         //$modelUserAdId->delete();
-                        $flagUserAdDelete = PhotoAd::find()->where(['ad_id' => $modelUserAdId->id])->delete();
+                        $modelPhotoAdId = PhotoAd::find()->where(['ad_id' => $modelUserAdId->id]);
+                        $flagUserAdDelete = $modelPhotoAdId->delete();
                         $flagUserAdUpdate = $modelUserAdId->save(false);
                         if ($flagUserAdUpdate && $flagUserAdDelete) {
                             $transactionUserAd->commit();
