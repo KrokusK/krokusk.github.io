@@ -101,8 +101,7 @@ $script = <<< JS
                    //data: data, //$(this).serialize(),                     
                    type: 'post',                        
                    beforeSend: function() {
-                       alert("beforeSend");
-                       $('#modalAlert').modal('show').find('.modal-dialog').html('test');
+                       //alert("beforeSend");                       
                    },
                    success: function(response){                      
                        //alert("success");
