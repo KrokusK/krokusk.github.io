@@ -188,12 +188,21 @@ class SiteController extends Controller
                 $selectCategory .= '<option value="' . $category->id . '">' . $category->name . '</option>';
             }
         }
+        // get cities and cxategories arrays for Select tags in Form
+        $cities = UserCity::find()
+            ->orderBy('city_name')
+            //->asArray()
+            ->all();
+        $categories = AdCategory::find()
+            ->orderBy('name')
+            //->asArray()
+            ->all();
 
         // go to the Homepage
         return $this->render('indexBulletinBoard', [
             'userAds' => $userAds,
-            'selectCity' =>  $selectCity,
-            'selectCategory' => $selectCategory,
+            'selectCity' =>  $cities,
+            'selectCategory' => $categories,
             'pagination' => $pagination,
         ]);
     }
