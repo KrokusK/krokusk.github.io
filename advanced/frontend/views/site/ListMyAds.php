@@ -1,4 +1,7 @@
 <?php
+
+use frontend\models\AdCategory;
+use frontend\models\UserCity;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use yii\widgets\LinkPager;
@@ -30,7 +33,22 @@ $this->title = 'Сайт объявлений';
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav navbar-left">
                             <li>
-                                <?php ActiveForm::begin(['class' => 'navbar-form navbar-left','id' => 'form-city', 'action' => Yii::$app->urlManager->createUrl('site/list-my-ads')]); ?>
+                                <?php $form = ActiveForm::begin(['class' => 'navbar-form navbar-left','id' => 'form-city', 'action' => Yii::$app->urlManager->createUrl('site/index')]);
+
+                                // For Cities create options to select tag
+                                $cities = UserCity::find()
+                                    ->orderBy('city_name')
+                                    ->all();
+                                $selectCity = '<option value="">Выберите город...</option>\n';
+                                foreach ($cities as $city) {
+                                    if ($cit == $city->id) {
+                                        $selectCity .= '<option value="' . $city->id . '" selected>' . $city->city_name . '</option>';
+                                    } else {
+                                        $selectCity .= '<option value="' . $city->id . '">' . $city->city_name . '</option>';
+                                    }
+                                }
+                                ?>
+
                                 <label class="control-label" for="ad-city">Город</label>
                                 <select id="ad-city" class="form-control" name="ad-city">
                                     <?php echo $selectCity; ?>
@@ -38,7 +56,22 @@ $this->title = 'Сайт объявлений';
                                 <?php ActiveForm::end(); ?>
                             </li>
                             <li>
-                                <?php ActiveForm::begin(['class' => 'navbar-form navbar-left','id' => 'form-category', 'action' => Yii::$app->urlManager->createUrl('site/list-my-ads')]); ?>
+                                <?php ActiveForm::begin(['class' => 'navbar-form navbar-left','id' => 'form-category', 'action' => Yii::$app->urlManager->createUrl('site/index')]);
+
+                                // For Categories create options to select tag
+                                $categories = AdCategory::find()
+                                    ->orderBy('name')
+                                    ->all();
+                                $selectCategory = '<option value="">Выберите категорию...</option>\n';
+                                foreach ($categories as $category) {
+                                    if ($cat == $category->id) {
+                                        $selectCategory .= '<option value="' . $category->id . '" selected>' . $category->name . '</option>';
+                                    } else {
+                                        $selectCategory .= '<option value="' . $category->id . '">' . $category->name . '</option>';
+                                    }
+                                }
+
+                                ?>
                                 <label class="control-label" for="ad-category">Категория</label>
                                 <select id="ad-category" class="form-control" name="ad-category">
                                     <?php echo $selectCategory; ?>

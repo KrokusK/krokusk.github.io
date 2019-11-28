@@ -160,7 +160,7 @@ class SiteController extends Controller
             //->leftJoin('photo_ad', '"user_ad"."id" = "photo_ad"."ad_id"')
             ->with('adPhotos')
             ->all();
-        
+
         // go to the Homepage
         //$modelUserAd = new UserAd();
         return $this->render('indexBulletinBoard', [
@@ -393,41 +393,11 @@ class SiteController extends Controller
             ->with('adPhotos', 'adStatus', 'userCities', 'adCategories')
             ->all();
 
-        // For Cities create options to select tag
-        $cities = UserCity::find()
-            //->where(['status' => Cities::STATUS_ACTIVE])
-            //->andWhere('country_id=:id',[':id' => $id])
-            ->orderBy('city_name')
-            ->all();
-        $selectCity = '<option value="">Выберите город...</option>\n';
-        foreach ($cities as $city) {
-            if ($cit == $city->id) {
-                $selectCity .= '<option value="' . $city->id . '" selected>' . $city->city_name . '</option>';
-            } else {
-                $selectCity .= '<option value="' . $city->id . '">' . $city->city_name . '</option>';
-            }
-        }
-
-        // For Categories create options to select tag
-        $categories = AdCategory::find()
-            ->orderBy('name')
-            ->all();
-        $selectCategory = '<option value="">Выберите категорию...</option>\n';
-        foreach ($categories as $category) {
-            if ($cat == $category->id) {
-                $selectCategory .= '<option value="' . $category->id . '" selected>' . $category->name . '</option>';
-            } else {
-                $selectCategory .= '<option value="' . $category->id . '">' . $category->name . '</option>';
-            }
-        }
-
-        // display list my ads
+                // display list my ads
         return $this->render('ListMyAds', [
-            //'UserDescMyAds' => $UserDescMyAds,
-            //'arrayMyAdsId' => $arrayMyAdsId,
             'userAds' => $userAds,
-            'selectCity' =>  $selectCity,
-            'selectCategory' => $selectCategory,
+            'cit' =>  $cit,
+            'cat' => $cat,
             'pagination' => $pagination,
         ]);
     }
