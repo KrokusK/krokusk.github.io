@@ -12,7 +12,7 @@ $this->title = 'Сайт объявлений';
     <div class="container">
         <div class="row">
             <div class="col-md-8 col-lg-8">
-                <p><a href="/site/index" class="btn btn-default" role="button">Объявления</a> / <a href="/site/list-my-ads") ?>" class="btn btn-default" role="button">Мои объявления</a></p>
+                <p><a href="/site/index" class="btn btn-default" role="button">Объявления</a> / <a href="/site/list-my-ads" class="btn btn-default" role="button">Мои объявления</a></p>
             </div>
         </div>
         <div class="row">
