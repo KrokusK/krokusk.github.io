@@ -21,12 +21,24 @@ $this->title = 'Сайт объявлений';
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav navbar-left">
                             <li>
-                                <?php ActiveForm::begin(['class' => 'navbar-form navbar-left','id' => 'form-city', 'action' => Yii::$app->urlManager->createUrl('site/index')]); ?>
+                                <?php $form = ActiveForm::begin(['class' => 'navbar-form navbar-left','id' => 'form-city', 'action' => Yii::$app->urlManager->createUrl('site/index')]);
+
+                                $paramsCity = [
+                                    'prompt' => 'Выберите город...',
+                                    //'options' => [$userAds->city_id => ["Selected"=>true]]
+                                ];
+
+                                echo $form->field($userAds, 'city_id')->dropDownList(ArrayHelper::map($selectCity, 'id', 'city_name'), $paramsCity)->hint('Пожалуйста, выберите город')->label('Город');
+
+
+                                /*
                                 <label class="control-label" for="ad-city">Город</label>
                                 <select id="ad-city" class="form-control" name="ad-city">
                                     <?php echo $selectCity; ?>
                                 </select>
-                                <?php ActiveForm::end(); ?>
+                                 */
+
+                                ActiveForm::end(); ?>
                             </li>
                             <li>
                                 <?php ActiveForm::begin(['class' => 'navbar-form navbar-left','id' => 'form-category', 'action' => Yii::$app->urlManager->createUrl('site/index')]); ?>
