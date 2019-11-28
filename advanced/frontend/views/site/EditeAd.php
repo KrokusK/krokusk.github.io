@@ -116,11 +116,11 @@ $script = <<< JS
                            inerHtmlMessage += "</div>";
                            inerHtmlMessage += "<h4 class=\"text-center\">" + response.message + "</h4>";
                            inerHtmlMessage += "</div>";  
-                           inerHtmlMessage += "<br>" + response.message;  
-                           $('#modalAlert').modal('show').find('.modal-dialog').html(inerHtmlMessage);
+                           inerHtmlMessage += "<br>" + response.message;                           
                            $('#modalAlert').on('hidden.bs.modal', function () {
                                 //window.location.href = '/site/list-my-ads';
                            });
+                           $('#modalAlert').modal('show').find('.modal-dialog').html(inerHtmlMessage);
                            
                            //$('#addAppFormModel').modal('hide');
                        } else {
