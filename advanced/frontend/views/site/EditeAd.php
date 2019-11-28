@@ -118,7 +118,7 @@ $script = <<< JS
                            inerHtmlMessage += "</div>";  
                            inerHtmlMessage += "<br>" + response.message;                           
                            $('#modalAlert').on('hidden.bs.modal', function () {
-                                //window.location.href = '/site/list-my-ads';
+                                window.location.href = '/site/list-my-ads';
                            });
                            $('#modalAlert').modal('show').find('.modal-dialog').html(inerHtmlMessage);
                            
