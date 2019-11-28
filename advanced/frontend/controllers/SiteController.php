@@ -678,8 +678,14 @@ class SiteController extends Controller
         }
 
         // check input parametrs (id for ad) for PUT method
-        $nad = (preg_match("/^[0-9]*$/",Yii::$app->request->post('UserAd[nad]'))) ? Yii::$app->request->post('UserAd[nad]') : null;
-        if (is_null($nad)) return $this->goHome();
+        $nad = (preg_match("/^[0-9]*$/",Yii::$app->request->post('nad'))) ? Yii::$app->request->post('nad') : null;
+        if (is_null($nad)) {
+            return $this->goHome();
+            //$modelUserAd = new UserAd();
+            //$modelUserAd->load(Yii::$app->request->post());
+            //$nad = (preg_match("/^[0-9]*$/", $modelUserAd->nad)) ? $modelUserAd->nad : null;
+            //if (is_null($nad)) return $this->goHome();
+        }
 
         // check access to update your ads
         $modelUserAdId = UserAd::find()->where(['AND', ['id' => $nad], ['user_desc_id' => $modelUserDesc->id], ['status_id' => UserAd::STATUS_ACTIVE]])->one();
