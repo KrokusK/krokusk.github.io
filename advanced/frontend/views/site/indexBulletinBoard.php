@@ -1,5 +1,6 @@
 <?php
 
+use frontend\models\AdCategory;
 use frontend\models\UserCity;
 use yii\helpers\Html;
 use yii\helpers\ArrayHelper;
@@ -44,12 +45,25 @@ $this->title = 'Сайт объявлений';
                                 <select id="ad-city" class="form-control" name="ad-city">
                                     <?php echo $selectCity; ?>
                                 </select>
-
-
                                 <?php ActiveForm::end(); ?>
                             </li>
                             <li>
-                                <?php ActiveForm::begin(['class' => 'navbar-form navbar-left','id' => 'form-category', 'action' => Yii::$app->urlManager->createUrl('site/index')]); ?>
+                                <?php ActiveForm::begin(['class' => 'navbar-form navbar-left','id' => 'form-category', 'action' => Yii::$app->urlManager->createUrl('site/index')]);
+
+                                // For Categories create options to select tag
+                                $categories = AdCategory::find()
+                                    ->orderBy('name')
+                                    ->all();
+                                $selectCategory = '<option value="">Выберите категорию...</option>\n';
+                                foreach ($categories as $category) {
+                                    if ($cat == $category->id) {
+                                        $selectCategory .= '<option value="' . $category->id . '" selected>' . $category->name . '</option>';
+                                    } else {
+                                        $selectCategory .= '<option value="' . $category->id . '">' . $category->name . '</option>';
+                                    }
+                                }
+
+                                ?>
                                 <label class="control-label" for="ad-category">Категория</label>
                                 <select id="ad-category" class="form-control" name="ad-category">
                                     <?php echo $selectCategory; ?>
