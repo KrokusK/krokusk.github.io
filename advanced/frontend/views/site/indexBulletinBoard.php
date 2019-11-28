@@ -62,7 +62,7 @@ $this->title = 'Сайт объявлений';
                 <div class="col-sm-6 col-md-4">
                     <div class="thumbnail">
                         <a href="/site/ad?ad=<?= Html::encode("{$userAd["id"]}") ?>">
-                            <img src="<?= (empty($userAd->adPhotos)) ? '' : Html::encode("{$userAd->adPhotos[0]["photo_path"]}") ?>" alt="Image">
+                            <img src="<?= (empty($userAd->adPhotos)) ? '' : Html::encode("{$userAd->adPhotos[0]["photo_path"]}") ?>" alt="Image" style="height:170px; width:auto; max-width:170px;">
                         </a>
                         <div class="caption">
                             <h3><?= Html::encode("{$userAd->header}") ?></h3>
