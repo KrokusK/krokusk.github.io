@@ -70,7 +70,7 @@ $this->title = 'Сайт объявлений';
             <br><br>
             <p><?php //echo "User name : ".var_dump($model->name) ?></p>
             <br><br>
-            <p><?php var_dump($modelUserAd); ?></p>
+            <p><?php //var_dump($modelUserAd); ?></p>
             <br><br>
             <p><?php //var_dump(ArrayHelper::map($selectCity, 'id', 'city_name')); ?></p>
         </div>
