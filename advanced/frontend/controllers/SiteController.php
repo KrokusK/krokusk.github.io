@@ -201,6 +201,7 @@ class SiteController extends Controller
         // go to the Homepage
         return $this->render('indexBulletinBoard', [
             'userAds' => $userAds,
+            'modelUserAd' = new UserAd(),
             'selectCity' =>  $cities,
             'cit' => $cit,
             'selectCategory' => $categories,

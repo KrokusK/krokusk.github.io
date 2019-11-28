@@ -29,7 +29,7 @@ $this->title = 'Сайт объявлений';
                                     'options' => [$cit => ["Selected"=>true]]
                                 ];
 
-                                echo $form->field($userAds, 'city_id')->dropDownList(ArrayHelper::map($selectCity, 'id', 'city_name'), $paramsCity)->hint('Пожалуйста, выберите город')->label('Город');
+                                echo $form->field($modelUserAd, 'city_id')->dropDownList(ArrayHelper::map($selectCity, 'id', 'city_name'), $paramsCity)->hint('Пожалуйста, выберите город')->label('Город');
 
 
                                 /*
