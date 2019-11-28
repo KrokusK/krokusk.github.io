@@ -746,7 +746,7 @@ class SiteController extends Controller
                         $transactionAdPhoto = \Yii::$app->db->beginTransaction();
                         try {
                             $modelPhotoAdFile = new PhotoAd();
-                            $modelPhotoAdFile->ad_id = $modelUserAd->id;
+                            $modelPhotoAdFile->ad_id = $modelUserAdId->id;
                             $modelPhotoAdFile->created_at = time();
                             $modelPhotoAdFile->updated_at = time();
                             $modelPhotoAdFile->photo_path = '/uploads/PhotoAd/'.$file;
