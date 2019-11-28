@@ -202,6 +202,7 @@ class SiteController extends Controller
         return $this->render('indexBulletinBoard', [
             'userAds' => $userAds,
             'selectCity' =>  $cities,
+            'cit' => $cit,
             'selectCategory' => $categories,
             'pagination' => $pagination,
         ]);
