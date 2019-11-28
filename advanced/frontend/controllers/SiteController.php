@@ -417,6 +417,15 @@ class SiteController extends Controller
      */
     public function actionListMyAds()
     {
+        if (Yii::$app->user->isGuest) {
+            return $this->goHome();
+        }
+
+        $modelUserDesc = UserDesc::find()->where(['user_id' => Yii::$app->user->getId()])->one();
+        if (empty($modelUserDesc)) {
+            return $this->goHome();
+        }
+
         // check user profile
         if ((!UserDesc::find()->where(['user_id' => Yii::$app->user->getId()])->asArray()->one()) && !empty(Yii::$app->user->getId())) {
             $cities = UserCity::find()
@@ -541,6 +550,15 @@ class SiteController extends Controller
 
     public function actionAdSlider()
     {
+        if (Yii::$app->user->isGuest) {
+            return $this->goHome();
+        }
+
+        $modelUserDesc = UserDesc::find()->where(['user_id' => Yii::$app->user->getId()])->one();
+        if (empty($modelUserDesc)) {
+            return $this->goHome();
+        }
+        
         $ad = (preg_match("/^[0-9]*$/",Yii::$app->request->get('ad'))) ? Yii::$app->request->get('ad') : null;
 
         if (Yii::$app->user->isGuest || is_null($ad)) {
@@ -679,13 +697,7 @@ class SiteController extends Controller
 
         // check input parametrs (id for ad) for PUT method
         $nad = (preg_match("/^[0-9]*$/",Yii::$app->request->post('nad'))) ? Yii::$app->request->post('nad') : null;
-        if (is_null($nad)) {
-            return $this->goHome();
-            //$modelUserAd = new UserAd();
-            //$modelUserAd->load(Yii::$app->request->post());
-            //$nad = (preg_match("/^[0-9]*$/", $modelUserAd->nad)) ? $modelUserAd->nad : null;
-            //if (is_null($nad)) return $this->goHome();
-        }
+        if (is_null($nad)) return $this->goHome();
 
         // check access to update your ads
         $modelUserAdId = UserAd::find()->where(['AND', ['id' => $nad], ['user_desc_id' => $modelUserDesc->id], ['status_id' => UserAd::STATUS_ACTIVE]])->one();
@@ -699,36 +711,11 @@ class SiteController extends Controller
         if (Yii::$app->request->isAjax && $modelUserAdId->load(Yii::$app->request->post()) && $modelPhotoAd->load(Yii::$app->request->post())) {
             $modelPhotoAd->imageFiles = UploadedFile::getInstances($modelPhotoAd, 'imageFiles');
             if ($modelPhotoAd->upload()) { // save ad photos
-                //$modelUserAdId->user_desc_id = $modelUserDesc->id;
-                //$modelUserAdId->status_id = UserAd::STATUS_ACTIVE;
-                //$values = [
-                    //'header' => $modelUserAd->header,
-                    //'category_id' => $modelUserAd->category_id,
-                    //'content' => $modelUserAd->content,
-                    //'city_id' => $modelUserAd->city_id,
-                    //'amount' => $modelUserAd->amount,
-                    //'user_desc_id' => $modelUserAdId->user_desc_id,
-                    //'status_id' =>  UserAd::STATUS_ACTIVE,
-                    //'create_at' => $modelUserAdId->create_at,
-                    //'updated_at' => time(),
-                //];
-                //$modelUserAdId->attributes = $values;
-                //$modelUserAdId->id = $nad;
-                //$modelPhotoAdId->isNewRecord = false;
-                //$modelUserAdId->created_at = time();
                 $modelUserAdId->updated_at = time();
 
                 if ($modelUserAdId->validate()) {
                     $transactionUserAd = \Yii::$app->db->beginTransaction();
                     try {
-                        //$flagUserAdInsert = $modelUserAd->insert(false);
-                        //$modelPhotoAdId->delete()->where(['ad_id' => (int) $nad]);
-                        //PhotoAd::delete()->where(['ad_id' => $modelUserAdId->id]);
-                        //$modelPhotoAdId->delete();
-                        //$flagUserAdDelete = $modelUserAdId->delete()->where(['id' => (int) $nad]);
-                        //$modelUserAdId->delete();
-                        //$modelPhotoAdId = PhotoAd::find()->where(['ad_id' => $modelUserAdId->id]);
-                        //$flagUserAdDelete = $modelPhotoAdId->delete();
                         $flagUserAdDelete = PhotoAd::deleteAll(['ad_id' => $modelUserAdId->id]);
                         $flagUserAdUpdate = $modelUserAdId->save(false);
                         if ($flagUserAdUpdate && $flagUserAdDelete) {
