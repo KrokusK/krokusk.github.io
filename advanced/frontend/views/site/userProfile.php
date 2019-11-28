@@ -23,7 +23,7 @@ $this->title = 'Сайт объявлений';
 
                             <div class="col-sm-6 col-md-4 col-lg-4">
                                 <div class="thumbnail">
-                                        <img src="<?= Html::encode("{$model->avatar}") ?>" alt="Image">
+                                        <img src="<?= Html::encode("{$model->avatar}") ?>" alt="Image" style="height:170px; width:auto; max-width:170px;">
                                         <?php echo $form->field($model, 'imageFile')->fileInput(['class' => 'form-control'])->hint('Пожалуйста, загрузить ваш аватар')->label('Аватар'); ?>
                                 </div>
                             </div>

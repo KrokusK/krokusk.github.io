@@ -558,7 +558,7 @@ class SiteController extends Controller
         if (empty($modelUserDesc)) {
             return $this->goHome();
         }
-        
+
         $ad = (preg_match("/^[0-9]*$/",Yii::$app->request->get('ad'))) ? Yii::$app->request->get('ad') : null;
 
         if (Yii::$app->user->isGuest || is_null($ad)) {
