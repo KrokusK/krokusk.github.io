@@ -16,7 +16,7 @@ $this->title = 'Сайт объявлений';
                                 <td class="col-sm-12 col-md-12 col-lg-12">
                                     <div class="thumbnail">
 
-                                        <?php $form = ActiveForm::begin(['id' => 'form-send-ad', 'action' => Yii::$app->urlManager->createUrl('site/create-ad'), 'validationUrl' => Yii::$app->urlManager->createUrl('site/ad-validate')]); ?>
+                                        <?php $form = ActiveForm::begin(['id' => 'form-send-ad', 'action' => ($modelUserAd->isNewRecord) ? Yii::$app->urlManager->createUrl('site/create-ad') : Yii::$app->urlManager->createUrl('site/update-ad'), 'validationUrl' => Yii::$app->urlManager->createUrl('site/ad-validate')]); ?>
 
                                         <?= $form->field($modelUserAd, 'header', ['enableAjaxValidation' => true])->input(['class' => 'form-control', 'value'=>$modelUserAd->header, 'maxlength' => true])->hint('Пожалуйста, введите ваше Имя')->label('Заголовок'); ?>
                                         <?php

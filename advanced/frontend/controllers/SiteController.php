@@ -683,50 +683,48 @@ class SiteController extends Controller
 
         // check access to update your ads
         $modelUserAdId = UserAd::find()->where(['AND', ['id' => $nad], ['user_desc_id' => $modelUserDesc->id], ['status_id' => UserAd::STATUS_ACTIVE]])->one();
-        $modelPhotoAdId = PhotoAd::find()->where(['ad_id' => $nad])->all();
         if (empty($modelUserAdId)) {
             return $this->goHome();
         }
 
-
-        $modelUserAd = new UserAd();
+        //$modelUserAd = new UserAd();
         $modelPhotoAd = new PhotoAd();
 
-        if (Yii::$app->request->isAjax && $modelUserAd->load(Yii::$app->request->post()) && $modelPhotoAd->load(Yii::$app->request->post())) {
+        if (Yii::$app->request->isAjax && $modelUserAdId->load(Yii::$app->request->post()) && $modelPhotoAd->load(Yii::$app->request->post())) {
             $modelPhotoAd->imageFiles = UploadedFile::getInstances($modelPhotoAd, 'imageFiles');
             if ($modelPhotoAd->upload()) { // save ad photos
                 //$modelUserAdId->user_desc_id = $modelUserDesc->id;
                 //$modelUserAdId->status_id = UserAd::STATUS_ACTIVE;
-                $values = [
+                //$values = [
                     //'header' => $modelUserAd->header,
                     //'category_id' => $modelUserAd->category_id,
                     //'content' => $modelUserAd->content,
                     //'city_id' => $modelUserAd->city_id,
                     //'amount' => $modelUserAd->amount,
-                    'user_desc_id' => $modelUserAdId->user_desc_id,
-                    'status_id' =>  UserAd::STATUS_ACTIVE,
-                    'create_at' => $modelUserAdId->create_at,
+                    //'user_desc_id' => $modelUserAdId->user_desc_id,
+                    //'status_id' =>  UserAd::STATUS_ACTIVE,
+                    //'create_at' => $modelUserAdId->create_at,
                     'updated_at' => time(),
-                ];
-                 $modelUserAd->attributes = $values;
+                //];
+                //$modelUserAdId->attributes = $values;
                 //$modelUserAdId->id = $nad;
                 //$modelPhotoAdId->isNewRecord = false;
                 //$modelUserAdId->created_at = time();
-                //$modelUserAdId->updated_at = time();
+                $modelUserAdId->updated_at = time();
 
                 if ($modelUserAd->validate()) {
                     $transactionUserAd = \Yii::$app->db->beginTransaction();
                     try {
-                        $flagUserAdInsert = $modelUserAd->insert(false);
-                        $modelPhotoAdId->delete()->where(['ad_id' => (int) $nad]);
-                        PhotoAd::delete()->where(['ad_id' => (int) $nad]);
-                        $modelPhotoAdId->delete();
-                        $flagUserAdDelete = $modelUserAdId->delete()->where(['id' => (int) $nad]);
-                        $modelUserAdId->delete();
-                        if ($flagUserAdInsert && $flagUserAdDelete) {
+                        //$flagUserAdInsert = $modelUserAd->insert(false);
+                        //$modelPhotoAdId->delete()->where(['ad_id' => (int) $nad]);
+                        //PhotoAd::delete()->where(['ad_id' => $modelUserAdId->id]);
+                        //$modelPhotoAdId->delete();
+                        //$flagUserAdDelete = $modelUserAdId->delete()->where(['id' => (int) $nad]);
+                        //$modelUserAdId->delete();
+                        $flagUserAdDelete = PhotoAd::delete()->where(['ad_id' => $modelUserAdId->id]);
+                        $flagUserAdUpdate = $modelUserAdId->save(false);
+                        if ($flagUserAdUpdate && $flagUserAdDelete) {
                             $transactionUserAd->commit();
-
-                            //$modelPhotoAd->ad_id = $modelUserAd->id;
                         } else {
                             $transactionUserAd->rollBack();
                             return Json::encode(array('status' => '0', 'type' => 'warning', 'message' => 'Ваше объявление не может быть сохранено. var1'));
