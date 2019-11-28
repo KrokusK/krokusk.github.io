@@ -181,7 +181,8 @@ $script = <<< JS
                     if(validFileType(curFiles[i])) {
                         para.textContent = 'Имя файла ' + curFiles[i].name + ', размер файла ' + returnFileSize(curFiles[i].size) + '.';
                         var image = document.createElement('img');
-                        image.src = window.URL.createObjectURL(curFiles[i]);                                        
+                        image.src = window.URL.createObjectURL(curFiles[i]);
+                        image.style = 'height:170px; width:auto; max-width:170px;';
                         
                         listItem.appendChild(image); 
                         if (i == 0) listItem.appendChild(btnClose);
