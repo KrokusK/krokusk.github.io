@@ -199,10 +199,10 @@ class SiteController extends Controller
             ->all();
 
         // go to the Homepage
-        $modelUserAd = new UserAd();
+        //$modelUserAd = new UserAd();
         return $this->render('indexBulletinBoard', [
             'userAds' => $userAds,
-            'modelUserAd' = $modelUserAd,
+            'modelUserAd' => new UserAd(),
             'selectCity' =>  $cities,
             'cit' => $cit,
             'selectCategory' => $categories,
