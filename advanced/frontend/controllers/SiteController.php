@@ -161,20 +161,7 @@ class SiteController extends Controller
             ->with('adPhotos')
             ->all();
 
-        // For Cities create options to select tag
-        $cities = UserCity::find()
-            //->where(['status' => Cities::STATUS_ACTIVE])
-            //->andWhere('country_id=:id',[':id' => $id])
-            ->orderBy('city_name')
-            ->all();
-        $selectCity = '<option value="">Выберите город...</option>\n';
-        foreach ($cities as $city) {
-            if ($cit == $city->id) {
-                $selectCity .= '<option value="' . $city->id . '" selected>' . $city->city_name . '</option>';
-            } else {
-                $selectCity .= '<option value="' . $city->id . '">' . $city->city_name . '</option>';
-            }
-        }
+
 
         // For Categories create options to select tag
         $categories = AdCategory::find()
@@ -188,22 +175,11 @@ class SiteController extends Controller
                 $selectCategory .= '<option value="' . $category->id . '">' . $category->name . '</option>';
             }
         }
-        // get cities and cxategories arrays for Select tags in Form
-        $cities = UserCity::find()
-            ->orderBy('city_name')
-            //->asArray()
-            ->all();
-        $categories = AdCategory::find()
-            ->orderBy('name')
-            //->asArray()
-            ->all();
 
         // go to the Homepage
         //$modelUserAd = new UserAd();
         return $this->render('indexBulletinBoard', [
             'userAds' => $userAds,
-            'modelUserAd' => new UserAd(),
-            'selectCity' =>  $cities,
             'cit' => $cit,
             'selectCategory' => $selectCategory,
             'pagination' => $pagination,

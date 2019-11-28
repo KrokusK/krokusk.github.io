@@ -1,4 +1,6 @@
 <?php
+
+use frontend\models\UserCity;
 use yii\helpers\Html;
 use yii\helpers\ArrayHelper;
 use yii\widgets\ActiveForm;
@@ -24,22 +26,27 @@ $this->title = 'Сайт объявлений';
                             <li>
                                 <?php $form = ActiveForm::begin(['class' => 'navbar-form navbar-left','id' => 'form-city', 'action' => Yii::$app->urlManager->createUrl('site/index')]);
 
-                                $paramsCity = [
-                                    'prompt' => 'Выберите город...',
-                                    'options' => [$cit => ["Selected"=>true]]
-                                ];
+                                // For Cities create options to select tag
+                                $cities = UserCity::find()
+                                    ->orderBy('city_name')
+                                    ->all();
+                                $selectCity = '<option value="">Выберите город...</option>\n';
+                                foreach ($cities as $city) {
+                                    if ($cit == $city->id) {
+                                        $selectCity .= '<option value="' . $city->id . '" selected>' . $city->city_name . '</option>';
+                                    } else {
+                                        $selectCity .= '<option value="' . $city->id . '">' . $city->city_name . '</option>';
+                                    }
+                                }
+                                ?>
 
-                                echo $form->field($modelUserAd, 'city_id')->dropDownList(ArrayHelper::map($selectCity, 'id', 'city_name'), $paramsCity)->hint('Пожалуйста, выберите город')->label('Город');
-
-
-                                /*
                                 <label class="control-label" for="ad-city">Город</label>
                                 <select id="ad-city" class="form-control" name="ad-city">
                                     <?php echo $selectCity; ?>
                                 </select>
-                                 */
 
-                                ActiveForm::end(); ?>
+
+                                <?php ActiveForm::end(); ?>
                             </li>
                             <li>
                                 <?php ActiveForm::begin(['class' => 'navbar-form navbar-left','id' => 'form-category', 'action' => Yii::$app->urlManager->createUrl('site/index')]); ?>
