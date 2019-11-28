@@ -42,11 +42,15 @@ class PhotoAd extends \yii\db\ActiveRecord
         ];
     }
 
+    /**
+     * upload ad photos to the server
+     */
     public function upload()
     {
         if ($this->validate()) {
             $this->arrayWebFilename = array();
 
+            // get images for each photo and save to the server as random filenames
             foreach ($this->imageFiles as $image) {
                 if (!empty($image) && $image->size !== 0) {
                     $this->image_src_filename = $image->name;
