@@ -96,7 +96,7 @@ class SiteController extends Controller
     {
         // check user profile
         //if ((!UserDesc::find()->where(['user_id' => Yii::$app->user->getId()])->asArray()->one()) && !empty(Yii::$app->user->getId())) {
-        if (!empty(UserDesc::find()->where(['user_id' => Yii::$app->user->getId()])->asArray()->one()) && (!Yii::$app->user->isGuest)) {
+        if (empty(UserDesc::find()->where(['user_id' => Yii::$app->user->getId()])->asArray()->one()) && (!Yii::$app->user->isGuest)) {
             $cities = UserCity::find()
                 ->orderBy('city_name')
                 //->asArray()
@@ -348,7 +348,7 @@ class SiteController extends Controller
 
         // check user profile
         //if ((!UserDesc::find()->where(['user_id' => Yii::$app->user->getId()])->asArray()->one()) && !empty(Yii::$app->user->getId())) {
-        if (!empty(UserDesc::find()->where(['user_id' => Yii::$app->user->getId()])->asArray()->one()) && (!Yii::$app->user->isGuest)) {
+        if (empty(UserDesc::find()->where(['user_id' => Yii::$app->user->getId()])->asArray()->one()) && (!Yii::$app->user->isGuest)) {
             $cities = UserCity::find()
                 ->orderBy('city_name')
                 //->asArray()
