@@ -48,7 +48,7 @@ $this->title = 'Сайт объявлений';
                         ?>
 
                             <div class="col-sm-6 col-md-4 col-lg-4">
-                                <img src="<?= Html::encode("{$objPhoto["photo_path"]}") ?>" alt="Image" style="max-width:250px;">
+                                <img src="<?= Html::encode("{$objPhoto["photo_path"]}") ?>" alt="Image" style="max-width:350px;">
                             </div>
 
                         <?php endforeach; ?>
