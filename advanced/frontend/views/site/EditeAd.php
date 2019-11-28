@@ -115,7 +115,8 @@ $script = <<< JS
                            inerHtmlMessage += "<h3 class=\"modal-title text-left\">Данные переданы!</h3>";
                            inerHtmlMessage += "</div>";
                            inerHtmlMessage += "<h4 class=\"text-center\">" + response.message + "</h4>";
-                           inerHtmlMessage += "</div>";                           
+                           inerHtmlMessage += "</div>";  
+                           inerHtmlMessage += "<br>" + response.message;                           
                            $('#modalAlert').on('hidden.bs.modal', function () {
                                 window.location.href = '/site/list-my-ads';
                            });
