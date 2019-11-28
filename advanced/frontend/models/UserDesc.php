@@ -57,15 +57,12 @@ class UserDesc extends ActiveRecord
         ];
     }
 
+    /**
+     * upload ad avatar to the server
+     */
     public function upload()
     {
-        //if ($this->validate()) {
-        //    $this->imageFile->saveAs('uploads/' . $this->imageFile->baseName . '.' . $this->imageFile->extension);
-        //    return true;
-        //} else {
-        //    return false;
-        //}
-
+        // get avatar image and save to the server as random filename
         $image = $this->imageFile;
         if (!empty($image) && $image->size !== 0) {
             // save avatar
