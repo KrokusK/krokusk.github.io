@@ -49,7 +49,7 @@ $this->title = 'Сайт объявлений';
                             <br><br>
                             <p><?= Html::encode("{$userAd->content}") ?></p>
                             <p>
-                                <p><?php var_dump($userAd->userDescs); ?></p>
+                                <p><?php //var_dump($userAd->userDescs); ?></p>
                             </p>
                         </div>
                     </div>
