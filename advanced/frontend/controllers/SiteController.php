@@ -205,7 +205,7 @@ class SiteController extends Controller
             'modelUserAd' => new UserAd(),
             'selectCity' =>  $cities,
             'cit' => $cit,
-            'selectCategory' => $categories,
+            'selectCategory' => $selectCategory,
             'pagination' => $pagination,
         ]);
     }
