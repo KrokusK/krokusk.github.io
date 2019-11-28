@@ -95,7 +95,8 @@ class SiteController extends Controller
     public function actionIndex()
     {
         // check user profile
-        if ((!UserDesc::find()->where(['user_id' => Yii::$app->user->getId()])->asArray()->one()) && !empty(Yii::$app->user->getId())) {
+        //if ((!UserDesc::find()->where(['user_id' => Yii::$app->user->getId()])->asArray()->one()) && !empty(Yii::$app->user->getId())) {
+        if (!empty(UserDesc::find()->where(['user_id' => Yii::$app->user->getId()])->asArray()->one()) && (!Yii::$app->user->isGuest)) {
             $cities = UserCity::find()
                 ->orderBy('city_name')
                 //->asArray()
@@ -114,6 +115,7 @@ class SiteController extends Controller
         $cat = (preg_match("/^[0-9]*$/",Yii::$app->request->get('cat'))) ? Yii::$app->request->get('cat') : null;
         $ser = (preg_match("/^[a-zA-Z0-9]*$/",Yii::$app->request->get('ser'))) ? Yii::$app->request->get('ser') : null;
 
+        // select ads by cities/categories/search parameters
         if(!empty($cit) && empty($cat)) {
             $query = UserAd::find()
                 ->where(['AND', ['city_id' => $cit], ['status_id' => UserCity::STATUS_ACTIVE]]);
@@ -145,18 +147,21 @@ class SiteController extends Controller
             }
         }
 
+        // pagination
         $pagination = new Pagination([
             'defaultPageSize' => 6,
             'totalCount' => $query->count(),
         ]);
 
-        $userAds = $query->orderBy('header')
+        // select ads
+        $userAds = $query->orderBy('created_at')
             ->offset($pagination->offset)
             ->limit($pagination->limit)
             //->leftJoin('photo_ad', '"user_ad"."id" = "photo_ad"."ad_id"')
             ->with('adPhotos')
             ->all();
 
+        // For Cities create options to select tag
         $cities = UserCity::find()
             //->where(['status' => Cities::STATUS_ACTIVE])
             //->andWhere('country_id=:id',[':id' => $id])
@@ -171,6 +176,7 @@ class SiteController extends Controller
             }
         }
 
+        // For Categories create options to select tag
         $categories = AdCategory::find()
             ->orderBy('name')
             ->all();
@@ -183,108 +189,12 @@ class SiteController extends Controller
             }
         }
 
+        // go to the Homepage
         return $this->render('indexBulletinBoard', [
             'userAds' => $userAds,
             'selectCity' =>  $selectCity,
             'selectCategory' => $selectCategory,
             'pagination' => $pagination,
-        ]);
-    }
-
-    /**
-     * Displays homepage.
-     *
-     * @return mixed
-     */
-    public function actionIndex_Old2()
-    {
-        $query = \app\models\UserDesc::find();
-
-        $pagination = new Pagination([
-            'defaultPageSize' => 5,
-            'totalCount' => $query->count(),
-        ]);
-
-        $userDesc = $query->orderBy('name')
-            ->offset($pagination->offset)
-            ->limit($pagination->limit)
-            ->one();
-
-        $users = $userDesc->getUsers()
-            ->orderBy('username')
-            ->one();
-
-        return $this->render('indexBulletinBoard', [
-            'userDesc' => $userDesc,
-            'users' => $users,
-            'pagination' => $pagination,
-        ]);
-    }
-
-    public function actionIndex_old1()
-    {
-        //return $this->render('index');
-
-        $query = UserShow::find();
-
-        $pagination = new Pagination([
-            'defaultPageSize' => 5,
-            'totalCount' => $query->count(),
-        ]);
-
-        $users = $query->orderBy('username')
-            ->offset($pagination->offset)
-            ->limit($pagination->limit)
-            ->all();
-
-        return $this->render('indexListView', [
-            'users' => $users,
-            'pagination' => $pagination,
-        ]);
-    }
-
-        // Pajax query
-
-    public function actionIndexPajaxGridView()
-    {
-        $array = [
-            ['id'=>1, 'name'=>'Sam','age'=> '21', 'height'=> '190'],
-            ['id'=>2, 'name'=>'John','age'=> '34', 'height'=> '156'],
-            ['id'=>3, 'name'=>'Alex','age'=> '29', 'height'=> '178'],
-            ['id'=>4, 'name'=>'David','age'=> '31', 'height'=> '188'],
-            ['id'=>5, 'name'=>'Max','age'=> '26', 'height'=> '184'],
-        ];
-
-        $searchModel = [
-            'age' => Yii::$app->request->getQueryParam('filterage', ''),
-        ];
-
-        $filteredData = array_filter($array, function($item) use ($searchModel) {
-            if (!empty($searchModel['age'])) {
-                if ($item['age'] == $searchModel['age']) {
-                    return true;
-                } else {
-                    return false;
-                }
-            } else {
-                return true;
-            }
-        });
-
-        $dataProvider = new \yii\data\ArrayDataProvider([
-            'key' => 'id',
-            'allModels' => $filteredData,
-            'sort' => [
-                'attributes' => ['name'],
-            ],
-            'pagination' => [
-                'pageSize' => 3,
-            ],
-        ]);
-
-        return $this->render('indexPajaxGridView', [
-            'dataProvider' => $dataProvider,
-            'searchModel' => $searchModel,
         ]);
     }
 
@@ -295,10 +205,12 @@ class SiteController extends Controller
      */
     public function actionLogin()
     {
+        // check user is guest
         if (!Yii::$app->user->isGuest) {
             return $this->goHome();
         }
 
+        // receive POST parametrs and login
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
             return $this->goBack();
@@ -312,17 +224,19 @@ class SiteController extends Controller
     }
 
     /**
-     * Logs in a user. Login in the maodal window.
+     * Logs in a user (modal window).
      *
      * @return mixed
      */
 
     public function actionLoginModal()
     {
+        // check user is guest
         if (!Yii::$app->user->isGuest) {
             return $this->goHome();
         }
 
+        // receive POST parametrs and login
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
             return $this->goBack();
@@ -337,17 +251,18 @@ class SiteController extends Controller
     }
 
     /**
-     * Logs in a user. Login from madal window
+     * Logs in a user. (from modal window).
      *
      * @return mixed
      */
-
     public function actionLoginFromModal()
     {
+        // check user is guest
         if (!Yii::$app->user->isGuest) {
             return $this->goHome();
         }
 
+        // receive POST parametrs and login
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
             return $this->goBack();
@@ -371,7 +286,7 @@ class SiteController extends Controller
     }
 
     /**
-     * Displays One ad page.
+     * Displays One ad page by Id.
      *
      * @return mixed
      */
@@ -380,6 +295,7 @@ class SiteController extends Controller
         // check input parametrs for GET method
         $adNum = (preg_match("/^[0-9]*$/",Yii::$app->request->get('ad'))) ? Yii::$app->request->get('ad') : null;
 
+        // get user ad by Id
         if(!empty($adNum)) {
             $userAd = UserAd::find()
                 ->where (['id' => (int)$adNum])
@@ -393,6 +309,7 @@ class SiteController extends Controller
             } else {
                 $userDescId = $userAd["user_desc_id"];
 
+                // get count active ads for user
                 $countUserAds = UserAd::find()
                     ->where (['user_desc_id' => (int)$userDescId])
                     ->andWhere (['status_id' => 2])
@@ -417,28 +334,33 @@ class SiteController extends Controller
      */
     public function actionListMyAds()
     {
+        // check user is a guest
         if (Yii::$app->user->isGuest) {
             return $this->goHome();
         }
 
+        /*
         $modelUserDesc = UserDesc::find()->where(['user_id' => Yii::$app->user->getId()])->one();
         if (empty($modelUserDesc)) {
             return $this->goHome();
         }
+        */
 
         // check user profile
-        if ((!UserDesc::find()->where(['user_id' => Yii::$app->user->getId()])->asArray()->one()) && !empty(Yii::$app->user->getId())) {
-            $cities = UserCity::find()
-                ->orderBy('city_name')
-                //->asArray()
-                ->all();
+        //if ((!UserDesc::find()->where(['user_id' => Yii::$app->user->getId()])->asArray()->one()) && !empty(Yii::$app->user->getId())) {
+        if (!empty(UserDesc::find()->where(['user_id' => Yii::$app->user->getId()])->asArray()->one()) && (!Yii::$app->user->isGuest)) {
+                $cities = UserCity::find()
+                    ->orderBy('city_name')
+                    //->asArray()
+                    ->all();
 
-            $model = new UserDesc();
-            $model->user_id = Yii::$app->user->getId();
-            return $this->render('userProfile', [
-                'selectCity' => $cities,
-                'model' => $model,
-            ]);
+                $model = new UserDesc();
+                $model->user_id = Yii::$app->user->getId();
+                return $this->render('userProfile', [
+                    'selectCity' => $cities,
+                    'model' => $model,
+                ]);
+            }
         }
 
         // find all ads for user
@@ -466,6 +388,7 @@ class SiteController extends Controller
         $cat = (preg_match("/^[0-9]*$/",Yii::$app->request->get('cat'))) ? Yii::$app->request->get('cat') : null;
         $ser = (preg_match("/^[a-zA-Z0-9]*$/",Yii::$app->request->get('ser'))) ? Yii::$app->request->get('ser') : null;
 
+        // select user ads by cities/categories/search text parametrs
         if(!empty($cit) && empty($cat)) {
             $query = UserAd::find()
                 ->where(['AND', ['city_id' => $cit], ['user_desc_id'=> $UserDesc['id']]]);
@@ -494,11 +417,13 @@ class SiteController extends Controller
             }
         }
 
+        // pagination
         $pagination = new Pagination([
             'defaultPageSize' => 6,
             'totalCount' => $query->count(),
         ]);
 
+        // select ads
         $userAds = $query->orderBy('header')
             ->offset($pagination->offset)
             ->limit($pagination->limit)
@@ -506,6 +431,7 @@ class SiteController extends Controller
             ->with('adPhotos', 'adStatus', 'userCities', 'adCategories')
             ->all();
 
+        // For Cities create options to select tag
         $cities = UserCity::find()
             //->where(['status' => Cities::STATUS_ACTIVE])
             //->andWhere('country_id=:id',[':id' => $id])
@@ -520,6 +446,7 @@ class SiteController extends Controller
             }
         }
 
+        // For Categories create options to select tag
         $categories = AdCategory::find()
             ->orderBy('name')
             ->all();
@@ -532,6 +459,7 @@ class SiteController extends Controller
             }
         }
 
+        // display list my ads
         return $this->render('ListMyAds', [
             //'UserDescMyAds' => $UserDescMyAds,
             //'arrayMyAdsId' => $arrayMyAdsId,
@@ -547,35 +475,40 @@ class SiteController extends Controller
      *
      * @return mixed
      */
-
     public function actionAdSlider()
     {
+        // check user is a guest
         if (Yii::$app->user->isGuest) {
             return $this->goHome();
         }
 
+        // if user profile is empty go to Homepage
         $modelUserDesc = UserDesc::find()->where(['user_id' => Yii::$app->user->getId()])->one();
         if (empty($modelUserDesc)) {
             return $this->goHome();
         }
 
+        // check GET params
         $ad = (preg_match("/^[0-9]*$/",Yii::$app->request->get('ad'))) ? Yii::$app->request->get('ad') : null;
 
         if (Yii::$app->user->isGuest || is_null($ad)) {
             return $this->goHome();
         }
 
+        // get array User description
         $UserDesc = UserDesc::find()
             ->where(['user_id' => Yii::$app->user->getId()])
             ->asArray()
             ->one();
 
+        // get user ad and photos
         $userAd = UserAd::find()
             ->where(['AND',['id' => $ad],['user_desc_id' => $UserDesc['id']]])
             ->with('adPhotos')
             ->asArray()
             ->all();
 
+        // go to Slider (carousel)
         return $this->renderAjax('AdSlider', [
             'userAd' => $userAd,
         ]);
@@ -587,33 +520,36 @@ class SiteController extends Controller
      *
      * @return mixed
      */
-
     public function actionCreateAd()
     {
+        // Is user a guest?
         if (Yii::$app->user->isGuest) {
             return $this->goHome();
         }
 
+        // if user profile is empty go to Homepage
         $modelUserDesc = UserDesc::find()->where(['user_id' => Yii::$app->user->getId()])->one();
         if (empty($modelUserDesc)) {
             return $this->goHome();
         }
 
+        // create new models for ad and photos
         $modelUserAd = new UserAd();
         $modelPhotoAd = new PhotoAd();
 
+        // get attbutes for Ad and Photos objects from Post request
         if (Yii::$app->request->isAjax && $modelUserAd->load(Yii::$app->request->post()) && $modelPhotoAd->load(Yii::$app->request->post())) {
                 $modelPhotoAd->imageFiles = UploadedFile::getInstances($modelPhotoAd, 'imageFiles');
                 if ($modelPhotoAd->upload()) { // save ad photos
                     $modelUserAd->user_desc_id = $modelUserDesc->id;
-                    $modelUserAd->status_id = UserAd::STATUS_ACTIVE;
-                    $modelUserAd->created_at = time();
-                    $modelUserAd->updated_at = time();
+                    $modelUserAd->status_id = UserAd::STATUS_ACTIVE; // default for new ad
+                    $modelUserAd->created_at = time(); // updating Create time
+                    $modelUserAd->updated_at = time(); // updating Update time
 
-                    if ($modelUserAd->validate()) {
+                    if ($modelUserAd->validate()) { // check new ad
                         $transactionUserAd = \Yii::$app->db->beginTransaction();
                         try {
-                            $flagUserAd = $modelUserAd->save(false);
+                            $flagUserAd = $modelUserAd->save(false); // insert new ad
                             if ($flagUserAd == true) {
                                 $transactionUserAd->commit();
 
@@ -627,6 +563,7 @@ class SiteController extends Controller
                             return Json::encode(array('status' => '0', 'type' => 'warning', 'message' => 'Ваше объявление не может быть сохранено. var2'));
                         }
 
+                        // Insert each new Photo in database
                         foreach ($modelPhotoAd->arrayWebFilename as $file) {
                             $transactionAdPhoto = \Yii::$app->db->beginTransaction();
                             try {
@@ -637,7 +574,7 @@ class SiteController extends Controller
                                 $modelPhotoAdFile->photo_path = '/uploads/PhotoAd/'.$file;
                                 //$modelPhotoAd->id = null;
                                 //$modelPhotoAd->isNewRecord = true;
-                                $flagPhotoAd = $modelPhotoAdFile->save(false);
+                                $flagPhotoAd = $modelPhotoAdFile->save(false); // insert
 
                                 if ($flagPhotoAd == true) {
                                     $transactionAdPhoto->commit();
@@ -660,6 +597,7 @@ class SiteController extends Controller
                     return Json::encode(array('status' => '0', 'type' => 'warning', 'message' => 'Ваше объявление не может быть сохранено. var6'.$modelPhotoAd->msg));
                 }
         } else {
+            // get cities and cxategories arrays for Select tags in Form
             $cities = UserCity::find()
                 ->orderBy('city_name')
                 //->asArray()
@@ -669,6 +607,7 @@ class SiteController extends Controller
                 //->asArray()
                 ->all();
 
+            // go to create ad form
             return $this->render('EditeAd', [
                 'selectCity' => $cities,
                 'selectCategory' => $categories,
@@ -683,13 +622,14 @@ class SiteController extends Controller
      *
      * @return mixed
      */
-
     public function actionUpdateAd()
     {
+        // check user is a guest
         if (Yii::$app->user->isGuest) {
             return $this->goHome();
         }
 
+        // if user profile is empty go to Homepage
         $modelUserDesc = UserDesc::find()->where(['user_id' => Yii::$app->user->getId()])->one();
         if (empty($modelUserDesc)) {
             return $this->goHome();
@@ -708,16 +648,17 @@ class SiteController extends Controller
         //$modelUserAd = new UserAd();
         $modelPhotoAd = new PhotoAd();
 
+        // get attbutes for Ad and Photos objects from Post request
         if (Yii::$app->request->isAjax && $modelUserAdId->load(Yii::$app->request->post()) && $modelPhotoAd->load(Yii::$app->request->post())) {
             $modelPhotoAd->imageFiles = UploadedFile::getInstances($modelPhotoAd, 'imageFiles');
-            if ($modelPhotoAd->upload()) { // save ad photos
-                $modelUserAdId->updated_at = time();
+            if ($modelPhotoAd->upload()) { //upload ad photos to the server
+                $modelUserAdId->updated_at = time(); // updating Update time fo ad
 
                 if ($modelUserAdId->validate()) {
                     $transactionUserAd = \Yii::$app->db->beginTransaction();
                     try {
-                        $flagUserAdDelete = PhotoAd::deleteAll(['ad_id' => $modelUserAdId->id]);
-                        $flagUserAdUpdate = $modelUserAdId->save(false);
+                        $flagUserAdDelete = PhotoAd::deleteAll(['ad_id' => $modelUserAdId->id]); // delete old record of photos in database
+                        $flagUserAdUpdate = $modelUserAdId->save(false); // update ad
                         if ($flagUserAdUpdate && $flagUserAdDelete) {
                             $transactionUserAd->commit();
                         } else {
@@ -729,6 +670,7 @@ class SiteController extends Controller
                         return Json::encode(array('status' => '0', 'type' => 'warning', 'message' => 'Ваше объявление не может быть сохранено. var2'));
                     }
 
+                    // Insert each new Photo in database
                     foreach ($modelPhotoAd->arrayWebFilename as $file) {
                         $transactionAdPhoto = \Yii::$app->db->beginTransaction();
                         try {
@@ -762,6 +704,7 @@ class SiteController extends Controller
                 return Json::encode(array('status' => '0', 'type' => 'warning', 'message' => 'Ваше объявление не может быть сохранено. var6'.$modelPhotoAd->msg));
             }
         } else {
+            // get cities and categories arrays for Select tags in Form
             $cities = UserCity::find()
                 ->orderBy('city_name')
                 //->asArray()
@@ -771,6 +714,7 @@ class SiteController extends Controller
                 //->asArray()
                 ->all();
 
+            // go to the Update form
             return $this->render('EditeAd', [
                 'selectCity' => $cities,
                 'selectCategory' => $categories,
@@ -781,17 +725,18 @@ class SiteController extends Controller
     }
 
     /**
-     * Delete Ad
+     * Close Ad
      *
      * @return mixed
      */
-
     public function actionDisableAd()
     {
+        // check user is a guest
         if (Yii::$app->user->isGuest) {
             return $this->goHome();
         }
 
+        // if user profile is empty go to Homepage
         $modelUserDesc = UserDesc::find()->where(['user_id' => Yii::$app->user->getId()])->one();
         if (empty($modelUserDesc)) {
             return $this->goHome();
@@ -808,7 +753,7 @@ class SiteController extends Controller
         }
 
         $values = [
-            'status_id' =>  UserAd::STATUS_INACTIVE,
+            'status_id' =>  UserAd::STATUS_INACTIVE, // Set inactive
             'updated_at' => time(),
         ];
 
@@ -817,7 +762,7 @@ class SiteController extends Controller
         if ($modelUserAdId->validate()) {
             $transactionUserAd = \Yii::$app->db->beginTransaction();
             try {
-                $flagUserAd = $modelUserAdId->save(false);
+                $flagUserAd = $modelUserAdId->save(false); // Update ad
                 if ($flagUserAd) {
                     $transactionUserAd->commit();
                 } else {
@@ -850,6 +795,7 @@ class SiteController extends Controller
         $modelUserAd = new UserAd();
         $modelPhotoAd = new PhotoAd();
 
+        // Validate Ad or Photo attributes for model objects
         if (Yii::$app->request->isAjax && ($modelUserAd->load(Yii::$app->request->post()) || $modelPhotoAd->load(Yii::$app->request->post()))) {
             \Yii::$app->response->format = Response::FORMAT_JSON;
             if (!empty($modelUserAd)) {
@@ -868,18 +814,21 @@ class SiteController extends Controller
      */
     public function actionProfile()
     {
+        // check user is a guest
         if (Yii::$app->user->isGuest) {
             return $this->goHome();
         } else {
 
+            // get User description model object
             $model = UserDesc::find()->where(['user_id' => Yii::$app->user->getId()])->one();
             if (empty($model)) {
                 $model = new UserDesc();
                 $model->user_id = Yii::$app->user->getId();
             }
 
-
-            if ($arrayUserDesc = UserDesc::find()->where(['user_id' => $model->user_id])->asArray()->one()) {
+            // if profile data in database is not empty that get model attributes
+            $arrayUserDesc = UserDesc::find()->where(['user_id' => $model->user_id])->asArray()->one()
+            if (!empty($arrayUserDesc)) {
                 $model->name = ArrayHelper::getValue($arrayUserDesc,'name');
                 $model->city_id = ArrayHelper::getValue($arrayUserDesc,'city_id');
                 $model->phone = ArrayHelper::getValue($arrayUserDesc,'phone');
@@ -887,7 +836,7 @@ class SiteController extends Controller
                 $model->avatar = ArrayHelper::getValue($arrayUserDesc,'avatar');
             }
 
-
+            // get attributes for profile object from Post request
             if (Yii::$app->request->isAjax && $model->load(Yii::$app->request->post())) {
                 $transaction = \Yii::$app->db->beginTransaction();
                 try {
@@ -902,10 +851,10 @@ class SiteController extends Controller
                             //    // file is uploaded successfully
                             //    $model->avatar = '/uploads/'.$model->imageFile->baseName . '.' . $model->imageFile->extension;
                             //}
-                            if ($model->upload()) { // save avatar
+                            if ($model->upload()) { // upload avatar to the server
                                 $model->avatar = '/uploads/UserDesc/' . $model->image_web_filename;
 
-                                $flag = $model->save(false);
+                                $flag = $model->save(false); // insert/update avatar in database
                                 if ($flag == true) {
                                     $transaction->commit();
                                     return Json::encode(array('status' => '1', 'type' => 'success', 'message' => 'Профиль пользователя успешно сохранен.'));
@@ -1114,11 +1063,84 @@ class SiteController extends Controller
         ]);
     }
 
+    /**
+     * Displays test ListView page.
+     *
+     * @return mixed
+     */
+    public function actionListView()
+    {
+        $query = UserShow::find();
 
+        $pagination = new Pagination([
+            'defaultPageSize' => 5,
+            'totalCount' => $query->count(),
+        ]);
 
+        $users = $query->orderBy('username')
+            ->offset($pagination->offset)
+            ->limit($pagination->limit)
+            ->all();
 
+        return $this->render('indexListView', [
+            'users' => $users,
+            'pagination' => $pagination,
+        ]);
+    }
 
+    /**
+     * Displays test GridView (Pajax) page.
+     *
+     * @return mixed
+     */
+    public function actionIndexPajaxGridView()
+    {
+        $array = [
+            ['id'=>1, 'name'=>'Sam','age'=> '21', 'height'=> '190'],
+            ['id'=>2, 'name'=>'John','age'=> '34', 'height'=> '156'],
+            ['id'=>3, 'name'=>'Alex','age'=> '29', 'height'=> '178'],
+            ['id'=>4, 'name'=>'David','age'=> '31', 'height'=> '188'],
+            ['id'=>5, 'name'=>'Max','age'=> '26', 'height'=> '184'],
+        ];
 
+        $searchModel = [
+            'age' => Yii::$app->request->getQueryParam('filterage', ''),
+        ];
+
+        $filteredData = array_filter($array, function($item) use ($searchModel) {
+            if (!empty($searchModel['age'])) {
+                if ($item['age'] == $searchModel['age']) {
+                    return true;
+                } else {
+                    return false;
+                }
+            } else {
+                return true;
+            }
+        });
+
+        $dataProvider = new \yii\data\ArrayDataProvider([
+            'key' => 'id',
+            'allModels' => $filteredData,
+            'sort' => [
+                'attributes' => ['name'],
+            ],
+            'pagination' => [
+                'pageSize' => 3,
+            ],
+        ]);
+
+        return $this->render('indexPajaxGridView', [
+            'dataProvider' => $dataProvider,
+            'searchModel' => $searchModel,
+        ]);
+    }
+
+    /**
+     * Display Test message
+     *
+     * @return mixed
+     */
     public function actionSay($message = 'Hello')
     {
         return $this->render('say', ['message' => $message]);
