@@ -35,13 +35,27 @@ $this->title = 'Сайт объявлений';
                     </div>
 
                     <div class="content-secondary">
-                        <?php foreach ($userAd->adPhotos as $objPhoto): ?>
+                        <table>
+                            <tbody>
+                            <tr>
+                                <td>
+                        <?php
+                            $i = 0;
+                            foreach ($userAd->adPhotos as $objPhoto):
+                                $i++;
+                                if ($i > 3 ) echo "</td></tr><tr><td>";
+                                else echo "</td><td>";
+                        ?>
 
                             <div class="col-sm-6 col-md-4 col-lg-4">
                                 <img src="<?= Html::encode("{$objPhoto["photo_path"]}") ?>" alt="Image">
                             </div>
 
                         <?php endforeach; ?>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
                     </div>
                     <br><br>
                     <div class="content-secondary">
