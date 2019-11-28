@@ -346,20 +346,10 @@ class SiteController extends Controller
         }
         */
 
-        // check user profile
-        //if ((!UserDesc::find()->where(['user_id' => Yii::$app->user->getId()])->asArray()->one()) && !empty(Yii::$app->user->getId())) {
-        if (empty(UserDesc::find()->where(['user_id' => Yii::$app->user->getId()])->asArray()->one()) && (!Yii::$app->user->isGuest)) {
-            $cities = UserCity::find()
-                ->orderBy('city_name')
-                //->asArray()
-                ->all();
-
-            $model = new UserDesc();
-            $model->user_id = Yii::$app->user->getId();
-            return $this->render('userProfile', [
-                'selectCity' => $cities,
-                'model' => $model,
-            ]);
+        // if user profile is empty go to Homepage
+        $modelUserDesc = UserDesc::find()->where(['user_id' => Yii::$app->user->getId()])->one();
+        if (empty($modelUserDesc)) {
+            return $this->goHome();
         }
 
         // find all ads for user
