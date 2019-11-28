@@ -841,7 +841,9 @@ class SiteController extends Controller
                             //    $model->avatar = '/uploads/'.$model->imageFile->baseName . '.' . $model->imageFile->extension;
                             //}
                             if ($model->upload()) { // upload avatar to the server
-                                $model->avatar = '/uploads/UserDesc/' . $model->image_web_filename;
+                                if (!empty($model->image_web_filename)) {
+                                    $model->avatar = '/uploads/UserDesc/' . $model->image_web_filename;
+                                }
 
                                 $flag = $model->save(false); // insert/update avatar in database
                                 if ($flag == true) {
