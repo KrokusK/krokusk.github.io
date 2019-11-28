@@ -38,8 +38,9 @@ $this->title = 'Сайт объявлений';
 
                                         echo $form->field($modelUserAd, 'amount', ['enableAjaxValidation' => true])->input(['class' => 'form-control', 'value' => $modelUserAd->amount])->hint('Пожалуйста, напишите цену')->label('Цена');
 
-                                        echo $form->field($modelUserAd, 'nad')->hiddenInput(['class' => 'form-control', 'value' => $modelUserAd->id]);
+                                        //echo $form->field($modelUserAd, 'nad')->hiddenInput(['class' => 'form-control', 'value' => $modelUserAd->id]);
                                         ?>
+                                        <?= Html::hiddenInput('nad', $modelUserAd->id) ?>
                                         <div class="thumbnail">
                                             <div class="view-btn text-center">
                                                 <div class="preview">
