@@ -718,7 +718,7 @@ class SiteController extends Controller
                 //$modelUserAdId->created_at = time();
                 $modelUserAdId->updated_at = time();
 
-                if ($modelUserAd->validate()) {
+                if ($modelUserAdId->validate()) {
                     $transactionUserAd = \Yii::$app->db->beginTransaction();
                     try {
                         //$flagUserAdInsert = $modelUserAd->insert(false);
