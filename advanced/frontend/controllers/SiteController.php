@@ -160,28 +160,13 @@ class SiteController extends Controller
             //->leftJoin('photo_ad', '"user_ad"."id" = "photo_ad"."ad_id"')
             ->with('adPhotos')
             ->all();
-
-
-
-        // For Categories create options to select tag
-        $categories = AdCategory::find()
-            ->orderBy('name')
-            ->all();
-        $selectCategory = '<option value="">Выберите категорию...</option>\n';
-        foreach ($categories as $category) {
-            if ($cat == $category->id) {
-                $selectCategory .= '<option value="' . $category->id . '" selected>' . $category->name . '</option>';
-            } else {
-                $selectCategory .= '<option value="' . $category->id . '">' . $category->name . '</option>';
-            }
-        }
-
+        
         // go to the Homepage
         //$modelUserAd = new UserAd();
         return $this->render('indexBulletinBoard', [
             'userAds' => $userAds,
             'cit' => $cit,
-            'selectCategory' => $selectCategory,
+            'cat' => $cat,
             'pagination' => $pagination,
         ]);
     }
