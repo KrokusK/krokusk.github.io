@@ -71,7 +71,7 @@ $this->title = 'Сайт объявлений';
             </div>
             <div class="col-md-4 col-lg-4">
                 <div class="thumbnail">
-                    <img src="<?= Html::encode("{$userAd->userDescs["avatar"]}") ?>" alt="Image">
+                    <img src="<?= Html::encode("{$userAd->userDescs["avatar"]}") ?>" alt="Image" style="height:170px; width:auto; max-width:170px;">
                     <div class="caption">
                         <p><b>Имя : </b><?= Html::encode("{$userAd->userDescs["name"]}") ?></p>
                         <p><b>На сайте с : </b><?= Html::encode(date('d.m.Y H:i:s', $userAd->userDescs->users["created_at"])) ?></p>
