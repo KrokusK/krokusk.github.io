@@ -704,7 +704,7 @@ class SiteController extends Controller
                     //'user_desc_id' => $modelUserAdId->user_desc_id,
                     //'status_id' =>  UserAd::STATUS_ACTIVE,
                     //'create_at' => $modelUserAdId->create_at,
-                    'updated_at' => time(),
+                    //'updated_at' => time(),
                 //];
                 //$modelUserAdId->attributes = $values;
                 //$modelUserAdId->id = $nad;
