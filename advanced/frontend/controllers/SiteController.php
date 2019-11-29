@@ -62,7 +62,7 @@ class SiteController extends Controller
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
-                    'index' => ['get'],
+                    //'index' => ['get'],
                     'login' => ['get', 'post'],
                     'login-modal' => ['get','post'],
                     'login-from-modal' => ['get','post'],
