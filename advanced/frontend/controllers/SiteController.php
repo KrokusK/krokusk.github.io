@@ -53,7 +53,7 @@ class SiteController extends Controller
                         'roles' => ['?'],
                     ],
                     [
-                        'actions' => ['logout', 'list-my-ads', 'ad-slider', 'create-ad', 'update-ad', 'disable-ad'],
+                        'actions' => ['logout', 'list-my-ads', 'ad-slider', 'create-ad', 'update-ad', 'disable-ad', 'ad-validate'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -73,6 +73,7 @@ class SiteController extends Controller
                     'create-ad' => ['get', 'post'],
                     'update-ad' => ['get', 'put', 'post'],
                     'disable-ad' => ['post', 'delete'],
+                    'ad-validate' => ['post'],
                 ],
             ],
         ];
