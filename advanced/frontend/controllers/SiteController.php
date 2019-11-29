@@ -45,7 +45,7 @@ class SiteController extends Controller
         return [
             'access' => [
                 'class' => AccessControl::className(),
-                'only' => ['logout', 'signup', 'login', 'login-modal', 'login-from-modal'],
+                'only' => ['logout', 'signup', 'login', 'login-modal', 'login-from-modal', 'list-my-ads'],
                 'rules' => [
                     [
                         'actions' => ['signup', 'login', 'login-modal', 'login-from-modal'],
