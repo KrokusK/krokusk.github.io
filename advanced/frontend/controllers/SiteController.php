@@ -53,7 +53,7 @@ class SiteController extends Controller
                         'roles' => ['?'],
                     ],
                     [
-                        'actions' => ['logout'],
+                        'actions' => ['logout', 'list-my-ads'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -68,6 +68,7 @@ class SiteController extends Controller
                     'login-from-modal' => ['get','post'],
                     'logout' => ['post'],
                     'ad' => ['get'],
+                    'list-my-ads' => ['get'],
                     'create-ad' => ['GET', 'POST'],
                     'update-ad' => ['GET', 'PUT', 'POST'],
                     'disable-ad' => ['POST', 'DELETE'],
@@ -316,32 +317,11 @@ class SiteController extends Controller
             return $this->goHome();
         }
 
-        /*
-        $modelUserDesc = UserDesc::find()->where(['user_id' => Yii::$app->user->getId()])->one();
-        if (empty($modelUserDesc)) {
-            return $this->goHome();
-        }
-        */
-
         // if user profile is empty go to Homepage
         $modelUserDesc = UserDesc::find()->where(['user_id' => Yii::$app->user->getId()])->one();
         if (empty($modelUserDesc)) {
             return $this->goHome();
         }
-
-        // find all ads for user
-        /*
-        $UserDescMyAds = UserDesc::find()
-            ->where(['user_id' => Yii::$app->user->getId()])
-            ->with('userAds')
-            ->asArray()
-            ->all();
-
-        $arrayMyAdsId = [];
-        foreach ($UserDescMyAds[0]['userAds'] as $item):
-            array_push( $arrayMyAdsId,$item['id']);
-        endforeach;
-        */
 
         // Get id from user_description table
         $UserDesc = UserDesc::find()
