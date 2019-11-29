@@ -62,6 +62,7 @@ class SiteController extends Controller
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
+                    'Index' => ['get'],
                     'login' => ['get', 'post'],
                     'login-modal' => ['get','post'],
                     'login-from-modal' => ['get','post'],
@@ -98,7 +99,6 @@ class SiteController extends Controller
     public function actionIndex()
     {
         // check user profile
-        //if ((!UserDesc::find()->where(['user_id' => Yii::$app->user->getId()])->asArray()->one()) && !empty(Yii::$app->user->getId())) {
         if (empty(UserDesc::find()->where(['user_id' => Yii::$app->user->getId()])->asArray()->one()) && (!Yii::$app->user->isGuest)) {
             $cities = UserCity::find()
                 ->orderBy('city_name')
