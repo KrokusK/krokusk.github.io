@@ -81,7 +81,7 @@ $this->title = 'Сайт объявлений';
                         </ul>
                         <ul class="nav navbar-nav navbar-right">
                             <li>
-                                <?php ActiveForm::begin(['class' => 'navbar-form navbar-right','id' => 'form-search', 'action' => Yii::$app->urlManager->createUrl('site/list-my-ads')]); ?>
+                                <?php ActiveForm::begin(['class' => 'navbar-form navbar-right','id' => 'form-search', 'method' => 'get', 'action' => Yii::$app->urlManager->createUrl('site/list-my-ads')]); ?>
                                     <table>
                                         <tr>
                                             <td><input type="text" class="form-control" placeholder="Search" id="in-search"></td>
