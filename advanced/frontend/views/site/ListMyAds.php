@@ -82,13 +82,13 @@ $this->title = 'Сайт объявлений';
                         <ul class="nav navbar-nav navbar-right">
                             <li>
                                 <?php ActiveForm::begin(['class' => 'navbar-form navbar-right','id' => 'form-search', 'method' => 'get', 'action' => Yii::$app->urlManager->createUrl('site/list-my-ads')]); ?>
+                                <?php ActiveForm::end(); ?>
                                     <table>
                                         <tr>
                                             <td><input type="text" class="form-control" placeholder="Search" id="in-search"></td>
                                             <td><button type="submit" class="btn btn-default" id="btn-search">Submit</button></td>
                                         </tr>
                                     </table>
-                                <?php ActiveForm::end(); ?>
                             </li>
                         </ul>
 
@@ -232,8 +232,9 @@ $script = <<< JS
            var action = $('#form-search').attr('action') + '?ser=' + $("#in-search").val();
            //alert(action);
            $('#form-search').attr('action', action);
-            
-           this.form.submit();
+           
+           $(location).attr('href',action);
+           //this.form.submit();
            //$('#ad-test').click();
         });
     });       
