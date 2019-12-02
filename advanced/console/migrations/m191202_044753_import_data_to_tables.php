@@ -21,7 +21,7 @@ class m191202_044753_import_data_to_tables extends Migration
         /*$this->delete('user');
         $this->resetSequence('user');*/
         $this->delete('user_city');
-        $this->executeResetSequence('user_city');
+        $this->db->createCommand()->resetSequence('user_city', 1)->execute();
 
 
         // import to the user table
@@ -55,8 +55,6 @@ class m191202_044753_import_data_to_tables extends Migration
         $this->insert('user_city', [
             'city_name' => 'Северск'
         ]);
-
-
     }
 
     /**
@@ -69,6 +67,6 @@ class m191202_044753_import_data_to_tables extends Migration
         $this->resetSequence('user');*/
 
         $this->delete('user_city');
-        $this->resetSequence('user_city');
+        $this->db->createCommand()->resetSequence('user_city', 1)->execute();
     }
 }
