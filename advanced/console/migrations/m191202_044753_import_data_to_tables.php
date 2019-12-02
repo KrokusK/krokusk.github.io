@@ -92,7 +92,7 @@ class m191202_044753_import_data_to_tables extends Migration
         $this->insert('user_description', [
             'user_id' => 1,
             'name' => 'superuser1',
-            'avatar' => 'https://yadi.sk/i/YMNMwPsuMunZRg',
+            'avatar' => 'https://download.hdd.tomsk.ru/preview/ftnfjyrg.jpg',
             'city_id' => 1,
             'about' => 'About1',
             'phone' => '+7 (999) 999-99-99'
@@ -101,7 +101,7 @@ class m191202_044753_import_data_to_tables extends Migration
         $this->insert('user_description', [
             'user_id' => 2,
             'name' => 'superuser2',
-            'avatar' => 'https://yadi.sk/i/YMNMwPsuMunZRg',
+            'avatar' => 'https://download.hdd.tomsk.ru/preview/ftnfjyrg.jpg',
             'city_id' => 2,
             'about' => 'About2',
             'phone' => '+7 (999) 999-99-99'
@@ -138,28 +138,28 @@ class m191202_044753_import_data_to_tables extends Migration
             'ad_id' => 1,
             'created_at' => 1523459999,
             'updated_at' => 1523459999,
-            'photo_path' => 'https://yadi.sk/i/EXtbPvg2aA_XCg'
+            'photo_path' => 'https://download.hdd.tomsk.ru/preview/guevwmfk.jpg'
         ]);
 
         $this->insert('photo_ad', [
             'ad_id' => 1,
             'created_at' => 1523459999,
             'updated_at' => 1523459999,
-            'photo_path' => 'https://yadi.sk/i/WJbHVvW_SSAGEw'
+            'photo_path' => 'https://download.hdd.tomsk.ru/preview/iwfjpyfl.jpg'
         ]);
 
         $this->insert('photo_ad', [
             'ad_id' => 1,
             'created_at' => 1523459999,
             'updated_at' => 1523459999,
-            'photo_path' => 'https://yadi.sk/i/piJAJduDKQnvPQ'
+            'photo_path' => 'https://download.hdd.tomsk.ru/preview/pfwoaouv.jpg'
         ]);
 
         $this->insert('photo_ad', [
             'ad_id' => 2,
             'created_at' => 1523459999,
             'updated_at' => 1523459999,
-            'photo_path' => 'https://yadi.sk/i/WJbHVvW_SSAGEw'
+            'photo_path' => 'https://download.hdd.tomsk.ru/preview/iwfjpyfl.jpg'
         ]);
     }
 
