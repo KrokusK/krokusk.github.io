@@ -138,28 +138,28 @@ class m191202_044753_import_data_to_tables extends Migration
             'ad_id' => 1,
             'created_at' => 1523459999,
             'updated_at' => 1523459999,
-            'photo_path' => 'https://drive.google.com/open?id=1iV6Pw4y-lpA1MNyxjdEQfpG_vYaA15-T'
+            'photo_path' => 'https://drive.google.com/file/d/1iV6Pw4y-lpA1MNyxjdEQfpG_vYaA15-T/view'
         ]);
 
         $this->insert('photo_ad', [
             'ad_id' => 1,
             'created_at' => 1523459999,
             'updated_at' => 1523459999,
-            'photo_path' => 'https://drive.google.com/open?id=1wsj-0bFOb2gqJuqn8NM1BjXXMN0cTnkC'
+            'photo_path' => 'https://drive.google.com/file/d/1wsj-0bFOb2gqJuqn8NM1BjXXMN0cTnkC/view'
         ]);
 
         $this->insert('photo_ad', [
             'ad_id' => 1,
             'created_at' => 1523459999,
             'updated_at' => 1523459999,
-            'photo_path' => 'https://drive.google.com/open?id=1lyPBJyRiLlYOUNm_YmG99c6fAagsEiny'
+            'photo_path' => 'https://drive.google.com/file/d/1lyPBJyRiLlYOUNm_YmG99c6fAagsEiny/view'
         ]);
 
         $this->insert('photo_ad', [
             'ad_id' => 2,
             'created_at' => 1523459999,
             'updated_at' => 1523459999,
-            'photo_path' => 'https://drive.google.com/open?id=1lyPBJyRiLlYOUNm_YmG99c6fAagsEiny'
+            'photo_path' => 'https://drive.google.com/file/d/1lyPBJyRiLlYOUNm_YmG99c6fAagsEiny/view'
         ]);
     }
 
