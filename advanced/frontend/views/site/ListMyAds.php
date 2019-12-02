@@ -33,7 +33,7 @@ $this->title = 'Сайт объявлений';
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav navbar-left">
                             <li>
-                                <?php $form = ActiveForm::begin(['class' => 'navbar-form navbar-left','id' => 'form-city', 'action' => Yii::$app->urlManager->createUrl('site/index')]);
+                                <?php $form = ActiveForm::begin(['class' => 'navbar-form navbar-left','id' => 'form-city', 'method' => 'get', 'action' => Yii::$app->urlManager->createUrl('site/list-my-ads')]);
 
                                 // For Cities create options to select tag
                                 $cities = UserCity::find()
@@ -56,7 +56,7 @@ $this->title = 'Сайт объявлений';
                                 <?php ActiveForm::end(); ?>
                             </li>
                             <li>
-                                <?php ActiveForm::begin(['class' => 'navbar-form navbar-left','id' => 'form-category', 'action' => Yii::$app->urlManager->createUrl('site/index')]);
+                                <?php ActiveForm::begin(['class' => 'navbar-form navbar-left','id' => 'form-category', 'method' => 'get', 'action' => Yii::$app->urlManager->createUrl('site/list-my-ads')]);
 
                                 // For Categories create options to select tag
                                 $categories = AdCategory::find()
