@@ -134,28 +134,28 @@ class m191202_044753_import_data_to_tables extends Migration
         ]);
 
         // import to the photo_ad table
-        $this->insert('user_ad', [
+        $this->insert('photo_ad', [
             'ad_id' => 1,
             'created_at' => 1523459999,
             'updated_at' => 1523459999,
             'photo_path' => 'https://drive.google.com/open?id=1iV6Pw4y-lpA1MNyxjdEQfpG_vYaA15-T'
         ]);
 
-        $this->insert('user_ad', [
+        $this->insert('photo_ad', [
             'ad_id' => 1,
             'created_at' => 1523459999,
             'updated_at' => 1523459999,
             'photo_path' => 'https://drive.google.com/open?id=1wsj-0bFOb2gqJuqn8NM1BjXXMN0cTnkC'
         ]);
 
-        $this->insert('user_ad', [
+        $this->insert('photo_ad', [
             'ad_id' => 1,
             'created_at' => 1523459999,
             'updated_at' => 1523459999,
             'photo_path' => 'https://drive.google.com/open?id=1lyPBJyRiLlYOUNm_YmG99c6fAagsEiny'
         ]);
 
-        $this->insert('user_ad', [
+        $this->insert('photo_ad', [
             'ad_id' => 2,
             'created_at' => 1523459999,
             'updated_at' => 1523459999,
