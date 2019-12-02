@@ -92,7 +92,7 @@ class m191202_044753_import_data_to_tables extends Migration
         $this->insert('user_description', [
             'user_id' => 1,
             'name' => 'superuser1',
-            'avatar' => 'https://drive.google.com/open?id=16wt5baM0dXRm8u-mGOU_ZIcKSOcdwarM',
+            'avatar' => 'https://yadi.sk/i/YMNMwPsuMunZRg',
             'city_id' => 1,
             'about' => 'About1',
             'phone' => '+7 (999) 999-99-99'
@@ -101,7 +101,7 @@ class m191202_044753_import_data_to_tables extends Migration
         $this->insert('user_description', [
             'user_id' => 2,
             'name' => 'superuser2',
-            'avatar' => 'https://drive.google.com/open?id=16wt5baM0dXRm8u-mGOU_ZIcKSOcdwarM',
+            'avatar' => 'https://yadi.sk/i/YMNMwPsuMunZRg',
             'city_id' => 2,
             'about' => 'About2',
             'phone' => '+7 (999) 999-99-99'
@@ -138,28 +138,28 @@ class m191202_044753_import_data_to_tables extends Migration
             'ad_id' => 1,
             'created_at' => 1523459999,
             'updated_at' => 1523459999,
-            'photo_path' => 'https://drive.google.com/file/d/1iV6Pw4y-lpA1MNyxjdEQfpG_vYaA15-T/view'
+            'photo_path' => 'https://yadi.sk/i/EXtbPvg2aA_XCg'
         ]);
 
         $this->insert('photo_ad', [
             'ad_id' => 1,
             'created_at' => 1523459999,
             'updated_at' => 1523459999,
-            'photo_path' => 'https://drive.google.com/file/d/1wsj-0bFOb2gqJuqn8NM1BjXXMN0cTnkC/view'
+            'photo_path' => 'https://yadi.sk/i/WJbHVvW_SSAGEw'
         ]);
 
         $this->insert('photo_ad', [
             'ad_id' => 1,
             'created_at' => 1523459999,
             'updated_at' => 1523459999,
-            'photo_path' => 'https://drive.google.com/file/d/1lyPBJyRiLlYOUNm_YmG99c6fAagsEiny/view'
+            'photo_path' => 'https://yadi.sk/i/piJAJduDKQnvPQ'
         ]);
 
         $this->insert('photo_ad', [
             'ad_id' => 2,
             'created_at' => 1523459999,
             'updated_at' => 1523459999,
-            'photo_path' => 'https://drive.google.com/file/d/1lyPBJyRiLlYOUNm_YmG99c6fAagsEiny/view'
+            'photo_path' => 'https://yadi.sk/i/WJbHVvW_SSAGEw'
         ]);
     }
 
