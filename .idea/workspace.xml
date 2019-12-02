@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d97bdc22-9d4b-4578-b4be-b96d66aca924" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/advanced/console/migrations/m191202_044753_import_data_to_tables.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -22,14 +23,14 @@
   <component name="ProjectId" id="1SKOvz27B5adiUDik6cxRTvRHsy" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/advanced/frontend/views/site" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/advanced/console/migrations" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="J:\SmartWorldAcademy\OpenServer\OSPanel\domains\krokusk.github.io\advanced\frontend\views\site" />
       <recent name="J:\SmartWorldAcademy\OpenServer\OSPanel\domains\krokusk.github.io\advanced\console\migrations" />
+      <recent name="J:\SmartWorldAcademy\OpenServer\OSPanel\domains\krokusk.github.io\advanced\frontend\views\site" />
       <recent name="J:\SmartWorldAcademy\OpenServer\OSPanel\domains\krokusk.github.io\advanced\frontend\models" />
       <recent name="J:\SmartWorldAcademy\OpenServer\OSPanel\domains\krokusk.github.io\advanced\frontend\views\CompanyApp" />
       <recent name="J:\SmartWorldAcademy\OpenServer\OSPanel\domains\krokusk.github.io\advanced\frontend\controllers" />
@@ -95,6 +96,8 @@
       <workItem from="1574818814516" duration="25420000" />
       <workItem from="1574905545528" duration="27260000" />
       <workItem from="1574992113295" duration="7191000" />
+      <workItem from="1575218895102" duration="10000" />
+      <workItem from="1575255598139" duration="4299000" />
     </task>
     <servers />
   </component>
