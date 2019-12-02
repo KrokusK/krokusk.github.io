@@ -21,7 +21,7 @@ class m191202_044753_import_data_to_tables extends Migration
         /*$this->delete('user');
         $this->resetSequence('user');*/
         $this->delete('user_city');
-        $this->resetSequence('user_city');
+        $this->executeResetSequence('user_city');
 
 
         // import to the user table
