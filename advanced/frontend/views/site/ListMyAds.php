@@ -34,7 +34,6 @@ $this->title = 'Сайт объявлений';
                         <ul class="nav navbar-nav navbar-left">
                             <li>
                                 <?php $form = ActiveForm::begin(['class' => 'navbar-form navbar-left','id' => 'form-city', 'method' => 'get', 'action' => Yii::$app->urlManager->createUrl('site/list-my-ads')]);
-
                                 // For Cities create options to select tag
                                 $cities = UserCity::find()
                                     ->orderBy('city_name')
@@ -57,7 +56,6 @@ $this->title = 'Сайт объявлений';
                             </li>
                             <li>
                                 <?php ActiveForm::begin(['class' => 'navbar-form navbar-left','id' => 'form-category', 'method' => 'get', 'action' => Yii::$app->urlManager->createUrl('site/list-my-ads')]);
-
                                 // For Categories create options to select tag
                                 $categories = AdCategory::find()
                                     ->orderBy('name')
@@ -214,8 +212,9 @@ $script = <<< JS
            var action = $('#form-city').attr('action') + '?cit=' + $("#ad-city").val() + '&cat=' + $("#ad-category").val();
            //alert(action);
            $('#form-city').attr('action', action);
-            
-           this.form.submit();
+           
+           $(location).attr('href',action);
+           //this.form.submit();
            //$('#ad-test').click();
         });
         
@@ -223,8 +222,9 @@ $script = <<< JS
            var action = $('#form-category').attr('action') + '?cit=' + $("#ad-city").val() + '&cat=' + $("#ad-category").val();
            //alert(action);
            $('#form-category').attr('action', action);
-            
-           this.form.submit();
+           
+           $(location).attr('href',action);
+           //this.form.submit();
            //$('#ad-test').click();
         });
         
